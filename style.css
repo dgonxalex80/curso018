@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+body { line-height: 1.65; }
+
+.MathJax_Display, mjx-container[display="true"] {
+  display: block !important;
+  text-align: center !important;
+  margin: 2.2rem auto !important;
+  padding: 0.7rem 1rem;
+  overflow-x: auto;
+}
+
+.box1, .box2 {
+  margin: 1.8rem 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+}
+.box1 { border-left: 5px solid #F28B30; background: #F9F0E5; }
+.box2 { border-left: 5px solid #3B5B8A; background: #F4F7FB; }
+.with-label .label { font-weight: 700; color: #1E2E4F; margin-bottom: 0.8rem; }
+
+p { margin-bottom: 1.1rem; }
+h1, h2, h3, h4, h5, h6,
+.title, .subtitle {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3 { margin-top: 2.2rem; margin-bottom: 1rem; }
