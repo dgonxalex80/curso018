@@ -44,7 +44,7 @@ Este operador será utilizado para desarrollar el método de estimación de Máx
 <br/><br/> 
 
 
-## Definición
+# Definición
 
 Se define como:
 
@@ -89,7 +89,7 @@ prod(1:10)
 
 <br/><br/>
 
-## Problemas propuestos
+# Problemas propuestos
 
 1.  $\displaystyle\prod_{k=1}^{20} 2^{k}$
 

@@ -15,23 +15,13 @@ c03_70 <- "#C6EBF8"
 c04_70 <- "#D7D2E8"
 c05_70 <- "#D7EDCE"
 
-paleta <- c(
-  c00 = c00,
-  c01 = c01,
-  c02 = c02,
-  c03 = c03,
-  c04 = c04,
-  c05 = c05
-)
+# Vectores reutilizables en gráficos base, ggplot2 y visualizaciones interactivas
+paleta <- c(rojo = c00, coral = c01, amarillo = c02,
+            cian = c03, violeta = c04, verde = c05)
+paleta_70 <- c(rojo = c00_70, coral = c01_70, amarillo = c02_70,
+               cian = c03_70, violeta = c04_70, verde = c05_70)
 
-paleta_70 <- c(
-  c00 = c00_70,
-  c01 = c01_70,
-  c02 = c02_70,
-  c03 = c03_70,
-  c04 = c04_70,
-  c05 = c05_70
-)
-c6= "#2C5697" # AZUL INSTITUCIONAL
-c7= "#F7F7F7" # FONDO GRIS CLARO WEB
-
+c06 <- "#2C5697" # azul institucional
+c07 <- "#F7F7F7" # fondo gris claro web
+c6 <- c06 # alias para materiales anteriores
+c7 <- c07

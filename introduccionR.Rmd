@@ -30,14 +30,11 @@ source("colores.R")
 
 <br/><br/>
 
-# INTRODUCCIÓN A "R"
-
-
-
+# Introducción a  "R"
 
 <br/><br/>
 
-# Qué es R 
+## Qué es R 
 
 Es un lenguaje para la computación estadística, utilizado para el procesamiento de información y la generación de modelos. Entre las principales características están:
 
@@ -106,7 +103,7 @@ En los siguientes enlaces se pueden descargar los programas, dependiendo el sist
 
 <br/><br/>
 
-### Bibliografía recomendada:
+# Bibliografía recomendada:
 
 + [**R para principiantes**](https://cran.r-project.org/doc/contrib/rdebuts_es.pdf)
 

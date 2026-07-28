@@ -61,7 +61,7 @@ navbar:
     - text: "Proyecto"
       menu:
         - text: "Guía proyecto"
-          href: enconstruccion.html
+          href: proyecto.html
 
 output:  
  html_document:

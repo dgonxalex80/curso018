@@ -41,7 +41,6 @@ source("colores.R")
 # Importar datos en R    
 
 
-
  Se puede realizar de formas diferentes :
  
 1. Utilizando el menú RStudio 

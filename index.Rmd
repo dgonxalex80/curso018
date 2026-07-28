@@ -51,7 +51,7 @@ knitr::include_graphics("img/calendario.png")
 ## Salones de clase
 
 
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
+```{r, echo=FALSE, out.width="50%", fig.align = "center"}
  knitr::include_graphics("img/salones.png")
 ```
 

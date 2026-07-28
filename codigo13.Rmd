@@ -40,8 +40,8 @@ beer <- read_csv("data/beer.csv")
 
 # colores
 source("colores.R")
-paleta5 <- c(c11, c21, c31, c41, c51)
-paleta4 <- c(c11, c21, c31, c41)
+paleta5 <- unname(paleta[c("rojo", "amarillo", "cian", "violeta", "verde")])
+paleta4 <- unname(paleta[c("rojo", "amarillo", "cian", "violeta")])
 
 ```
 
@@ -104,7 +104,7 @@ pie(t1)
 
 ```{r}
 t1 <- table(clientes$categoria_preferida)
-cols <- c("#3B5B8A", "#5D7A9C", "#F28B30", "#F2B33D", "#F0D9BF" )
+cols <- c("#2C5697", "#21B5E4", "#F05A4A", "#F4B43C", "#FBE8C5" )
 pie(t1, col = cols)
 ```
 
@@ -147,7 +147,7 @@ barplot(table(clientes$edadR), ylim = c(0, 600))
 
 ```{r}
 ev <- table(clientes$edadR)
-cols <- c("#3B5B8A",  "#F2B33D", "#F0D9BF")
+cols <- c("#2C5697",  "#F4B43C", "#FBE8C5")
 barplot(ev,  
         col = cols, 
         main = "Edad de clientes (categorías)",
@@ -168,7 +168,7 @@ barplot(conteo)
 
 ```{r}
 counts <- table(ventas$Metodo_Pago, ventas$Tipo_Cliente)
-cols <- c("#3B5B8A", "#5D7A9C", "#F28B30", "#F2B33D", "#F0D9BF" )
+cols <- c("#2C5697", "#21B5E4", "#F05A4A", "#F4B43C", "#FBE8C5" )
 barplot(counts, main = "Método de pago por tipo de cliente",  
         xlab = "Tipo de cliente",
         col = cols,
@@ -186,7 +186,7 @@ barplot(counts, main = "Método de pago por tipo de cliente",
 counts <- table(ventas$Tipo_Cliente,ventas$Metodo_Pago)
 barplot(counts, main = "Método de pago por tipo de cliente",  
         xlab = "Tipo de cliente",
-        col = c( "#5D7A9C", "#F28B30"),
+        col = c( "#21B5E4", "#F05A4A"),
         legend = rownames(counts),
         las = 1)
 ```
@@ -204,7 +204,7 @@ par(mar = c(6, 6, 4, 2) + 0.1)
 mosaicplot(
   ~ gear + vs,
   data = mtcars,
-  col  = c("#899DB9", "#F7D18B"),
+  col  = c("#7A6DB2", "#F4B43C"),
   las  = 1,
   main = "Número de cambios por  tipo de motor (vs)",
   xlab = "Número de cambios",
@@ -247,7 +247,7 @@ h1=hist(beer$calorias,
         main = "Calorías", 
         xlab = " ", ylab="frecuencias absolutas", 
         labels=TRUE, 
-        col="#3B5B8A",
+        col="#2C5697",
         ylim = c(0,50),
         las = 1)
 abline(v=mean(beer$calorias), col=c31, lwd=2)
@@ -324,7 +324,7 @@ serie <- aggregate(Ventas_Netas ~ mes, data = ventas, sum)
 
 plot(serie$mes, serie$Ventas_Netas, type = "l",
      main = "Ventas netas mensuales", 
-     col = "#31487A", 
+     col = "#2C5697",
      lwd = 2, xlab = "mes", ylab = "ventas netas")
 ```
 
@@ -442,7 +442,7 @@ Otros elementos a utilizar son :
 
 ```{r}
 fig=ggplot(data=ventas,  aes(x=Edad , y=Ventas_Netas))+
-  geom_point(color = "#3B5B8A") + facet_wrap(~ Metodo_Pago)
+  geom_point(color = "#2C5697") + facet_wrap(~ Metodo_Pago)
 fig
 ```
 
@@ -457,9 +457,9 @@ fig
 
 ```{r, message=FALSE, warning=FALSE}
 fig=ggplot(data=ventas,  aes(x=Edad , y=Ventas_Netas))+
-  geom_point(color = "#3B5B8A" ) + 
+  geom_point(color = "#2C5697" ) +
   facet_wrap(~ Metodo_Pago) +
-  stat_smooth(method = "loess" , formula =y ~ x, color = "#F28B30")
+  stat_smooth(method = "loess" , formula =y ~ x, color = "#F05A4A")
 fig
 ```
 
@@ -474,9 +474,9 @@ fig
 
 
 ```{r, warning=FALSE, message=FALSE}
-fig=ggplot(data=ventas,  aes(x=Edad , y=Ventas_Netas)) + geom_point(color = "#3B5B8A") +
+fig=ggplot(data=ventas,  aes(x=Edad , y=Ventas_Netas)) + geom_point(color = "#2C5697") +
         facet_wrap(~ Metodo_Pago) + 
-        stat_smooth(method = "loess" , formula =y ~ x, color = "#F28B30") +
+        stat_smooth(method = "loess" , formula =y ~ x, color = "#F05A4A") +
         coord_cartesian(xlim = c(18,70))
 fig
 ```
@@ -490,9 +490,9 @@ fig
 
 
 ```{r, warning=FALSE, message=FALSE}
-fig=ggplot(data=ventas,  aes(x=Edad , y=Ventas_Netas)) + geom_point(color = "#3B5B8A") +
+fig=ggplot(data=ventas,  aes(x=Edad , y=Ventas_Netas)) + geom_point(color = "#2C5697") +
         facet_wrap(~ Metodo_Pago) + 
-        stat_smooth(method = "loess" , formula =y ~ x, color = "#F28B30" ) +
+        stat_smooth(method = "loess" , formula =y ~ x, color = "#F05A4A" ) +
         coord_cartesian(xlim = c(18,70)) +
         theme_classic()
 fig
@@ -505,7 +505,7 @@ fig
 ```{r}
 ventas$Tipo_Cliente = as.factor(ventas$Tipo_Cliente)
 fig2 = ggplot(data=ventas, aes(x=Ventas_Netas, y=Tipo_Cliente)) +
-  geom_boxplot(fill = "#3B5B8A", color = "#F2B33D")+
+  geom_boxplot(fill = "#2C5697", color = "#F4B43C")+
   geom_point(color = c11, alpha = 0.5, position = position_jitter(width = 0.2))+
   ggtitle("Ventas netas por tipo de cliente")+
   labs(x="ventas netas" , y="tipo de cliente")
@@ -516,7 +516,7 @@ fig2
 
 ```{r}
 fig3=ggplot(clientes, aes(edad_cliente)) +
-       geom_histogram(bins = 7,fill="#5D7A9C", color="#F7F7F7", alpha=0.9)+
+       geom_histogram(bins = 7,fill="#21B5E4", color="#F7F7F7", alpha=0.9)+
        theme_minimal() +
        labs(x = "edad", y = "frecuencia absoluta") +
        ggtitle("Edad de clientes")
@@ -526,9 +526,9 @@ fig3
 
 ```{r}
 fig=ggplot(data = ventas, aes(x = Tipo_Cliente, fill = Metodo_Pago)) + 
-      geom_bar(colour= "#3B5B8A", size = 0.3 ) +  
+      geom_bar(colour= "#2C5697", size = 0.3 ) +
   coord_polar() +
-  scale_fill_manual(values = c("#3B5B8A", "#5D7A9C", "#F28B30", "#F2B33D", "#F0D9BF" ))
+  scale_fill_manual(values = c("#2C5697", "#21B5E4", "#F05A4A", "#F4B43C", "#FBE8C5" ))
 fig
 ```
 ```{r}
@@ -536,7 +536,7 @@ fig
 ggplot(ventas, aes(x = Tipo_Cliente, y = Ventas_Netas, fill = Tipo_Cliente)) +
   geom_boxplot(alpha = 0.6) +
   geom_jitter(color = c11, size = 0.4, alpha = 0.6) +
-  scale_fill_manual(values = c("#3B5B8A", "#5D7A9C")) +
+  scale_fill_manual(values = c("#2C5697", "#21B5E4")) +
   theme_minimal() +
   theme(legend.position = "none",
         plot.title = element_text(size = 11)) +
@@ -593,7 +593,7 @@ load_pkg("ggbeeswarm")
 if (load_pkg("ggbeeswarm")) {
   ggplot(ventas, aes(x = Tipo_Cliente, y = Ventas_Netas, color = Tipo_Cliente)) +
     geom_beeswarm(cex = 2) +
-    scale_color_manual(values = c("#3B5B8A", "#F28B30"))
+    scale_color_manual(values = c("#2C5697", "#F05A4A"))
 }
 ```
 
@@ -613,8 +613,8 @@ library(ggplot2)
 if (load_pkg("ggridges")) {
   ggplot(df, aes(x = precio, y = tipo, fill = tipo, color = tipo)) +
     geom_density_ridges(alpha = 0.6) +
-    scale_fill_manual(values =c("#3B5B8A", "#5D7A9C", "#F28B30", "#F2B33D", "#F0D9BF" )) +
-    scale_color_manual(values = c("#F0D9BF", "#F2B33D", "#F28B30", "#5D7A9C","#3B5B8A"))
+    scale_fill_manual(values =c("#2C5697", "#21B5E4", "#F05A4A", "#F4B43C", "#FBE8C5" )) +
+    scale_color_manual(values = c("#FBE8C5", "#F4B43C", "#F05A4A", "#21B5E4","#2C5697"))
 }
 ```
 
@@ -638,8 +638,8 @@ plot(denx,
 lines(deny)
 
 # Colorear las áreas
-polygon(denx, col = adjustcolor("#3B5B8A", alpha.f = 0.6))
-polygon(deny, col = adjustcolor("#F28B30", alpha.f = 0.6))
+polygon(denx, col = adjustcolor("#2C5697", alpha.f = 0.6))
+polygon(deny, col = adjustcolor("#F05A4A", alpha.f = 0.6))
 ```
 
 <br/><br/>
@@ -716,7 +716,7 @@ resumen <- ventas %>%
 p <- ggplot(resumen, aes(x = mes, y = Ventas_Netas, color = Tipo_Cliente, group = Tipo_Cliente)) +
   geom_line(linewidth = 1) +
   geom_point(size = 2) +
-  scale_color_manual(values = c("#3B5B8A", "#F28B30"))  +   # paleta institucional (5 colores)
+  scale_color_manual(values = c("#2C5697", "#F05A4A"))  +   # paleta institucional (5 colores)
   labs(
     title = "Ventas netas por tipo de cliente: {frame_along}",
     x = "Mes", y = "Ventas netas"
@@ -772,7 +772,7 @@ p <- datos %>%
     point.padding = 0.2,
     max.overlaps = Inf
   ) +
-  scale_color_manual(values = "#5D7A9C") +
+  scale_color_manual(values = "#21B5E4") +
   scale_x_continuous(breaks = seq(1952, 2007, by = 5)) +
   scale_y_continuous(
     labels = function(x) paste0(number(x, accuracy = 1), " MM"),
@@ -847,7 +847,7 @@ if (ok_anim) {
       panel.grid.major.x = element_blank(),
       plot.title = element_text(face = "bold"),
       axis.title = element_text(face = "bold"),
-      axis.text = element_text(color = "#3B5B8A")
+      axis.text = element_text(color = "#2C5697")
     ) +
     transition_reveal(along = year)
 
@@ -901,7 +901,7 @@ if (ok_rank) {
     facet_wrap(~ year) +
     geom_rect(alpha = .7) +
     aes(fill = continent) +
-    scale_fill_manual(values = c("#3B5B8A", "#F28B30", "#F2B33D", "#A7ABB9")) +
+    scale_fill_manual(values = c("#2C5697", "#F05A4A", "#F4B43C", "#A7ABB9")) +
     scale_x_continuous(
       limits = c(-800, 1400),
       breaks = c(0, 400, 800, 1200)) +
@@ -1033,7 +1033,7 @@ cali <- tryCatch( # intenta leer el shapefile
 if (is.null(cali)) { # valida que se haya cargado
   message("No se pudo leer map/cali/cali.shp. Verifique que exista el .dbf.") # aviso
 } else { # si existe, grafica
-  plot(sf::st_geometry(cali), col = "#F0D9BF" , border = "#3B5B8A", # geometría y colores
+  plot(sf::st_geometry(cali), col = "#FBE8C5" , border = "#2C5697", # geometría y colores
        main = "Cali - mapa base") # título
 }
 ```

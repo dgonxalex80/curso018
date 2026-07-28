@@ -44,7 +44,7 @@ Wikipedia
 Este operador será utilizado en el curso en la construcción de conceptos como media aritmética, varianza, covarianza, correlación, estimación de los coeficientes del modelo de regresión entre otros
 
 
-## Definición
+# Definición
 
 Se define como 
  
@@ -93,7 +93,7 @@ sum(x)/12
 <br/><br/>
 
 
-## Propiedades 
+# Propiedades 
 
 
 + $\displaystyle\sum_{i=1}^{n} k = nk$, 
@@ -108,7 +108,7 @@ donde $k$, $a$ y $b$ son constantes y $x_i$ y $y_{i}$ corresponden a lod termino
 
 <br/><br/>
 
-## Problemas propuestos
+# Problemas propuestos
 
 
 1. $\displaystyle\sum_{i=1}^{5} 3 = 15$, ¿ Porqué ?

@@ -32,7 +32,7 @@ source("colores.R")
 
 <br/><br/><br/>
 
-## **Contenido**
+# Contenido
 
 * Variable aleatorio
 

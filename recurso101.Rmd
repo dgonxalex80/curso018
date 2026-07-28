@@ -87,7 +87,7 @@ ggplot(grupo016058, aes(x = carrera, y = promedio, fill = carrera)) +
 <br/><br/>
 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
- knitr::include_graphics("img/separador.png")
+# knitr::include_graphics("img/separador.png")
 ```
 
 <br/><br/>

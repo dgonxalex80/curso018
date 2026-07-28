@@ -1,0 +1,134 @@
+---
+title:  " "
+subtitle: "Estadística para la toma de decisiones"
+author: "dgonzalez"
+output:
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    theme: flatly
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+# colores
+source("colores.R")
+```
+
+<br/><br/><br/>
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/proyecto.png")
+```
+
+
+<br/><br/>
+
+Los estudiantes deberán realizar un proyecto que les permita poner en práctica los conocimientos adquiridos en el curso de  Estadística para la toma de decisiones.
+
+<br/><br/><br/>
+  
+# Objetivos 
+  
++ Contribuir a la formación integral, al trabajo en equipo y la interrelación de conocimientos de Estadística alrededor de un problema específico.
+
++ Permitir a los  estudiantes detectar situaciones en las cuales pueda aplicar las técnicas Estadísticas estudiadas.
+
++ Desarrollar destrezas en el análisis estadístico y la presentación de informes estadísticos. 
+
+<br/><br/><br/>
+  
+# Temática 
+  
+En **equipos** de hasta tres estudiantes deberán desarrollar un trabajo que corresponda a un problema de  interés para el  grupo, que permita la aplicación de la Estadística en un tema específico. 
+
+El producto de este trabajo deberá ser entregado en formato  **poster** $A1$ (Ancho: 594 mm, Alto: 841 mm) impreso y en formato pdf  y ser presentado por los integrantes del grupo, contando de un tiempo de 10 minutos para ello.
+
+<br/><br/><br/>
+  
+# Requisitos 
+  
+<br/><br/><br/>
+  
+  
+# Entregas 
+
+  <br/>
+  
+### Primera entrega : 
+
+  
+<br/><br/>  
+
+### Entrega final:
+
+
+
+<br/><br/><br/>
+  
+## Referencias 
+  
+  
+<br/><br/>
+
+
+
+## Nota:
+
+
+
+
+<br/><br/><br/><br/>
+
+# Conformación de los grupos 
+
+<!-- <br/><br/> -->
+
+<!-- ### Grupo 1     -->
+
+
+
+<!-- Tema:   -->
+
+<!-- <br/><br/> -->
+
+<!-- ### Grupo 2 -->
+
+
+<!-- Tema:   -->
+
+<!-- <br/><br/> -->
+
+<!-- ### Grupo 3 -->
+
+
+
+<!-- Tema:   -->
+
+<!-- <br/><br/> -->
+
+<!-- ### Grupo 4 -->
+
+<!-- Tema: -->
+
+<!-- <br/><br/> -->
+
+<!-- ### Grupo 5 -->
+
+
+<!-- Tema:   -->
+
+<!-- <br/><br/> -->
+
+<!-- ### Grupo 6 -->
+
+<!-- Tema: -->
+
+<!-- <br/><br/> -->
+
+<!-- ### Grupo 7  -->
+
+<!-- Tema: -->
