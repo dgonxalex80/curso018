@@ -153,17 +153,9 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 
 # Ficha técnica
 
-<br/> 
+<div class="box1 with-label">
 
-<br/> 
-
-Nombre del estudiante:
-
-<br/> <br/> 
-
-## Ficha técnica
-
- <br/><br/> 
+#### Título :
  <br/>  
  
 #### Concepto: (contexto que oriente sobre el tema que aborda la base de datos)
@@ -212,3 +204,8 @@ persona u objeto del cual se obtiene la información
 ```{r, echo=FALSE, out.width="50%", fig.align = "center"}
 # knitr::include_graphics("img/ficha.png")
 ```
+
+###### Nombre del estudiante:
+
+
+</div>
