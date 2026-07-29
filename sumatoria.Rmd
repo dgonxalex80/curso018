@@ -1,6 +1,7 @@
 ---
-title: " "
-author: "dgonzalez"
+title: <span style="color:#bed0d8"> </span>  
+author: <span style="color:#bed0d8">dgonzalez</span> 
+subtitle: <span style="color:#bed0d8"> </span> 
 output:
   html_document:
     toc: no
@@ -44,12 +45,15 @@ Wikipedia
 Este operador será utilizado en el curso en la construcción de conceptos como media aritmética, varianza, covarianza, correlación, estimación de los coeficientes del modelo de regresión entre otros
 
 
-# Definición
+<div class="box0 with-label">
+## Definición
+
 
 Se define como 
  
  $$\sum_{i=1}^{n} a_{i} = a_{1} + a_{2} + a_{3} + \cdots + a_{n}$$
 
+</div>
 <br/>
 
 Esta forma de expresión matemática nos ayuda a resumir la escritura de series de sucesiones matemáticas, las cuales puede ser finitas o infinitas como:

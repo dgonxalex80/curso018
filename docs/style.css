@@ -120,10 +120,15 @@ blockquote {
   margin: 1.8rem 0; padding: 1rem 1.3rem;
   border-left: 5px solid var(--curso-violeta); background: #F6F3FA;
 }
-.box1, .box2 { margin: 1.8rem 0; padding: 1.25rem 1.5rem; border-radius: 8px; }
+.box0, .box1, .box2 { margin: 1.8rem 0; padding: 1.25rem 1.5rem; border-radius: 8px; }
+.box0 { margin: 1rem 0; padding: .85rem 1.25rem; border-left: 5px solid #2C5F77; background: #EEF5F7; }
 .box1 { border-left: 5px solid var(--curso-coral); background: #FDF1EF; }
 .box2 { border-left: 5px solid var(--curso-azul); background: #F2F6FC; }
 .with-label .label { margin-bottom: .8rem; color: var(--curso-azul); font-weight: 700; }
+.box0.with-label .label, .box0.with-label > h2:first-child { color: #2C5F77; }
+.box0.with-label > h2:first-child { margin: 0 0 .65rem; padding-top: 0 !important; }
+.box0 > p:last-child { margin-bottom: 0; }
+.box0 .MathJax_Display, .box0 mjx-container[display="true"] { margin: .75rem auto !important; padding: .25rem .5rem; overflow-x: visible !important; }
 .MathJax_Display, mjx-container[display="true"] {
   display: block !important; margin: 2.2rem auto !important; padding: .7rem 1rem;
   overflow-x: auto; text-align: center !important;

@@ -1,7 +1,7 @@
 ---
-title: <span style="color:#235784"> </span>  
-author: "dgonzalez "
-subtitle: " "
+title: <span style="color:#bed0d8"> </span>  
+author: <span style="color:#bed0d8">dgonzalez</span> 
+subtitle: <span style="color:#bed0d8"> </span> 
 output:
   html_document:
     toc: no
@@ -43,12 +43,14 @@ Este operador será utilizado para desarrollar el método de estimación de Máx
 
 <br/><br/> 
 
-
-# Definición
+<div class="box0 with-label">
+## Definición
 
 Se define como:
 
 $$\displaystyle\prod_{i=1}^n a_{i}   = a_1 \times a_2 \times a_3 \times  \cdots \times a_n$$
+
+</div>
 
 <br/>
 
@@ -73,8 +75,7 @@ $$\exp\Bigg\{\displaystyle\sum_{i=1}^{n} x_{i}\Bigg\}$$
 
 <br/><br/>
 
-<div class="box1 with-label">
-<div class="label">Problema 1</div>
+## Problema
 
 Encontrar la multiplicación de los 10 primeros números
 
@@ -84,7 +85,6 @@ $$\displaystyle\prod_{x=1}^n x = 1 \times 2 \times 3 \times 4 \times 5 \times 6 
 prod(1:10)
 ```
 
-</div>
 
 
 <br/><br/>

@@ -1,7 +1,7 @@
 ---
-title: <span style="color:#235784"> </span>  
-author: "dgonzalez "
-subtitle: <span style="color:#235784"> </span> 
+title: <span style="color#f9ceca"> </span>  
+author: <span style="color:#f9ceca">dgonzalez</span> 
+subtitle: <span style="color:#f9ceca"> </span> 
 output:
   html_document:
     toc: no 

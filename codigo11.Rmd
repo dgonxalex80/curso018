@@ -1,7 +1,7 @@
 ---
-title: " "  
-author: "dgonzalez "
-subtitle: " " 
+title: <span style="color#f9ceca"> </span>  
+author: <span style="color:#f9ceca">dgonzalez</span> 
+subtitle: <span style="color:#f9ceca"> </span>  
 output:
   html_document:
     toc: no
@@ -32,9 +32,10 @@ source("colores.R")
 ```
 
 
-<br/><br/>
 
-![](img/codigo1.png)
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/codigo1.png")
+```
 
 <br/><br/> 
 
