@@ -128,6 +128,27 @@ blockquote {
 .box0.with-label .label, .box0.with-label > h2:first-child { color: #2C5F77; }
 .box0.with-label > h2:first-child { margin: 0 0 .65rem; padding-top: 0 !important; }
 .box0 > p:last-child { margin-bottom: 0; }
+
+/* Ficha técnica de la guía 11. */
+.ficha-tecnica { margin: 1.5rem 0 2.5rem; padding: 1.75rem; border: 2px solid var(--curso-coral); border-radius: 12px; background: #fff; box-shadow: 0 8px 24px rgba(36, 50, 71, .08); }
+.ficha-tecnica .ficha-intro { margin: 0 0 1.25rem; padding: .85rem 1rem; border-left: 5px solid var(--curso-coral); border-radius: 6px; background: #FDF1EF; }
+.ficha-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.ficha-campo { margin-bottom: 1rem; padding: 1rem; border: 1px solid var(--curso-borde); border-radius: 8px; background: #fff; }
+.ficha-campo h3, .ficha-variables h3 { margin: 0 0 .45rem; color: var(--curso-tinta); font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: 0; }
+.ficha-ayuda, .ficha-variables > p { margin: 0 0 .9rem; color: #5F6B7A; font-size: 1.08rem; line-height: 1.5; }
+.linea-respuesta { min-height: 1.65rem; border-bottom: 1px solid #7B8794; }
+.area-respuesta { min-height: 5rem; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 1.65rem, #AAB3BE 1.65rem, #AAB3BE calc(1.65rem + 1px)); }
+.ficha-variables { margin: .25rem 0 1rem; padding: 1rem; border: 1px solid var(--curso-borde); border-radius: 8px; }
+.ficha-variables table { margin: .75rem 0 0; table-layout: fixed; border-radius: 6px; }
+.ficha-variables .variable-nombre { width: 38%; }
+.ficha-variables .variable-tipo { width: 30%; }
+.ficha-variables .variable-escala { width: 32%; }
+.ficha-variables thead { background: var(--curso-coral); }
+.ficha-variables th { text-align: center; }
+.ficha-variables td { height: 2.5rem; border-top: 1px solid var(--curso-borde); border-right: 1px solid var(--curso-borde); }
+.ficha-variables td:last-child { border-right: 0; }
+.ficha-firma { max-width: 28rem; margin-top: 1.5rem; }
+.ficha-firma strong { display: block; margin-bottom: .35rem; }
 .box0 .MathJax_Display, .box0 mjx-container[display="true"] { margin: .75rem auto !important; padding: .25rem .5rem; overflow-x: visible !important; }
 .MathJax_Display, mjx-container[display="true"] {
   display: block !important; margin: 2.2rem auto !important; padding: .7rem 1rem;
@@ -147,4 +168,15 @@ a:hover { color: var(--curso-rojo); }
   h1 { margin-top: 2.2rem; }
   h2 { margin-top: 2.4rem; }
   table { display: block; overflow-x: auto; white-space: normal; }
+  .ficha-tecnica { padding: 1rem; }
+  .ficha-grid { grid-template-columns: 1fr; gap: 0; }
+  .ficha-variables table { display: table; }
+}
+
+@media print {
+  .ficha-tecnica { padding: 1rem; border-color: #555; box-shadow: none; break-inside: auto; }
+  .ficha-tecnica .ficha-intro, .ficha-campo, .ficha-variables { break-inside: avoid; }
+  .ficha-grid { gap: .65rem; }
+  .ficha-campo { margin-bottom: .65rem; padding: .75rem; }
+  .ficha-variables thead { color: #000; background: #E7E7E7 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
