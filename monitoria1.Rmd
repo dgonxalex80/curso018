@@ -171,13 +171,15 @@ Una empresa registra en libras los pesos de sus paquetes y desea reportarlos en 
 <br/><br/>
 
 
-### <span style="color:#936A4D">**NOTA**</span> 
-
-* $\bar{x}=\frac{1}{n}\sum x_{i}$, 
-
-* $s=\sqrt{s^2}$, 
-
-*  $s^2=\frac{1}{(n-1)}\sum (x_{i}-\bar{x})^{2}$
+<div class="box1 with-label">
+### NOTA 
+<p>Use estas expresiones como apoyo para sustentar el análisis del cambio de unidad:</p>
+<ul>
+<li>$\displaystyle \bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_i$</li>
+<li>$\displaystyle s=\sqrt{s^2}$</li>
+<li>$\displaystyle s^2=\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})^2$</li>
+</ul>
+</div>
 
 
 
@@ -217,7 +219,8 @@ N: 40
                 N    40.00
         Pct.Valid   100.00
 </pre>
-*Referencia: punto 11, página 34, notas de Alonso.*
+
+Referencia: punto 11, página 34, notas de Alonso.
 
 
 <br/><br/><br/>
@@ -241,7 +244,7 @@ Jun = c(12.0, 12.0, 12.0, 12.7, 12.8, 12.9, 8.0, 8.0, 13.2, 13.3, 13.5, 13.6, 11
 
 La clasificación por nivel tecnológico de las 60 empresas fue la siguiente:
 
-```{r, echo=FALSE}
+```{r}
 nivtec=c(12,30,18)
 names(nivtec)=c("Bajo", "Medio", "Alto")
 par(mar = c(4.5, 4.5, 3.5, 1))
@@ -267,11 +270,11 @@ datos=data.frame(May ,Jun )
 summarytools::descr(datos)
 
 ```
+
 <pre>
 Descriptive Statistics  
 datos  
 N: 30  
-
                        Jun      May
 ----------------- -------- --------
              Mean    11.34    10.84
@@ -290,7 +293,8 @@ N: 30
           N.Valid    30.00    30.00
                 N    30.00    30.00
         Pct.Valid   100.00   100.00
-<pre>
+</pre>
+
 <br/><br/>
 
 Con base en los datos y los estadísticos anteriores, evalúe si cada afirmación es verdadera o falsa. Sustente todas las respuestas con evidencia pertinente. Para cerrar el análisis, compare mayo y junio y recomiende en cuál aspecto debería concentrarse la asociación para apoyar a los microempresarios.
@@ -336,7 +340,7 @@ abline(v = median(tiempo), col = c06, lwd = 2.5, lty = 3)
 legend("topright",
   legend = c(sprintf("Media: %.1f min", mean(tiempo)),
              sprintf("Mediana: %.1f min", median(tiempo))),
-  col = c(c00, c06), lty = c(2, 3), lwd = 2.5, bty = "n")
+  col = c(c02, c01), lty = c(2, 3), lwd = 2.5, bty = "n")
 
 ```
 

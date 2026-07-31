@@ -775,17 +775,27 @@ Sustente su respuesta mostrando cómo se transforman la media, la
 desviación estándar y el coeficiente de variación.</p>
 <p><br/><br/></p>
 </div>
-<div id="nota" class="section level3">
-<h3><span style="color:#936A4D"><strong>NOTA</strong></span></h3>
+<div id="nota" class="section level3 box1 with-label">
+<h3>NOTA</h3>
+<p>
+Use estas expresiones como apoyo para sustentar el análisis del cambio
+de unidad:
+</p>
 <ul>
-<li><p><span class="math inline">\(\bar{x}=\frac{1}{n}\sum
-x_{i}\)</span>,</p></li>
-<li><p><span class="math inline">\(s=\sqrt{s^2}\)</span>,</p></li>
-<li><p><span class="math inline">\(s^2=\frac{1}{(n-1)}\sum
-(x_{i}-\bar{x})^{2}\)</span></p></li>
+<li>
+<span class="math inline">\(\displaystyle
+\bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_i\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle s=\sqrt{s^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle
+s^2=\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})^2\)</span>
+</li>
 </ul>
-<p><br/><br/><br/></p>
 </div>
+<p><br/><br/><br/></p>
 <div id="problema-6" class="section level3">
 <h3>Problema 6</h3>
 <p>Una compañía de jugos registró durante 40 días el número de botellas
@@ -819,7 +829,7 @@ N: 40
                 N    40.00
         Pct.Valid   100.00
 </pre>
-<p><em>Referencia: punto 11, página 34, notas de Alonso.</em></p>
+<p>Referencia: punto 11, página 34, notas de Alonso.</p>
 <p><br/><br/><br/></p>
 </div>
 <div id="problema-7" class="section level3">
@@ -837,6 +847,18 @@ Jun = c(12.0, 12.0, 12.0, 12.7, 12.8, 12.9, 8.0, 8.0, 13.2, 13.3, 13.5, 13.6, 11
 <p><br/></p>
 <p>La clasificación por nivel tecnológico de las 60 empresas fue la
 siguiente:</p>
+<pre class="r"><code>nivtec=c(12,30,18)
+names(nivtec)=c(&quot;Bajo&quot;, &quot;Medio&quot;, &quot;Alto&quot;)
+par(mar = c(4.5, 4.5, 3.5, 1))
+bp &lt;- barplot(nivtec,
+  main = &quot;Distribución por nivel tecnológico&quot;,
+  xlab = &quot;Nivel tecnológico&quot;, ylab = &quot;Número de distribuidores&quot;,
+  col = c(c01, c04, c05), border = NA, las = 1,
+  ylim = c(0, 36), cex.main = 1.2)
+abline(h = seq(0, 35, 5), col = &quot;#DDE3EA&quot;)
+rect(bp - 0.5, 0, bp + 0.5, nivtec,
+     col = c(c01, c04, c05), border = NA)
+text(bp, nivtec, labels = nivtec, pos = 3, font = 2, col = &quot;#243247&quot;)</code></pre>
 <p><img src="monitoria1_files/figure-html/unnamed-chunk-5-1.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 <pre class="r"><code>May = c(14.3, 14.4, 11.1, 11.2, 11.4, 11.4, 11.4, 11.4, 10.0, 10.5, 10.5, 10.6, 10.7, 12.1, 12.3, 12.4, 12.8,  9.3,  9.2,  9.2, 9.1,  8.4,  8.5,  7.2,  7.1,  6.2, 13.7, 13.8, 15.0, 10.0)
@@ -846,110 +868,29 @@ Jun = c(12.0, 12.0, 12.0, 12.7, 12.8, 12.9, 8.0, 8.0, 13.2, 13.3, 13.5, 13.6, 11
 datos=data.frame(May ,Jun )
 summarytools::descr(datos)</code></pre>
 <pre>
-<p>Descriptive Statistics<br />
-datos<br />
-N: 30</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="right">Jun</th>
-<th align="right">May</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Mean</td>
-<td align="right">11.34</td>
-<td align="right">10.84</td>
-</tr>
-<tr class="even">
-<td>Std.Dev</td>
-<td align="right">2.65</td>
-<td align="right">2.22</td>
-</tr>
-<tr class="odd">
-<td>Min</td>
-<td align="right">5.90</td>
-<td align="right">6.20</td>
-</tr>
-<tr class="even">
-<td>Q1</td>
-<td align="right">9.20</td>
-<td align="right">9.20</td>
-</tr>
-<tr class="odd">
-<td>Median</td>
-<td align="right">11.95</td>
-<td align="right">10.90</td>
-</tr>
-<tr class="even">
-<td>Q3</td>
-<td align="right">13.30</td>
-<td align="right">12.30</td>
-</tr>
-<tr class="odd">
-<td>Max</td>
-<td align="right">15.20</td>
-<td align="right">15.00</td>
-</tr>
-<tr class="even">
-<td>MAD</td>
-<td align="right">2.37</td>
-<td align="right">2.30</td>
-</tr>
-<tr class="odd">
-<td>IQR</td>
-<td align="right">3.80</td>
-<td align="right">3.03</td>
-</tr>
-<tr class="even">
-<td>CV</td>
-<td align="right">0.23</td>
-<td align="right">0.20</td>
-</tr>
-<tr class="odd">
-<td>Skewness</td>
-<td align="right">-0.48</td>
-<td align="right">-0.07</td>
-</tr>
-<tr class="even">
-<td>SE.Skewness</td>
-<td align="right">0.43</td>
-<td align="right">0.43</td>
-</tr>
-<tr class="odd">
-<td>Kurtosis</td>
-<td align="right">-0.87</td>
-<td align="right">-0.66</td>
-</tr>
-<tr class="even">
-<td>N.Valid</td>
-<td align="right">30.00</td>
-<td align="right">30.00</td>
-</tr>
-<tr class="odd">
-<td>N</td>
-<td align="right">30.00</td>
-<td align="right">30.00</td>
-</tr>
-<tr class="even">
-<td>Pct.Valid</td>
-<td align="right">100.00</td>
-<td align="right">100.00</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr class="even">
-<td><br/><br/></td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-</tbody>
-</table>
+Descriptive Statistics  
+datos  
+N: 30  
+                       Jun      May
+----------------- -------- --------
+             Mean    11.34    10.84
+          Std.Dev     2.65     2.22
+              Min     5.90     6.20
+               Q1     9.20     9.20
+           Median    11.95    10.90
+               Q3    13.30    12.30
+              Max    15.20    15.00
+              MAD     2.37     2.30
+              IQR     3.80     3.03
+               CV     0.23     0.20
+         Skewness    -0.48    -0.07
+      SE.Skewness     0.43     0.43
+         Kurtosis    -0.87    -0.66
+          N.Valid    30.00    30.00
+                N    30.00    30.00
+        Pct.Valid   100.00   100.00
+</pre>
+<p><br/><br/></p>
 <p>Con base en los datos y los estadísticos anteriores, evalúe si cada
 afirmación es verdadera o falsa. Sustente todas las respuestas con
 evidencia pertinente. Para cerrar el análisis, compare mayo y junio y
