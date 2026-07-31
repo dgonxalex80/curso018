@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="dgonzalez" />
+
+
+<title>Solucionario — Monitoría 1</title>
+
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Estadística
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 0
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo0.html">Módulo 0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="sumatoria.html">Sumatoria</a>
+    </li>
+    <li>
+      <a href="productoria.html">Productoria</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo1.html">Módulo 1</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="guia11.html">Guía 1.1</a>
+    </li>
+    <li>
+      <a href="recurso101.html">Recursos 1.1</a>
+    </li>
+    <li>
+      <a href="basesdatos.html">Bases de datos</a>
+    </li>
+    <li>
+      <a href="introduccionR.html">Introducción a R</a>
+    </li>
+    <li>
+      <a href="codigo11.html">Código 1.1</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="monitoria1.html">Monitoría 1</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo2.html">Módulo 2</a>
+    </li>
+    <li class="divider"></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 3
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo3.html">Módulo 3</a>
+    </li>
+    <li class="divider"></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 4
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo4.html">Módulo 4</a>
+    </li>
+    <li class="divider"></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 5
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo5.html">Módulo 5</a>
+    </li>
+    <li class="divider"></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Proyecto
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="proyecto.html">Guía proyecto</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Solucionario — Monitoría 1</h1>
+<h4 class="author">dgonzalez</h4>
+
+</div>
+
+
+<p><img src="img/monitoria1.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
+<div id="orientaciones" class="section level1">
+<h1>Orientaciones</h1>
+<p>Este solucionario acompaña a <code>monitoria1.Rmd</code>. En los
+ejercicios aplicados se sigue la secuencia <strong>examinar la evidencia
+→ interpretar → decidir</strong>. Los procedimientos numéricos funcionan
+como sustento de la conclusión, no como resultado final. Los valores
+pueden cambiar ligeramente si se emplea una convención diferente para
+cuartiles, asimetría o datos agrupados; por ello, siempre debe indicarse
+el procedimiento utilizado.</p>
+</div>
+<div id="soluciones" class="section level1">
+<h1>Soluciones</h1>
+<div id="problema-1" class="section level3">
+<h3>Problema 1</h3>
+<table style="width:100%;">
+<colgroup>
+<col width="30%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Ítem</th>
+<th align="left">Clasificación</th>
+<th align="left">Escala</th>
+<th align="left">Implicación para el análisis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="left">Cuantitativa discreta</td>
+<td align="left">Razón</td>
+<td align="left">Media, desviación estándar y gráfico de puntos o
+barras.</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="left">Cuantitativa discreta</td>
+<td align="left">Razón</td>
+<td align="left">Conteos; son apropiadas las frecuencias y tasas de
+defectos.</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="left">Cuantitativa continua</td>
+<td align="left">Razón</td>
+<td align="left">Media, mediana, dispersión, histograma y cajas.</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="left">Cuantitativa discreta, si se cuentan hojas</td>
+<td align="left">Razón</td>
+<td align="left">Conviene analizar el conteo diario y su
+variabilidad.</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="left">Cualitativa nominal</td>
+<td align="left">Nominal</td>
+<td align="left">Frecuencias, porcentajes y barras.</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="left">Cuantitativa continua</td>
+<td align="left">Intervalo si está en °C o °F</td>
+<td align="left">Las diferencias son interpretables; el cero no
+significa ausencia de temperatura.</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="left">Cuantitativa continua</td>
+<td align="left">Razón</td>
+<td align="left">Permite comparaciones mediante cocientes.</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="left">Cualitativa nominal</td>
+<td align="left">Nominal</td>
+<td align="left">Comparación de frecuencias o desempeño por
+técnica.</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="left">Cuantitativa continua</td>
+<td align="left">Razón</td>
+<td align="left">Media, dispersión y gráficos para datos continuos.</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="left">Cualitativa ordinal</td>
+<td align="left">Ordinal</td>
+<td align="left">Mediana, porcentajes por categoría y barras
+ordenadas.</td>
+</tr>
+<tr class="odd">
+<td align="center">11</td>
+<td align="left">Cuantitativa, usualmente discreta</td>
+<td align="left">Intervalo</td>
+<td align="left">Las diferencias entre notas son interpretables; una
+nota cero no implica ausencia de conocimiento.</td>
+</tr>
+<tr class="even">
+<td align="center">12</td>
+<td align="left">Cualitativa ordinal</td>
+<td align="left">Ordinal</td>
+<td align="left">Mediana y distribución por niveles.</td>
+</tr>
+<tr class="odd">
+<td align="center">13</td>
+<td align="left">Cualitativa nominal: es un identificador</td>
+<td align="left">Nominal</td>
+<td align="left">Promediar códigos no produce información útil.</td>
+</tr>
+<tr class="even">
+<td align="center">14</td>
+<td align="left">Cuantitativa continua</td>
+<td align="left">Razón si es presión absoluta</td>
+<td align="left">Si fuera presión manométrica, debe justificarse el
+tratamiento del cero.</td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="left">Cualitativa ordinal</td>
+<td align="left">Ordinal</td>
+<td align="left">Las categorías tienen un orden natural.</td>
+</tr>
+<tr class="even">
+<td align="center">16</td>
+<td align="left">Cualitativa nominal</td>
+<td align="left">Nominal</td>
+<td align="left">Frecuencias, porcentajes y barras.</td>
+</tr>
+</tbody>
+</table>
+<p>La clasificación determina qué operaciones tienen sentido. Por
+ejemplo, promediar códigos de operario o categorías de pago no produce
+información útil.</p>
+</div>
+<div id="problema-2" class="section level3">
+<h3>Problema 2</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Ítem</th>
+<th align="left">Concepto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="left">Mediana o percentil 50.</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="left">Coeficiente de asimetría.</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="left">Coeficiente de variación.</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="left">Desviación absoluta mediana (MAD).</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="left">Coeficiente de variación.</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="left">Varianza.</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="left">Rango intercuartílico (RIC).</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="left">Desviación absoluta media.</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="left">Rango.</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="left">Moda.</td>
+</tr>
+<tr class="odd">
+<td align="center">11</td>
+<td align="left">Media aritmética.</td>
+</tr>
+<tr class="even">
+<td align="center">12</td>
+<td align="left">Asimetría negativa.</td>
+</tr>
+<tr class="odd">
+<td align="center">13</td>
+<td align="left">Percentil.</td>
+</tr>
+<tr class="even">
+<td align="center">14</td>
+<td align="left">Semirango intercuartílico.</td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="left">Cuartiles.</td>
+</tr>
+<tr class="even">
+<td align="center">16</td>
+<td align="left">Puntuación estandarizada o puntaje <span
+class="math inline">\(z\)</span>.</td>
+</tr>
+<tr class="odd">
+<td align="center">17</td>
+<td align="left">Asimetría positiva.</td>
+</tr>
+<tr class="even">
+<td align="center">18</td>
+<td align="left">Varianza.</td>
+</tr>
+</tbody>
+</table>
+<p>Los ítems 3 y 5 describen el mismo indicador; los ítems 6 y 18
+también describen la varianza. La mediana, el RIC y la MAD son
+especialmente útiles ante valores extremos; la media y la desviación
+estándar son más sensibles a ellos.</p>
+</div>
+<div id="problema-3" class="section level3">
+<h3>Problema 3</h3>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="36%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Ítem</th>
+<th align="center">Respuesta</th>
+<th align="left">Justificación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">F</td>
+<td align="left">Todos los valores son iguales; la desviación estándar
+es 0.</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">V, aproximadamente</td>
+<td align="left">En una distribución acampanada o aproximadamente
+normal, casi todos los datos se ubican entre <span
+class="math inline">\(\bar{x}-3s\)</span> y <span
+class="math inline">\(\bar{x}+3s\)</span>.</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">V</td>
+<td align="left"><span
+class="math inline">\(\bar{x}=\dfrac{n_1\bar{x}_1+n_2\bar{x}_2}{n_1+n_2}\)</span>.</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">V, como convención</td>
+<td align="left">En los gráficos usuales de frecuencias estas se ubican
+en el eje vertical, aunque existen diseños horizontales
+equivalentes.</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">V</td>
+<td align="left">El histograma representa distribuciones de variables
+cuantitativas continuas o agrupadas.</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">V</td>
+<td align="left">Superponer polígonos facilita comparar forma, centro y
+dispersión.</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">F, en general</td>
+<td align="left">Para una variable discreta suelen preferirse barras
+separadas o puntos; un histograma puede ocultar su carácter
+discreto.</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">F</td>
+<td align="left">Las barras corresponden principalmente a categorías o
+valores discretos; para datos continuos se usa el histograma.</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">F</td>
+<td align="left">La escala depende de los rangos y del propósito; no
+tiene que ser 1:1.</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">F</td>
+<td align="left">Puede haber valores negativos en uno o ambos ejes.</td>
+</tr>
+<tr class="odd">
+<td align="center">11</td>
+<td align="center">F</td>
+<td align="left">Al multiplicar por una constante positiva, media y
+desviación cambian en la misma proporción; el CV no cambia.</td>
+</tr>
+<tr class="even">
+<td align="center">12</td>
+<td align="center">F</td>
+<td align="left"><span
+class="math inline">\(\operatorname{Var}(cX)=c^2\operatorname{Var}(X)\)</span>.</td>
+</tr>
+<tr class="odd">
+<td align="center">13</td>
+<td align="center">V</td>
+<td align="left">Sumar 4 cambia la media en 4, conserva la varianza y
+cambia el CV porque cambia la media.</td>
+</tr>
+<tr class="even">
+<td align="center">14</td>
+<td align="center">V</td>
+<td align="left"><span class="math inline">\(s_{3X}=3s_X\)</span>. En
+general se multiplica por <span class="math inline">\(|c|\)</span>.</td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="center">F</td>
+<td align="left">En una distribución simétrica media y mediana
+coinciden; media mayor que mediana suele sugerir asimetría
+positiva.</td>
+</tr>
+<tr class="even">
+<td align="center">16</td>
+<td align="center">V</td>
+<td align="left">Sumar una constante desplaza <span
+class="math inline">\(Q_1\)</span> y <span
+class="math inline">\(Q_3\)</span> por igual, por lo que el RIC no
+cambia.</td>
+</tr>
+<tr class="odd">
+<td align="center">17</td>
+<td align="center">V</td>
+<td align="left">El CV es adimensional y permite comparar dispersión
+relativa, con las precauciones indicadas sobre la media.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="problema-4" class="section level3">
+<h3>Problema 4</h3>
+<p><strong>Carretera.</strong> Conviene un gráfico de barras por mes o
+una línea de avance acumulado. Los kilómetros construidos fueron:</p>
+<pre class="r"><code>porcentaje &lt;- c(3.6, 7.6, 15.3, 24.5, 49.0)
+km &lt;- 134 * porcentaje / 100
+data.frame(mes = 1:5, porcentaje, km = round(km, 3))</code></pre>
+<pre><code>##   mes porcentaje     km
+## 1   1        3.6  4.824
+## 2   2        7.6 10.184
+## 3   3       15.3 20.502
+## 4   4       24.5 32.830
+## 5   5       49.0 65.660</code></pre>
+<p>El quinto mes concentró 65.66 km, casi la mitad del proyecto. Esto
+sugiere una ejecución muy cargada al final, lo que aumenta el riesgo de
+retrasos.</p>
+<p><strong>Programa y sexo.</strong> Es apropiado un gráfico de barras
+agrupadas.</p>
+<pre class="r"><code>programa &lt;- c(&quot;Electrónica&quot;, &quot;Sistemas&quot;, &quot;Civil&quot;, &quot;Negocios&quot;, &quot;Biología&quot;, &quot;Mecánica&quot;)
+hombres &lt;- c(6, 4, 18, 3, 3, 2)
+mujeres &lt;- c(3, 2, 7, 16, 5, 1)
+data.frame(programa, hombres, mujeres)</code></pre>
+<pre><code>##      programa hombres mujeres
+## 1 Electrónica       6       3
+## 2    Sistemas       4       2
+## 3       Civil      18       7
+## 4    Negocios       3      16
+## 5    Biología       3       5
+## 6    Mecánica       2       1</code></pre>
+<p>Civil es el programa más numeroso y Mecánica el menos numeroso. La
+mayor concentración masculina está en Civil y la femenina en Negocios
+Internacionales.</p>
+<p><strong>Memorias USB.</strong> Para describir la distribución son
+apropiados el histograma y el diagrama de cajas.</p>
+<pre class="r"><code>usb &lt;- c(60,63,64,67,68,68,68,70,70,71,71,72,72,72,73,73,74,74,75,75,
+         75,75,75,76,76,77,77,79,80,83,83,84,85,86,87,88,88,89,89,91)
+c(media = mean(usb), mediana = median(usb), sd = sd(usb), IQR = IQR(usb))</code></pre>
+<pre><code>##     media   mediana        sd       IQR 
+## 76.075000 75.000000  7.819724 12.000000</code></pre>
+<pre class="r"><code>boxplot(usb, horizontal = TRUE, col = c03, xlab = &quot;Precio&quot;)</code></pre>
+<p><img src="solucion_monitoria1_files/figure-html/p4-usb-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+<p>El precio típico es cercano a 75–76 unidades monetarias, con
+desviación estándar de 7.82. No aparecen valores atípicos por la regla
+de 1.5 RIC.</p>
+<p><strong>Empleados.</strong> Un gráfico de barras es el más claro. Hay
+88 empleados: vendedores 40.9% y operarios 34.1%; juntos representan
+75%. Las decisiones de capacitación y comunicación deberían priorizar
+estos dos cargos.</p>
+</div>
+<div id="problema-5" class="section level3">
+<h3>Problema 5</h3>
+<p>Como <span class="math inline">\(kg=lb/2.2\)</span>, si <span
+class="math inline">\(X\)</span> es el peso en libras y <span
+class="math inline">\(Y=X/2.2\)</span>:</p>
+<p><span class="math display">\[\bar{Y}=\frac{\bar{X}}{2.2}, \qquad
+s_Y=\frac{s_X}{2.2}.\]</span></p>
+<p>La media y la desviación estándar cambian de unidad y se dividen por
+2.2. El coeficiente de variación no cambia:</p>
+<p><span
+class="math display">\[CV_Y=\frac{s_X/2.2}{\bar{X}/2.2}=CV_X.\]</span></p>
+<p>Por tanto, la conversión no modifica la estabilidad relativa del
+proceso.</p>
+</div>
+<div id="problema-6" class="section level3">
+<h3>Problema 6</h3>
+<p>La producción típica es de unas 76 botellas por día: media 76.08 y
+mediana 75. La desviación estándar es 7.82 y el 50% central está entre
+71 y 83 botellas. El CV es cercano al 10%, lo que indica variabilidad
+relativa moderada. La asimetría de 0.20 muestra una forma casi
+simétrica, ligeramente inclinada a la derecha, y no hay evidencia
+descriptiva fuerte de inestabilidad.</p>
+<p>No puede decidirse si la máquina cumple sin una meta, límites de
+control o capacidad nominal. Se necesitan, además, datos en orden
+temporal para distinguir variación aleatoria de cambios del proceso.</p>
+</div>
+<div id="problema-7" class="section level3">
+<h3>Problema 7</h3>
+<p>Las respuestas son:</p>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="36%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Afirmación</th>
+<th align="center">Respuesta</th>
+<th align="left">Razón principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">a</td>
+<td align="center">V</td>
+<td align="left">Las ventas tienen cero significativo y admiten
+cocientes.</td>
+</tr>
+<tr class="even">
+<td align="center">b</td>
+<td align="center">F</td>
+<td align="left">Para mayo, la cerca inferior es aproximadamente 4.66;
+6.2 no es atípico.</td>
+</tr>
+<tr class="odd">
+<td align="center">c</td>
+<td align="center">V</td>
+<td align="left"><span
+class="math inline">\(CV_{May}=0.20&lt;CV_{Jun}=0.23\)</span>.</td>
+</tr>
+<tr class="even">
+<td align="center">d</td>
+<td align="center">F</td>
+<td align="left">La mediana de junio es 11.95.</td>
+</tr>
+<tr class="odd">
+<td align="center">e</td>
+<td align="center">F</td>
+<td align="left"><span
+class="math inline">\(s^2_{Jun}=2.65^2\approx7.02\)</span>; con los
+datos sin redondear es 7.03.</td>
+</tr>
+<tr class="even">
+<td align="center">f</td>
+<td align="center">F</td>
+<td align="left">En <span class="math inline">\([8.7,13.3]\)</span> está
+56.7%, no aproximadamente 68%.</td>
+</tr>
+<tr class="odd">
+<td align="center">g</td>
+<td align="center">F</td>
+<td align="left">El impuesto promedio es <span
+class="math inline">\(0.16(11.34)\approx1.81\)</span>.</td>
+</tr>
+<tr class="even">
+<td align="center">h</td>
+<td align="center">F</td>
+<td align="left">No tiene sentido promediar códigos de una variable
+ordinal; 12, 30 y 18 son frecuencias.</td>
+</tr>
+<tr class="odd">
+<td align="center">i</td>
+<td align="center">F</td>
+<td align="left"><span class="math inline">\(Q_1\)</span> de mayo es
+9.20.</td>
+</tr>
+<tr class="even">
+<td align="center">j</td>
+<td align="center">F</td>
+<td align="left">Muestrear no basta: hay inferencia solo si se
+generalizan resultados a una población con un diseño válido.</td>
+</tr>
+<tr class="odd">
+<td align="center">k</td>
+<td align="center">F</td>
+<td align="left">El nivel tecnológico es ordinal.</td>
+</tr>
+<tr class="even">
+<td align="center">l</td>
+<td align="center">V</td>
+<td align="left">Hay 30 empresas con nivel medio.</td>
+</tr>
+<tr class="odd">
+<td align="center">m</td>
+<td align="center">V</td>
+<td align="left">La asimetría de junio es -0.48.</td>
+</tr>
+</tbody>
+</table>
+<p>Junio tiene mayor media y mediana, pero también mayor dispersión
+relativa. La asociación debería estudiar las prácticas que aumentaron
+las ventas sin ignorar la heterogeneidad entre microempresarios.</p>
+</div>
+<div id="problema-8" class="section level3">
+<h3>Problema 8</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">medida</th>
+<th align="right">valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">n</td>
+<td align="right">500.000</td>
+</tr>
+<tr class="even">
+<td align="left">Media</td>
+<td align="right">20.573</td>
+</tr>
+<tr class="odd">
+<td align="left">Mediana</td>
+<td align="right">20.735</td>
+</tr>
+<tr class="even">
+<td align="left">Desviación estándar</td>
+<td align="right">5.132</td>
+</tr>
+<tr class="odd">
+<td align="left">Asimetría</td>
+<td align="right">0.011</td>
+</tr>
+<tr class="even">
+<td align="left">% menor de 10</td>
+<td align="right">1.200</td>
+</tr>
+<tr class="odd">
+<td align="left">% entre 10 y 12</td>
+<td align="right">2.400</td>
+</tr>
+<tr class="even">
+<td align="left">% mayor de 12</td>
+<td align="right">96.400</td>
+</tr>
+</tbody>
+</table>
+<p>Media y mediana son prácticamente iguales y la asimetría es cercana a
+cero; no hay evidencia de asimetría positiva relevante. Solo 2.4% está
+en el rango medio definido y 96.4% supera 12 minutos. La afirmación de
+que la mayoría se concentra entre 10 y 12 minutos es falsa. El banco
+debería priorizar la reducción de los tiempos altos y revisar por qué
+los límites propuestos quedan muy por debajo del comportamiento
+real.</p>
+</div>
+<div id="problema-9" class="section level3">
+<h3>Problema 9</h3>
+<p>La media (529.35 ms) y la mediana (527.85 ms) son muy próximas; la
+asimetría (0.06) también es cercana a cero. La distribución es
+aproximadamente simétrica. El CV de 18% indica dispersión relativa
+apreciable.</p>
+<p>Con <span class="math inline">\(RIC\approx127.33\)</span>, las cercas
+son aproximadamente 273.5 y 782.9 ms. El mínimo, 277.14, no es atípico;
+el máximo, 804.80, sí lo es. En seguridad vial, los tiempos altos
+importan aunque sean poco frecuentes porque aumentan la distancia
+recorrida antes de frenar. Debe investigarse el caso alto y complementar
+el análisis con variables como edad, fatiga y condiciones de la vía.</p>
+</div>
+<div id="problema-10" class="section level3">
+<h3>Problema 10</h3>
+<pre class="r"><code>peso &lt;- c(1.08,0.99,0.97,1.18,1.41,1.28,0.83,1.06,1.14,1.38,
+0.75,0.96,1.08,0.87,0.89,0.89,0.96,1.12,1.12,0.97,1.24,0.89,0.98,
+1.14,0.92,1.18,1.17,0.75,0.83,0.87,0.86,0.89,0.89,0.92,0.93,0.96,
+0.96,0.97,0.98,0.99,1.06,1.08,1.08,1.12,1.12,1.14,1.14,1.17,1.18,
+1.18,1.24,1.28,1.38,1.41)
+q &lt;- quantile(peso)
+fences &lt;- c(inferior = q[2] - 1.5 * IQR(peso), superior = q[4] + 1.5 * IQR(peso))
+c(media=mean(peso), mediana=median(peso), sd=sd(peso), IQR=IQR(peso), fences)</code></pre>
+<pre><code>##        media      mediana           sd          IQR inferior.25% superior.75% 
+##    1.0524074    1.0600000    0.1642241    0.2400000    0.5625000    1.5225000</code></pre>
+<pre class="r"><code>mean(peso &gt; 1.11)</code></pre>
+<pre><code>## [1] 0.4074074</code></pre>
+<pre class="r"><code>boxplot(peso, horizontal=TRUE, col=c04, xlab=&quot;Peso (lb)&quot;)</code></pre>
+<p><img src="solucion_monitoria1_files/figure-html/p10-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
+<p>No hay valores fuera de las cercas aproximadas 0.56 y 1.52 lb. La
+media 1.052 y la mediana 1.06 son cercanas, aunque la cola derecha es
+algo más extensa. El 40.7% pesa más de 1.11 lb, por lo que sí supera
+20%. Sin una especificación nominal y tolerancias del fabricante no
+puede declararse incumplimiento; el supermercado debería solicitarlas
+antes de tomar una decisión.</p>
+</div>
+<div id="problema-11" class="section level3">
+<h3>Problema 11</h3>
+<p>La tabla completa, usando las marcas de clase, es:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Intervalo</th>
+<th align="right">Marca</th>
+<th align="right"><span class="math inline">\(f_i\)</span></th>
+<th align="right"><span class="math inline">\(h_i\)</span> (%)</th>
+<th align="right"><span class="math inline">\(F_i\)</span></th>
+<th align="right"><span class="math inline">\(H_i\)</span> (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">[0,10)</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">9.68</td>
+<td align="right">3</td>
+<td align="right">9.68</td>
+</tr>
+<tr class="even">
+<td align="center">[10,20)</td>
+<td align="right">15</td>
+<td align="right">6</td>
+<td align="right">19.35</td>
+<td align="right">9</td>
+<td align="right">29.03</td>
+</tr>
+<tr class="odd">
+<td align="center">[20,30)</td>
+<td align="right">25</td>
+<td align="right">7</td>
+<td align="right">22.58</td>
+<td align="right">16</td>
+<td align="right">51.61</td>
+</tr>
+<tr class="even">
+<td align="center">[30,40)</td>
+<td align="right">35</td>
+<td align="right">12</td>
+<td align="right">38.71</td>
+<td align="right">28</td>
+<td align="right">90.32</td>
+</tr>
+<tr class="odd">
+<td align="center">[40,50)</td>
+<td align="right">45</td>
+<td align="right">3</td>
+<td align="right">9.68</td>
+<td align="right">31</td>
+<td align="right">100.00</td>
+</tr>
+</tbody>
+</table>
+<p>La media agrupada es 26.94. La mediana agrupada es
+aproximadamente</p>
+<p><span
+class="math display">\[20+\frac{15.5-9}{7}(10)=29.29.\]</span></p>
+<p>La desviación estándar aproximada es 11.67 y el CV es 43.3%; bajo
+criterios usuales, los puntajes no son homogéneos. La clase modal es
+[30,40). La media menor que la mediana sugiere cierta asimetría
+negativa. La mediana es una representación más robusta. El intervalo
+[0,20), que contiene 29.0% del grupo, debería recibir atención académica
+prioritaria.</p>
+</div>
+<div id="problema-12" class="section level3">
+<h3>Problema 12</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Medida</th>
+<th align="right">Proveedor A</th>
+<th align="right">Proveedor B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Media</td>
+<td align="right">39.33</td>
+<td align="right">36.92</td>
+</tr>
+<tr class="even">
+<td align="left">Mediana</td>
+<td align="right">37.00</td>
+<td align="right">36.50</td>
+</tr>
+<tr class="odd">
+<td align="left">Desviación estándar</td>
+<td align="right">24.43</td>
+<td align="right">14.95</td>
+</tr>
+<tr class="even">
+<td align="left">RIC</td>
+<td align="right">39.50</td>
+<td align="right">25.50</td>
+</tr>
+</tbody>
+</table>
+<p>B es ligeramente más rápido en promedio y mucho más regular. No
+aparecen atípicos mediante la regla de 1.5 RIC. Si rapidez y
+confiabilidad importan, se elige B. A solo podría resultar atractivo si
+existiera otra ventaja no incluida en los datos, como costo o calidad
+superior.</p>
+</div>
+<div id="problema-13" class="section level3">
+<h3>Problema 13</h3>
+<pre class="r"><code>jabon &lt;- c(20.3,19.2,18.8,18.5,18.5,18.3,18.3,18.2,18.1,17.7,17.6,
+14.4,17.4,17.4,17.3,17.3,17.1,17.0,16.6,16.5,16.5,16.5,16.4,16.3,
+16.2,16.2,16.1,15.9,15.9,15.8,15.8,15.7,15.6,15.6,15.2,15.1,14.8,
+14.6,14.3,14.3,14.1,13.8,13.7,13.6,13.3,13.1,12.8,12.7,12.6,11.6)
+porcentaje &lt;- mean(jabon &gt;= 14 &amp; jabon &lt;= 18)
+cv &lt;- sd(jabon)/mean(jabon)
+q &lt;- quantile(jabon, c(.25,.75)); limites &lt;- q + c(-1.5,1.5)*IQR(jabon)
+c(media=mean(jabon), porcentaje_aceptable=porcentaje, CV=cv, limites)</code></pre>
+<pre><code>##                media porcentaje_aceptable                   CV 
+##           15.9720000            0.6400000            0.1220553 
+##                  25%                  75% 
+##           10.0625000           21.7625000</code></pre>
+<p>Solo 64% está entre 14 y 18 onzas, frente al mínimo de 90%. El CV es
+12.21%, superior al 10%. Las cercas son aproximadamente 10.06 y 21.76;
+no hay valores atípicos, pero esto no compensa los otros
+incumplimientos. Debe detenerse la producción y ajustarse la
+máquina.</p>
+</div>
+<div id="problema-14" class="section level3">
+<h3>Problema 14</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Grupo</th>
+<th align="right">Media</th>
+<th align="right">Mediana</th>
+<th align="right">Desviación estándar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Usa vapeador</td>
+<td align="right">46.22</td>
+<td align="right">48.10</td>
+<td align="right">13.14</td>
+</tr>
+<tr class="even">
+<td align="left">No usa vapeador</td>
+<td align="right">30.29</td>
+<td align="right">30.20</td>
+<td align="right">7.13</td>
+</tr>
+</tbody>
+</table>
+<p>La diferencia de medias es 15.93 minutos y el grupo que usa vapeador
+también es más variable. Descriptivamente existe una diferencia
+importante. Sin embargo, las muestras son pequeñas y no se informa
+asignación aleatoria ni control de factores como cafeína, estrés o edad.
+Se puede concluir asociación en la muestra, no causalidad. Para una
+decisión institucional se requeriría un diseño más sólido e inferencia
+estadística.</p>
+</div>
+<div id="problema-15" class="section level3">
+<h3>Problema 15</h3>
+<ol style="list-style-type: decimal">
+<li><strong>V</strong>, bajo la convención usual de barras verticales;
+también pueden construirse barras horizontales.</li>
+<li><strong>F</strong>. Para variables categóricas se usan barras; el
+histograma es para variables cuantitativas continuas.</li>
+<li><strong>V</strong>. Permite comparar formas si se usan escalas y
+clases compatibles.</li>
+<li><strong>F</strong>. Una variable ordinal se representa mejor con
+barras ordenadas.</li>
+<li><strong>F</strong>. Los datos continuos se representan habitualmente
+con histogramas, densidades o cajas.</li>
+<li><strong>F</strong>. La relación de escalas depende del propósito y
+de las unidades.</li>
+<li><strong>F</strong>. Un diagrama de dispersión puede ocupar cualquier
+cuadrante.</li>
+<li><strong>V</strong>, si se suma <span
+class="math inline">\(c\)</span> exactamente a la mitad de las
+observaciones: la nueva media es <span
+class="math inline">\(\bar{x}+c/2\)</span>.</li>
+<li><strong>F</strong> como recomendación. Un circular puede mostrar
+proporciones, pero oculta el orden; son preferibles barras
+ordenadas.</li>
+</ol>
+</div>
+<div id="problema-16" class="section level3">
+<h3>Problema 16</h3>
+<pre class="r"><code>salario &lt;- c(1.1,1.2,1.4,1.7,1.9,1.3,1.6,1.4,1.3,1.6)
+c(media=mean(salario), mediana=median(salario), sd=sd(salario))</code></pre>
+<pre><code>##     media   mediana        sd 
+## 1.4500000 1.4000000 0.2460804</code></pre>
+<p>Media = 1.45 millones y mediana = 1.40 millones. Son cercanas y no
+hay un valor extremo dominante, así que ambas describen razonablemente
+el centro. La mediana es ligeramente más robusta. Para evaluar equidad
+no basta el centro: deben revisarse la dispersión, funciones, horas
+trabajadas y criterios de remuneración.</p>
+</div>
+<div id="problema-17" class="section level3">
+<h3>Problema 17</h3>
+<p>El peso total es <span class="math inline">\(80(130)=10\,400\)</span>
+kg. Los primeros 60 pesan <span
+class="math inline">\(60(120)=7\,200\)</span> kg. Los 20 restantes pesan
+<span class="math inline">\(3\,200\)</span> kg en total, por lo que su
+promedio es</p>
+<p><span class="math display">\[\frac{3\,200}{20}=160\text{
+kg}.\]</span></p>
+<p>No se promedian 130 y 120 porque corresponden a grupos de tamaños
+distintos. Los primeros 60 aportan más peso total (7 200 kg), aunque los
+restantes tienen mayor promedio individual.</p>
+</div>
+<div id="problema-18" class="section level3">
+<h3>Problema 18</h3>
+<ul>
+<li><strong>Armónica:</strong> para recorrer la misma distancia a 40 y
+60 km/h, la velocidad promedio es <span
+class="math inline">\(2/(1/40+1/60)=48\)</span> km/h. Sirve para estimar
+el tiempo del viaje.</li>
+<li><strong>Geométrica:</strong> una inversión crece 10% y luego 20%. La
+tasa media es <span
+class="math inline">\(\sqrt{1.10(1.20)}-1=14.89\%\)</span>. Sirve para
+comparar crecimiento compuesto.</li>
+<li><strong>Ponderada:</strong> notas 3.5, 4.0 y 4.5 con pesos 20%, 30%
+y 50% producen <span
+class="math inline">\(0.2(3.5)+0.3(4.0)+0.5(4.5)=4.15\)</span>. Sirve
+para decidir aprobación.</li>
+<li><strong>Truncada:</strong> en 10, 11, 12, 13 y 40, al retirar 20% de
+cada extremo queda 11, 12 y 13; la media truncada es 12. Reduce la
+influencia de un valor extremo al estimar el desempeño típico.</li>
+</ul>
+</div>
+<div id="problema-19" class="section level3">
+<h3>Problema 19</h3>
+<p>Como las distancias de ida y regreso son iguales, corresponde la
+media armónica:</p>
+<p><span class="math display">\[\bar{v}=\frac{2}{1/40+1/60}=48\text{
+km/h}.\]</span></p>
+<p>La media aritmética 50 km/h es incorrecta porque se permanece más
+tiempo a la velocidad baja. No puede obtenerse la mediana de las
+velocidades observadas a partir de solo dos promedios de tramo; se
+necesitarían las observaciones de velocidad o el tiempo recorrido a cada
+velocidad.</p>
+</div>
+<div id="problema-20" class="section level3">
+<h3>Problema 20</h3>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Forma</th>
+<th align="left">Relación usual</th>
+<th align="left">Medida recomendada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Acampanada y simétrica</td>
+<td align="left">Media <span class="math inline">\(\approx\)</span>
+mediana</td>
+<td align="left">Media, acompañada de desviación estándar.</td>
+</tr>
+<tr class="even">
+<td align="left">Rectangular y simétrica</td>
+<td align="left">Media <span class="math inline">\(\approx\)</span>
+mediana</td>
+<td align="left">Ambas son válidas, aunque el centro no describe por sí
+solo la forma plana.</td>
+</tr>
+<tr class="odd">
+<td align="left">Asimétrica positiva</td>
+<td align="left">Media <span class="math inline">\(&gt;\)</span>
+mediana</td>
+<td align="left">Mediana y RIC.</td>
+</tr>
+<tr class="even">
+<td align="left">Asimétrica negativa</td>
+<td align="left">Media <span class="math inline">\(&lt;\)</span>
+mediana</td>
+<td align="left">Mediana y RIC.</td>
+</tr>
+</tbody>
+</table>
+<p>Los valores extremos arrastran la media hacia la cola; la mediana
+cambia menos. Por eso, la decisión sobre la medida central debe
+considerar la forma y no limitarse a comparar dos resultados
+numéricos.</p>
+</div>
+<div id="problema-21" class="section level3">
+<h3>Problema 21</h3>
+<p>El resumen indica:</p>
+<ul>
+<li>ventas: media 61.07, mediana 60.85, CV 16% y asimetría 0.73;</li>
+<li>costos: media 35.78, mediana 35.60 y CV 15%;</li>
+<li>utilidad: media 24.89, mediana 24.40 y CV 28%;</li>
+<li>empleados: media 15.85 y CV 32%.</li>
+</ul>
+<p>Ventas presenta la mayor cola derecha; conviene investigar
+establecimientos cercanos a 95. La utilidad es mucho más heterogénea que
+ventas y costos, con casos bajos que requieren atención.</p>
+<p>Las correlaciones lineales observadas son muy débiles: ventas-costos
+-0.02, ventas-utilidad 0.13, ventas-empleados 0.00 y utilidad-empleados
+0.02. En esta base no hay evidencia de una relación lineal
+importante.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Estrato</th>
+<th align="right">Ventas medias</th>
+<th align="right">Costos medios</th>
+<th align="right">Utilidad media</th>
+<th align="right">Empleados medios</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">2</td>
+<td align="right">62.00</td>
+<td align="right">35.91</td>
+<td align="right">26.27</td>
+<td align="right">17.17</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="right">61.48</td>
+<td align="right">34.99</td>
+<td align="right">24.26</td>
+<td align="right">16.81</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="right">58.03</td>
+<td align="right">36.16</td>
+<td align="right">24.79</td>
+<td align="right">15.79</td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="right">61.76</td>
+<td align="right">35.63</td>
+<td align="right">25.85</td>
+<td align="right">14.05</td>
+</tr>
+<tr class="odd">
+<td align="center">6</td>
+<td align="right">61.92</td>
+<td align="right">36.43</td>
+<td align="right">22.35</td>
+<td align="right">15.20</td>
+</tr>
+</tbody>
+</table>
+<p>No aparece un gradiente monotónico claro por estrato.
+Recomendaciones: investigar supermercados con utilidad baja; estudiar
+procesos de los negocios con ventas altas; y segmentar intervenciones
+por desempeño real, no únicamente por estrato. Estas son asociaciones
+descriptivas, no efectos causales.</p>
+</div>
+<div id="problema-22" class="section level3">
+<h3>Problema 22</h3>
+<p>Hay 44 mediciones válidas. De ellas, 35 están entre 5.0 y 8.0 g:
+<span class="math inline">\(35/44=79.55\%\)</span>. La media es 6.31 g,
+la mediana 6.15 g y la desviación estándar 1.09 g. Las cercas de 1.5 RIC
+son aproximadamente 4.09 y 8.39 g; 8.5, 8.7 y 8.9 g son valores atípicos
+altos.</p>
+<p>Con la información disponible, el cumplimiento es inferior a 85%, por
+lo que correspondería mantenimiento mayor. Sin embargo, faltan seis
+mediciones exigidas por el protocolo. La decisión correcta es no
+autorizar el inicio, completar o repetir la muestra y, si se confirma el
+resultado, solicitar mantenimiento.</p>
+</div>
+<div id="problema-23" class="section level3">
+<h3>Problema 23</h3>
+<p>Los principales resultados son: media 10.014 h, mediana 10.6 h,
+desviación estándar 2.62 h, RIC 3.675 h y asimetría aproximada
+-0.37.</p>
+<table>
+<colgroup>
+<col width="30%" />
+<col width="30%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Criterio</th>
+<th align="left">Resultado</th>
+<th align="center">Cumple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Sin atípicos</td>
+<td align="left">La cerca inferior es 2.3125 h; 2.3 h queda ligeramente
+por debajo.</td>
+<td align="center">No</td>
+</tr>
+<tr class="even">
+<td align="left">Máximo 5% por encima de 10 h</td>
+<td align="left">56% supera 10 h.</td>
+<td align="center">No</td>
+</tr>
+<tr class="odd">
+<td align="left">Al menos 80% en 8 h o menos</td>
+<td align="left">Solo 28% cumple.</td>
+<td align="center">No</td>
+</tr>
+<tr class="even">
+<td align="left">Asimetría positiva</td>
+<td align="left">La asimetría es negativa.</td>
+<td align="center">No</td>
+</tr>
+</tbody>
+</table>
+<p>El principal problema es el elevado porcentaje de atenciones
+superiores a 10 horas. Debe revisarse la capacidad y el flujo de
+asignación de casos. Además, exigir asimetría positiva no es un buen
+objetivo por sí mismo: es preferible fijar percentiles de servicio, por
+ejemplo que el percentil 90 no supere un límite operativo.</p>
+</div>
+<div id="problema-24" class="section level3">
+<h3>Problema 24</h3>
+<p>Los resultados relevantes son: media 18.359 h, mediana 18.25 h,
+desviación estándar 3.65 h, RIC 4.8 h, CV 19.88% y asimetría 0.059. Las
+cercas son 8.8 y 28.0 h; no hay atípicos fuera de ellas.</p>
+<table>
+<colgroup>
+<col width="30%" />
+<col width="30%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Criterio</th>
+<th align="left">Resultado</th>
+<th align="center">Cumple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Sin atípicos altos</td>
+<td align="left">Máximo 26.7 h, debajo de la cerca 28.0.</td>
+<td align="center">Sí</td>
+</tr>
+<tr class="even">
+<td align="left">Media <span class="math inline">\(\leq24\)</span>
+h</td>
+<td align="left">18.359 h.</td>
+<td align="center">Sí</td>
+</tr>
+<tr class="odd">
+<td align="left">Máximo 10% sobre 24 h</td>
+<td align="left">8%.</td>
+<td align="center">Sí</td>
+</tr>
+<tr class="even">
+<td align="left">Al menos 70% en 15 h o menos</td>
+<td align="left">14%.</td>
+<td align="center">No</td>
+</tr>
+<tr class="odd">
+<td align="left">Aproximadamente simétrica</td>
+<td align="left">Media, mediana y asimetría son consistentes con
+simetría.</td>
+<td align="center">Sí</td>
+</tr>
+<tr class="even">
+<td align="left">CV <span class="math inline">\(\leq20\%\)</span></td>
+<td align="left">19.88%.</td>
+<td align="center">Sí, por margen pequeño</td>
+</tr>
+<tr class="odd">
+<td align="left">Máximo 5% por debajo de 6 h</td>
+<td align="left">0%.</td>
+<td align="center">Sí</td>
+</tr>
+</tbody>
+</table>
+<p>El criterio crítico es completar 70% en 15 horas: el proceso está muy
+lejos de la meta. El banco debería revisar si esa meta es realista y, si
+lo es, rediseñar el flujo para desplazar toda la distribución hacia
+tiempos menores, no solo reducir casos extremos.</p>
+<p>El gráfico de líneas muestra la variación entre solicitudes y
+facilita detectar observaciones altas o bajas. Como el identificador de
+solicitud no garantiza orden cronológico, no prueba una tendencia
+temporal; para monitorear el proceso se necesitan fechas y un gráfico de
+control o serie temporal.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

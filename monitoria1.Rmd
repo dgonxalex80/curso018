@@ -19,6 +19,7 @@ always_allow_html: true
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
 library(psych)
 library(summarytools)
+library(ggplot2)
 
 # install.packages("devtools")
 #devtools::install_github("dgonxalex80/paquete018")
@@ -47,22 +48,26 @@ knitr::include_graphics("img/monitoria1.png")
 
 ### Problema 1
 
-Para el siguiente grupo de variables defina para cada caso el tipo de variable y la escala de medición 
+Para cada variable, indique el tipo de variable (cualitativa / cuantitativa) y su tipo de escala  (nominal, ordinal, de intervalo o de razón). 
 
 |   |                                                  |
 |:--|:-------------------------------------------------|
-|1. |Número  de botellas plásticas producidas diariamente en un proceso de moldeado, en Agua Limpia S.A |
+|1. |Número de botellas plásticas producidas diariamente en un proceso de moldeado, en Agua Limpia S.A |
 |2. |Número de defectos observados por gabinete para equipo de cómputo de una distribuidora |
 |3. |Tiempo de respuesta a los pedidos telefónicos en un restaurante |
 |4. |Desperdicio de hojas por día en la fotocopiadora Copiamenos |
 |5. |Tipo de defectos en tarjetas de circuito impreso de un lote de producción. |
 |6. |Temperatura de cocción de la meladura en un proceso de producción de azúcar. |
-|7. |Espesor de las piezas de metal producido en la empresa Tornos S.A. |
+|7. |Espesor de las piezas de piezas de metal producidas en la empresa Tornos S.A. |
 |8. |Técnica de mezclado de cemento tipo A por lote en la Cementera del Norte |
 |9. |Cantidad de corriente en microamperios por cada medición en un cinescopio |
 |10. |Grado de satisfacción de los clientes ante el servicio de mantenimiento de un taller mecánico |
-|11. |Nota obtenida en el  examen  de  estadística |
-|12. |Nivel de estrés de un estudiante antes de una  presentar una prueba escrita |
+|11. |Nota obtenida en un examen de estadística |
+|12. |Nivel de estrés de un estudiante antes de presentar una prueba escrita |
+|13. |Código de identificación asignado a cada operario de una planta de producción. |
+|14. |Presión, en kilopascales, registrada dentro de una caldera industrial. |
+|15. |Nivel de riesgo de un proveedor clasificado como bajo, medio o alto. |
+|16. |Método de pago utilizado por los clientes de una tienda virtual. |
 
 
 
@@ -71,7 +76,7 @@ Para el siguiente grupo de variables defina para cada caso el tipo de variable y
 
 ### Problema 2
 
-Indique el concepto referido en cada uno de los siguientes enunciados:
+Identifique el concepto estadístico descrito en cada enunciado. Cuando dos definiciones parezcan similares, señale la diferencia entre ellas y mencione en qué situación de análisis sería más apropiado utilizar cada medida.
 
 <!-- |   |                                                  | -->
 <!-- |:--|:-------------------------------------------------| -->
@@ -88,20 +93,24 @@ Indique el concepto referido en cada uno de los siguientes enunciados:
 
 |   |                                                  |
 |:--|:-------------------------------------------------|
-|1. |Divide la muestra en dos partes de igual proporción. |
-|2. |Mide la simetría de la distribución de datos alrededor de la media. |
-|3. |Describe la dispersión de los datos en torno a la media en términos relativos.
-|4. |Mide la concentración de los datos alrededor de la mediana.|
-|5. |Se obtiene al calcular el cociente entre la desviación estándar y la media aritmética.|
-|6. |Proporciona una medida de la dispersión de los datos respecto a la media.|
+|1. |Valor que deja el 50% de las observaciones por debajo y el 50% por encima. |
+|2. |Coeficiente cuyo signo y magnitud describen la dirección y el grado de asimetría de una distribución. |
+|3. |Describe la dispersión de los datos en torno a la media en términos relativos.|
+|4. |Mediana de las distancias absolutas de las observaciones respecto a la mediana del conjunto.|
+|5. |Corresponde al cociente entre la desviación estándar y la media aritmética.|
+|6. |Promedio de los cuadrados de las desviaciones de los datos respecto a la media.|
 |7. |Mide la diferencia entre el valor del tercer cuartil y el primer cuartil.|
-|8. |Mide la dispersión de los datos respecto a la media sin considerar el signo de las desviaciones.|
-|9. |Calcula la diferencia entre el valor máximo y el valor mínimo en un conjunto de datos.|
+|8. |Promedio de las distancias absolutas de los datos respecto a la media.|
+|9. |Corresponde a la diferencia entre el valor máximo y el valor mínimo de un conjunto de datos.|
 |10. |Representa el valor más frecuente en un conjunto de datos.|
 |11. |Estima la tendencia central en una muestra y es muy sensible a los valores extremos.|
-|12. |Describe el grado de inclinación de la distribución de datos en torno a la media.|
-|13. |Se obtiene al ordenar los datos y seleccionar el valor que se encuentra en la posición central.|
-|14. |Se obtiene al restar el primer cuartil del tercer cuartil en una distribución de datos.|
+|12. |Forma de una distribución cuya cola se extiende hacia los valores más pequeños.|
+|13. |Medida de posición que indica el valor por debajo del cual se encuentra un porcentaje dado de observaciones.|
+|14. |Se obtiene al dividir entre dos la diferencia entre el tercer y el primer cuartil.|
+|15. |Divide el conjunto ordenado de datos en cuatro partes con aproximadamente el mismo número de observaciones.|
+|16. |Indica cuántas desviaciones estándar se encuentra una observación por encima o por debajo de la media.|
+|17. |Describe una distribución cuya cola se extiende hacia los valores más grandes.|
+|18. |Es el promedio de los cuadrados de las desviaciones respecto a la media.|
 
 
 <br/><br/><br/>
@@ -111,49 +120,53 @@ Indique el concepto referido en cada uno de los siguientes enunciados:
 
 ### Problema 3  
 
-Responda F (Falso)  o V (Verdadero), justificando la respuesta en caso de ser Falsa.
+Indique si cada afirmación es verdadera (V) o falsa (F). **Justifique todas las respuestas**: si es falsa, corríjala; si es verdadera, explique brevemente por qué. Cuando sea pertinente, incluya evidencia numérica o un ejemplo que respalde su decisión.
 
 |   |                                                  |
 |:--|:-------------------------------------------------|
 |1. | La desviación estándar del conjunto de valores  2, 2, 2, 2  y 2 es 2. |
 |2. | En una distribución de frecuencias acampanada, el rango de los datos es aproximadamente igual a seis desviaciones estándar. |
-|3. | Dos conjuntos de datos de tamaños $n_1$ y $n_2$ tienen respectivamente promedios $\bar{x}_{1}$ y $\bar{x}_{2}$, a partir de esta información, se puede obtener el respectivo estadístico del total de datos ($\bar{x}$) |
+|3. | Si se conocen los tamaños $n_1$ y $n_2$ y las medias $\bar{x}_1$ y $\bar{x}_2$ de dos grupos, es posible establecer la media del conjunto total. |
 |4. | Al hacer una gráfica, las frecuencias deben representarse en el eje de la ordenada. |
-|5. | El histograma, es una presentación muy efectiva de las distribuciones de frecuencias. |
-|6. | El polígono de frecuencias, es especialmente apto para comparar diferentes distribuciones.|
+|5. | El histograma es una presentación muy efectiva de las distribuciones de frecuencias. |
+|6. | El polígono de frecuencias es especialmente apto para comparar diferentes distribuciones.|
 |7. | Una variable discreta puede ser representada mediante un histograma |
 |8. | El diagrama de barras se utiliza para representar datos continuos. |
-|9. | La relación de escalas en una gráfica debe de ser 1:1 |
+|9. | La relación de escalas en una gráfica debe ser 1:1 |
 |10. | Las gráficas se representan en el primer cuadrante del plano cartesiano. |
 |11. | Si multiplicamos la variable por una constante, el coeficiente de variación se altera. |
 |12. | La varianza de una constante por una variable es igual a la varianza de la variable. |
 |13. | Al sumar 4 a cada uno de los números de la serie : 2, 6, 5, 9, 1 se obtiene la serie 6, 10, 9, 13 y 5. Las series tienen igual varianza, distinta media y diferente coeficiente de variación. |
+|14. | Si todos los valores de una serie se multiplican por 3, su desviación estándar también se multiplica por 3. |
+|15. | Una distribución con media mayor que la mediana necesariamente es simétrica. |
+|16. | El rango intercuartílico no cambia si se suma la misma constante a todas las observaciones. |
+|17. | El coeficiente de variación es apropiado para comparar la dispersión de variables expresadas en unidades diferentes, siempre que sus medias sean positivas y distintas de cero. |
 
 <br/><br/><br/>
 
 ### Problema 4
 
-Elabore un gráfico para representar adecuadamente la siguiente información: 
+Para cada situación, seleccione y construya el gráfico que represente mejor la información. Justifique la elección según el tipo de variable y el objetivo del análisis. Finalmente, escriba una conclusión breve que pueda apoyar una decisión.
 
-* Durante 5 meses se construyen 134 kilómetros de carretera en la siguiente forma: En el primer mes, 3.60\% del total del proyecto; en el segundo més un 7.60\% del total; en el tercer més, el 15.3\% del total; en el cuarto mes 24.5\%  del total y en último mes, el 49\% restante. 
+* Durante cinco meses se construyeron 134 kilómetros de carretera. La proporción ejecutada en cada mes fue: 3.6%, 7.6%, 15.3%, 24.5% y 49.0%, respectivamente. Represente el avance mensual, identifique en qué etapa se concentró la ejecución y valore si esta distribución aumenta el riesgo de retraso del proyecto.
 
-* El grupo de Probabilidad y Estadística a cargo de un profesor está conformado por : 	9 estudiantes de Ingeniería Electrónica, 	6 de Ingeniería de Sistemas, 	25 de Ingeniería Civil, 	19 de Negocios Internacionales 	8 de Biología y 	3 de Ingeniería Mecánica. De los que estudian  Ingeniería Electrónica 6 son hombres, de los matriculados en Ingeniería de Sistemas 2 son mujeres,	de los que estudian Ingeniería Civil 18 son  hombres, de los que estudian Negocios internacionales 16 son mujeres, 	de  los que estudian Biología 5 son mujeres y finalmente de los que estudian Ingeniería  Mecánica 2 son hombre.
+* El grupo de Probabilidad y Estadística está conformado por 9 estudiantes de Ingeniería Electrónica, 6 de Ingeniería de Sistemas, 25 de Ingeniería Civil, 19 de Negocios Internacionales, 8 de Biología y 3 de Ingeniería Mecánica. La distribución por sexo es la siguiente: en Electrónica hay 6 hombres; en Sistemas, 2 mujeres; en Civil, 18 hombres; en Negocios Internacionales, 16 mujeres; en Biología, 5 mujeres; y en Mecánica, 2 hombres. Compare la composición por programa y sexo, e identifique los grupos con mayor y menor representación.
 
-* Una consulta en tiendas en linea para memorias USB 128GB arrojó lo siguientes valores: 
+* Una consulta de precios en tiendas en línea para memorias USB de 128 GB arrojó los siguientes valores. Construya un gráfico apropiado, describa el precio típico y la dispersión, e identifique posibles precios inusuales:
 
 ```{r}
 x=c(60,63,64,67,68,68,68,70,70,71,71,72,72,72,73,73,74,74,75,75,75,75,75,76,76,77,77,79,80,83,83,84,85,86,87,88,88,89,89,91)
 stem(x)
 ```
 
-* La clasificación de los empleados de una empresa por cargo es la siguiente: un Administradores, tres Ingenieros, treinta operarios, ocho celadores, dos contadores, tres secretarias, cinco supervisores, treinta y seis vendedores. 
+* La planta de personal de una empresa está compuesta por 1 administrador, 3 ingenieros, 30 operarios, 8 celadores, 2 contadores, 3 secretarias, 5 supervisores y 36 vendedores. Represente su composición e identifique qué cargos concentran la mayor parte del personal.
 
 <br/><br/><br/>
 
 
 ### Problema 5 
 
-Un vendedor convierte  los  pesos de los paquetes que se producen en  su empresa de libras a kilogramos ($1$ kg $\simeq$ 2.2 lb.). Como afecta esta conversión  la media y la desviación estándar?.   
+Una empresa registra en libras los pesos de sus paquetes y desea reportarlos en kilogramos ($1$ kg $\simeq$ 2.2 lb). Decida si el cambio de unidad modifica la conclusión sobre la estabilidad del proceso. Sustente su respuesta mostrando cómo se transforman la media, la desviación estándar y el coeficiente de variación.
 
 <br/><br/>
 
@@ -173,15 +186,38 @@ Un vendedor convierte  los  pesos de los paquetes que se producen en  su empresa
 
 ### Problema 6
 
-Para analizar la rapidez con que una máquina etiqueta las botellas en una compañía de jugos, se decide hacer seguimiento al número de botellas etiquetadas por día.  A  partir de los resultados procesados en  R presente un análisis estadístico para el número de botellas etiquetadas por día
+Una compañía de jugos registró durante 40 días el número de botellas etiquetadas por una máquina. A partir del resumen generado en R, describa el nivel de producción típico, la variabilidad y la forma de la distribución. Evalúe si el proceso parece estable y señale qué información adicional necesitaría para decidir si la máquina cumple una meta de producción.
 
-```{r}
+```{r, eval=FALSE}
 
 summarytools::descr(x)	
 
 ```
+<pre>
+Descriptive Statistics  
+x  
+N: 40  
 
-Punto 11 pag. 34 notas Alonso
+                         x
+----------------- --------
+             Mean    76.08
+          Std.Dev     7.82
+              Min    60.00
+               Q1    71.00
+           Median    75.00
+               Q3    83.00
+              Max    91.00
+              MAD     7.41
+              IQR    12.00
+               CV     0.10
+         Skewness     0.20
+      SE.Skewness     0.37
+         Kurtosis    -0.81
+          N.Valid    40.00
+                N    40.00
+        Pct.Valid   100.00
+</pre>
+*Referencia: punto 11, página 34, notas de Alonso.*
 
 
 <br/><br/><br/>
@@ -190,7 +226,7 @@ Punto 11 pag. 34 notas Alonso
 
 ### Problema 7  
 
-El director de la asociación de comerciantes de tomates del Valle del Cauca estudia el comportamiento de las ventas diarias de los últimos meses para una muestra de 60 nuevos microempresarios en la región. Dos de las variables más importantes a tener en cuenta para el estudio fueron: Ventas (meses Mayo y Junio) y el nivel tecnológico de la empresa. La siguiente información corresponde a las ventas:
+La Asociación de Comerciantes de Tomate del Valle del Cauca desea comparar las ventas mensuales de 30 microempresarios entre mayo y junio. Además, dispone de la clasificación del nivel tecnológico de 60 empresas de la región. Las ventas están expresadas en millones de pesos. Utilice la información para evaluar cambios en el nivel de ventas, su variabilidad y su forma:
 
 <br/>
 
@@ -203,21 +239,26 @@ Jun = c(12.0, 12.0, 12.0, 12.7, 12.8, 12.9, 8.0, 8.0, 13.2, 13.3, 13.5, 13.6, 11
 
 <br/>
 
-El nivel tecnológico de los 60 distribuidores mostró el siguiente comportamiento tomados en el estudio
+La clasificación por nivel tecnológico de las 60 empresas fue la siguiente:
 
 ```{r, echo=FALSE}
-nivtec=c(12.5,30,17.5)
+nivtec=c(12,30,18)
 names(nivtec)=c("Bajo", "Medio", "Alto")
-barplot(nivtec, 
-main = "Nivel tecnológio",
-col=c(c00,c04,c05), las=1,
-ylim=c(0,40))
-grid()
+par(mar = c(4.5, 4.5, 3.5, 1))
+bp <- barplot(nivtec,
+  main = "Distribución por nivel tecnológico",
+  xlab = "Nivel tecnológico", ylab = "Número de distribuidores",
+  col = c(c01, c04, c05), border = NA, las = 1,
+  ylim = c(0, 36), cex.main = 1.2)
+abline(h = seq(0, 35, 5), col = "#DDE3EA")
+rect(bp - 0.5, 0, bp + 0.5, nivtec,
+     col = c(c01, c04, c05), border = NA)
+text(bp, nivtec, labels = nivtec, pos = 3, font = 2, col = "#243247")
 ```
 
 <br/><br/>
 
-```{r, echo=FALSE}
+```{r, eval=FALSE}
 May = c(14.3, 14.4, 11.1, 11.2, 11.4, 11.4, 11.4, 11.4, 10.0, 10.5, 10.5, 10.6, 10.7, 12.1, 12.3, 12.4, 12.8,  9.3,  9.2,  9.2, 9.1,  8.4,  8.5,  7.2,  7.1,  6.2, 13.7, 13.8, 15.0, 10.0)
 
 Jun = c(12.0, 12.0, 12.0, 12.7, 12.8, 12.9, 8.0, 8.0, 13.2, 13.3, 13.5, 13.6, 11.0, 11.5, 11.6, 11.9, 10.4, 10.3, 10.7,  9.0, 9.2,  7.4,  7.7,  6.1,  5.9, 14.3, 14.2, 14.8, 15.1, 15.2)
@@ -226,11 +267,33 @@ datos=data.frame(May ,Jun )
 summarytools::descr(datos)
 
 ```
+<pre>
+Descriptive Statistics  
+datos  
+N: 30  
 
-
+                       Jun      May
+----------------- -------- --------
+             Mean    11.34    10.84
+          Std.Dev     2.65     2.22
+              Min     5.90     6.20
+               Q1     9.20     9.20
+           Median    11.95    10.90
+               Q3    13.30    12.30
+              Max    15.20    15.00
+              MAD     2.37     2.30
+              IQR     3.80     3.03
+               CV     0.23     0.20
+         Skewness    -0.48    -0.07
+      SE.Skewness     0.43     0.43
+         Kurtosis    -0.87    -0.66
+          N.Valid    30.00    30.00
+                N    30.00    30.00
+        Pct.Valid   100.00   100.00
+<pre>
 <br/><br/>
 
-De acuerdo con la información anterior, responda falso o verdadero a las siguientes premisas. En caso de ser falsa justifique su respuesta.
+Con base en los datos y los estadísticos anteriores, evalúe si cada afirmación es verdadera o falsa. Sustente todas las respuestas con evidencia pertinente. Para cerrar el análisis, compare mayo y junio y recomiende en cuál aspecto debería concentrarse la asociación para apoyar a los microempresarios.
 
 |   |                                                  |
 |:--|:-------------------------------------------------|
@@ -241,7 +304,7 @@ De acuerdo con la información anterior, responda falso o verdadero a las siguie
 |e. | La varianza para el mes de Junio es de 5.21  |
 |f. | Aproximadamente el 68\% de las ventas de Junio están en el intervalo [8.7 ; 13.3]. Nota: el intervalo incluye los valores 8.7 y 13.3.  |
 |g. | Si el estado cobra un impuesto sobre las ventas del 16\%, el promedio del impuesto en Junio es de 1.75  |
-|h. | En la variable nivel tecnológico, el promedio es: $\dfrac{12.5+30+17.5}{3}$ |
+|h. | En la variable nivel tecnológico, el promedio es: $\dfrac{12+30+18}{3}$ |
 |i. | El cuartil 1 $Q_{1}$ para las ventas de Mayo  es 8.0 |
 |j. | El tipo de estudio corresponde a la Estadística Inferencial ya que se realizó muestreo |
 |k. | La variable nivel tecnológico de la empresa se clasifica como nominal |
@@ -256,20 +319,24 @@ Tomado de Arroyo(2012)
 
 ### Problema 8 
 
-A partir del siguiente gráfico de los tiempos de atención en una entidad bancaria determine la media y la mediana (n=500 clientes). ¿Se puede afirmar que la distribución del tiempo de atención es asimétrica positiva? Se desea establecer los porcentajes de clientes atendidos en los rangos bajos (menos de 10 min), medios (entre 10 min y 12 min), altos (más de 12 min), con el fin de evaluar si en su mayoría los tiempos se concentran en el rango medio. Verifique si esta afirmación es correcta.
+Una entidad bancaria registró los tiempos de atención, en minutos, de 500 clientes. La administración afirma que la mayoría se concentra en el rango medio, entre 10 y 12 minutos. Evalúe esa afirmación mediante la distribución de clientes en tiempos bajos (menos de 10 minutos), medios (entre 10 y 12 minutos, incluidos ambos límites) y altos (más de 12 minutos). Use la media, la mediana y la forma de la distribución como evidencia complementaria. Concluya qué aspecto del servicio debería priorizar el banco.
 
 
 ```{r, echo=FALSE}
 tiempo=c(
 14.29, 22.12, 18.75, 16.52, 18.42, 23.61, 27.69, 16.06, 26.08, 19.49, 22.21, 16.47, 21.89, 24.06, 11.09, 17.72, 17.04, 21.75, 25.00, 26.08, 26.28, 19.07, 19.92, 30.14, 24.71, 19.46, 24.70, 17.18, 20.94, 17.42, 20.39, 34.04, 24.20, 20.25, 19.06, 13.07, 14.25, 22.82, 18.25, 16.44, 16.59, 22.34, 26.16, 12.29, 29.95, 21.22, 23.96, 19.48, 27.00, 24.19, 22.17, 23.36, 20.08, 15.84, 22.35, 20.70, 21.02, 17.91, 21.49, 16.75, 15.89, 15.21, 23.83, 21.42, 23.43, 20.51, 31.61, 25.46, 18.45, 29.83, 28.63, 25.98, 22.38, 13.46, 17.33, 20.87, 20.42, 33.27, 23.13,  5.80, 16.54, 23.30,  9.79, 17.43, 14.84, 16.08, 17.55, 19.31, 17.37, 18.47, 23.48, 27.40, 12.40, 17.92, 12.87, 22.18, 26.91, 15.34, 13.89, 21.63, 14.87, 21.41, 22.16, 22.10, 21.86, 22.76, 16.18, 23.30, 14.66, 16.88, 20.77, 24.61, 24.10, 15.89, 16.18, 22.19, 20.88, 18.10, 22.89, 14.38, 19.06, 21.48, 15.14, 24.23, 32.32, 19.15, 22.60, 28.94, 22.41, 18.05, 23.55, 17.77, 13.44, 18.53, 17.47, 27.79, 19.80, 27.36, 25.06, 12.37, 18.26, 18.16, 18.86, 20.68, 16.63, 13.01, 20.77, 20.81, 26.03, 27.31, 19.54, 22.78, 21.67, 18.79, 23.77, 21.70, 17.61, 14.65, 26.49, 15.81, 16.72, 27.16, 18.22, 21.74, 22.51, 21.13, 22.36, 15.03, 19.55, 22.47, 17.51, 29.05, 18.91, 16.42, 15.30, 19.57, 24.21, 20.54, 28.77, 15.75, 28.77,  2.27, 20.31, 13.89, 11.40, 22.35, 19.86, 24.58, 19.29, 12.24, 10.03, 27.62, 22.02, 23.27, 21.21, 13.52, 11.08, 19.22, 14.26, 17.24, 20.09, 28.40, 25.05, 27.47, 16.11, 26.14, 27.23, 18.44, 19.83, 23.21, 24.83, 22.71, 18.57, 21.68, 24.65, 14.12, 15.48, 22.79, 25.90, 18.99, 19.31, 17.93, 24.09, 14.19, 17.23, 15.65, 26.17, 29.59, 30.39, 27.35, 22.31, 18.10, 30.36, 25.26, 25.26, 10.51, 24.26, 22.18, 25.19, 19.53, 12.55, 14.96, 14.15, 26.71, 29.36, 29.72, 18.11, 24.51, 15.12, 16.93, 21.38, 17.14, 27.55, 19.37, 25.19, 16.27, 22.71, 23.99, 21.58, 14.00, 19.73, 21.31, 18.01, 15.45, 36.23, 12.61, 23.45, 20.93, 23.62, 22.01, 26.17, 19.60, 22.67, 22.07, 21.76, 12.25, 18.58, 19.93, 21.41, 25.62, 13.25, 21.01, 10.93, 15.23, 13.38, 11.50, 14.33, 19.06, 23.61, 22.23, 17.96, 19.90, 13.51, 27.70, 12.23, 18.11, 27.07, 21.97, 24.68, 14.13, 22.57, 16.11, 28.35, 10.81, 22.71, 20.43, 21.84, 17.88, 20.17, 22.71, 20.70, 21.14, 17.63, 25.59, 14.73, 24.50, 24.21, 26.89, 19.82, 23.71, 13.83, 15.16, 19.04, 20.16, 17.92, 25.22,  5.21, 17.35, 13.86, 22.47, 23.65, 21.34, 15.25, 27.67, 12.90, 23.14,
 17.74, 16.69, 21.68, 21.76, 12.08, 13.81, 22.49, 25.76, 18.62, 13.36, 20.24, 13.87, 27.77, 22.51, 22.73, 24.42, 20.01, 25.97, 24.14, 23.54, 24.34, 22.37, 19.82, 15.16, 25.09, 18.90, 20.63, 25.37, 16.15, 15.08, 28.66, 17.71, 18.91, 23.37, 24.16, 26.39, 30.01, 27.53, 22.52, 16.40, 26.39, 21.58, 18.55, 17.55, 27.21, 25.41, 20.18, 22.26, 19.64, 19.52, 20.42, 17.54, 19.28, 11.40, 16.44, 31.71, 16.84, 27.41,  9.39, 18.48, 27.80, 22.04, 19.69, 12.86, 21.63, 17.40, 23.05, 24.59, 23.24, 27.97, 18.38, 22.12, 20.59, 13.35, 10.26, 19.59, 19.68, 28.00, 19.32, 14.87, 20.20, 16.53, 14.56, 26.03, 10.88, 22.51, 18.73, 13.67, 22.50, 22.18, 16.12, 19.95, 12.99, 20.83, 20.29, 36.47, 21.40, 16.09, 12.07, 13.08, 26.65, 16.95, 25.45, 19.30, 24.48, 15.23, 12.96, 22.71, 13.78,  9.82, 20.12, 17.60, 22.00, 20.93, 27.24, 23.91, 20.46, 26.36, 17.56, 27.61, 22.34, 22.57, 27.97, 31.23, 25.50, 26.97, 19.47, 14.76, 21.95, 23.65, 26.98, 23.82, 22.84, 15.54, 22.35, 23.10, 32.09, 27.65, 28.24, 18.22, 21.59, 22.46, 21.75, 23.70, 24.11, 27.61, 15.31, 22.06, 14.78, 22.21, 15.65, 34.76, 29.59, 16.76, 19.95, 15.45, 11.45, 23.28, 26.32, 31.33, 15.94, 24.32, 16.36, 14.34)
-h=hist(tiempo,
-main="Tiempo atención clientes Banco AVC",
-ylab = "frecuencia relativa", las=1,
-ylim = c(0,200),
-col=c00)
-text(h$mids,h$counts,labels=h$counts, adj=c(0.5, -0.5))
-grid()
+h <- hist(tiempo, breaks = "FD", plot = FALSE)
+par(mar = c(4.5, 4.8, 3.5, 1))
+plot(h, main = "Distribución de los tiempos de atención",
+  xlab = "Tiempo de atención (minutos)", ylab = "Número de clientes",
+  col = c01_70, border = "white", las = 1, cex.main = 1.2)
+abline(v = mean(tiempo), col = c00, lwd = 2.5, lty = 2)
+abline(v = median(tiempo), col = c06, lwd = 2.5, lty = 3)
+legend("topright",
+  legend = c(sprintf("Media: %.1f min", mean(tiempo)),
+             sprintf("Mediana: %.1f min", median(tiempo))),
+  col = c(c00, c06), lty = c(2, 3), lwd = 2.5, bty = "n")
 
 ```
 
@@ -278,7 +345,7 @@ grid()
 
 ### Problema 9 
 
-En un estudio realizado para investigar la distribución del tiempo de frendo total  ( tiempo de reacción más tiempo para pasar del acelerador al freno, en ms) en condiciones reales de manejo a 60 km/h se obtuvo el siguiente resumen de la distribución de los tiempos: 
+En un estudio sobre seguridad vial se midió el tiempo total de frenado —tiempo de reacción más tiempo para pasar del acelerador al freno—, en milisegundos, bajo condiciones reales de conducción a 60 km/h. Para 450 observaciones se obtuvo el siguiente resumen:
 
 
 <pre>
@@ -303,7 +370,7 @@ N.Valid    450.00
 Pct.Valid  100.00
 </pre>
 
-¿Qué se concluye en relación con la forma de estos datos?. Acompañe su análisis de un  diagrama de cajas
+Describa el centro, la dispersión y la forma de la distribución. Construya un diagrama de cajas, identifique posibles valores atípicos y explique qué implicaciones tendrían los tiempos altos para la seguridad vial.
 
 <br/><br/><br/>
 
@@ -311,7 +378,7 @@ Pct.Valid  100.00
 
 ### Problema 10 
 
-Los pesos en libra de 54 paquetes de hamburguesas fueron obtenidos en el mostrador de un supermercado de cadena de la ciudad (`mín = 0.75`, `máx = 14.1` )
+En un supermercado se registró el peso, en libras, de 54 paquetes de hamburguesas ($\min=0.75$; $\max=1.41$). Los datos y algunos resultados auxiliares se presentan a continuación:
 
 ```{r, echo=FALSE}
 peso=c(1.08,0.99,0.97,1.18,1.41,1.28,0.83,1.06,1.14,1.38,
@@ -342,15 +409,15 @@ $\displaystyle\sum_{i=1}^{54}x_{i}^2 = 61.2377$
 
 <br/><br/>
 
-+ Construya un diagrama de cajas y a partir de este resultado determine si su forma es simétrica
+Construya un diagrama de cajas y utilícelo, junto con las medidas suministradas, para evaluar la simetría y detectar posibles valores atípicos.
 
-Para construir el diagrama de cajas se emplean los cuartiles ($Q_{1}$, $Q_{2}$ y $Q_3$). Ellos determinan la caja central del diagrama. Las lineas a lado y lado 
+Los cuartiles $Q_1$, $Q_2$ y $Q_3$ determinan la caja central; los bigotes permiten examinar la extensión de los datos y detectar observaciones potencialmente atípicas.
 
 |   |                                                  |
 |:--|:-------------------------------------------------|
-|a. | Se puede afirmar que existen datos atípicos?     |
-|b. |Podría afirmarse que más del 20% de los paquetes tienen un peso superior a 1.11 libras? |
-|c. |Realice un breve descripción de la información obtenida |
+|a. | ¿Se puede afirmar que existen datos atípicos? Justifique con el criterio de 1.5 veces el rango intercuartílico. |
+|b. | ¿Más del 20% de los paquetes pesa más de 1.11 libras? Sustente la respuesta con los datos. |
+|c. | Redacte una conclusión sobre la uniformidad de los pesos y señale si el supermercado debería revisar el producto. |
 
 (Tomado de Mendenhall 2006)
 
@@ -359,9 +426,9 @@ Para construir el diagrama de cajas se emplean los cuartiles ($Q_{1}$, $Q_{2}$ y
 
 ### Problema 11 
 
-El valor alcanzado por estudiantes en un test para medir el razonamiento deductivo mediante una prueba de personalidad de Millón (MPIS) se presenta en la siguiente tabla:
+Los puntajes de 31 estudiantes en una prueba de razonamiento deductivo se agruparon en la siguiente tabla. Complete las columnas faltantes antes de realizar el análisis:
 
-| Edad     |Marca de clase   |Frecuencia Absoluta |Frecuencia Relativa | Frec. Acum. Absoluta  |Frec. Acum. Relativa |
+| Puntaje   |Marca de clase   |Frecuencia absoluta |Frecuencia relativa | Frec. acum. absoluta  |Frec. acum. relativa |
 :----------|:----------------|:------------------:|--------------------|-----------------------|:--------------------|
 |[0-10)    |                 | 3                  |                    |                       |                     |    
 |[10-20)   |                 | 6                  |                    |                       |                     |
@@ -371,16 +438,16 @@ El valor alcanzado por estudiantes en un test para medir el razonamiento deducti
 
 <br/><br/>
 
-A partir de la información responda los siguientes interrogantes:
+A partir de la tabla completa, responda:
 
 <br/><br/>
 
 |   |                                                  |
 |:--|:-------------------------------------------------|
-|a. | Los valores obtenidos se pueden considerar como valores homogéneos? |
-|b. | La distribución representada por la tabla se puede considerar como simétrica? |
-|c. | Qué indicador de centro podría ser más apropiado para representar los datos? Justifique su respuesta. |
-|d. | Describa los resultados obtenidos en la medición.|
+|a. | ¿Los puntajes pueden considerarse homogéneos? Defina y aplique un criterio cuantitativo. |
+|b. | ¿La distribución puede considerarse simétrica? Compare medidas de centro y examine las frecuencias. |
+|c. | ¿Qué medida de tendencia central representa mejor los puntajes? Justifique su elección. |
+|d. | Redacte una conclusión sobre el desempeño del grupo e indique qué intervalo requeriría mayor atención académica. |
 <br/><br/><br/>
 <br/><br/><br/>
 
@@ -389,7 +456,7 @@ A partir de la información responda los siguientes interrogantes:
 
 ### Problema 12 
 
-Los tiempo en minutos de demora en la entrega de pedidos por parte de dos proveedores de insumos para laboratorio que llamaremos $P_{A}$ y $P_{B}$ son los siguientes :
+Un laboratorio registró los tiempos de entrega, en minutos, de 12 pedidos realizados a cada uno de dos proveedores, $P_A$ y $P_B$:
 
 
 ```{r}
@@ -397,7 +464,7 @@ PA=c(13,44,10,11,20,29,30,44,56,63,70,82); cat("Proveedor A: ", PA, "\n")
 PB=c(25,14,20,22,30,33,40,45,49,52,55,58); cat("Proveedor B: ", PB, "\n")
 ```
 
-Con base en la información, cuál proveedor escogería? Justifique su respuesta
+Compare los proveedores mediante medidas de centro, dispersión y posibles valores atípicos. ¿Cuál escogería si el laboratorio valora tanto la rapidez como la regularidad de las entregas? Justifique la decisión y explique si cambiaría bajo otro criterio de prioridad.
 
 (Tomado de Arroyo(2012))
 
@@ -406,9 +473,9 @@ Con base en la información, cuál proveedor escogería? Justifique su respuesta
 
 ### Problema 13
 
-Un una fabrica de de jabones para el aseo personal realizó un estudio con el objetivo de mejorar una linea de este producto, mediante la medición de los pesos (en onzas)  de 50 barras.
+Una fábrica de jabones de aseo personal desea evaluar la consistencia de su proceso. Para ello midió el peso, en onzas, de 50 barras de una línea de producción.
 
-Los resultados obtenidos y algunos cálculos sobre los datos se presentan a continuación :
+Los datos y algunos cálculos auxiliares se presentan a continuación:
 
 ```{r }
 x = c(20.3, 19.2, 18.8, 18.5, 18.5, 18.3, 18.3, 18.2, 18.1, 17.7, 17.6,
@@ -429,17 +496,17 @@ sd      :       1.949468
 </pre>
 
 
-Por política de la empresa, el peso del producto debe estar en un 90% de los casos entre más o menos dos onzas alrededor del peso especificado en la etiqueta del producto (16.0 onzas). Un segundo criterio importante es establecer si en los datos obtenidos se presentan datos atípicos y si los valores se pueden clasificar como homogéneos, teniendo como referencia un indicador del 10%. En caso de no cumplimiento de los criterios de calidad será necesario detener la producción y llamar a la empresa de mantenimiento para que realice los ajustes necesarios.
+La política de calidad establece que al menos el 90% de las barras debe pesar entre 14 y 18 onzas, es decir, dentro de $\pm 2$ onzas del peso nominal de 16 onzas. Además, el proceso se considera homogéneo si su coeficiente de variación no supera el 10%. También deben investigarse los posibles valores atípicos. Si alguno de estos criterios no se cumple, la producción debe detenerse para revisar y ajustar la máquina.
 
 
-Debido a que la muestra obtenida constituye una muestra representativa del proceso, el director de la empresa le pide le ayude a validar los resultados y le indique que decisión debe tomarse a partir de la información obtenida
+Decida si la producción puede continuar o debe detenerse para mantenimiento. Sustente la recomendación con la proporción de barras dentro del intervalo permitido, la variabilidad relativa y la evidencia de posibles valores atípicos.
 
 
 <br/><br/><br/>
 
 ### Problema 14 
 
-Un grupo de estudiantes de la universidad, preocupados por el incremento del uso de los vapeadores entre los jóvenes, realizan un estudio acerca de los efectos de su uso sobre los patrones de sueño. Para estudiar el problema miden el tiempo en minutos que se tarda un joven en quedarse dormido. Con el fin de tener un grupo de referencia, la observación se realiza en jóvenes que utilizan el vapeador y los que lo usan. Los resultados obtenidos fueron los siguientes
+Un grupo de estudiantes investiga la posible relación entre el uso de vapeadores y los patrones de sueño. Para ello registra el tiempo, en minutos, que tardan en dormirse 15 jóvenes que usan vapeador y 15 que no lo usan. Los resultados fueron los siguientes:
 
 ```{r}
 # Vapeadores  
@@ -453,19 +520,19 @@ cat("\n")
 ```
 
 
-De a cuerdo con los valoresa obtenidos es posible afirmar que existen diferencias en los dos grupos observados con referencia al tiempo que se requiere para quedarse dormido?
+Compare ambos grupos mediante medidas de centro, dispersión y gráficos apropiados. ¿Los datos muestran una diferencia relevante en el tiempo necesario para dormirse? Sustente la conclusión, identifique las limitaciones del estudio y evite afirmar causalidad a partir de esta comparación descriptiva.
 
 
 <br/><br/><br/>
 
 ### Problema 15   
 
-Determine el valor de verdad (verdadera - V, falsa - F) para cada una de las siguientes afirmaciones. En cada caso justifique su respuesta:
+Evalúe si cada afirmación es verdadera (V) o falsa (F). Justifique todas las respuestas y, cuando una afirmación sea falsa, proponga una versión correcta. Relacione cada respuesta con la elección adecuada de gráficos o medidas para un análisis de datos:
 
 
-1. `(  )` Al construir una gráfica barras, las frecuencia deben representarse en el eje de las ordenadas.
-2. `(  )`  El histograma, es una representación muy efectiva de las frecuencias obtenidas en una variable categórica.
-3. `(  )`  El polígono de frecuencias, es especialmente apto para comparar datos con diferentes formas.
+1. `(  )` Al construir una gráfica de barras, las frecuencias deben representarse en el eje de las ordenadas.
+2. `(  )`  El histograma es una representación muy efectiva de las frecuencias obtenidas en una variable categórica.
+3. `(  )`  El polígono de frecuencias es especialmente apto para comparar datos con diferentes formas.
 4. `(  )`  Una variable cualitativa en escala ordinal puede ser representada mediante un histograma.
 5. `(  )`  El diagrama de barras se emplea para representar datos continuos.
 6. `(  )`  La relación de las escalas en un diagrama de puntos debe ser 1:1 .
@@ -478,7 +545,7 @@ Determine el valor de verdad (verdadera - V, falsa - F) para cada una de las sig
 
 ### Problema 16
 
-Diez estudiantes que realizan practica estudiantil reciben un salario mensual durante su trabajo en miles de pesos :
+Diez estudiantes en práctica reciben los siguientes salarios mensuales, expresados en millones de pesos:
 
 
 ```{r}
@@ -487,14 +554,14 @@ x
 
 ```
 
-* Calcules la media y la mediana.
-* ¿Cual de los indicadores es más representativo de la información como indicador de tendencia central? Justifique  su respuesta.
+* Decida qué medida representa mejor el salario típico del grupo y sustente la elección contrastando la media, la mediana, la forma de los datos y la presencia o ausencia de valores extremos.
+* Explique cómo usaría esta evidencia para evaluar si la remuneración del grupo es equilibrada.
 
 <br/><br/><br/>
 
 ### Problema 17
 
-El peso de 80  artículos es de 130 kgs. Si 60 de ellos pesan en promedio 120 kgs. ¿Cual será el peso promedio de los 70 artículos restantes?
+El peso promedio de 80 artículos es 130 kg. De ellos, 60 pesan en promedio 120 kg. El responsable de almacenamiento necesita saber si los 20 artículos restantes requieren una capacidad de manejo mayor. Establezca su peso promedio a partir de la información disponible, explique por qué no es correcto promediar directamente 130 kg y 120 kg, y recomiende en cuál grupo deberían concentrarse los recursos de manejo de carga.
 
 
 <br/><br/><br/>
@@ -502,7 +569,7 @@ El peso de 80  artículos es de 130 kgs. Si 60 de ellos pesan en promedio 120 kg
 
 ### Problema 18 
 
-Construye un ejemplo específico para el caso de:
+Construya un ejemplo aplicado para cada tipo de media. En cada caso incluya datos, muestre el procedimiento como sustento, explique por qué esa media es apropiada y señale qué decisión podría apoyarse en el resultado:
 
 * Media armónica
 * Media geométrica
@@ -514,7 +581,7 @@ Construye un ejemplo específico para el caso de:
 
 ###  Problema 19 
 
-Una persona que viaja en un vehículo de una ciudad A a una ciudad B, en el viaje de ida la velocidad media es de 40 km/h y de regreso (B -> A) registra una velocidad promedio de 60 km/h. Se pueden calcular los valores de la media y mediana para el viaje completo ?
+Una persona recorre la misma distancia entre las ciudades A y B en ambos sentidos. En la ida viaja a una velocidad promedio de 40 km/h y en el regreso a 60 km/h. Para planear la duración de futuros viajes, establezca qué velocidad representa correctamente el recorrido completo y justifique el tipo de media utilizado. Evalúe si la mediana de las velocidades puede conocerse con esta información y señale qué datos adicionales serían necesarios.
 
 <br/><br/><br/>
 
@@ -523,14 +590,14 @@ Una persona que viaja en un vehículo de una ciudad A a una ciudad B, en el viaj
 ### Problema 20
 
 
-Describa la relación existente entre la media y la mediana para los siguientes casos :
+Describa la relación esperada entre la media y la mediana en cada forma de distribución:
 
 * Forma de los datos acampanada
 * Forma de los datos rectangular
 * Forma de los datos asimétrica positiva
 * Forma de los datos asimétrica negativa
 
-Realice un bosquejo de su representación gráfica y de la posición de los indicadores de centro.
+Realice un bosquejo de cada distribución y ubique las medidas de centro. Después explique cómo la forma y los valores extremos influyen en la elección de la medida más útil para tomar decisiones.
 
 <br/><br/><br/>
 
@@ -538,12 +605,21 @@ Realice un bosquejo de su representación gráfica y de la posición de los indi
 
 #### Supermercados de ventas de alimentos: 
 
-El siguiente conjunto de datos incluye información de la última semana de 100 establecimientos sobre sus ventas, costos, utilidad, número de empleados y su estrato socio-económico del barrio donde se encuentran localizados. Realiza un **análisis descriptivo** de la información suministrada, utilizando indicadores de centro, dispersión y forma y gráficos que complementen el análisis, que permitan identificar tendencias en las ventas, costos y beneficios, si existe relación entre sus indicadores y su localización, de tal forma que permitan establecer un estado inicial de las empresas para este año. 
+El conjunto de datos contiene información de la última semana de 100 supermercados: ventas, costos, utilidad, número de empleados y estrato socioeconómico del barrio donde se localizan. Elabore un **diagnóstico descriptivo** que incluya:
+
+1. clasificación de las variables y selección justificada de medidas y gráficos;
+2. análisis del centro, dispersión, forma y posibles valores atípicos de ventas, costos y utilidad;
+3. evaluación de la relación entre ventas, costos, utilidad y número de empleados;
+4. comparación de los principales indicadores entre estratos, tratando el estrato como variable ordinal;
+5. identificación de establecimientos o grupos que requieran atención; y
+6. tres recomendaciones concretas para orientar decisiones de gestión.
+
+Distinga entre asociaciones observadas y relaciones causales, y sustente cada conclusión con evidencia numérica o gráfica.
 
 
 ### Información
 
-```{r}
+```{r, eval=FALSE}
 ventas <-c(41.3, 55.1, 83.4, 61.6, 46.1, 67.4, 59.5, 77.4, 71.7, 61.6, 70.2,  64.1, 61.6, 56.6, 76.8, 65.4, 74.4, 66.4, 62.4, 66.1, 59.6, 45.6,  61.5, 59.7, 49.3, 95.2, 56.0, 75.0, 64.7, 59.3, 51.6, 44.1, 58.2, 52.5, 53.5, 56.0, 59.2, 53.7, 51.3, 59.6, 51.0, 48.7, 49.4, 94.9, 77.0, 56.2, 63.0, 62.6, 56.9, 48.5, 68.0, 50.3, 59.0, 67.6, 46.0, 57.9, 64.9, 61.0, 64.0, 66.2, 51.6, 67.0, 57.6, 68.2, 61.3, 53.7,  71.7, 59.6, 73.9, 66.1, 67.0, 55.8, 64.2, 60.3, 51.2, 68.2, 67.0,60.7, 50.5, 54.5, 54.3, 51.6, 77.1, 53.9, 62.0, 70.5, 61.1, 39.2,  61.3, 56.0, 68.9, 59.7, 53.7, 62.0, 58.4, 69.2, 67.4, 63.8, 55.1, 64.1)
 
 costos =c(35.8, 31.2, 28.7, 39.7, 39.0, 34.8, 25.5, 30.9, 30.0, 37.0, 33.3, 40.9, 38.9, 34.0, 41.5, 30.5, 39.1, 36.0, 29.1, 34.2, 34.3, 45.7, 46.2, 34.1, 39.7, 42.6, 36.8, 39.3, 27.2, 40.7, 41.5, 28.4, 38.3, 31.9, 31.0, 33.9, 39.9, 35.4, 39.8, 44.3, 32.7, 33.3, 34.3, 33.3, 36.9, 42.5, 40.2, 28.3, 30.4, 44.6, 40.7, 26.6, 27.2, 34.7, 39.5, 36.8, 34.5, 42.4, 35.4, 25.6, 43.5, 28.1, 33.0, 29.7, 44.0, 49.3, 39.9, 30.7, 37.2, 36.8, 40.5, 37.4, 25.9, 43.0, 30.2, 34.6, 36.1, 39.9, 28.5, 37.7, 32.7, 40.4, 29.6, 34.0, 34.5, 34.4, 35.8, 28.2, 32.9, 38.6, 47.9, 29.2, 28.0, 31.7, 46.0, 37.8, 38.3, 30.7, 40.7, 39.6)
@@ -558,20 +634,47 @@ datosENE =data.frame(id=1:100,ventas,costos,utilidad,empleados, estrato)
 summarytools::descr(datosENE[,2:6])
 
 ```
+<pre>
+Descriptive Statistics  
+datosENE  
+N: 100  
 
+                    costos   empleados   estrato   utilidad   ventas
+----------------- -------- ----------- --------- ---------- --------
+             Mean    35.78       15.85      3.85      24.89    61.07
+          Std.Dev     5.49        5.14      1.40       6.96     9.76
+              Min    25.50        2.00      2.00       5.90    39.20
+               Q1    31.10       13.00      3.00      20.10    54.40
+           Median    35.60       16.00      4.00      24.40    60.85
+               Q3    39.85       20.00      5.00      30.60    66.70
+              Max    49.30       26.00      6.00      36.90    95.20
+              MAD     6.38        4.45      1.48       8.08     9.12
+              IQR     8.67        7.00      2.00      10.40    12.10
+               CV     0.15        0.32      0.36       0.28     0.16
+         Skewness     0.13       -0.06      0.09      -0.34     0.73
+      SE.Skewness     0.24        0.24      0.24       0.24     0.24
+         Kurtosis    -0.70       -0.15     -1.31      -0.56     1.58
+          N.Valid   100.00      100.00    100.00     100.00   100.00
+                N   100.00      100.00    100.00     100.00   100.00
+        Pct.Valid   100.00      100.00    100.00     100.00   100.00
+</pre>
 
 <br/><br/><br/>
 
 
 ### Problema 22 
   
- Una característica de calidad importante en un proceso de llenado automático es el peso del producto. Las empresas cuidan que el producto final no tenga pesos por debajo del anunciado en su etiqueta, pues de hacerlo puede incurrir en multas y pérdida de algunos de sus clientes. Por el contrario, si el producto se empaca muy por encima del peso especificado, se estará incurriendo en sobrecostos para la empresa.  
+En un proceso de llenado automático, los paquetes con peso inferior al anunciado pueden generar incumplimientos y pérdida de clientes, mientras que el sobrellenado aumenta los costos. Por ello, la empresa debe controlar tanto el nivel como la variabilidad del peso.
    
-Una empresa que comercializa café instantáneo descafeinado, en presentación de 6.5 gramos, tiene dentro sus directrices, al comenzar el día, tomar una muestra de 50 bolsas y medir su peso. Se espera que los resultados estén entre más o menos 1.5 gramos alrededor del valor especificado en la etiqueta. Si el porcentaje de bolsas en la muestra es superior al 95 %, se da inicio al proceso. Si alcanza porcentajes entre el 85 % y 95 %, se debe llamar al ingeniero de planta para que realice los ajustes necesarios. Finalmente, si se encuentran porcentajes inferiores al 85 % se debe reportar a la empresa de mantenimiento, para que realicen ajustes mayores.  
+Una empresa comercializa café instantáneo descafeinado en paquetes de 6.5 gramos. Al comenzar el día debe medir una muestra de 50 paquetes. Se consideran aceptables los pesos entre 5.0 y 8.0 gramos, incluidos ambos límites. La regla de decisión es:
+
+* si al menos el 95% cumple, se autoriza el inicio del proceso;
+* si cumple entre el 85% y menos del 95%, interviene el ingeniero de planta; y
+* si cumple menos del 85%, se solicita mantenimiento mayor.
    
-El día de hoy se recogió información de una muestra de 50 bolsas. A continuación se presentan los datos y su representación gráfica.  
+Hoy solo se obtuvieron 44 mediciones válidas, aunque el protocolo exige 50. Los datos y su representación gráfica se presentan a continuación.
    
-   **Realice un breve análisis de la información suministrada y a partir de ella realice recomendaciones.**
+Existe evidencia suficiente para autorizar el proceso?. Sustente la recomendación con la proporción de paquetes aceptables, el centro, la dispersión, la forma y los posibles valores atípicos. Considere explícitamente el efecto de las seis mediciones faltantes y señale qué debe hacerse antes de iniciar la producción.
 
 ```{r}
    # Diagrama de tallos y hojas, peso del paquete de café instantáneo en gramos
@@ -589,12 +692,23 @@ tabla_frecuencias <- table(cut(pesos, breaks = seq(4.0, 9.0, by = 0.5), right = 
 frecuencia_acumulada <- cumsum(tabla_frecuencias)
 
 # Creación de la ojiva
-plot(seq(4.25, 8.75, by = 0.5), frecuencia_acumulada, type = "o", 
-     xlab = "Peso del paquete de café (gramos)", ylab = "Frecuencia acumulada", 
-     main = "Ojiva del Peso de Paquetes de Café Instantáneo",
-     xlim = c(4, 9), ylim = c(0, max(frecuencia_acumulada) + 5),
-     col = c03, pch = 16, las=1)
-grid()
+ojiva <- data.frame(limite = seq(4.5, 9, 0.5),
+                    frecuencia = as.numeric(frecuencia_acumulada))
+ggplot(ojiva, aes(limite, frecuencia)) +
+  geom_area(fill = c03, alpha = 0.12) +
+  geom_line(color = c03, linewidth = 1.2) +
+  geom_point(shape = 21, size = 3, color = c03, fill = "white") +
+  geom_text(aes(label = frecuencia), vjust = -0.8, color = "#243247") +
+  scale_x_continuous(breaks = seq(4.5, 9, 0.5)) +
+  scale_y_continuous(limits = c(0, 50), breaks = seq(0, 50, 10),
+                     expand = expansion(mult = c(0, 0.04))) +
+  labs(title = "Ojiva del peso de los paquetes",
+       subtitle = "Café instantáneo descafeinado",
+       x = "Límite superior del intervalo (g)", y = "Frecuencia acumulada") +
+  theme_minimal(base_size = 13) +
+  theme(plot.title = element_text(face = "bold", color = "#243247"),
+        panel.grid.minor = element_blank(),
+        axis.text = element_text(color = "#243247"))
 ```
 
 
@@ -602,7 +716,7 @@ grid()
 
 ### Problema 23  
   
-Una de las principales medidas de la calidad de servicio que ofrece una organización y sus departamentos es la rapidez con la que responde a las quejas de sus clientes. El Centro de Servicios Informáticos de la Universidad está interesado en disminuir el tiempo de atención a quejas que se presentan relacionados con el mal funcionamiento de las máquinas virtuales tanto para profesores, colaboradores como para estudiantes que realizan prácticas de investigación. Con el fin de estudiar el comportamiento de este indicador, selecciona una muestra de los tiempos de atención en horas que se presentan a continuación:
+El Centro de Servicios Informáticos de la Universidad desea reducir el tiempo de atención de quejas por fallas en máquinas virtuales utilizadas por profesores, colaboradores y estudiantes. Para evaluar el servicio seleccionó una muestra de 50 tiempos de atención, medidos en horas. La información se presenta como datos sin agrupar, diagrama de tallos y hojas y ojiva:
 
 
 <pre>
@@ -681,20 +795,20 @@ ggplot(df, aes(x, y)) +
 
 * $\sum_{i=1}^{50} (x_i - \bar{x})^2 = 336.4$
 
-La auditoría de la universidad desea conocer si el Centro Informático está cumpliendo con lineamientos establecidos por las normas para este tipo de servicios, dentro de los cuales se destacan:
+La auditoría evaluará los siguientes criterios:
 
-1. No poseer datos atípicos.
-2. No exceder las 10 horas para la atención. Solo está permitido un 5% de la muestra analizada.
-3. Tener un 80% de los tiempos por debajo de las 8 horas (que equivalen a un día laboral).
-4. Tener una distribución con asimetría positiva.
+1. No presentar valores atípicos según el criterio de 1.5 veces el rango intercuartílico.
+2. Como máximo, el 5% de las atenciones puede tardar más de 10 horas.
+3. Al menos el 80% de las atenciones debe completarse en 8 horas o menos.
+4. La distribución debe presentar asimetría positiva, condición que debe verificarse con medidas y gráficos.
 
-El responsable de la auditoría le pide revise cada uno de los lineamientos y su cumplimiento y realizar un breve informe.
+Verifique cada criterio con evidencia numérica explícita. Luego redacte un informe breve que indique cuáles se cumplen, cuál es el principal problema del servicio y qué acción de mejora debería priorizarse. Si considera que algún criterio no es útil para evaluar la calidad, señálelo y proponga uno más pertinente.
 
 <br/><br/><br/>
 
 ### Problema 24 
 
-Una entidad financiera está interesado en mejorar la eficiencia en el tiempo de procesamiento de solicitudes de préstamos. Con este fin, ha seleccionado una muestra de los tiempos de procesamiento (en horas) de 100 solicitudes recientes. Los resultados se muestran a continuación, junto con un análisis gráfico.
+Una entidad financiera desea mejorar la eficiencia del procesamiento de solicitudes de préstamo. Para establecer un diagnóstico inicial, analiza los tiempos, en horas, de 100 solicitudes recientes. Los datos simulados con semilla fija, su representación gráfica y el resumen descriptivo se presentan a continuación.
 
 ```{r}
 # Simulando los datos para tiempos de procesamiento de préstamos
@@ -707,35 +821,91 @@ stem(tiempos)
 # Imprimiendo los datos
 tiempos
 
-# Generando una gráfica simple para visualizar la distribución de los tiempos
-plot(tiempos, type = "b", main = "Distribución de Tiempos de Procesamiento de Préstamos", xlab = "Número de Solicitud", ylab = "Tiempo de Procesamiento (horas)")
+# Gráfico de líneas para visualizar la secuencia de los tiempos
+serie_tiempos <- data.frame(solicitud = seq_along(tiempos), tiempo = tiempos)
 
-summarytools::descr(tiempos)
-
+ggplot(serie_tiempos, aes(solicitud, tiempo)) +
+  geom_hline(yintercept = mean(tiempos), color = c00,
+             linewidth = 0.9, linetype = "dashed") +
+  geom_line(color = c06, linewidth = 0.75, alpha = 0.85) +
+  geom_point(aes(color = tiempo > mean(tiempos)), size = 2.1, alpha = 0.9) +
+  annotate("label", x = 99, y = mean(tiempos),
+           label = sprintf("Media: %.2f h", mean(tiempos)),
+           hjust = 1, vjust = -0.55, size = 3.5,
+           color = c00, fill = "white", label.size = 0) +
+  scale_color_manual(values = c("FALSE" = c06, "TRUE" = c01),
+    labels = c("FALSE" = "Igual o menor que la media",
+               "TRUE" = "Mayor que la media"), name = NULL) +
+  scale_x_continuous(breaks = seq(0, 100, 10),
+                     expand = expansion(mult = c(0.01, 0.02))) +
+  scale_y_continuous(breaks = seq(8, 28, 2),
+                     expand = expansion(mult = c(0.05, 0.10))) +
+  labs(title = "Tiempo de procesamiento de solicitudes de préstamo",
+       subtitle = "Cada punto representa una de las 100 solicitudes analizadas",
+       x = "Número de solicitud", y = "Tiempo de procesamiento (horas)",
+       caption = "La línea discontinua indica el tiempo promedio.") +
+  theme_minimal(base_size = 13) +
+  theme(plot.title = element_text(face = "bold", color = "#243247"),
+        plot.subtitle = element_text(color = "#5F6B7A"),
+        plot.caption = element_text(color = "#5F6B7A", hjust = 0),
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_line(color = "#DDE3EA", linewidth = 0.35),
+        axis.title = element_text(face = "bold", color = "#243247"),
+        axis.text = element_text(color = "#243247"),
+        legend.position = "top")
 ```
 
 
+```{r, eval=FALSE}
+summarytools::descr(tiempos)
 
-Criterios establecidos por el banco:
+```
+<pre>
+Descriptive Statistics  
+tiempos  
+N: 100  
 
-* No poseer tiempos de procesamiento extremadamente largos (outliers).
-* El tiempo promedio de procesamiento no debe exceder las 24 horas. Solo se permite que un 10% de las solicitudes superen este tiempo.
-* Al menos el 70% de los tiempos deben estar por debajo de las 15 horas.
-* La distribución del tiempo de procesamiento debe mostrar una tendencia hacia tiempos más cortos (simetría).
-* El coeficiente de variación (CV) no debe superar el 20%. Esto asegura que la variabilidad de los tiempos de procesamiento en relación con la media no sea excesiva.
-* No más del 5% de los tiempos debe ser menor a 6 horas. Esto evitaría tiempos de procesamiento demasiado rápidos que podrían indicar un procesamiento inadecuado o apresurado.
+                    tiempos
+----------------- ---------
+             Mean     18.36
+          Std.Dev      3.65
+              Min      8.80
+               Q1     16.00
+           Median     18.25
+               Q3     20.80
+              Max     26.70
+              MAD      3.56
+              IQR      4.80
+               CV      0.20
+         Skewness      0.06
+      SE.Skewness      0.24
+         Kurtosis     -0.22
+          N.Valid    100.00
+                N    100.00
+        Pct.Valid    100.00
 
-El director de operaciones del banco ha solicitado una revisión de estos criterios y un informe breve sobre el cumplimiento y posibles mejoras en el proceso.
+</pre>
+
+El banco estableció los siguientes criterios de desempeño:
+
+* No presentar tiempos atípicos altos según el criterio de 1.5 veces el rango intercuartílico.
+* El tiempo promedio no debe superar 24 horas y, adicionalmente, como máximo el 10% de las solicitudes puede tardar más de 24 horas.
+* Al menos el 70% de las solicitudes debe procesarse en 15 horas o menos.
+* La distribución debe ser aproximadamente simétrica y no presentar una cola pronunciada hacia tiempos altos.
+* El coeficiente de variación no debe superar el 20%.
+* Como máximo, el 5% de las solicitudes puede procesarse en menos de 6 horas, pues tiempos excepcionalmente cortos podrían requerir una revisión de calidad.
+
+Emita un concepto sobre el desempeño del proceso frente a cada criterio y susténtelo con porcentajes y medidas pertinentes. Presente una tabla de cumplimiento, identifique el criterio más crítico y recomiende acciones de mejora. Examine también el gráfico de líneas: explique qué permite observar y por qué, sin información sobre el orden temporal real de las solicitudes, no demuestra por sí solo una tendencia del proceso.
 
 <br/><br/><br/>
 
-# Practica
+# Práctica
 
 <br/>
 
 <div style="margin: 8px 0 18px 0;">
   <button id="dl-rmd" style="background:#c50;color:#fff;padding:8px 20px;border:0;border-radius:6px;cursor:pointer;font-weight:600;">
-    Descargar codigo practica_m1.Rmd
+    Descargar código practica_m1.Rmd
   </button>
 </div>
 
