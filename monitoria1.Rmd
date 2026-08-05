@@ -47,7 +47,7 @@ knitr::include_graphics("img/monitoria1.png")
 
 <br/>
 
-### Problema 1
+## Problema 1
 
 Para cada variable, indique el tipo de variable (cualitativa / cuantitativa) y su tipo de escala  (nominal, ordinal, de intervalo o de razón). 
 
@@ -75,7 +75,7 @@ Para cada variable, indique el tipo de variable (cualitativa / cuantitativa) y s
 <br/><br/><br/>
 
 
-### Problema 2
+## Problema 2
 
 Identifique el concepto estadístico descrito en cada enunciado. Cuando dos definiciones parezcan similares, señale la diferencia entre ellas y mencione en qué situación de análisis sería más apropiado utilizar cada medida.
 
@@ -119,7 +119,7 @@ Identifique el concepto estadístico descrito en cada enunciado. Cuando dos defi
 
 
 
-### Problema 3  
+## Problema 3  
 
 Indique si cada afirmación es verdadera (V) o falsa (F). **Justifique todas las respuestas**: si es falsa, corríjala; si es verdadera, explique brevemente por qué. Cuando sea pertinente, incluya evidencia numérica o un ejemplo que respalde su decisión.
 
@@ -145,7 +145,7 @@ Indique si cada afirmación es verdadera (V) o falsa (F). **Justifique todas las
 
 <br/><br/><br/>
 
-### Problema 4
+## Problema 4
 
 Para cada situación, seleccione y construya el gráfico que represente mejor la información. Justifique la elección según el tipo de variable y el objetivo del análisis. Finalmente, escriba una conclusión breve que pueda apoyar una decisión.
 
@@ -165,7 +165,7 @@ stem(x)
 <br/><br/><br/>
 
 
-### Problema 5 
+## Problema 5 
 
 Una empresa registra en libras los pesos de sus paquetes y desea reportarlos en kilogramos ($1$ kg $\simeq$ 2.2 lb). Decida si el cambio de unidad modifica la conclusión sobre la estabilidad del proceso. Sustente su respuesta mostrando cómo se transforman la media, la desviación estándar y el coeficiente de variación.
 
@@ -174,6 +174,7 @@ Una empresa registra en libras los pesos de sus paquetes y desea reportarlos en 
 
 <div class="box1 with-label">
 ### NOTA 
+
 <p>Use estas expresiones como apoyo para sustentar el análisis del cambio de unidad:</p>
 <ul>
 <li>$\displaystyle \bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_i$</li>
@@ -187,7 +188,7 @@ Una empresa registra en libras los pesos de sus paquetes y desea reportarlos en 
 <br/><br/><br/>
 
 
-### Problema 6
+## Problema 6
 
 Una compañía de jugos registró durante 40 días el número de botellas etiquetadas por una máquina. A partir del resumen generado en R, describa el nivel de producción típico, la variabilidad y la forma de la distribución. Evalúe si el proceso parece estable y señale qué información adicional necesitaría para decidir si la máquina cumple una meta de producción.
 
@@ -226,9 +227,7 @@ Referencia: punto 11, página 34, notas de Alonso.
 
 <br/><br/><br/>
 
-
-
-### Problema 7  
+## Problema 7  
 
 La Asociación de Comerciantes de Tomate del Valle del Cauca desea comparar las ventas mensuales de 30 microempresarios entre mayo y junio. Además, dispone de la clasificación del nivel tecnológico de 60 empresas de la región. Las ventas están expresadas en millones de pesos. Utilice la información para evaluar cambios en el nivel de ventas, su variabilidad y su forma:
 
@@ -322,7 +321,7 @@ Tomado de Arroyo(2012)
 
 <br/><br/><br/>
 
-### Problema 8 
+## Problema 8 
 
 Una entidad bancaria registró los tiempos de atención, en minutos, de 500 clientes. La administración afirma que la mayoría se concentra en el rango medio, entre 10 y 12 minutos. Evalúe esa afirmación mediante la distribución de clientes en tiempos bajos (menos de 10 minutos), medios (entre 10 y 12 minutos, incluidos ambos límites) y altos (más de 12 minutos). Use la media, la mediana y la forma de la distribución como evidencia complementaria. Concluya qué aspecto del servicio debería priorizar el banco.
 
@@ -348,7 +347,7 @@ legend("topright",
 <br/><br/><br/>
 
 
-### Problema 9 
+## Problema 9 
 
 En un estudio sobre seguridad vial se midió el tiempo total de frenado —tiempo de reacción más tiempo para pasar del acelerador al freno—, en milisegundos, bajo condiciones reales de conducción a 60 km/h. Para 450 observaciones se obtuvo el siguiente resumen:
 
@@ -379,9 +378,7 @@ Describa el centro, la dispersión y la forma de la distribución. Construya un 
 
 <br/><br/><br/>
 
-
-
-### Problema 10 
+## Problema 10 
 
 En un supermercado se registró el peso, en libras, de 54 paquetes de hamburguesas ($\min=0.75$; $\max=1.41$). Los datos y algunos resultados auxiliares se presentan a continuación:
 
@@ -428,8 +425,7 @@ Los cuartiles $Q_1$, $Q_2$ y $Q_3$ determinan la caja central; los bigotes permi
 
 <br/><br/><br/>
 
-
-### Problema 11 
+## Problema 11 
 
 Los puntajes de 31 estudiantes en una prueba de razonamiento deductivo se agruparon en la siguiente tabla. Complete las columnas faltantes antes de realizar el análisis:
 
@@ -458,8 +454,7 @@ A partir de la tabla completa, responda:
 
 <br/><br/><br/>
 
-
-### Problema 12 
+## Problema 12 
 
 Un laboratorio registró los tiempos de entrega, en minutos, de 12 pedidos realizados a cada uno de dos proveedores, $P_A$ y $P_B$:
 
@@ -476,7 +471,7 @@ Compare los proveedores mediante medidas de centro, dispersión y posibles valor
 <br/><br/><br/>
 
 
-### Problema 13
+## Problema 13
 
 Una fábrica de jabones de aseo personal desea evaluar la consistencia de su proceso. Para ello midió el peso, en onzas, de 50 barras de una línea de producción.
 
@@ -509,7 +504,7 @@ Decida si la producción puede continuar o debe detenerse para mantenimiento. Su
 
 <br/><br/><br/>
 
-### Problema 14 
+## Problema 14 
 
 Un grupo de estudiantes investiga la posible relación entre el uso de vapeadores y los patrones de sueño. Para ello registra el tiempo, en minutos, que tardan en dormirse 15 jóvenes que usan vapeador y 15 que no lo usan. Los resultados fueron los siguientes:
 
@@ -530,7 +525,7 @@ Compare ambos grupos mediante medidas de centro, dispersión y gráficos apropia
 
 <br/><br/><br/>
 
-### Problema 15   
+## Problema 15   
 
 Evalúe si cada afirmación es verdadera (V) o falsa (F). Justifique todas las respuestas y, cuando una afirmación sea falsa, proponga una versión correcta. Relacione cada respuesta con la elección adecuada de gráficos o medidas para un análisis de datos:
 
@@ -548,7 +543,7 @@ Evalúe si cada afirmación es verdadera (V) o falsa (F). Justifique todas las r
 
 <br/><br/><br/>
 
-### Problema 16
+## Problema 16
 
 Diez estudiantes en práctica reciben los siguientes salarios mensuales, expresados en millones de pesos:
 
@@ -564,7 +559,7 @@ x
 
 <br/><br/><br/>
 
-### Problema 17
+## Problema 17
 
 El peso promedio de 80 artículos es 130 kg. De ellos, 60 pesan en promedio 120 kg. El responsable de almacenamiento necesita saber si los 20 artículos restantes requieren una capacidad de manejo mayor. Establezca su peso promedio a partir de la información disponible, explique por qué no es correcto promediar directamente 130 kg y 120 kg, y recomiende en cuál grupo deberían concentrarse los recursos de manejo de carga.
 
@@ -572,7 +567,7 @@ El peso promedio de 80 artículos es 130 kg. De ellos, 60 pesan en promedio 120 
 <br/><br/><br/>
 
 
-### Problema 18 
+## Problema 18 
 
 Construya un ejemplo aplicado para cada tipo de media. En cada caso incluya datos, muestre el procedimiento como sustento, explique por qué esa media es apropiada y señale qué decisión podría apoyarse en el resultado:
 
@@ -583,16 +578,13 @@ Construya un ejemplo aplicado para cada tipo de media. En cada caso incluya dato
 
 <br/><br/><br/>
 
-
-###  Problema 19 
+##  Problema 19 
 
 Una persona recorre la misma distancia entre las ciudades A y B en ambos sentidos. En la ida viaja a una velocidad promedio de 40 km/h y en el regreso a 60 km/h. Para planear la duración de futuros viajes, establezca qué velocidad representa correctamente el recorrido completo y justifique el tipo de media utilizado. Evalúe si la mediana de las velocidades puede conocerse con esta información y señale qué datos adicionales serían necesarios.
 
 <br/><br/><br/>
 
-
-
-### Problema 20
+## Problema 20
 
 
 Describa la relación esperada entre la media y la mediana en cada forma de distribución:
@@ -606,9 +598,9 @@ Realice un bosquejo de cada distribución y ubique las medidas de centro. Despu�
 
 <br/><br/><br/>
 
-### Problema 21  
+## Problema 21  
 
-#### Supermercados de ventas de alimentos: 
+## Supermercados de ventas de alimentos: 
 
 El conjunto de datos contiene información de la última semana de 100 supermercados: ventas, costos, utilidad, número de empleados y estrato socioeconómico del barrio donde se localizan. Elabore un **diagnóstico descriptivo** que incluya:
 
@@ -622,7 +614,7 @@ El conjunto de datos contiene información de la última semana de 100 supermerc
 Distinga entre asociaciones observadas y relaciones causales, y sustente cada conclusión con evidencia numérica o gráfica.
 
 
-### Información
+## Información
 
 ```{r, eval=FALSE}
 ventas <-c(41.3, 55.1, 83.4, 61.6, 46.1, 67.4, 59.5, 77.4, 71.7, 61.6, 70.2,  64.1, 61.6, 56.6, 76.8, 65.4, 74.4, 66.4, 62.4, 66.1, 59.6, 45.6,  61.5, 59.7, 49.3, 95.2, 56.0, 75.0, 64.7, 59.3, 51.6, 44.1, 58.2, 52.5, 53.5, 56.0, 59.2, 53.7, 51.3, 59.6, 51.0, 48.7, 49.4, 94.9, 77.0, 56.2, 63.0, 62.6, 56.9, 48.5, 68.0, 50.3, 59.0, 67.6, 46.0, 57.9, 64.9, 61.0, 64.0, 66.2, 51.6, 67.0, 57.6, 68.2, 61.3, 53.7,  71.7, 59.6, 73.9, 66.1, 67.0, 55.8, 64.2, 60.3, 51.2, 68.2, 67.0,60.7, 50.5, 54.5, 54.3, 51.6, 77.1, 53.9, 62.0, 70.5, 61.1, 39.2,  61.3, 56.0, 68.9, 59.7, 53.7, 62.0, 58.4, 69.2, 67.4, 63.8, 55.1, 64.1)
@@ -667,7 +659,7 @@ N: 100
 <br/><br/><br/>
 
 
-### Problema 22 
+## Problema 22 
   
 En un proceso de llenado automático, los paquetes con peso inferior al anunciado pueden generar incumplimientos y pérdida de clientes, mientras que el sobrellenado aumenta los costos. Por ello, la empresa debe controlar tanto el nivel como la variabilidad del peso.
    
@@ -719,7 +711,7 @@ ggplot(ojiva, aes(limite, frecuencia)) +
 
 <br/><br/><br/>
 
-### Problema 23  
+## Problema 23  
   
 El Centro de Servicios Informáticos de la Universidad desea reducir el tiempo de atención de quejas por fallas en máquinas virtuales utilizadas por profesores, colaboradores y estudiantes. Para evaluar el servicio seleccionó una muestra de 50 tiempos de atención, medidos en horas. La información se presenta como datos sin agrupar, diagrama de tallos y hojas y ojiva:
 
@@ -811,7 +803,7 @@ Verifique cada criterio con evidencia numérica explícita. Luego redacte un inf
 
 <br/><br/><br/>
 
-### Problema 24 
+## Problema 24 
 
 Una entidad financiera desea mejorar la eficiencia del procesamiento de solicitudes de préstamo. Para establecer un diagnóstico inicial, analiza los tiempos, en horas, de 100 solicitudes recientes. Los datos simulados con semilla fija, su representación gráfica y el resumen descriptivo se presentan a continuación.
 

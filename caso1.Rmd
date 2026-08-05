@@ -107,7 +107,7 @@ beer2 &lt;- read_csv("data/beer2.csv")
 
 <br/><br/>
 
-## Base de datos
+# Base de datos
 
 <br/>
 

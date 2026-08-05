@@ -38,10 +38,15 @@ grupo016058 <- read.csv(
   "data/estudiantes_estadistica_grupo_D.csv",
   fileEncoding = "UTF-8",
   stringsAsFactors = FALSE
-)
+) |>
+  dplyr::filter(
+    !is.na(id),
+    !is.na(promedio),
+    !is.na(carrera),
+    nzchar(trimws(carrera))
+  )
 
 # Ajustar tipos de variables para el análisis
-grupo016058$grupo <- factor(rep("D", nrow(grupo016058)))
 grupo016058$carrera <- factor(grupo016058$carrera)
 
 ```

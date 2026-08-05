@@ -62,7 +62,7 @@ nf=c(4.1, 2.7, 3.1, 3.2, 3.0, 3.2, 2.0, 2.4, 1.6, 3.2, 3.1, 2.6, 2.0, 2.4, 2.8, 
 <br/><br/>
 
 
-### ¿Qué es un indicador?
+# ¿Qué es un indicador?
 
 <br/><br/>
 
@@ -93,12 +93,12 @@ Las bases de datos utilizadas se encuentran en el directorio `data/` del curso.
 
 <br/> <br/> <br/>
 
-## Tablas de frecuencia 
+# Tablas de frecuencia 
 
 
  <br/>
  
-### Tablas de frecuencia para variables cualitativas
+## Tablas de frecuencia para variables cualitativas
 
 <br/>
 <br/>
@@ -153,7 +153,7 @@ Frequencies
 
 
  
-### Tablas de frecuencia para variables cuantitativas
+## Tablas de frecuencia para variables cuantitativas
 
 Para las variables cuantitativas las tablas de frecuencias tienen una presentación diferente a la vista anteriormente. Como se trata de variables con un gran número de valores diferentes, es necesario dividirlas por intervalos.
 
@@ -217,11 +217,7 @@ as.data.frame(table(nota))
  
  <br/> <br/> <br/>
  
-
- 
- 
- 
-## Rango percentil
+# Rango percentil
 
  <br/>
  
@@ -239,7 +235,7 @@ Es un número que divide la muestra en dos partes. $x$ % de los datos de la mues
  <br/> <br/>
  
  
-### Reto : 
+## Reto : 
  
  Qué significado tiene:
  
@@ -254,7 +250,7 @@ Es un número que divide la muestra en dos partes. $x$ % de los datos de la mues
 
  <br/> <br/> <br/>
  
-### Diagrama de cajas 
+# Diagrama de cajas 
 
  <br/>
  
@@ -374,7 +370,7 @@ quantile(clientes$edad_cliente, c(.10,0.25,.50,0.75,0.90))
  
  <br/> <br/>
  
-### Resumen
+# Resumen
  
  |                |                                                            |
  |:---------------|:-----------------------------------------------------------|
@@ -386,7 +382,7 @@ quantile(clientes$edad_cliente, c(.10,0.25,.50,0.75,0.90))
  
   <br/> <br/>
   
-## Indicadores de los Datos
+# Indicadores de los Datos
 
  <br/> <br/>
  
@@ -404,9 +400,9 @@ quantile(clientes$edad_cliente, c(.10,0.25,.50,0.75,0.90))
 
  <br/> <br/>
 
-## Indicadores de Centro
+# Indicadores de Centro
 
-### Media aritmética 
+## Media aritmética 
 
  <br/>
  
@@ -432,7 +428,7 @@ Propiedades de la media :
 
  <br/> <br/>
  
-#### Ejemplo 1
+### Ejemplo 1
 
 El promedio de edad de los clientes se obtiene con:
 
@@ -443,7 +439,7 @@ cat("media : ", mean(clientes$edad_cliente,na.rm = TRUE))
 
  <br/> <br/>
 
-#### Ejemplo 2
+### Ejemplo 2
 
 El valor promedio de ingresos de los clientes se obtiene con:
 
@@ -453,7 +449,7 @@ mean(clientes$ingresos, na.rm = TRUE)
 
  <br/> <br/>
  
-#### Ejemplo 3
+### Ejemplo 3
 
 El promedio del conjunto de números enteros entre uno y diez es 5.5 
 
@@ -468,7 +464,7 @@ cat("media :",mean(x))
 
  <br/> <br/>
  
-#### Ejemplo 4
+### Ejemplo 4
 
 Surge el problema de qué se puede tener este indicador cuando uno de sus datos cambia drásticamente. Por ejemplo, si se cambia el último dato (10) por otro valor como 100, ¿qué pasaría con la media?
 
@@ -483,7 +479,7 @@ cat("media :" ,mean(x))
 
  <br/> <br/>
  
-## Mediana 
+# Mediana 
 
 **Me** :Es el número que divide la muestra en dos partes de igual proporción (50% : 50%). Es decir que corresponde a:
 
@@ -524,7 +520,7 @@ cat("media :" ,median(x))
 
  <br/> <br/>
 
-## Moda  
+# Moda  
 
 **Mo** : Dato o valor que más se repite. Es utilizada como medida de tendencia central en variables cualitativas o en cuantitativas discretas con pocos valores. En una tabla o gráfico se puede distinguir fácilmente. 
 
@@ -544,7 +540,7 @@ moda: la categoría con mayor frecuencia.
 
  <br/> <br/>
  
-## Media truncada
+# Media truncada
 
 Con el fin de evitar que los datos atípicos generen sesgos en el indicador de la media, es posible separar el 90% de los datos, quitando un 5% de los datos más pequeños y un 5% de los datos mayores. A este indicador se le llama media truncada al 10% ($\bar{x}_{_{0.10}}$).
 
@@ -557,7 +553,7 @@ mean(clientes$edad_cliente, na.rm = TRUE, trim = 0.10)
 
 <br/> <br/>
  
-## Rango medio  
+# Rango medio  
 
 $$\frac{1}{2}\Big(max(x)+min(x)\Big)$$
 
@@ -569,7 +565,7 @@ $$\frac{1}{2}\Big(max(x)+min(x)\Big)$$
 La diferencia entre el valor máximo y el mínimo corresponde al rango de la variable.
  <br/> <br/>
  
-##  Media geométrica 
+#  Media geométrica 
 
 Este indicador de tendencia central se utiliza para promediar tasa de crecimiento o de interés. Para encontrar su valor se multiplican los valores de $n$ tasas incrementadas en uno ($1+r$). A ese producto se le extrae la raíz n-esima.
 
@@ -599,7 +595,7 @@ $$\text{inflación promedio : } 7.11 \%$$
 
 <br/><br/> 
 
-##  Media armónica  
+#  Media armónica  
 
 
 $$H = \dfrac{n}{\frac{1}{x_{1}}+\frac{1}{x_{2}}+ ... + \frac{1}{x_{n}}}  $$
@@ -653,7 +649,7 @@ Hace falta otro indicador que nos oriente de cuál grupo hablamos cuando solo te
  
 # Indicadores de Dispersión
 
-## Rango
+# Rango
 
 $r = max(x) - min(x)$
 
@@ -671,7 +667,7 @@ Es importante hacer notar que si además de la media conocemos también un indic
 
  <br/> <br/>
  
-## Varianza
+# Varianza
 
 Es la medida de dispersión más utilizada en estadística y está definida por 
 
@@ -679,7 +675,7 @@ $$s^{2}=\frac{1}{n-1} \sum_{i=1}^{n} (x_{i}-\bar{x})^{2}$$
 
  <br/> <br/>
  
-### Propiedades de la varianza
+## Propiedades de la varianza
 
 + $s^{2} = \frac{1}{n} \sum x_{i}^{2}- (\bar{x})^{2}$ 
 
@@ -703,7 +699,7 @@ Sus unidades son al cuadrado y en la mayoría de los casos no es posible interpr
 
  <br/> <br/>
  
-## Desviación estándar 
+# Desviación estándar 
 
 Es la raíz cuadrada de la varianza
 
@@ -721,7 +717,7 @@ Aunque la desviación estándar reduce el problema debido a tener las mismas uni
 
  <br/> <br/>
  
-## Coeficiente de variación
+# Coeficiente de variación
 
 Nos indica qué tan grande o qué tan pequeña es la desviación estándar con respecto a su media.
 
@@ -742,7 +738,7 @@ En este caso se obtiene un valor del coeficiente de variación que indica la dis
 
 <br/>
 
-## Curtosis
+# Curtosis
 
 Se mide a través del coeficiente de curtosis que mide cuán **puntiaguda** es una distribución respecto a la curva de la distribución normal estándar.
 
@@ -780,7 +776,7 @@ rapportools::kurtosis(clientes$edad_cliente)
  
 <br/><br/> 
  
-## Asimetría o sesgo
+# Asimetría o sesgo
 
 Mide que tanto la forma de la distribución de frecuencias de los datos es simétrica o no con respecto a la media. Esta característica de los datos se mide a través del coeficiente de asimetría o sesgo.
 
@@ -932,7 +928,7 @@ d2=density(clientes$ingresos); plot(d2, col = c04, lwd = 2)
 
 ### Ejemplo
 
-#### Nivel de ansiedad
+# Nivel de ansiedad
 
 
 |               |                             |
