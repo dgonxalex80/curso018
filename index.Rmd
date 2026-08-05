@@ -1,5 +1,6 @@
 ---
 title:  " "
+pagetitle: "Curso de Estadística"
 subtitle: "Teoria de Probabilidad"
 author: "dgonzalez"
 output:

@@ -1,5 +1,6 @@
 ---
-title: <span style="color#f9ceca"> </span>  
+title: <span style="color:#f9ceca"> </span>  
+pagetitle: "Bases de datos"
 author: <span style="color:#f9ceca">dgonzalez</span> 
 subtitle: <span style="color:#f9ceca"> </span> 
 output:
@@ -7,6 +8,7 @@ output:
     toc: no
     toc_depth: 2
     toc_float: yes
+    code_folding: hide
     theme: flatly
 ---
 
@@ -42,7 +44,7 @@ grupo016058 <- read.csv(
 
 # Ajustar tipos de variables para el análisis
 
-grupo016058$grupo <- factor(grupo016058$grupo)
+grupo016058$grupo <- factor(rep("D", nrow(grupo016058)))
 grupo016058$carrera <- factor(grupo016058$carrera)
 
 ```
@@ -68,7 +70,7 @@ ggplot(conteo_carreras, aes(x = "", y = n, fill = carrera)) +
     color = "white", fontface = "bold", size = 4.2
   ) +
   coord_polar(theta = "y") +
-  scale_fill_manual(values = c(c21, c31, c11)) +
+  scale_fill_manual(values = c(c21, c31, c11, c41)) +
   labs(
     title = "Composición del grupo por programa académico",
     subtitle = "Estadística para la toma de decisiones · Grupo D · Curso 016058",
@@ -92,7 +94,7 @@ ggplot(grupo016058, aes(x = carrera, y = promedio, fill = carrera)) +
     yintercept = mean(grupo016058$promedio),
     linetype = "dashed", color = c41, linewidth = 0.8
   ) +
-  scale_fill_manual(values = c(c21, c31, c11)) +
+  scale_fill_manual(values = c(c21, c31, c11, c41)) +
   coord_flip() +
   labs(
     title = "Promedio acumulado por programa académico",

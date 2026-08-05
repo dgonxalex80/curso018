@@ -1,5 +1,6 @@
 ---
-title: <span style="color#f9ceca"> </span>  
+title: <span style="color:#f9ceca"> </span>  
+pagetitle: "Código 1.2"
 author: <span style="color:#f9ceca">dgonzalez</span> 
 subtitle: <span style="color:#f9ceca"> </span> 
 output:
@@ -70,9 +71,9 @@ A continuación se indica como realizar el proceso utilizando RStudio, bajo el s
 
 <br/><br/>
 
-<img src="img/summarytools.png" width="90">
-<img src="img/flextable.png" width="90">
-<img src="img/gt.png" width="120"> 
+<div class="paquetes-r" aria-label="Paquetes de R utilizados">
+  <span>summarytools</span><span>flextable</span><span>gt</span>
+</div> 
 
 <br/><br/>
 
@@ -209,7 +210,10 @@ Si utilizamos la función `freq` del paquete `summarytools`, la salida es una ta
 <br/>
 
 ```{r}
-summarytools::freq(ventas$Metodo_Pago, cumul = F)
+tabla_metodo <- as.data.frame(table(ventas$Metodo_Pago, useNA = "ifany"))
+names(tabla_metodo) <- c("Método de pago", "Frecuencia")
+tabla_metodo$Porcentaje <- round(100 * tabla_metodo$Frecuencia / sum(tabla_metodo$Frecuencia), 2)
+tabla_metodo
 ```
 
 <br/><br/>
@@ -242,7 +246,10 @@ En el caso de la variable Edad podríamos proceder así:
  clientes$edadR[clientes$edad_cliente>40.1 &  clientes$edad_cliente<=50]<-"4. (40 a 50 años]"
  clientes$edadR[clientes$edad_cliente>50.1 &  clientes$edad_cliente<=60]<-"5. (50 a 60 años]"
  clientes$edadR[clientes$edad_cliente>60.1]<-"6. (Más de 60 años]"
-summarytools::freq(clientes$edadR)
+tabla_edad <- as.data.frame(table(clientes$edadR, useNA = "ifany"))
+names(tabla_edad) <- c("Rango de edad", "Frecuencia")
+tabla_edad$Porcentaje <- round(100 * tabla_edad$Frecuencia / sum(tabla_edad$Frecuencia), 2)
+tabla_edad
 ```
 Esta tabla nos permite identificar los rangos de mayor frecuencia 
 
@@ -269,7 +276,10 @@ En este caso vamos a seleccionar los rangos de edad y luego construimos la tabla
 clientes_jovenes=subset(clientes, edad_cliente<30)
 breaks=seq(17,30, by=4)
 Edad.jovenes=cut(clientes_jovenes$edad_cliente, breaks)
-summarytools::freq(Edad.jovenes)
+tabla_jovenes <- as.data.frame(table(Edad.jovenes, useNA = "ifany"))
+names(tabla_jovenes) <- c("Rango de edad", "Frecuencia")
+tabla_jovenes$Porcentaje <- round(100 * tabla_jovenes$Frecuencia / sum(tabla_jovenes$Frecuencia), 2)
+tabla_jovenes
 ```
 
 <br/><br/>
@@ -337,7 +347,13 @@ Utilizando la función `descr` del paquete `summaytools` :
 
 ```{r}
 
-summarytools::descr(clientes$ingresos)
+ingresos <- clientes$ingresos[is.finite(clientes$ingresos)]
+resumen_ingresos <- data.frame(
+  Indicador = c("N", "Media", "Desviación estándar", "Mínimo", "Q1", "Mediana", "Q3", "Máximo"),
+  Valor = round(c(length(ingresos), mean(ingresos), sd(ingresos), min(ingresos),
+                  quantile(ingresos, .25), median(ingresos), quantile(ingresos, .75), max(ingresos)), 2)
+)
+resumen_ingresos
 ```
 
 
@@ -362,7 +378,17 @@ Al hacerlo se despliega la siguiente ventana
 En este caso seleccionamos  **PDF** para abrir una plantilla que nos ofrece el programa para orientar nuestros primeros pasos
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rl1xsFMxJuY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-youtube" id="video-rmarkdown">
+  <a href="https://www.youtube.com/watch?v=rl1xsFMxJuY" target="_blank" rel="noopener noreferrer" class="video-youtube-enlace">
+    <img src="https://img.youtube.com/vi/rl1xsFMxJuY/hqdefault.jpg" alt="Vista previa del video: creación de documentos R Markdown">
+    <span>▶ Ver video en YouTube</span>
+  </a>
+</div>
+<script>
+if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+  document.getElementById("video-rmarkdown").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/rl1xsFMxJuY" title="Creación de documentos R Markdown" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+}
+</script>
 
 <br/><br/><br/>
 

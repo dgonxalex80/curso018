@@ -1,7 +1,8 @@
 ---
-title: <span style="color:#bed0d8"> </span>  
-author: <span style="color:#bed0d8">dgonzalez</span> 
-subtitle: <span style="color:#bed0d8"> </span> 
+title: <span style="color:#C6EBF8"> </span>  
+pagetitle: "Sumatoria"
+author: <span style="color:#C6EBF8">dgonzalez</span> 
+subtitle: <span style="color:#C6EBF8"> </span> 
 output:
   html_document:
     toc: no
@@ -11,7 +12,6 @@ output:
     theme: flatly
     css:
       - style.css
-      - cajas.css
 ---
 
   

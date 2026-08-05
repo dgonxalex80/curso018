@@ -1,5 +1,6 @@
 ---
-title: <span style="color#f9ceca"> </span>  
+title: <span style="color:#f9ceca"> </span>  
+pagetitle: "Guía 1.2"
 author: <span style="color:#f9ceca">dgonzalez</span> 
 subtitle: <span style="color:#f9ceca"> </span> 
 output:
@@ -44,8 +45,9 @@ source("colores.R")
 knitr::include_graphics("img/guia1.png")
 ```
 
+<br/>
 
-## **Introducción**
+## Introducción
 
 El **Análisis Descriptivo** permite examinar información contenida en una base de datos, procesarla y mediante la construcción de tablas, indicadores y gráficos y con esto elementos realizar un primer análisis de la información, permitiendo así tener una primera impresión de lo que dicen los datos, con la cual se pueden construir hipótesis que luego podrán ser verificadas.
 
@@ -55,15 +57,15 @@ En esta unidad se tratará en primer lugar el resumen de información mediante t
 
 <br/><br/>
 
-## **Objetivos de la unidad**
+## Objetivos de la unidad
 
 Al finalizar esta unidad el estudiante estará en capacidad de RESUMIR e INTERPRETAR información mediante la construcción de TABLAS DE FRECUENCIA, INDICADORES DESCRIPTIVOS que permitan un correcto análisis de datos.
 
 <br/><br/>
 
-## **Duración**
+## Duración
 
-La presente unidad será desarrollada durante la segunda semana del semestre. Además del material suministrado contarán con el acompañamiento del profesor en dos sesiones (martes, jueves y viernes) y de manera asincrónica con foro de actividades académicas. Los entregables para esta unidad deberán enviarse a través de la plataforma Brightspace hasta el 3 de febrero.
+La presente unidad será desarrollada durante la segunda semana del semestre. Además del material suministrado contarán con el acompañamiento del profesor en dos sesiones y de manera asincrónica con foro de actividades académicas. Los entregables para esta unidad deberán enviarse a través de la plataforma Brightspace hasta el 11 de agosto de 2026.
 
 
 Para alcanzar los objetivos planteados se propone realizar las siguientes actividades
@@ -71,7 +73,7 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 
 <br/><br/>
 
-## **Cronograma de trabajo**
+## Cronograma de trabajo
 
 
 |Actividad121   | Descripción                    | 
@@ -79,7 +81,7 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 |Trabajo individual| **Actividad 121** - **Caso 1**: Realice las actividades consignadas en el **Caso1**, publique el informe final medianet la platarorma Publish que se ubica en la parte derecha del menú de RStudio. Coloqu el enlace URL generado en  la plataforma de Brightspace.  |
 |Recursos       |[Video indicadores estadísticos](https://youtu.be/dWVs-M7oCh4)         |
 || [Vídeo calculo indicadores con tablas de distribución](https://youtu.be/n2UCDZNncls)|
-| Fecha         | 09 de febrero  de 2026          |
+| Fecha         | 11 de agosto de 2026          |
 | Hora          | 23:59 hora local                        |
 
 <br/> 
@@ -91,13 +93,13 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 |               |Excel                |
 |               |RStudio              |
 ||Código u1.2                         |
-|Fecha          | 09 de febrero de 2029|
+|Fecha          | 11 de agosto 2026|
 |Hora           |  23:59 hora local   |
 
 
 <br/><br/>
 
-## **Criterios de evaluación**
+## Criterios de evaluación
 
 + Reconocer e interpretar las diferentes formas de resumir los datos a través de tablas de frecuencia para los casos de variables cuantitativas y para variables cualitativas.
 
@@ -109,11 +111,11 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 
 <br/><br/>
 
-## **Entregables** 
+## Entregables 
 
 | Entregable    |  Descripción                   |
 |:--------------|:-------------------------------|
 |**Actividad121.html**|  Desarrollo del Caso 1    |
 |**Actividad122.html**|  Aplicar lo aprendido en la unidad 1.2 a la base de datos seleccionada para la actividad112    |
-|Fecha          | 09 de febrero de 2026   | 
+|Fecha          | 11 de agosto de 2026   | 
 |Hora límite    | 23:59  hora  local             |

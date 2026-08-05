@@ -1,19 +1,21 @@
-"asignatura","grupo","id_curso","nombre","emplid","carrera","matriculada","cancelada","perdida","promedio"
-"Estadística para la toma de decisiones","D","016058","ANDRADE CARLOSAMA,JUAN",8978239,"Mercadeo",1,0,0,3.69
-"Estadística para la toma de decisiones","D","016058","ANGEL ANGEL,JUAN PABLO",9016025,"Administración de Empresas",1,0,0,3.87
-"Estadística para la toma de decisiones","D","016058","AYALA DIAZ,JUAN JOSE",9031022,"Administración de Empresas",1,0,0,4.30
-"Estadística para la toma de decisiones","D","016058","CARREÑO ESCOBAR,JUAN",8987287,"Administración de Empresas",1,0,0,3.62
-"Estadística para la toma de decisiones","D","016058","CERON MONTENEGRO,MANUEL",9031501,"Administración de Empresas",1,0,0,3.53
-"Estadística para la toma de decisiones","D","016058","DIAZ RIVERA,JULIANA MARIA",9011763,"Negocios Internacionales",2,0,1,3.56
-"Estadística para la toma de decisiones","D","016058","GIL SOLIS,SANTIAGO",8982495,"Administración de Empresas",2,0,1,3.30
-"Estadística para la toma de decisiones","D","016058","GOMEZ FLOREZ,ADRIAN",9016466,"Administración de Empresas",1,0,0,3.62
-"Estadística para la toma de decisiones","D","016058","GOMEZ FRANCO,JOSE",9011513,"Negocios Internacionales",1,0,0,3.59
-"Estadística para la toma de decisiones","D","016058","HERNANDEZ DEVIA,JHOAN",9012804,"Mercadeo",2,0,1,3.70
-"Estadística para la toma de decisiones","D","016058","LEMOS GIL,JUAN FELIPE",9028939,"Negocios Internacionales",1,0,0,4.42
-"Estadística para la toma de decisiones","D","016058","MADRIÑAN RODRIGUEZ",8987457,"Administración de Empresas",1,0,0,3.78
-"Estadística para la toma de decisiones","D","016058","MEJIA GONZALEZ,MARIA",8990363,"Negocios Internacionales",1,0,0,3.80
-"Estadística para la toma de decisiones","D","016058","MIRANDA RIVAS,JUAN DAVID",8976596,"Negocios Internacionales",2,0,1,3.53
-"Estadística para la toma de decisiones","D","016058","MORENO HERMANN,DAVID",8982544,"Negocios Internacionales",2,0,1,3.36
-"Estadística para la toma de decisiones","D","016058","PAVA LOPEZ,ANDREA",9016510,"Negocios Internacionales",2,0,1,4.01
-"Estadística para la toma de decisiones","D","016058","RESTREPO MARIN,NICOLE",9018758,"Negocios Internacionales",1,0,0,3.84
-"Estadística para la toma de decisiones","D","016058","RINCON MEDINA,SANTIAGO",9029173,"Negocios Internacionales",1,0,0,4.18
+id,nombre,emplid,carrera,matriculada,cancelada,perdida,promedio
+1,"ANDRADE CARLOSAMA,JUAN",1,Mercadeo,1,0,0,3.69
+2,"ANGEL ANGEL,JUAN PABLO",2,Administración de Empresas,1,0,0,3.87
+3,"AYALA DIAZ,JUAN JOSE",3,Administración de Empresas,1,0,0,4.30
+4,"CARREÑO ESCOBAR,JUAN",4,Administración de Empresas,1,0,0,3.62
+5,"CERON MONTENEGRO,MANUEL",5,Administración de Empresas,1,0,0,3.53
+6,"DIAZ RIVERA,JULIANA MARIA",6,Negocios Internacionales,2,0,1,3.56
+7,"GIL SOLIS,SANTIAGO",7,Administración de Empresas,2,0,1,3.30
+8,"GOMEZ FLOREZ,ADRIAN",8,Administración de Empresas,1,0,0,3.62
+9,"GOMEZ FRANCO,JOSE",9,Negocios Internacionales,1,0,0,3.59
+10,"HERNANDEZ DEVIA,JHOAN",9012804,Mercadeo,2,0,1,3.70
+11,"LEMOS GIL,JUAN FELIPE",1,Negocios Internacionales,1,0,0,4.42
+12,"MADRIÑAN RODRIGUEZ, GABRIEL",11,Administración de Empresas,1,0,0,3.78
+13,"MEJIA GONZALEZ,MARIA ANGELICA",12,Negocios Internacionales,1,0,0,3.80
+14,"MIRANDA RIVAS,JUAN DAVID",13,Negocios Internacionales,2,0,1,3.53
+15,"MORENO HERMANN,DAVID",14,Negocios Internacionales,2,0,1,3.36
+16,"PAVA LOPEZ,ANDREA",15,Negocios Internacionales,2,0,1,4.01
+17,"RESTREPO MARIN,NICOLE",16,Negocios Internacionales,1,0,0,3.84
+18,"RINCON MEDINA,SANTIAGO",17,Negocios Internacionales,1,0,0,4.18
+,,,,,,,
+,MARIA JOSE FORERO,,,,,,

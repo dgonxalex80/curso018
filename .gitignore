@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# Archivos de datos que superan el limite de GitHub
+data/beer2.csv
+docs/data/beer2.csv

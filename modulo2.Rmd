@@ -1,5 +1,6 @@
 ---
 title: <span style="color:#FBE8C5"> </span>  
+pagetitle: "Módulo 2"
 author: <span style="color:#FBE8C5"> dgonzalez</span>
 subtitle: <span style="color:#FBE8C5"> </span> 
 output:

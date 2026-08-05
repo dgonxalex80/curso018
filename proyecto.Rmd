@@ -1,5 +1,6 @@
 ---
 title:  " "
+pagetitle: "Proyecto de Estadística"
 subtitle: "Estadística para la toma de decisiones"
 author: "dgonzalez"
 output:

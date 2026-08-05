@@ -1,5 +1,6 @@
 ---
-title: <span style="color#f9ceca"> </span>  
+title: <span style="color:#f9ceca"> </span>  
+pagetitle: "Código 1.1"
 author: <span style="color:#f9ceca">dgonzalez</span> 
 subtitle: <span style="color:#f9ceca"> </span>  
 output:
@@ -7,7 +8,7 @@ output:
     toc: no
     toc_depth: 2
     toc_float: yes
-    code_folding: show
+    code_folding: hide
     theme: flatly
     css: style.css
 ---   
@@ -48,12 +49,12 @@ knitr::include_graphics("img/codigo1.png")
 
 + Caso formato .csv : *File /Import Dataset/From text (base)*. 
 
-<iframe width="800" height="450" src="https://www.youtube.com/embed/g8p_Rn8C6oU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-youtube"><a href="https://www.youtube.com/watch?v=g8p_Rn8C6oU" target="_blank" rel="noopener noreferrer" class="video-youtube-enlace"><span>▶ Ver video en YouTube</span></a></div>
 
 
 + Caso formato .xlsx : *File/ Import Dataset/ From Excel*. 
 
-<iframe width="800" height="450" src="https://www.youtube.com/embed/wB7zmFKRjFk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-youtube"><a href="https://www.youtube.com/watch?v=wB7zmFKRjFk" target="_blank" rel="noopener noreferrer" class="video-youtube-enlace"><span>▶ Ver video en YouTube</span></a></div>
 
  
 2. Utilizando el paquete Rcmdr y RcomdrMisc que activa una interfas de R que trabaja con menus y ventanas con un proceso parecido al anterio

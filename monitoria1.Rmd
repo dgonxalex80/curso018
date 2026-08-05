@@ -1,5 +1,6 @@
 ---
 title: " "   
+pagetitle: "Monitoría 1"
 subtitle: " " 
 author: "dgonzalez "
 output:
@@ -908,7 +909,7 @@ Emita un concepto sobre el desempeño del proceso frente a cada criterio y sust�
 <br/>
 
 <div style="margin: 8px 0 18px 0;">
-  <button id="dl-rmd" style="background:#c50;color:#fff;padding:8px 20px;border:0;border-radius:6px;cursor:pointer;font-weight:600;">
+  <button id="dl-rmd" style="background:#7A6DB2;color:#fff;padding:8px 20px;border:0;border-radius:6px;cursor:pointer;font-weight:600;">
     Descargar código practica_m1.Rmd
   </button>
 </div>

@@ -1,5 +1,6 @@
 ---
-title: <span style="color#f9ceca"> </span>  
+title: <span style="color:#f9ceca"> </span>  
+pagetitle: "Introducción a R"
 author: <span style="color:#f9ceca">dgonzalez</span> 
 subtitle: <span style="color:#f9ceca"> </span> 
 output:
@@ -276,7 +277,7 @@ grafica=function(x,color){
 }
 
 z=table(y) # generación de tabla de datos
-grafica(z,"#899DB9")  # evalúa la función en los datos z y color rojo
+grafica(z,c03)  # evalúa la función en los datos z y color rojo
 ```
 
 
@@ -327,7 +328,7 @@ Para instalar un paquete lo podemos hacer de dos formas :
 
 <center>
 
-<iframe width="800" height="450" src="https://www.youtube.com/embed/D5MfQu__FJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-youtube"><a href="https://www.youtube.com/watch?v=D5MfQu__FJU" target="_blank" rel="noopener noreferrer" class="video-youtube-enlace"><span>▶ Ver video en YouTube</span></a></div>
 
 
 </center>
@@ -342,7 +343,7 @@ install.packages("ggplot2")
 
 <center>
 
-<iframe width="800" height="450" src="https://www.youtube.com/embed/4KY2xFm05JA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-youtube"><a href="https://www.youtube.com/watch?v=4KY2xFm05JA" target="_blank" rel="noopener noreferrer" class="video-youtube-enlace"><span>▶ Ver video en YouTube</span></a></div>
 
 
 </center>
