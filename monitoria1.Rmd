@@ -380,7 +380,7 @@ Describa el centro, la dispersión y la forma de la distribución. Construya un 
 
 ## Problema 10 
 
-En un supermercado se registró el peso, en libras, de 54 paquetes de hamburguesas ($\min=0.75$; $\max=1.41$). Los datos y algunos resultados auxiliares se presentan a continuación:
+En un supermercado se registró el peso, en libras, de 54 paquetes de hamburguesas (`min=0.75` ; `max=1.41`). Los datos y algunos resultados auxiliares se presentan a continuación:
 
 ```{r, echo=FALSE}
 peso=c(1.08,0.99,0.97,1.18,1.41,1.28,0.83,1.06,1.14,1.38,
