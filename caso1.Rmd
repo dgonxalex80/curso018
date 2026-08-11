@@ -1,5 +1,6 @@
 ---
 title: " "
+pagetitle: "Caso 1 — Estadística para la toma de decisiones"
 subtitle: " "
 author: "dgonzalez "
 output:

@@ -1,8 +1,7 @@
 ---
-title: <span style="color:#f9ceca"> </span>  
-pagetitle: "Recursos 1.3"
-author: <span style="color:#f9ceca">dgonzalez</span> 
-subtitle: <span style="color:#f9ceca"> </span> 
+title: "Visualización de datos con R"
+subtitle: "Estadística para la toma de decisiones"
+author: "dgonzalez"
 output:
   html_document:
     toc: no
@@ -10,7 +9,10 @@ output:
     toc_float: yes
     code_folding: hide
     theme: flatly
+    css: style.css
+    self_contained: false
 ---
+
         
 
 
@@ -18,7 +20,7 @@ output:
 
 
 # colores
-source("colores.R")
+source("init.R")
 
 
 knitr::opts_chunk$set(comment = NA)
@@ -34,6 +36,33 @@ library(tidyverse)
 
 # colores
 source("colores.R")
+
+# Paleta categórica de cuatro colores principales
+paleta4 <- c(c11, c21, c31, c41)
+
+# Identidad visual del sitio para todas las visualizaciones
+paleta_curso <- setNames(
+  c(c11, c21, c31, c41, c51, c61, c71),
+  c("Naranja", "Coral", "Azul", "Azul petróleo", "Verde menta",
+    "Lavanda", "Turquesa")
+)
+paleta_curso_clara <- c(c12, c22, c32, c42, c52, c62, c72)
+
+# Tema reutilizable: fondo limpio, tipografía legible y títulos alineados
+tema_curso <- function(base_size = 12) {
+  theme_minimal(base_size = base_size) +
+    theme(
+      plot.title.position = "plot",
+      plot.title = element_text(face = "bold", color = c41, size = rel(1.25)),
+      plot.subtitle = element_text(color = "#4B5563"),
+      plot.caption = element_text(color = "#6B7280", hjust = 0),
+      axis.title = element_text(face = "bold", color = c41),
+      panel.grid.minor = element_blank(),
+      panel.grid.major.x = element_blank(),
+      legend.position = "bottom",
+      legend.title = element_text(face = "bold")
+    )
+}
 
 
 Visitantes <- read_csv("data/Visitantes.csv")
@@ -56,7 +85,7 @@ knitr::include_graphics("img/recurso1.png")
 
 
 
-# Introducción
+## **Introducción**
 
 >Una gráfica o una representación gráfica o un gráfico, es un tipo de representación de datos, generalmente cuantitativos, mediante recursos visuales (líneas, vectores, superficies o símbolos), para que se manifieste visualmente la relación matemática o correlación estadística que guardan entre sí.
 
@@ -64,11 +93,9 @@ Wikipedia
 
 En esta unidad vamos a revisar cómo elegir y construir gráficos que apoyen el análisis en administración y mercadeo. La idea es que cada visualización responda a una pregunta concreta (por ejemplo: ¿qué producto vende más?, ¿cómo se comporta la demanda en el tiempo?, ¿qué segmentos son diferentes?) y no sea solo un adorno.
 
-<br/><br/>
+## Paquetes de R para gráficos
 
-# Paquetes de R para gráficos
-
-R posee una serie de paquetes construido para la visualización de datos que hacen que tengan una excelente presentación. Empezando por funciones del núcleo base, hasta paquetes que elaboran gráficos interactivos
+R posee numerosos paquetes para visualizar datos con excelente presentación: desde las funciones del núcleo base hasta bibliotecas que producen gráficos interactivos.
 
 En el trabajo profesional, el objetivo es comunicar hallazgos a equipos y directivos. Por eso aquí verás opciones desde gráficos rápidos en R base hasta alternativas más flexibles e interactivas, útiles para reportes ejecutivos y tableros.
 
@@ -78,12 +105,10 @@ En el trabajo profesional, el objetivo es comunicar hallazgos a equipos y direct
 <img src="img/highcharter.png" width="80">
 <img src="img/shiny.png" width="80">
 <img src="img/plotly.png" width="80">
-<img src="img/dashboard.png" width="80">
+<img src="img/flexdashboard_logo.png" width="80">
 
 
-<br/><br/>
-
-# Paquetes de R para gráficos y soluciones gráficas
+## Paquetes de R para gráficos y soluciones gráficas
 
 | Categoría | Paquetes (ejemplos) | ¿Para qué sirven? |
 |---|---|---|
@@ -95,7 +120,7 @@ En el trabajo profesional, el objetivo es comunicar hallazgos a equipos y direct
 | Visualizaciones “especiales” | `corrplot`, `ggcorrplot`, `pheatmap`, `ComplexHeatmap`, `treemapify`, `waffle` | Correlaciones, heatmaps avanzados, treemaps, gráficos waffle |
 
 
-Elegir el gráfico adecuado es muy importante pues existen diferentes alternativos  y se debe escoger el apropiado para representar los datos. El tipo de dato determina el tipo de grafico asi:
+Elegir el gráfico adecuado es tan importante como construirlo. La decisión depende del tipo de variable, la pregunta de análisis y el público al que se dirige.
 
 Antes de graficar, identifica la variable principal (cualitativa o cuantitativa) y el objetivo del análisis (comparar, describir distribución, identificar tendencias, etc.). Esa decisión guía el tipo de gráfico.
 
@@ -106,12 +131,22 @@ En términos prácticos, los gráficos se pueden agrupar según la pregunta que 
 - **Distribución**: histogramas, densidades y cajas para entender cómo se dispersan los datos.
 - **Relación**: dispersión para ver asociaciones entre dos variables (precio vs. demanda).
 - **Evolución en el tiempo**: líneas o series de tiempo para observar tendencias y estacionalidad.
+- **Jerarquía o composición con muchas categorías**: treemap o barras apiladas.
+- **Patrones en dos dimensiones**: mapas de calor para cruces como día y hora.
+- **Indicadores frente a una meta**: bullet chart o barras con una línea de referencia.
+
+| Pregunta | Gráfico recomendado | Evita |
+|---|---|---|
+| ¿Qué categoría tiene mayor valor? | Barras ordenadas o lollipop | Tortas con muchas categorías |
+| ¿Cómo cambia una métrica en el tiempo? | Línea | Barras para series largas |
+| ¿Cómo se distribuyen los valores? | Histograma, densidad o violín | Mostrar solo el promedio |
+| ¿Existe relación entre dos variables? | Dispersión | Ejes truncados sin advertencia |
+| ¿Dónde se concentran dos variables categóricas? | Mapa de calor | Tablas extensas sin jerarquía visual |
+| ¿El lector necesita explorar detalles? | Gráfico o tabla interactiva | Interacción sin instrucciones |
 
 También es clave considerar el público. Si el gráfico va dirigido a directivos o clientes, prioriza claridad y mensajes clave. Si es para análisis técnico, puedes incluir más detalle (como distribución o valores atípicos).
 
-<br/><br/>
-
-### Ejemplo 
+Ejemplos aplicados:
 
 - Comparación: ventas por línea de producto en un trimestre.
 - Composición: participación de mercado por marca en un sector.
@@ -212,7 +247,7 @@ knitr::include_graphics("img/graficos.png")
 
 <br/><br/>
 
-## Gráficos variables cualitativas con R base
+### Gráficos variables cualitativas con R base
 
 Gráfico de tortas
 
@@ -235,19 +270,19 @@ pie(t, labels=labs, main=" Participación eventos Medio Universitario",
 
 <br/><br/>
 
-## Diagrama de barras
+### **Diagrama de barras**
 
 Las barras permiten comparar categorías con facilidad. En mercadeo se usan, por ejemplo, para comparar niveles de satisfacción o respuestas a encuestas por opciones.
 
 ```{r, fig.height=6}
 ev=c(4,  8, 12, 43, 32)
 names(ev)=c("Muy regular", "Regular", "Bueno", "Muy bueno","Excelente")
-barplot(ev, col=paleta_azul[1:5], main = "Evaluación proceso de inducción")
+barplot(ev, col = paleta_curso[1:5], main = "Evaluación del proceso de inducción")
 ```
 
 <br/><br/>
 
-## Diagrama de barras dos variables
+### **Diagrama de barras dos variables**
 
 Cuando se cruzan dos variables categóricas, las barras agrupadas permiten comparar combinaciones (p. ej., tipo de producto vs. canal). Esto ayuda a detectar patrones por segmento.
 
@@ -267,13 +302,13 @@ barplot(
 
 <br/><br/>
 
-## Gráficas variables cuantitativas con R base
+### Gráficas variables cuantitativas con R base
 
 En variables numéricas nos interesa describir la distribución, la tendencia y la dispersión. Los siguientes gráficos ayudan a responder preguntas como: ¿hay valores atípicos?, ¿la distribución es simétrica?, ¿existen agrupaciones?
 
 <br/><br/>
 
-## Diagrama de árbol
+### Diagrama de árbol
 
 El diagrama de tallos y hojas permite ver valores individuales y su frecuencia sin perder detalle. Es una buena alternativa cuando el conjunto de datos no es muy grande.
 
@@ -286,7 +321,7 @@ Este diagrama ordena los datos y permite identificar rápidamente el mínimo, el
 
 <br/><br/>
 
-## Histograma
+### Histograma
 
 El histograma resume la distribución de una variable. En contextos de negocio puede servir para ver la dispersión de tiempos de entrega o el rango de ventas por cliente.
 
@@ -299,9 +334,11 @@ h1
 ```
 
 
+
+
 <br/><br/>
 
-## Diagrama de densidad
+### Diagrama de densidad
 
 La densidad muestra la forma general de la distribución suavizada. Es útil para comparar rápidamente perfiles de consumo o niveles de gasto.
 
@@ -312,7 +349,7 @@ plot(density(nf), main="Distribución del ticket promedio de clientes", col=c21,
 
 <br/><br/>
   
-## Diagrama de cajas
+### **Diagrama de cajas**
 
 El boxplot resume mediana, cuartiles y valores atípicos. Es ideal para comparar desempeño entre productos, tiendas o periodos.
 
@@ -324,7 +361,7 @@ abline(h=3, col=c41)
   
 <br/><br/>
 
-## Diagrama de cajas
+### **Diagrama de cajas**
 
 Aquí se compara la distribución por grupos. Esta lógica es muy útil para comparar resultados por canal, sede, segmento o región.
 
@@ -341,7 +378,7 @@ abline(h=4, col=c11, lwd=2)
 
 <br/><br/>
 
-## Diagrama de dispersión
+### **Diagrama de dispersión**
 
 Este gráfico permite analizar la relación entre dos variables numéricas. En administración es clave para explorar asociaciones como inversión publicitaria vs. ventas.
 
@@ -356,7 +393,7 @@ grid()
 
 <br/><br/>
 
-## Gráfica de series de tiempo
+### **Gráfica de series de tiempo**
 
 Las series de tiempo muestran el comportamiento a lo largo de meses o años. Son fundamentales para analizar tendencias, estacionalidad y cambios en la demanda.
 
@@ -367,7 +404,7 @@ plot(ventas_ts, main="Ventas mensuales de la compañía", ylab = "Ventas (millon
 
 <br/><br/>
 
-## Resumen
+### **Resumen**
 
 El siguiente bloque resume varios tipos de gráficos en una sola vista. Úsalo como referencia rápida de qué gráfico elegir según el tipo de variable y el objetivo del análisis.
 
@@ -392,7 +429,7 @@ par(mfrow=c(1, 1))
 <br/><br/>
 
 
-# Gráficos con ggplot2
+## **Gráficos con ggplot2**
 
 `ggplot2` es el paquete más usado en R para visualización. Su lógica por capas facilita construir gráficos claros y consistentes, lo cual es muy útil para reportes académicos y corporativos.
 
@@ -414,14 +451,13 @@ par(mfrow=c(1, 1))
 
 <br/><br/>
 
-###  gráfico = data + aesthetics + geometries + facets + statistics + coordinates + themes
+####  gráfico = data + aesthetics + geometries + facets + statistics + coordinates + themes
 
 
 <br/><br/>
 
 
-### Primer paso:  
-#### Instalar y cargar la libreria
+#### Primer paso:  **Instalar y cargar la libreria**
 
 Primero instalamos y cargamos la librería. Esto se hace una sola vez por equipo (instalación) y luego se carga en cada sesión de trabajo.
 
@@ -444,15 +480,14 @@ library(ggplot2)
 
 </br></br>
 
-### Segundo paso : 
-#### Declarar la base de datos y las varibles
+#### Segundo paso: **Declarar la base de datos y las variables**
 
 Aquí definimos la base y las variables que vamos a comparar. En este ejemplo, relacionamos inversión en pauta y ventas, segmentando por canal.
 
 ```{r,fig.height=5}
 campanas <- tibble(
   inversion = c(8, 10, 12, 15, 18, 20, 22, 25, 28, 30, 35, 40),
-  ventas = c(98, 106, 140, 111, 150, 132, 148, 138, 150, 207, 183, 215),
+  ventas = c(95, 102, 110, 128, 133, 141, 150, 162, 170, 178, 191, 205),
   canal = factor(c("Digital", "Digital", "Retail", "Retail", "Mayorista", "Digital",
                    "Retail", "Mayorista", "Digital", "Retail", "Mayorista", "Digital"))
 )
@@ -465,8 +500,7 @@ p
 
 </br></br>
 
-### Tercer paso : 
-#### Crear grafico base con las diferentes geometrías
+#### Tercer paso : **Crear grafico base** con las diferentes geometrías
 
 Con la geometría definimos el tipo de gráfico. El `geom_point()` crea el diagrama de dispersión, muy usado para visualizar relaciones entre variables.
 
@@ -488,8 +522,7 @@ p
 </br></br>
 
 
-### Cuarto paso : 
-#### Agregar caracteristicas adicionales
+#### Cuarto paso: **Agregar características adicionales**
 
 Se pueden incluir colores, tamaños y transparencia para resaltar grupos o categorías. Esto ayuda a hacer comparaciones por segmentos.
 
@@ -505,9 +538,7 @@ p
 </br></br>
 
 
-### Sexto paso : 
-Agregar títilo,  etiquetas a los ejes  leyenda aclararoria
-
+#### Quinto paso: **Agregar título, etiquetas a los ejes y leyenda**
 
 Los títulos y etiquetas convierten un gráfico técnico en uno comunicativo. En contextos de negocio, esto facilita que el lector entienda el mensaje sin leer el código.
 
@@ -525,8 +556,7 @@ p
 
 </br></br>
 
-### Septimo paso : 
-#### Agregar una línea de tendencia
+#### Sexto paso: **Agregar una línea de tendencia**
 
 La línea de tendencia resume la relación general entre las variables. Es útil para explicar patrones de crecimiento o caída en términos gerenciales.
 
@@ -537,13 +567,12 @@ p
 
 </br></br>
 
-### Octavo paso : 
-#### Agreagar un tema o fondo
+#### Séptimo paso: **Agregar un tema o fondo**
 
 El tema define el estilo visual. Un tema limpio mejora la legibilidad, especialmente en presentaciones o informes.
 
 ```{r}
-p <- p + theme_minimal(base_size = 14)
+p <- p + tema_curso(base_size = 14)
 p
 ```
 
@@ -551,8 +580,7 @@ p
 
 </br></br>
 
-### Noveno paso : 
-#### Ajustar la escala de colores
+### Octavo paso: **Ajustar la escala de colores**
 
 La escala de color debe ser coherente y fácil de interpretar. En dashboards o reportes, colores consistentes ayudan a comparar gráficos entre sí.
 
@@ -562,7 +590,7 @@ library(ggplot2)
 # Crear el gráfico desde cero
 p <- ggplot(campanas, aes(x = inversion, y = ventas, color = canal)) +
   geom_point(size = 4, alpha = 0.7) +  # Agregar puntos
-  scale_color_brewer(palette = "Set1") +  # Aplicar escala de color discreta
+  scale_color_manual(values = paleta_curso) +  # Paleta oficial del sitio
   labs(
     title = "Relación entre inversión y ventas",
     subtitle = "Clasificación por canal comercial",
@@ -570,7 +598,7 @@ p <- ggplot(campanas, aes(x = inversion, y = ventas, color = canal)) +
     y = "Ventas (millones COP)",
     color = "Canal"
   ) +
-  theme_minimal(base_size = 12)
+  tema_curso(base_size = 12)
 
 # Mostrar el gráfico
 p
@@ -582,7 +610,7 @@ p
 </br></br>
 
 
-# Otros gráficos
+## Otros gráficos
 
 A continuación se muestran ejemplos adicionales para ampliar el repertorio. La idea es que puedas reconocer qué gráfico usar según la pregunta del análisis.
 
@@ -594,7 +622,7 @@ ggplot(data, aes(x=linea_producto, y=frecuencia)) +
   geom_bar(stat="identity", fill=c11)+
   geom_text(aes(label=frecuencia), vjust=2.5, color="white", size=4)+
   labs(x = "Línea de producto", y = "Ventas (miles de unidades)") +
-  theme_minimal()
+  tema_curso()
 ```
 
 
@@ -605,8 +633,8 @@ ggplot(data, aes(x=linea_producto, y=frecuencia)) +
 set.seed(123)
 df_ticket <- tibble(ticket = rlnorm(500, meanlog = log(90), sdlog = 0.35))
 ggplot(df_ticket, aes(ticket)) +
-       geom_histogram(bins = 7,fill=c11, color=c13, alpha=0.9)+
-       theme_minimal() +
+       geom_histogram(bins = 7, fill = c11, color = c41, alpha = 0.9) +
+       tema_curso() +
        labs(x = "Ticket promedio (miles COP)", y = "frecuencia absoluta") +
        ggtitle("Distribución del ticket de compra")
 
@@ -623,21 +651,105 @@ df_canal <- tibble(
 )
 ggplot(df_canal, aes(x=ticket, y=canal)) +
   geom_boxplot(fill=c(c12,c32,c42),  # color de relleno
-               color=c2,    # color de lineas
+               color = c41,    # color de lineas
                alpha=0.5)+
   geom_point(color=c11,alpha=0.2) +
-  labs(x = "Ticket promedio (miles COP)", y = "Canal")
+  labs(x = "Ticket promedio (miles COP)", y = "Canal") +
+  tema_curso()
 ```
 
 </br></br>
 
-# Gráficos con plotly
+## Visualizaciones modernas para decisiones
+
+Los gráficos modernos no tienen que ser complejos. Deben reducir ruido, dirigir la atención al hallazgo y permitir explorar detalles cuando esa interacción aporte valor. Los siguientes ejemplos conservan la identidad cromática del sitio.
+
+### Lollipop: comparación compacta
+
+El gráfico lollipop es una alternativa ligera a las barras. Funciona bien para rankings ejecutivos cuando interesa destacar la posición y el valor de cada categoría.
+
+```{r lollipop-moderno, fig.height=4.8}
+ranking <- tibble(
+  producto = c("Aseo", "Bebidas", "Snacks", "Hogar", "Tecnología", "Mascotas"),
+  ventas = c(48, 59, 65, 41, 36, 28)
+) |>
+  arrange(ventas) |>
+  mutate(producto = factor(producto, levels = producto))
+
+ggplot(ranking, aes(ventas, producto)) +
+  geom_segment(aes(x = 0, xend = ventas, yend = producto),
+               linewidth = 1.4, color = c32) +
+  geom_point(size = 4.5, color = c31) +
+  geom_text(aes(label = ventas), hjust = -0.8, color = c41, fontface = "bold") +
+  scale_x_continuous(expand = expansion(mult = c(0, .1))) +
+  labs(
+    title = "Ventas por línea de producto",
+    subtitle = "Ranking de unidades vendidas",
+    x = "Miles de unidades", y = NULL,
+    caption = "Fuente: datos simulados"
+  ) +
+  tema_curso()
+```
+
+### Mapa de calor: concentración de actividad
+
+Un mapa de calor revela patrones en dos dimensiones. Aquí permite detectar los momentos de mayor tráfico sin obligar al lector a revisar una tabla extensa.
+
+```{r mapa-calor, fig.height=4.8}
+set.seed(123)
+trafico <- expand_grid(
+  dia = factor(c("Lun", "Mar", "Mié", "Jue", "Vie"),
+               levels = rev(c("Lun", "Mar", "Mié", "Jue", "Vie"))),
+  hora = 8:18
+) |>
+  mutate(visitas = round(40 + 35 * exp(-((hora - 13)^2) / 10) +
+                          if_else(dia == "Vie", 18, 0) + rnorm(n(), 0, 6)))
+
+ggplot(trafico, aes(hora, dia, fill = visitas)) +
+  geom_tile(color = "white", linewidth = .8) +
+  scale_fill_gradientn(colors = c(c42, c31, c61), name = "Visitas") +
+  scale_x_continuous(breaks = seq(8, 18, 2)) +
+  labs(
+    title = "Tráfico digital por día y hora",
+    subtitle = "Los tonos intensos indican mayor actividad",
+    x = "Hora", y = NULL, caption = "Fuente: datos simulados"
+  ) +
+  tema_curso()
+```
+
+### Tabla interactiva: detalle bajo demanda
+
+Cuando el lector necesita buscar, ordenar o filtrar registros, una tabla interactiva complementa al gráfico. La búsqueda y la paginación evitan sobrecargar la página.
+
+```{r tabla-interactiva, message=FALSE, warning=FALSE}
+library(DT)
+
+datatable(
+  campanas,
+  rownames = FALSE,
+  filter = "top",
+  options = list(pageLength = 6, dom = "ftip", autoWidth = TRUE),
+  colnames = c("Inversión (millones COP)", "Ventas (millones COP)", "Canal")
+) |>
+  formatStyle(
+    "canal",
+    color = "white",
+    backgroundColor = styleEqual(levels(campanas$canal), unname(paleta_curso[1:3]))
+  )
+```
+
+<div class="note-box">
+<div class="note-box-title">Cuándo usar interactividad</div>
+
+Úsala cuando el lector necesite comparar puntos, consultar valores exactos, filtrar categorías o ampliar un periodo. Para informes impresos o para comunicar un único hallazgo, una figura estática bien anotada suele ser más efectiva.
+</div>
+
+## **Gráficos con plotly**
 
 `plotly` permite convertir gráficos en interactivos. Esto es útil para presentaciones donde el usuario puede pasar el mouse y ver detalles sin saturar la pantalla.
 
-```{r, eval=FALSE}
-# Instalar paquetes si es necesario
-# install.packages("plotly")
+```{r plotly-interactivo, message=FALSE, warning=FALSE}
+# install.packages("plotly") # ejecutar una sola vez si fuera necesario
 
 # Cargar librerías necesarias
 library(ggplot2)
@@ -646,7 +758,7 @@ library(plotly)
 # Crear base ejemplo para campañas
 campanas <- tibble(
   inversion = c(8, 10, 12, 15, 18, 20, 22, 25, 28, 30, 35, 40),
-  ventas = c(98, 106, 140, 111, 150, 132, 148, 138, 150, 207, 183, 215),
+  ventas = c(95, 102, 110, 128, 133, 141, 150, 162, 170, 178, 191, 205),
   canal = factor(c("Digital", "Digital", "Retail", "Retail", "Mayorista", "Digital",
                    "Retail", "Mayorista", "Digital", "Retail", "Mayorista", "Digital"))
 )
@@ -661,7 +773,7 @@ p <- ggplot(campanas, aes(
   )
 )) +
   geom_point(size = 2, alpha = 0.7) +  # Agregar puntos
-  scale_color_brewer(palette = "Set1") +  # Escala de color
+  scale_color_manual(values = paleta_curso) +  # Paleta oficial del sitio
   labs(
     title = "Relación entre inversión y ventas",
     subtitle = "Datos de campañas comerciales",
@@ -669,10 +781,12 @@ p <- ggplot(campanas, aes(
     y = "Ventas (millones COP)",
     color = "Canal"
   ) +
-  theme_minimal(base_size = 14)
+  tema_curso(base_size = 14)
 
 # Convertir el gráfico de ggplot2 a un gráfico interactivo con Plotly
-p_interactivo <- ggplotly(p, tooltip = "text")
+p_interactivo <- ggplotly(p, tooltip = "text") |>
+  layout(legend = list(orientation = "h", x = 0, y = -0.2)) |>
+  config(displaylogo = FALSE, responsive = TRUE)
 
 # Mostrar el gráfico interactivo
 p_interactivo
@@ -686,7 +800,7 @@ https://gganimate.com/
 [ggplot2 resumen](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
 
 
-# Gráficos con highcharter
+## **Gráficos con highcharter**
 
 `highcharter` es otra opción para gráficos interactivos con estética profesional. Suele usarse en tableros ejecutivos por su estilo limpio y opciones de personalización.
 
@@ -702,13 +816,14 @@ library(dplyr)
 # Crear base para campañas comerciales
 campanas <- tibble(
   inversion = c(8, 10, 12, 15, 18, 20, 22, 25, 28, 30, 35, 40),
-  ventas = c(98, 106, 140, 111, 150, 132, 148, 138, 150, 207, 183, 215),
+  ventas = c(95, 102, 110, 128, 133, 141, 150, 162, 170, 178, 191, 205),
   canal = factor(c("Digital", "Digital", "Retail", "Retail", "Mayorista", "Digital",
                    "Retail", "Mayorista", "Digital", "Retail", "Mayorista", "Digital"))
 )
 
 # Crear gráfico interactivo con highcharter
 hchart(campanas, "scatter", hcaes(x = inversion, y = ventas, group = canal, name = canal)) %>%
+  hc_colors(colors = unname(paleta_curso[1:3])) %>%
   hc_title(text = "Relación entre inversión y ventas") %>%
   hc_subtitle(text = "Datos de campañas comerciales por canal") %>%
   hc_xAxis(title = list(text = "Inversión (millones COP)")) %>%
@@ -727,7 +842,7 @@ hchart(campanas, "scatter", hcaes(x = inversion, y = ventas, group = canal, name
 
 <br/><br/>
 
-# Estética en la visualización
+## **Estética en la visualización**
 
 Además de la elección del gráfico, el diseño visual influye en la interpretación. Una buena estética mejora la comprensión y evita confusiones en la lectura de resultados.
 
@@ -758,7 +873,7 @@ La dimensión (1D, 2D, 3D) se refiere a la cantidad de dimensiones que se utiliz
 
 <br/><br/>
 
-### Formas
+#### **Formas**
 
 Es posible utilizar circulos, cuadrados, triangulos y en general figuras geométricas para resaltar puntos que represente valores numéricos en un plano 2D y de esta forma representar una secuencia o tendencia de la información.
 
@@ -771,7 +886,7 @@ knitr::include_graphics("img/formas.png")
 <br/><br/>
 
 
-### Paletas
+#### **Paletas**
 
 Las paletas ayudan a mantener consistencia y a diferenciar categorías. En mercadeo, una paleta bien elegida refuerza la identidad visual del informe.
 
@@ -784,7 +899,7 @@ Tomada de Pinteres
 
 </br></br>
 
-### Normas APA 
+## **Normas APA** 
 
 En trabajos académicos y corporativos es clave seguir normas de presentación. Esto asegura que los gráficos sean claros, comparables y bien documentados.
 
@@ -831,7 +946,7 @@ Usa el color solo cuando aporte información. Evita combinaciones que dificulten
 
 </br></br>
 
-### Ejemplos
+## **Ejemplos**
 
 ```{r}
 set.seed(123)
@@ -844,7 +959,7 @@ ggplot(ventas_dia, aes(x = ventas)) +
     y = "Frecuencia",
     caption = "Fuente: Datos simulados de ventas"
   ) +
-  theme_minimal()
+  tema_curso()
 ```
 
 </br></br>
@@ -858,15 +973,15 @@ camp <- tibble(
   ventas = 65 + 8.5 * inversion + rnorm(120, 0, 30)
 )
 ggplot(camp, aes(x = inversion, y = ventas)) +
-  geom_point(color = "#245B89", size = 2, alpha = 0.7) +
-  geom_smooth(method = "lm", se = FALSE, color = "#3B9AC4", linetype = "dashed") +
+  geom_point(color = c41, size = 2, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, color = c11, linetype = "dashed") +
   labs(
     title = "Relación entre inversión publicitaria y ventas",
     x = "Inversión (millones COP)",
     y = "Ventas (millones COP)",
     caption = "Fuente: Datos simulados de campañas"
   ) +
-  theme_minimal()
+  tema_curso()
 
 ```
 
@@ -908,8 +1023,8 @@ library(ggplot2)
 library(ggiraph)
 par(mar=c(5,16,4,2)+0.1)
 p <- ggplot(campanas, aes(inversion, ventas, tooltip = canal)) +
-  geom_point_interactive(size=2) +
-  theme_minimal()
+  geom_point_interactive(size = 3, color = c31) +
+  tema_curso()
 
 girafe(ggobj = p)
 ```
@@ -971,7 +1086,7 @@ p <- plot_ly(
   data = df,
   x = ~Edad, y = ~Ingreso,
   type = "scatter", mode = "markers",
-  color = ~Grupo,
+  color = ~Grupo, colors = unname(paleta_curso[1:3]),
   text = ~paste0("Grupo: ", Grupo,
                  "<br>Edad: ", round(Edad, 1),
                  "<br>Ingreso: ", round(Ingreso, 0)),
@@ -992,11 +1107,7 @@ p
 <br/><br/><br/><br/>
 
 
-![](img/pujcali.jpeg)
-
-</br></br>
-
-## Una imagen dice mas que mil palabras... 
+### **Una imagen dice mas que mil palabras...** 
 
 Las imágenes también comunican contexto y refuerzan la narrativa del informe. En presentaciones de mercadeo, una foto puede conectar datos con la realidad del entorno.
 
