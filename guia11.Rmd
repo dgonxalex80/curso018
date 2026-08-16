@@ -1,6 +1,5 @@
 ---
 title: <span style="color:#f9ceca"> </span>  
-pagetitle: "Guía 1.1"
 author: <span style="color:#f9ceca">dgonzalez</span> 
 subtitle: <span style="color:#f9ceca"> </span> 
 output:

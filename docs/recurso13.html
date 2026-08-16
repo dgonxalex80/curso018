@@ -12,7 +12,7 @@
 <meta name="author" content="dgonzalez" />
 
 
-<title>Visualización de datos con R</title>
+<title> </title>
 
 <script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -479,9 +479,9 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Visualización de datos con R</h1>
-<h3 class="subtitle">Estadística para la toma de decisiones</h3>
-<h4 class="author">dgonzalez</h4>
+<h1 class="title toc-ignore"><span style="color:#f9ceca"> </span></h1>
+<h3 class="subtitle"><span style="color:#f9ceca"> </span></h3>
+<h4 class="author"><span style="color:#f9ceca">dgonzalez</span></h4>
 
 </div>
 
@@ -489,8 +489,8 @@ $(document).ready(function () {
 <p><br/><br/></p>
 <p><img src="img/recurso1.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
-<div id="introducción" class="section level2">
-<h2><strong>Introducción</strong></h2>
+<div id="introducción" class="section level1">
+<h1>Introducción</h1>
 <blockquote>
 <p>Una gráfica o una representación gráfica o un gráfico, es un tipo de
 representación de datos, generalmente cuantitativos, mediante recursos
@@ -505,8 +505,8 @@ visualización responda a una pregunta concreta (por ejemplo: ¿qué
 producto vende más?, ¿cómo se comporta la demanda en el tiempo?, ¿qué
 segmentos son diferentes?) y no sea solo un adorno.</p>
 </div>
-<div id="paquetes-de-r-para-gráficos" class="section level2">
-<h2>Paquetes de R para gráficos</h2>
+<div id="paquetes-de-r-para-gráficos" class="section level1">
+<h1>Paquetes de R para gráficos</h1>
 <p>R posee numerosos paquetes para visualizar datos con excelente
 presentación: desde las funciones del núcleo base hasta bibliotecas que
 producen gráficos interactivos.</p>
@@ -522,8 +522,8 @@ reportes ejecutivos y tableros.</p>
 <img src="img/flexdashboard_logo.png" width="80"></p>
 </div>
 <div id="paquetes-de-r-para-gráficos-y-soluciones-gráficas"
-class="section level2">
-<h2>Paquetes de R para gráficos y soluciones gráficas</h2>
+class="section level1">
+<h1>Paquetes de R para gráficos y soluciones gráficas</h1>
 <table>
 <colgroup>
 <col width="33%" />
@@ -748,10 +748,11 @@ axis(1, at = 1:12, labels = mes)</code></pre>
 <!-- |                  |                 | gráfico likert                            | -->
 <!-- |                  |                 | mapa de calor                             | -->
 <p><br/><br/></p>
-<div id="gráficos-variables-cualitativas-con-r-base"
-class="section level3">
-<h3>Gráficos variables cualitativas con R base</h3>
-<p>Gráfico de tortas</p>
+</div>
+<div id="gráficos-variables-cualitativas" class="section level1">
+<h1>Gráficos variables cualitativas</h1>
+<div id="gráfico-de-tortas-o-diagrama-circular" class="section level2">
+<h2>Gráfico de tortas o diagrama circular</h2>
 <p>Este gráfico es útil para mostrar participaciones o cuotas de
 mercado. Se recomienda cuando hay pocas categorías y se desea resaltar
 la proporción de cada una.</p>
@@ -770,8 +771,8 @@ pie(t, labels=labs, main=&quot; Participación eventos Medio Universitario&quot;
 <p><img src="recurso13_files/figure-html/unnamed-chunk-8-1.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 </div>
-<div id="diagrama-de-barras" class="section level3">
-<h3><strong>Diagrama de barras</strong></h3>
+<div id="diagrama-de-barras" class="section level2">
+<h2>Diagrama de barras</h2>
 <p>Las barras permiten comparar categorías con facilidad. En mercadeo se
 usan, por ejemplo, para comparar niveles de satisfacción o respuestas a
 encuestas por opciones.</p>
@@ -781,8 +782,8 @@ barplot(ev, col = paleta_curso[1:5], main = &quot;Evaluación del proceso de ind
 <p><img src="recurso13_files/figure-html/unnamed-chunk-9-1.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 </div>
-<div id="diagrama-de-barras-dos-variables" class="section level3">
-<h3><strong>Diagrama de barras dos variables</strong></h3>
+<div id="diagrama-de-barras-dos-variables" class="section level2">
+<h2>Diagrama de barras dos variables</h2>
 <p>Cuando se cruzan dos variables categóricas, las barras agrupadas
 permiten comparar combinaciones (p. ej., tipo de producto vs. canal).
 Esto ayuda a detectar patrones por segmento.</p>
@@ -800,17 +801,16 @@ barplot(
 <p><img src="recurso13_files/figure-html/unnamed-chunk-10-1.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 </div>
-<div id="gráficas-variables-cuantitativas-con-r-base"
-class="section level3">
-<h3>Gráficas variables cuantitativas con R base</h3>
+</div>
+<div id="gráficas-variables-cuantitativas" class="section level1">
+<h1>Gráficas variables cuantitativas</h1>
 <p>En variables numéricas nos interesa describir la distribución, la
 tendencia y la dispersión. Los siguientes gráficos ayudan a responder
 preguntas como: ¿hay valores atípicos?, ¿la distribución es simétrica?,
 ¿existen agrupaciones?</p>
 <p><br/><br/></p>
-</div>
-<div id="diagrama-de-árbol" class="section level3">
-<h3>Diagrama de árbol</h3>
+<div id="diagrama-de-árbol" class="section level2">
+<h2>Diagrama de árbol</h2>
 <p>El diagrama de tallos y hojas permite ver valores individuales y su
 frecuencia sin perder detalle. Es una buena alternativa cuando el
 conjunto de datos no es muy grande.</p>
@@ -830,8 +830,8 @@ mínimo, el máximo y el rango donde se concentra la mayor parte del
 ticket promedio por cliente.</p>
 <p><br/><br/></p>
 </div>
-<div id="histograma" class="section level3">
-<h3>Histograma</h3>
+<div id="histograma" class="section level2">
+<h2>Histograma</h2>
 <p>El histograma resume la distribución de una variable. En contextos de
 negocio puede servir para ver la dispersión de tiempos de entrega o el
 rango de ventas por cliente.</p>
@@ -863,8 +863,8 @@ attr(,&quot;class&quot;)
 [1] &quot;histogram&quot;</code></pre>
 <p><br/><br/></p>
 </div>
-<div id="diagrama-de-densidad" class="section level3">
-<h3>Diagrama de densidad</h3>
+<div id="diagrama-de-densidad" class="section level2">
+<h2>Diagrama de densidad</h2>
 <p>La densidad muestra la forma general de la distribución suavizada. Es
 útil para comparar rápidamente perfiles de consumo o niveles de
 gasto.</p>
@@ -873,8 +873,8 @@ plot(density(nf), main=&quot;Distribución del ticket promedio de clientes&quot;
 <p><img src="recurso13_files/figure-html/unnamed-chunk-13-1.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 </div>
-<div id="diagrama-de-cajas" class="section level3">
-<h3><strong>Diagrama de cajas</strong></h3>
+<div id="diagrama-de-cajas" class="section level2">
+<h2>Diagrama de cajas</h2>
 <p>El boxplot resume mediana, cuartiles y valores atípicos. Es ideal
 para comparar desempeño entre productos, tiendas o periodos.</p>
 <pre class="r"><code>nf=c(4.1, 2.7, 3.1, 3.2, 3.0, 3.2, 2.0, 2.4, 1.6, 3.2, 3.1, 2.6, 2.0, 2.4, 2.8, 3.3, 4.0, 3.4, 3.0, 3.1, 2.7, 2.7, 3.0, 3.8, 3.2, 2.2, 3.5, 3.5, 3.8, 3.5, 3.9, 4.2, 4.3, 3.9, 3.2, 3.5, 3.5, 3.7, 4.1, 3.7, 3.5, 3.6, 3.2, 3.1, 3.4, 3.0, 3.0, 3.0, 2.7, 1.7, 3.6, 2.1, 2.4, 3.0, 3.1, 2.5, 2.5, 3.6, 2.2, 2.4, 3.1, 3.3, 2.7, 3.7, 3.0, 2.7, 3.0, 3.2, 3.1, 2.4, 3.0, 2.7, 2.5, 3.0, 3.0, 3.0, 3.2, 3.1, 3.8, 4.1, 3.7, 3.5, 3.0, 3.7, 3.7, 4.1, 3.7, 3.9, 3.7, 2.0)
@@ -883,8 +883,8 @@ abline(h=3, col=c41)</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-14-1.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 </div>
-<div id="diagrama-de-cajas-1" class="section level3">
-<h3><strong>Diagrama de cajas</strong></h3>
+<div id="diagrama-de-cajas-por-factor" class="section level2">
+<h2>Diagrama de cajas por factor</h2>
 <p>Aquí se compara la distribución por grupos. Esta lógica es muy útil
 para comparar resultados por canal, sede, segmento o región.</p>
 <pre class="r"><code>nf=c(4.1, 2.7, 3.1, 3.2, 3.0, 3.2, 2.0, 2.4, 1.6, 3.2, 3.1, 2.6, 2.0, 2.4, 2.8, 3.3, 4.0, 3.4, 3.0, 3.1, 2.7, 2.7, 3.0, 3.8, 3.2, 2.2, 3.5, 3.5, 3.8, 3.5, 3.9, 4.2, 4.3, 3.9, 3.2, 3.5, 3.5, 3.7, 4.1, 3.7, 3.5, 3.6, 3.2, 3.1, 3.4, 3.0, 3.0, 3.0, 2.7, 1.7, 3.6, 2.1, 2.4, 3.0, 3.1, 2.5, 2.5, 3.6, 2.2, 2.4, 3.1, 3.3, 2.7, 3.7, 3.0, 2.7, 3.0, 3.2, 3.1, 2.4, 3.0, 2.7, 2.5, 3.0, 3.0, 3.0, 3.2, 3.1, 3.8, 4.1, 3.7, 3.5, 3.0, 3.7, 3.7, 4.1, 3.7, 3.9, 3.7, 2.0)
@@ -898,8 +898,8 @@ abline(h=4, col=c11, lwd=2)</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-15-1.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 </div>
-<div id="diagrama-de-dispersión" class="section level3">
-<h3><strong>Diagrama de dispersión</strong></h3>
+<div id="diagrama-de-dispersión" class="section level2">
+<h2>Diagrama de dispersión</h2>
 <p>Este gráfico permite analizar la relación entre dos variables
 numéricas. En administración es clave para explorar asociaciones como
 inversión publicitaria vs. ventas.</p>
@@ -911,8 +911,8 @@ grid()</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-16-1.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 </div>
-<div id="gráfica-de-series-de-tiempo" class="section level3">
-<h3><strong>Gráfica de series de tiempo</strong></h3>
+<div id="gráfica-de-series-de-tiempo" class="section level2">
+<h2>Gráfica de series de tiempo</h2>
 <p>Las series de tiempo muestran el comportamiento a lo largo de meses o
 años. Son fundamentales para analizar tendencias, estacionalidad y
 cambios en la demanda.</p>
@@ -921,8 +921,9 @@ plot(ventas_ts, main=&quot;Ventas mensuales de la compañía&quot;, ylab = &quot
 <p><img src="recurso13_files/figure-html/unnamed-chunk-17-1.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 </div>
-<div id="resumen" class="section level3">
-<h3><strong>Resumen</strong></h3>
+</div>
+<div id="resumen" class="section level1">
+<h1>Resumen</h1>
 <p>El siguiente bloque resume varios tipos de gráficos en una sola
 vista. Úsalo como referencia rápida de qué gráfico elegir según el tipo
 de variable y el objetivo del análisis.</p>
@@ -930,8 +931,20 @@ de variable y el objetivo del análisis.</p>
 y=rnorm(100,100,25)
 z=rbinom(100,4,0.30)
 t=1:100
-par(mfrow=c(2, 2))
-pie(table(z))
+op &lt;- par(no.readonly = TRUE)
+par(
+  mfrow = c(2, 2),
+  mar = c(4.5, 4.5, 2.5, 1),
+  cex.axis = 1.25,
+  cex.lab = 1.2
+)
+
+# Panel circular: menor margen y mayor diámetro
+par(mar = c(1, 1, 1, 1))
+pie(table(z), radius = 1, cex = 1.15)
+
+# Restaurar márgenes amplios para leer mejor las escalas
+par(mar = c(4.5, 4.5, 2.5, 1))
 barplot(table(z))
 stem(x)</code></pre>
 <pre><code>
@@ -949,18 +962,17 @@ stem(x)</code></pre>
   15 | 
   16 | 5</code></pre>
 <pre class="r"><code>hist(x)
-boxplot(x)</code></pre>
+boxplot(x, frame.plot = FALSE)</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-18-1.png" alt="" width="672" /></p>
 <pre class="r"><code>plot(x,y)
 plot(t,y, type=&quot;l&quot;)
 plot(density(x))
-par(mfrow=c(1, 1))</code></pre>
+par(op)</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-18-2.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 </div>
-</div>
-<div id="gráficos-con-ggplot2" class="section level2">
-<h2><strong>Gráficos con ggplot2</strong></h2>
+<div id="gráficos-con-ggplot2" class="section level1">
+<h1>Gráficos con ggplot2</h1>
 <p><code>ggplot2</code> es el paquete más usado en R para visualización.
 Su lógica por capas facilita construir gráficos claros y consistentes,
 lo cual es muy útil para reportes académicos y corporativos.</p>
@@ -991,14 +1003,15 @@ ejecutivos.</p></li>
 <p><br/><br/></p>
 <div
 id="gráfico-data-aesthetics-geometries-facets-statistics-coordinates-themes"
-class="section level4">
-<h4>gráfico = data + aesthetics + geometries + facets + statistics +
-coordinates + themes</h4>
+class="section level3">
+<h3>gráfico = data + aesthetics + geometries + facets + statistics +
+coordinates + themes</h3>
 <p><br/><br/></p>
 </div>
-<div id="primer-paso-instalar-y-cargar-la-libreria"
-class="section level4">
-<h4>Primer paso: <strong>Instalar y cargar la libreria</strong></h4>
+<div id="primer-paso" class="section level2">
+<h2>Primer paso:</h2>
+<div id="instalar-y-cargar-la-libreria" class="section level3">
+<h3>Instalar y cargar la libreria</h3>
 <p>Primero instalamos y cargamos la librería. Esto se hace una sola vez
 por equipo (instalación) y luego se carga en cada sesión de trabajo.</p>
 <pre class="r"><code># Instalar ggplot2 si no lo tienes
@@ -1016,16 +1029,18 @@ library(ggplot2)
 </pre>
 <p></br></br></p>
 </div>
-<div id="segundo-paso-declarar-la-base-de-datos-y-las-variables"
-class="section level4">
-<h4>Segundo paso: <strong>Declarar la base de datos y las
-variables</strong></h4>
+</div>
+<div id="segundo-paso" class="section level2">
+<h2>Segundo paso:</h2>
+<div id="declarar-la-base-de-datos-y-las-variables"
+class="section level3">
+<h3>Declarar la base de datos y las variables</h3>
 <p>Aquí definimos la base y las variables que vamos a comparar. En este
 ejemplo, relacionamos inversión en pauta y ventas, segmentando por
 canal.</p>
 <pre class="r"><code>campanas &lt;- tibble(
   inversion = c(8, 10, 12, 15, 18, 20, 22, 25, 28, 30, 35, 40),
-  ventas = c(95, 102, 110, 128, 133, 141, 150, 162, 170, 178, 191, 205),
+  ventas = c(102, 108, 120, 119, 108, 121, 145, 175, 147, 177, 163, 192),
   canal = factor(c(&quot;Digital&quot;, &quot;Digital&quot;, &quot;Retail&quot;, &quot;Retail&quot;, &quot;Mayorista&quot;, &quot;Digital&quot;,
                    &quot;Retail&quot;, &quot;Mayorista&quot;, &quot;Digital&quot;, &quot;Retail&quot;, &quot;Mayorista&quot;, &quot;Digital&quot;))
 )
@@ -1034,10 +1049,12 @@ p</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-20-1.png" alt="" width="672" /></p>
 <p></br></br></p>
 </div>
-<div id="tercer-paso-crear-grafico-base-con-las-diferentes-geometrías"
-class="section level4">
-<h4>Tercer paso : <strong>Crear grafico base</strong> con las diferentes
-geometrías</h4>
+</div>
+<div id="tercer-paso" class="section level2">
+<h2>Tercer paso :</h2>
+<div id="crear-grafico-base-con-las-diferentes-geometrías"
+class="section level3">
+<h3>Crear grafico base con las diferentes geometrías</h3>
 <p>Con la geometría definimos el tipo de gráfico. El
 <code>geom_point()</code> crea el diagrama de dispersión, muy usado para
 visualizar relaciones entre variables.</p>
@@ -1075,10 +1092,11 @@ p</code></pre>
 </table>
 <p></br></br></p>
 </div>
-<div id="cuarto-paso-agregar-características-adicionales"
-class="section level4">
-<h4>Cuarto paso: <strong>Agregar características
-adicionales</strong></h4>
+</div>
+<div id="cuarto-paso" class="section level2">
+<h2>Cuarto paso:</h2>
+<div id="agregar-características-adicionales" class="section level3">
+<h3>Agregar características adicionales</h3>
 <p>Se pueden incluir colores, tamaños y transparencia para resaltar
 grupos o categorías. Esto ayuda a hacer comparaciones por segmentos.</p>
 <pre class="r"><code>p &lt;- ggplot(campanas, aes(x = inversion, y = ventas, color = canal)) +
@@ -1087,10 +1105,12 @@ p</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-22-1.png" alt="" width="672" /></p>
 <p></br></br></p>
 </div>
-<div id="quinto-paso-agregar-título-etiquetas-a-los-ejes-y-leyenda"
-class="section level4">
-<h4>Quinto paso: <strong>Agregar título, etiquetas a los ejes y
-leyenda</strong></h4>
+</div>
+<div id="quinto-paso" class="section level2">
+<h2>Quinto paso:</h2>
+<div id="agregar-título-etiquetas-a-los-ejes-y-leyenda"
+class="section level3">
+<h3>Agregar título, etiquetas a los ejes y leyenda</h3>
 <p>Los títulos y etiquetas convierten un gráfico técnico en uno
 comunicativo. En contextos de negocio, esto facilita que el lector
 entienda el mensaje sin leer el código.</p>
@@ -1104,9 +1124,11 @@ p</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-23-1.png" alt="" width="672" /></p>
 <p></br></br></p>
 </div>
-<div id="sexto-paso-agregar-una-línea-de-tendencia"
-class="section level4">
-<h4>Sexto paso: <strong>Agregar una línea de tendencia</strong></h4>
+</div>
+<div id="sexto-paso" class="section level2">
+<h2>Sexto paso:</h2>
+<div id="agregar-una-línea-de-tendencia" class="section level3">
+<h3>Agregar una línea de tendencia</h3>
 <p>La línea de tendencia resume la relación general entre las variables.
 Es útil para explicar patrones de crecimiento o caída en términos
 gerenciales.</p>
@@ -1115,8 +1137,11 @@ p</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-24-1.png" alt="" width="672" /></p>
 <p></br></br></p>
 </div>
-<div id="séptimo-paso-agregar-un-tema-o-fondo" class="section level4">
-<h4>Séptimo paso: <strong>Agregar un tema o fondo</strong></h4>
+</div>
+<div id="séptimo-paso" class="section level2">
+<h2>Séptimo paso:</h2>
+<div id="agregar-un-tema-o-fondo" class="section level3">
+<h3>Agregar un tema o fondo</h3>
 <p>El tema define el estilo visual. Un tema limpio mejora la
 legibilidad, especialmente en presentaciones o informes.</p>
 <pre class="r"><code>p &lt;- p + tema_curso(base_size = 14)
@@ -1125,9 +1150,11 @@ p</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-25-1.png" alt="" width="672" /></p>
 <p></br></br></p>
 </div>
-<div id="octavo-paso-ajustar-la-escala-de-colores"
-class="section level3">
-<h3>Octavo paso: <strong>Ajustar la escala de colores</strong></h3>
+</div>
+<div id="octavo-paso" class="section level2">
+<h2>Octavo paso:</h2>
+<div id="ajustar-la-escala-de-colores" class="section level3">
+<h3>Ajustar la escala de colores</h3>
 <p>La escala de color debe ser coherente y fácil de interpretar. En
 dashboards o reportes, colores consistentes ayudan a comparar gráficos
 entre sí.</p>
@@ -1151,14 +1178,15 @@ p</code></pre>
 <pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the data&#39;s colour values.
 No shared levels found between `names(values)` of the manual scale and the data&#39;s colour values.</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-26-1.png" alt="" width="672" /></p>
-<div id="gráfico-completo" class="section level4">
-<h4>gráfico completo !!</h4>
+</div>
+<div id="gráfico-completo" class="section level3">
+<h3>gráfico completo !!</h3>
 <p></br></br></p>
 </div>
 </div>
 </div>
-<div id="otros-gráficos" class="section level2">
-<h2>Otros gráficos</h2>
+<div id="otros-gráficos" class="section level1">
+<h1>Otros gráficos</h1>
 <p>A continuación se muestran ejemplos adicionales para ampliar el
 repertorio. La idea es que puedas reconocer qué gráfico usar según la
 pregunta del análisis.</p>
@@ -1197,14 +1225,15 @@ ggplot(df_canal, aes(x=ticket, y=canal)) +
 <p></br></br></p>
 </div>
 <div id="visualizaciones-modernas-para-decisiones"
-class="section level2">
-<h2>Visualizaciones modernas para decisiones</h2>
+class="section level1">
+<h1>Visualizaciones modernas para decisiones</h1>
 <p>Los gráficos modernos no tienen que ser complejos. Deben reducir
 ruido, dirigir la atención al hallazgo y permitir explorar detalles
 cuando esa interacción aporte valor. Los siguientes ejemplos conservan
 la identidad cromática del sitio.</p>
-<div id="lollipop-comparación-compacta" class="section level3">
-<h3>Lollipop: comparación compacta</h3>
+<p></br></br></p>
+<div id="lollipop-comparación-compacta" class="section level2">
+<h2>Lollipop: comparación compacta</h2>
 <p>El gráfico lollipop es una alternativa ligera a las barras. Funciona
 bien para rankings ejecutivos cuando interesa destacar la posición y el
 valor de cada categoría.</p>
@@ -1229,10 +1258,11 @@ ggplot(ranking, aes(ventas, producto)) +
   ) +
   tema_curso()</code></pre>
 <p><img src="recurso13_files/figure-html/lollipop-moderno-1.png" alt="" width="672" /></p>
+<p></br></br></p>
 </div>
 <div id="mapa-de-calor-concentración-de-actividad"
-class="section level3">
-<h3>Mapa de calor: concentración de actividad</h3>
+class="section level2">
+<h2>Mapa de calor: concentración de actividad</h2>
 <p>Un mapa de calor revela patrones en dos dimensiones. Aquí permite
 detectar los momentos de mayor tráfico sin obligar al lector a revisar
 una tabla extensa.</p>
@@ -1243,7 +1273,7 @@ trafico &lt;- expand_grid(
   hora = 8:18
 ) |&gt;
   mutate(visitas = round(40 + 35 * exp(-((hora - 13)^2) / 10) +
-                          if_else(dia == &quot;Vie&quot;, 18, 0) + rnorm(n(), 0, 6)))
+                          if_else(dia == &quot;Vie&quot;, 18, 0) + rnorm(n(), 0, 26)))
 
 ggplot(trafico, aes(hora, dia, fill = visitas)) +
   geom_tile(color = &quot;white&quot;, linewidth = .8) +
@@ -1255,10 +1285,11 @@ ggplot(trafico, aes(hora, dia, fill = visitas)) +
     x = &quot;Hora&quot;, y = NULL, caption = &quot;Fuente: datos simulados&quot;
   ) +
   tema_curso()</code></pre>
-<p><img src="recurso13_files/figure-html/mapa-calor-1.png" alt="" width="672" /></p>
+<p><img src="recurso13_files/figure-html/mapa-calor-1.png" alt="" width="672" />
+<br/><br/></p>
 </div>
-<div id="tabla-interactiva-detalle-bajo-demanda" class="section level3">
-<h3>Tabla interactiva: detalle bajo demanda</h3>
+<div id="tabla-interactiva-detalle-bajo-demanda" class="section level2">
+<h2>Tabla interactiva: detalle bajo demanda</h2>
 <p>Cuando el lector necesita buscar, ordenar o filtrar registros, una
 tabla interactiva complementa al gráfico. La búsqueda y la paginación
 evitan sobrecargar la página.</p>
@@ -1276,8 +1307,8 @@ datatable(
     color = &quot;white&quot;,
     backgroundColor = styleEqual(levels(campanas$canal), unname(paleta_curso[1:3]))
   )</code></pre>
-<div class="datatables html-widget html-fill-item" id="htmlwidget-8e4850c2ab3305e27e40" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-8e4850c2ab3305e27e40">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8\" data-max=\"40\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"95\" data-max=\"205\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Digital&quot;,&quot;Mayorista&quot;,&quot;Retail&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[[8,10,12,15,18,20,22,25,28,30,35,40],[95,102,110,128,133,141,150,162,170,178,191,205],["Digital","Digital","Retail","Retail","Mayorista","Digital","Retail","Mayorista","Digital","Retail","Mayorista","Digital"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Inversión (millones COP)<\/th>\n      <th>Ventas (millones COP)<\/th>\n      <th>Canal<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"ftip","autoWidth":true,"columnDefs":[{"className":"dt-right","targets":[0,1]},{"name":"inversion","targets":0},{"name":"ventas","targets":1},{"name":"canal","targets":2}],"order":[],"orderClasses":false,"orderCellsTop":true,"lengthMenu":[6,10,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'color':'white','background-color':value == \"Digital\" ? \"#163A5F\" : value == \"Mayorista\" ? \"#245B89\" : value == \"Retail\" ? \"#2C78A8\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-b6bec0f2858621d8260f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b6bec0f2858621d8260f">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"8\" data-max=\"40\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"102\" data-max=\"192\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Digital&quot;,&quot;Mayorista&quot;,&quot;Retail&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[[8,10,12,15,18,20,22,25,28,30,35,40],[102,108,120,119,108,121,145,175,147,177,163,192],["Digital","Digital","Retail","Retail","Mayorista","Digital","Retail","Mayorista","Digital","Retail","Mayorista","Digital"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Inversión (millones COP)<\/th>\n      <th>Ventas (millones COP)<\/th>\n      <th>Canal<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"ftip","autoWidth":true,"columnDefs":[{"className":"dt-right","targets":[0,1]},{"name":"inversion","targets":0},{"name":"ventas","targets":1},{"name":"canal","targets":2}],"order":[],"orderClasses":false,"orderCellsTop":true,"lengthMenu":[6,10,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'color':'white','background-color':value == \"Digital\" ? \"#163A5F\" : value == \"Mayorista\" ? \"#245B89\" : value == \"Retail\" ? \"#2C78A8\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 <div class="note-box">
 <div class="note-box-title">
 Cuándo usar interactividad
@@ -1287,10 +1318,10 @@ exactos, filtrar categorías o ampliar un periodo. Para informes impresos
 o para comunicar un único hallazgo, una figura estática bien anotada
 suele ser más efectiva.</p>
 </div>
-</div>
+<p></br></br></p>
 </div>
 <div id="gráficos-con-plotly" class="section level2">
-<h2><strong>Gráficos con plotly</strong></h2>
+<h2>Gráficos con plotly</h2>
 <p><code>plotly</code> permite convertir gráficos en interactivos. Esto
 es útil para presentaciones donde el usuario puede pasar el mouse y ver
 detalles sin saturar la pantalla.</p>
@@ -1303,7 +1334,7 @@ library(plotly)
 # Crear base ejemplo para campañas
 campanas &lt;- tibble(
   inversion = c(8, 10, 12, 15, 18, 20, 22, 25, 28, 30, 35, 40),
-  ventas = c(95, 102, 110, 128, 133, 141, 150, 162, 170, 178, 191, 205),
+  ventas = c(102, 108, 120, 119, 108, 121, 145, 175, 147, 177, 163, 192),
   canal = factor(c(&quot;Digital&quot;, &quot;Digital&quot;, &quot;Retail&quot;, &quot;Retail&quot;, &quot;Mayorista&quot;, &quot;Digital&quot;,
                    &quot;Retail&quot;, &quot;Mayorista&quot;, &quot;Digital&quot;, &quot;Retail&quot;, &quot;Mayorista&quot;, &quot;Digital&quot;))
 )
@@ -1335,17 +1366,18 @@ p_interactivo &lt;- ggplotly(p, tooltip = &quot;text&quot;) |&gt;
 
 # Mostrar el gráfico interactivo
 p_interactivo</code></pre>
-<div class="plotly html-widget html-fill-item" id="htmlwidget-e32cfdf20161c5bbe4a1" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-e32cfdf20161c5bbe4a1">{"x":{"data":[{"x":[8,10,20,28,40],"y":[95,102,141,170,205],"text":["Canal: Digital <br> Inversión: 8  millones COP<br> Ventas: 95  millones COP","Canal: Digital <br> Inversión: 10  millones COP<br> Ventas: 102  millones COP","Canal: Digital <br> Inversión: 20  millones COP<br> Ventas: 141  millones COP","Canal: Digital <br> Inversión: 28  millones COP<br> Ventas: 170  millones COP","Canal: Digital <br> Inversión: 40  millones COP<br> Ventas: 205  millones COP"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":0.69999999999999996,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"hoveron":"points","name":"Digital","legendgroup":"Digital","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[18,25,35],"y":[133,162,191],"text":["Canal: Mayorista <br> Inversión: 18  millones COP<br> Ventas: 133  millones COP","Canal: Mayorista <br> Inversión: 25  millones COP<br> Ventas: 162  millones COP","Canal: Mayorista <br> Inversión: 35  millones COP<br> Ventas: 191  millones COP"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":0.69999999999999996,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"hoveron":"points","name":"Mayorista","legendgroup":"Mayorista","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[12,15,22,30],"y":[110,128,150,178],"text":["Canal: Retail <br> Inversión: 12  millones COP<br> Ventas: 110  millones COP","Canal: Retail <br> Inversión: 15  millones COP<br> Ventas: 128  millones COP","Canal: Retail <br> Inversión: 22  millones COP<br> Ventas: 150  millones COP","Canal: Retail <br> Inversión: 30  millones COP<br> Ventas: 178  millones COP"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":0.69999999999999996,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"hoveron":"points","name":"Retail","legendgroup":"Retail","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":48.544624325446243,"r":9.2984640929846396,"b":47.422166874221666,"l":54.860938148609378},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279},"title":{"text":"<b> Relación entre inversión y ventas <\/b>","font":{"color":"rgba(59,154,196,1)","family":"","size":23.246160232461605},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[6.4000000000000004,41.600000000000001],"tickmode":"array","ticktext":["10","20","30","40"],"tickvals":[10,20,30,40],"categoryorder":"array","categoryarray":["10","20","30","40"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923198,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":14.877542548775427},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b> Inversión en pauta (millones COP) <\/b>","font":{"color":"rgba(59,154,196,1)","family":"","size":18.596928185969279}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[89.5,210.5],"tickmode":"array","ticktext":["90","120","150","180","210"],"tickvals":[90,120,150,180,210],"categoryorder":"array","categoryarray":["90","120","150","180","210"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923198,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":14.87754254877543},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.8453149175440583,"zeroline":false,"anchor":"x","title":{"text":"<b> Ventas (millones COP) <\/b>","font":{"color":"rgba(59,154,196,1)","family":"","size":18.596928185969279}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.877542548775427},"orientation":"h","x":0,"y":-0.20000000000000001,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"responsive":true},"source":"A","attrs":{"a611324f3269":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"}},"cur_data":"a611324f3269","visdat":{"a611324f3269":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-99bd951bc7e50f0d612a" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-99bd951bc7e50f0d612a">{"x":{"data":[{"x":[8,10,20,28,40],"y":[102,108,121,147,192],"text":["Canal: Digital <br> Inversión: 8  millones COP<br> Ventas: 102  millones COP","Canal: Digital <br> Inversión: 10  millones COP<br> Ventas: 108  millones COP","Canal: Digital <br> Inversión: 20  millones COP<br> Ventas: 121  millones COP","Canal: Digital <br> Inversión: 28  millones COP<br> Ventas: 147  millones COP","Canal: Digital <br> Inversión: 40  millones COP<br> Ventas: 192  millones COP"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":0.69999999999999996,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"hoveron":"points","name":"Digital","legendgroup":"Digital","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[18,25,35],"y":[108,175,163],"text":["Canal: Mayorista <br> Inversión: 18  millones COP<br> Ventas: 108  millones COP","Canal: Mayorista <br> Inversión: 25  millones COP<br> Ventas: 175  millones COP","Canal: Mayorista <br> Inversión: 35  millones COP<br> Ventas: 163  millones COP"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":0.69999999999999996,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"hoveron":"points","name":"Mayorista","legendgroup":"Mayorista","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[12,15,22,30],"y":[120,119,145,177],"text":["Canal: Retail <br> Inversión: 12  millones COP<br> Ventas: 120  millones COP","Canal: Retail <br> Inversión: 15  millones COP<br> Ventas: 119  millones COP","Canal: Retail <br> Inversión: 22  millones COP<br> Ventas: 145  millones COP","Canal: Retail <br> Inversión: 30  millones COP<br> Ventas: 177  millones COP"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":0.69999999999999996,"size":7.559055118110237,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"hoveron":"points","name":"Retail","legendgroup":"Retail","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":48.544624325446243,"r":9.2984640929846396,"b":47.422166874221666,"l":54.860938148609378},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279},"title":{"text":"<b> Relación entre inversión y ventas <\/b>","font":{"color":"rgba(59,154,196,1)","family":"","size":23.246160232461605},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[6.4000000000000004,41.600000000000001],"tickmode":"array","ticktext":["10","20","30","40"],"tickvals":[10,20,30,40],"categoryorder":"array","categoryarray":["10","20","30","40"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923198,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":14.877542548775427},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"<b> Inversión en pauta (millones COP) <\/b>","font":{"color":"rgba(59,154,196,1)","family":"","size":18.596928185969279}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[97.5,196.5],"tickmode":"array","ticktext":["100","125","150","175"],"tickvals":[100,125,150,175],"categoryorder":"array","categoryarray":["100","125","150","175"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923198,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":14.87754254877543},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.8453149175440583,"zeroline":false,"anchor":"x","title":{"text":"<b> Ventas (millones COP) <\/b>","font":{"color":"rgba(59,154,196,1)","family":"","size":18.596928185969279}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.877542548775427},"orientation":"h","x":0,"y":-0.20000000000000001,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displaylogo":false,"responsive":true},"source":"A","attrs":{"30afd4f16978":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"}},"cur_data":"30afd4f16978","visdat":{"30afd4f16978":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p><a href="https://gganimate.com/"
 class="uri">https://gganimate.com/</a></p>
 <p><a href="https://rafalab.github.io/dslibro/ggplot2.html">Anàlisis de
 datos con R Cap,7 ggplot2</a><br/> <a
 href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot2
 resumen</a></p>
+<p></br></br></p>
 </div>
 <div id="gráficos-con-highcharter" class="section level2">
-<h2><strong>Gráficos con highcharter</strong></h2>
+<h2>Gráficos con highcharter</h2>
 <p><code>highcharter</code> es otra opción para gráficos interactivos
 con estética profesional. Suele usarse en tableros ejecutivos por su
 estilo limpio y opciones de personalización.</p>
@@ -1360,7 +1392,7 @@ library(dplyr)
 # Crear base para campañas comerciales
 campanas &lt;- tibble(
   inversion = c(8, 10, 12, 15, 18, 20, 22, 25, 28, 30, 35, 40),
-  ventas = c(95, 102, 110, 128, 133, 141, 150, 162, 170, 178, 191, 205),
+  ventas = c(102, 108, 120, 119, 108, 121, 145, 175, 147, 177, 163, 192),
   canal = factor(c(&quot;Digital&quot;, &quot;Digital&quot;, &quot;Retail&quot;, &quot;Retail&quot;, &quot;Mayorista&quot;, &quot;Digital&quot;,
                    &quot;Retail&quot;, &quot;Mayorista&quot;, &quot;Digital&quot;, &quot;Retail&quot;, &quot;Mayorista&quot;, &quot;Digital&quot;))
 )
@@ -1379,12 +1411,12 @@ hchart(campanas, &quot;scatter&quot;, hcaes(x = inversion, y = ventas, group = c
                    &lt;b&gt;Ventas:&lt;/b&gt; {point.y} millones COP&quot;
   ) %&gt;%
   hc_chart(zoomType = &quot;xy&quot;)</code></pre>
-<div class="highchart html-widget html-fill-item" id="htmlwidget-266eb5c1d262e079dd4a" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-266eb5c1d262e079dd4a">{"x":{"hc_opts":{"chart":{"reflow":true,"zoomType":"xy"},"title":{"text":"Relación entre inversión y ventas"},"yAxis":{"title":{"text":"Ventas (millones COP)"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}}},"series":[{"name":"Digital","data":[{"inversion":8,"ventas":95,"canal":"Digital","x":8,"y":95,"name":"Digital"},{"inversion":10,"ventas":102,"canal":"Digital","x":10,"y":102,"name":"Digital"},{"inversion":20,"ventas":141,"canal":"Digital","x":20,"y":141,"name":"Digital"},{"inversion":28,"ventas":170,"canal":"Digital","x":28,"y":170,"name":"Digital"},{"inversion":40,"ventas":205,"canal":"Digital","x":40,"y":205,"name":"Digital"}],"type":"scatter"},{"name":"Mayorista","data":[{"inversion":18,"ventas":133,"canal":"Mayorista","x":18,"y":133,"name":"Mayorista"},{"inversion":25,"ventas":162,"canal":"Mayorista","x":25,"y":162,"name":"Mayorista"},{"inversion":35,"ventas":191,"canal":"Mayorista","x":35,"y":191,"name":"Mayorista"}],"type":"scatter"},{"name":"Retail","data":[{"inversion":12,"ventas":110,"canal":"Retail","x":12,"y":110,"name":"Retail"},{"inversion":15,"ventas":128,"canal":"Retail","x":15,"y":128,"name":"Retail"},{"inversion":22,"ventas":150,"canal":"Retail","x":22,"y":150,"name":"Retail"},{"inversion":30,"ventas":178,"canal":"Retail","x":30,"y":178,"name":"Retail"}],"type":"scatter"}],"xAxis":{"type":"linear","title":{"text":"Inversión (millones COP)"}},"colors":["#163A5F","#245B89","#2C78A8"],"subtitle":{"text":"Datos de campañas comerciales por canal"},"tooltip":{"useHTML":true,"pointFormat":"<b>Canal:<\/b> {point.name}<br>\n                   <b>Inversión:<\/b> {point.x} millones COP<br>\n                   <b>Ventas:<\/b> {point.y} millones COP"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<div class="highchart html-widget html-fill-item" id="htmlwidget-efb11e930bf62279325d" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-efb11e930bf62279325d">{"x":{"hc_opts":{"chart":{"reflow":true,"zoomType":"xy"},"title":{"text":"Relación entre inversión y ventas"},"yAxis":{"title":{"text":"Ventas (millones COP)"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}}},"series":[{"name":"Digital","data":[{"inversion":8,"ventas":102,"canal":"Digital","x":8,"y":102,"name":"Digital"},{"inversion":10,"ventas":108,"canal":"Digital","x":10,"y":108,"name":"Digital"},{"inversion":20,"ventas":121,"canal":"Digital","x":20,"y":121,"name":"Digital"},{"inversion":28,"ventas":147,"canal":"Digital","x":28,"y":147,"name":"Digital"},{"inversion":40,"ventas":192,"canal":"Digital","x":40,"y":192,"name":"Digital"}],"type":"scatter"},{"name":"Mayorista","data":[{"inversion":18,"ventas":108,"canal":"Mayorista","x":18,"y":108,"name":"Mayorista"},{"inversion":25,"ventas":175,"canal":"Mayorista","x":25,"y":175,"name":"Mayorista"},{"inversion":35,"ventas":163,"canal":"Mayorista","x":35,"y":163,"name":"Mayorista"}],"type":"scatter"},{"name":"Retail","data":[{"inversion":12,"ventas":120,"canal":"Retail","x":12,"y":120,"name":"Retail"},{"inversion":15,"ventas":119,"canal":"Retail","x":15,"y":119,"name":"Retail"},{"inversion":22,"ventas":145,"canal":"Retail","x":22,"y":145,"name":"Retail"},{"inversion":30,"ventas":177,"canal":"Retail","x":30,"y":177,"name":"Retail"}],"type":"scatter"}],"xAxis":{"type":"linear","title":{"text":"Inversión (millones COP)"}},"colors":["#163A5F","#245B89","#2C78A8"],"subtitle":{"text":"Datos de campañas comerciales por canal"},"tooltip":{"useHTML":true,"pointFormat":"<b>Canal:<\/b> {point.name}<br>\n                   <b>Inversión:<\/b> {point.x} millones COP<br>\n                   <b>Ventas:<\/b> {point.y} millones COP"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
 <p><br/><br/></p>
 </div>
 <div id="estética-en-la-visualización" class="section level2">
-<h2><strong>Estética en la visualización</strong></h2>
+<h2>Estética en la visualización</h2>
 <p>Además de la elección del gráfico, el diseño visual influye en la
 interpretación. Una buena estética mejora la comprensión y evita
 confusiones en la lectura de resultados.</p>
@@ -1433,8 +1465,8 @@ dimensiones, lo que permite una representación más detallada y compleja
 de los datos. Es recomendable no utilizar 3D para que las
 visializaciones sean más limpias y sencillas</p>
 <p><br/><br/></p>
-<div id="formas" class="section level4">
-<h4><strong>Formas</strong></h4>
+<div id="formas" class="section level3">
+<h3>Formas</h3>
 <p>Es posible utilizar circulos, cuadrados, triangulos y en general
 figuras geométricas para resaltar puntos que represente valores
 numéricos en un plano 2D y de esta forma representar una secuencia o
@@ -1443,8 +1475,8 @@ tendencia de la información.</p>
 <p><img src="img/formas.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
 </div>
-<div id="paletas" class="section level4">
-<h4><strong>Paletas</strong></h4>
+<div id="paletas" class="section level3">
+<h3>Paletas</h3>
 <p>Las paletas ayudan a mantener consistencia y a diferenciar
 categorías. En mercadeo, una paleta bien elegida refuerza la identidad
 visual del informe.</p>
@@ -1454,7 +1486,7 @@ Tomada de Pinteres</p>
 </div>
 </div>
 <div id="normas-apa" class="section level2">
-<h2><strong>Normas APA</strong></h2>
+<h2>Normas APA</h2>
 <p>En trabajos académicos y corporativos es clave seguir normas de
 presentación. Esto asegura que los gráficos sean claros, comparables y
 bien documentados.</p>
@@ -1467,16 +1499,17 @@ etc.) para asegurar <strong>claridad, precisión y consistencia</strong>
 en la comunicación académica. En términos prácticos, estas
 recomendaciones se reflejan en los siguientes criterios:</p>
 <p></br></p>
-<div id="claridad-y-legibilidad" class="section level3">
-<h3>Claridad y legibilidad</h3>
+</div>
+<div id="claridad-y-legibilidad" class="section level2">
+<h2>Claridad y legibilidad</h2>
 <p>El gráfico debe entenderse con rapidez y sin esfuerzo. Evita
 elementos decorativos innecesarios y prioriza un diseño limpio. Usa
 <strong>tipografías legibles</strong>, tamaños adecuados y un contraste
 suficiente entre elementos (líneas, puntos, barras y texto).</p>
 <p></br></p>
 </div>
-<div id="precisión-y-fidelidad-de-los-datos" class="section level3">
-<h3>Precisión y fidelidad de los datos</h3>
+<div id="precisión-y-fidelidad-de-los-datos" class="section level2">
+<h2>Precisión y fidelidad de los datos</h2>
 <p>La figura debe representar los datos de manera exacta, sin
 distorsiones. Utiliza escalas apropiadas y proporcionales, indica
 <strong>unidades de medida</strong>, y cuida que las comparaciones
@@ -1484,8 +1517,8 @@ visuales sean correctas. Si se presentan porcentajes, verifica
 coherencia (por ejemplo, totales consistentes cuando aplique).</p>
 <p></br></p>
 </div>
-<div id="rotulación-y-organización-según-apa" class="section level3">
-<h3>Rotulación y organización según APA</h3>
+<div id="rotulación-y-organización-según-apa" class="section level2">
+<h2>Rotulación y organización según APA</h2>
 <p>En APA, un gráfico se presenta como <strong>Figura</strong> y debe
 incluir:</p>
 <ul>
@@ -1499,25 +1532,23 @@ metodológicos).</li>
 </ul>
 <p></br></p>
 </div>
-<div id="consistencia-y-estilo-académico" class="section level3">
-<h3>Consistencia y estilo académico</h3>
+<div id="consistencia-y-estilo-académico" class="section level2">
+<h2>Consistencia y estilo académico</h2>
 <p>Mantén coherencia en el formato a lo largo del informe: mismos
 estilos de ejes, tamaños de letra, criterios de color y formato de
 leyendas. Las etiquetas de ejes deben ser claras, con nombres completos
 (o abreviaturas explicadas en nota).</p>
 <p></br></p>
 </div>
-<div id="accesibilidad-y-uso-del-color" class="section level3">
-<h3>Accesibilidad y uso del color</h3>
+<div id="accesibilidad-y-uso-del-color" class="section level2">
+<h2>Accesibilidad y uso del color</h2>
 <p>Usa el color solo cuando aporte información. Evita combinaciones que
 dificulten la lectura y procura que el gráfico sea interpretable incluso
 en escala de grises (por ejemplo, con patrones, formas o distintos tipos
 de línea). Esto mejora la accesibilidad y la calidad de impresión.</p>
 <p></br></br></p>
-</div>
-</div>
-<div id="ejemplos" class="section level2">
-<h2><strong>Ejemplos</strong></h2>
+<div id="ejemplos" class="section level3">
+<h3>Ejemplos</h3>
 <pre class="r"><code>set.seed(123)
 ventas_dia &lt;- tibble(ventas = rlnorm(400, meanlog = log(2.6), sdlog = 0.35))
 ggplot(ventas_dia, aes(x = ventas)) +
@@ -1581,8 +1612,8 @@ p &lt;- ggplot(campanas, aes(inversion, ventas, tooltip = canal)) +
   tema_curso()
 
 girafe(ggobj = p)</code></pre>
-<div class="girafe html-widget html-fill-item" id="htmlwidget-1fab39d3a4695112c24a" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-1fab39d3a4695112c24a">{"x":{"html":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='ggiraph-svg' role='graphics-document' id='svg_01b0818c17b0fec2' viewBox='0 0 504 360'>\n <defs id='svg_01b0818c17b0fec2_defs'>\n  <clipPath id='svg_01b0818c17b0fec2_c1'>\n   <rect x='0' y='0' width='504' height='360'/>\n  <\/clipPath>\n  <clipPath id='svg_01b0818c17b0fec2_c2'>\n   <rect x='41.1' y='5.98' width='456.92' height='320.34'/>\n  <\/clipPath>\n <\/defs>\n <g id='svg_01b0818c17b0fec2_rootg' class='ggiraph-svg-rootg'>\n  <g clip-path='url(#svg_01b0818c17b0fec2_c1)'>\n   <rect x='0' y='0' width='504' height='360' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.75' stroke-linejoin='round' stroke-linecap='round' class='ggiraph-svg-bg'/>\n   <rect x='0' y='0' width='504' height='360' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n  <\/g>\n  <g clip-path='url(#svg_01b0818c17b0fec2_c2)'>\n   <polyline points='41.10,325.00 498.02,325.00' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.16' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='41.10,245.57 498.02,245.57' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.16' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='41.10,166.15 498.02,166.15' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.16' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='41.10,86.73 498.02,86.73' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.16' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='41.10,7.30 498.02,7.30' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.16' stroke-linejoin='round' stroke-linecap='butt'/>\n   <circle id='svg_01b0818c17b0fec2_e1' cx='61.87' cy='311.76' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Digital'/>\n   <circle id='svg_01b0818c17b0fec2_e2' cx='87.83' cy='293.23' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Digital'/>\n   <circle id='svg_01b0818c17b0fec2_e3' cx='113.79' cy='272.05' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Retail'/>\n   <circle id='svg_01b0818c17b0fec2_e4' cx='152.74' cy='224.39' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Retail'/>\n   <circle id='svg_01b0818c17b0fec2_e5' cx='191.68' cy='211.16' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Mayorista'/>\n   <circle id='svg_01b0818c17b0fec2_e6' cx='217.64' cy='189.98' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Digital'/>\n   <circle id='svg_01b0818c17b0fec2_e7' cx='243.6' cy='166.15' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Retail'/>\n   <circle id='svg_01b0818c17b0fec2_e8' cx='282.54' cy='134.38' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Mayorista'/>\n   <circle id='svg_01b0818c17b0fec2_e9' cx='321.48' cy='113.2' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Digital'/>\n   <circle id='svg_01b0818c17b0fec2_e10' cx='347.45' cy='92.02' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Retail'/>\n   <circle id='svg_01b0818c17b0fec2_e11' cx='412.35' cy='57.6' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Mayorista'/>\n   <circle id='svg_01b0818c17b0fec2_e12' cx='477.25' cy='20.54' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Digital'/>\n  <\/g>\n  <g clip-path='url(#svg_01b0818c17b0fec2_c1)'>\n   <text x='25.05' y='328.3' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>90<\/text>\n   <text x='19.72' y='248.87' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>120<\/text>\n   <text x='19.72' y='169.45' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>150<\/text>\n   <text x='19.72' y='90.02' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>180<\/text>\n   <text x='19.72' y='10.6' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>210<\/text>\n   <text x='82.5' y='338.3' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>10<\/text>\n   <text x='212.3' y='338.3' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>20<\/text>\n   <text x='342.11' y='338.3' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>30<\/text>\n   <text x='471.92' y='338.3' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>40<\/text>\n   <text x='242.89' y='351.53' font-size='9pt' font-weight='bold' font-family='Liberation Sans' fill='#3B9AC4' fill-opacity='1'>inversion<\/text>\n   <text transform='translate(14.24,185.16) rotate(-90.00)' font-size='9pt' font-weight='bold' font-family='Liberation Sans' fill='#3B9AC4' fill-opacity='1'>ventas<\/text>\n  <\/g>\n <\/g>\n<\/svg>","js":null,"uid":"svg_01b0818c17b0fec2","ratio":1.4,"settings":{"tooltip":{"css":".tooltip_SVGID_ { padding:5px;background:black;color:white;border-radius:2px;text-align:left; ; position:absolute;pointer-events:none;z-index:9999;}","placement":"doc","opacity":0.9,"offx":10,"offy":10,"use_cursor_pos":true,"use_fill":false,"use_stroke":false,"delay_over":200,"delay_out":500},"hover":{"css":".hover_data_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_data_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_data_SVGID_ { fill:orange;stroke:black; }\nline.hover_data_SVGID_, polyline.hover_data_SVGID_ { fill:none;stroke:orange; }\nrect.hover_data_SVGID_, polygon.hover_data_SVGID_, path.hover_data_SVGID_ { fill:orange;stroke:none; }\nimage.hover_data_SVGID_ { stroke:orange; }","reactive":true,"nearest_distance":null,"linked":false},"hover_inv":{"css":""},"hover_key":{"css":".hover_key_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_key_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_key_SVGID_ { fill:orange;stroke:black; }\nline.hover_key_SVGID_, polyline.hover_key_SVGID_ { fill:none;stroke:orange; }\nrect.hover_key_SVGID_, polygon.hover_key_SVGID_, path.hover_key_SVGID_ { fill:orange;stroke:none; }\nimage.hover_key_SVGID_ { stroke:orange; }","reactive":true},"hover_theme":{"css":".hover_theme_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_theme_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_theme_SVGID_ { fill:orange;stroke:black; }\nline.hover_theme_SVGID_, polyline.hover_theme_SVGID_ { fill:none;stroke:orange; }\nrect.hover_theme_SVGID_, polygon.hover_theme_SVGID_, path.hover_theme_SVGID_ { fill:orange;stroke:none; }\nimage.hover_theme_SVGID_ { stroke:orange; }","reactive":true},"select":{"css":".select_data_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_data_SVGID_ { stroke:none;fill:red; }\ncircle.select_data_SVGID_ { fill:red;stroke:black; }\nline.select_data_SVGID_, polyline.select_data_SVGID_ { fill:none;stroke:red; }\nrect.select_data_SVGID_, polygon.select_data_SVGID_, path.select_data_SVGID_ { fill:red;stroke:none; }\nimage.select_data_SVGID_ { stroke:red; }","type":"multiple","only_shiny":true,"selected":[],"linked":false},"select_inv":{"css":""},"select_key":{"css":".select_key_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_key_SVGID_ { stroke:none;fill:red; }\ncircle.select_key_SVGID_ { fill:red;stroke:black; }\nline.select_key_SVGID_, polyline.select_key_SVGID_ { fill:none;stroke:red; }\nrect.select_key_SVGID_, polygon.select_key_SVGID_, path.select_key_SVGID_ { fill:red;stroke:none; }\nimage.select_key_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"select_theme":{"css":".select_theme_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_theme_SVGID_ { stroke:none;fill:red; }\ncircle.select_theme_SVGID_ { fill:red;stroke:black; }\nline.select_theme_SVGID_, polyline.select_theme_SVGID_ { fill:none;stroke:red; }\nrect.select_theme_SVGID_, polygon.select_theme_SVGID_, path.select_theme_SVGID_ { fill:red;stroke:none; }\nimage.select_theme_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"zoom":{"min":1,"max":1,"duration":300,"default_on":false},"toolbar":{"position":"topright","pngname":"diagram","tooltips":null,"fixed":false,"hidden":[],"delay_over":200,"delay_out":500},"sizing":{"rescale":true,"width":1}}},"evals":[],"jsHooks":[]}</script>
+<div class="girafe html-widget html-fill-item" id="htmlwidget-f8e0b26bbb110ad1fec8" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f8e0b26bbb110ad1fec8">{"x":{"html":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='ggiraph-svg' role='graphics-document' id='svg_01b0818c17b0fec2' viewBox='0 0 504 360'>\n <defs id='svg_01b0818c17b0fec2_defs'>\n  <clipPath id='svg_01b0818c17b0fec2_c1'>\n   <rect x='0' y='0' width='504' height='360'/>\n  <\/clipPath>\n  <clipPath id='svg_01b0818c17b0fec2_c2'>\n   <rect x='41.1' y='5.98' width='456.92' height='320.34'/>\n  <\/clipPath>\n <\/defs>\n <g id='svg_01b0818c17b0fec2_rootg' class='ggiraph-svg-rootg'>\n  <g clip-path='url(#svg_01b0818c17b0fec2_c1)'>\n   <rect x='0' y='0' width='504' height='360' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.75' stroke-linejoin='round' stroke-linecap='round' class='ggiraph-svg-bg'/>\n   <rect x='0' y='0' width='504' height='360' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n  <\/g>\n  <g clip-path='url(#svg_01b0818c17b0fec2_c2)'>\n   <polyline points='41.10,318.23 498.02,318.23' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.16' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='41.10,237.34 498.02,237.34' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.16' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='41.10,156.44 498.02,156.44' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.16' stroke-linejoin='round' stroke-linecap='butt'/>\n   <polyline points='41.10,75.55 498.02,75.55' fill='none' stroke='#EBEBEB' stroke-opacity='1' stroke-width='1.16' stroke-linejoin='round' stroke-linecap='butt'/>\n   <circle id='svg_01b0818c17b0fec2_e1' cx='61.87' cy='311.76' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Digital'/>\n   <circle id='svg_01b0818c17b0fec2_e2' cx='87.83' cy='292.35' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Digital'/>\n   <circle id='svg_01b0818c17b0fec2_e3' cx='113.79' cy='253.52' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Retail'/>\n   <circle id='svg_01b0818c17b0fec2_e4' cx='152.74' cy='256.75' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Retail'/>\n   <circle id='svg_01b0818c17b0fec2_e5' cx='191.68' cy='292.35' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Mayorista'/>\n   <circle id='svg_01b0818c17b0fec2_e6' cx='217.64' cy='250.28' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Digital'/>\n   <circle id='svg_01b0818c17b0fec2_e7' cx='243.6' cy='172.62' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Retail'/>\n   <circle id='svg_01b0818c17b0fec2_e8' cx='282.54' cy='75.55' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Mayorista'/>\n   <circle id='svg_01b0818c17b0fec2_e9' cx='321.48' cy='166.15' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Digital'/>\n   <circle id='svg_01b0818c17b0fec2_e10' cx='347.45' cy='69.08' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Retail'/>\n   <circle id='svg_01b0818c17b0fec2_e11' cx='412.35' cy='114.38' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Mayorista'/>\n   <circle id='svg_01b0818c17b0fec2_e12' cx='477.25' cy='20.54' r='2.69pt' fill='#2C78A8' fill-opacity='1' stroke='#2C78A8' stroke-opacity='1' stroke-width='0.77' stroke-linejoin='round' stroke-linecap='round' title='Digital'/>\n  <\/g>\n  <g clip-path='url(#svg_01b0818c17b0fec2_c1)'>\n   <text x='19.72' y='321.53' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>100<\/text>\n   <text x='19.72' y='240.63' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>125<\/text>\n   <text x='19.72' y='159.74' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>150<\/text>\n   <text x='19.72' y='78.84' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>175<\/text>\n   <text x='82.5' y='338.3' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>10<\/text>\n   <text x='212.3' y='338.3' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>20<\/text>\n   <text x='342.11' y='338.3' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>30<\/text>\n   <text x='471.92' y='338.3' font-size='7.2pt' font-family='Liberation Sans' fill='#4D4D4D' fill-opacity='1'>40<\/text>\n   <text x='242.89' y='351.53' font-size='9pt' font-weight='bold' font-family='Liberation Sans' fill='#3B9AC4' fill-opacity='1'>inversion<\/text>\n   <text transform='translate(14.24,185.16) rotate(-90.00)' font-size='9pt' font-weight='bold' font-family='Liberation Sans' fill='#3B9AC4' fill-opacity='1'>ventas<\/text>\n  <\/g>\n <\/g>\n<\/svg>","js":null,"uid":"svg_01b0818c17b0fec2","ratio":1.4,"settings":{"tooltip":{"css":".tooltip_SVGID_ { padding:5px;background:black;color:white;border-radius:2px;text-align:left; ; position:absolute;pointer-events:none;z-index:9999;}","placement":"doc","opacity":0.9,"offx":10,"offy":10,"use_cursor_pos":true,"use_fill":false,"use_stroke":false,"delay_over":200,"delay_out":500},"hover":{"css":".hover_data_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_data_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_data_SVGID_ { fill:orange;stroke:black; }\nline.hover_data_SVGID_, polyline.hover_data_SVGID_ { fill:none;stroke:orange; }\nrect.hover_data_SVGID_, polygon.hover_data_SVGID_, path.hover_data_SVGID_ { fill:orange;stroke:none; }\nimage.hover_data_SVGID_ { stroke:orange; }","reactive":true,"nearest_distance":null,"linked":false},"hover_inv":{"css":""},"hover_key":{"css":".hover_key_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_key_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_key_SVGID_ { fill:orange;stroke:black; }\nline.hover_key_SVGID_, polyline.hover_key_SVGID_ { fill:none;stroke:orange; }\nrect.hover_key_SVGID_, polygon.hover_key_SVGID_, path.hover_key_SVGID_ { fill:orange;stroke:none; }\nimage.hover_key_SVGID_ { stroke:orange; }","reactive":true},"hover_theme":{"css":".hover_theme_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_theme_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_theme_SVGID_ { fill:orange;stroke:black; }\nline.hover_theme_SVGID_, polyline.hover_theme_SVGID_ { fill:none;stroke:orange; }\nrect.hover_theme_SVGID_, polygon.hover_theme_SVGID_, path.hover_theme_SVGID_ { fill:orange;stroke:none; }\nimage.hover_theme_SVGID_ { stroke:orange; }","reactive":true},"select":{"css":".select_data_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_data_SVGID_ { stroke:none;fill:red; }\ncircle.select_data_SVGID_ { fill:red;stroke:black; }\nline.select_data_SVGID_, polyline.select_data_SVGID_ { fill:none;stroke:red; }\nrect.select_data_SVGID_, polygon.select_data_SVGID_, path.select_data_SVGID_ { fill:red;stroke:none; }\nimage.select_data_SVGID_ { stroke:red; }","type":"multiple","only_shiny":true,"selected":[],"linked":false},"select_inv":{"css":""},"select_key":{"css":".select_key_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_key_SVGID_ { stroke:none;fill:red; }\ncircle.select_key_SVGID_ { fill:red;stroke:black; }\nline.select_key_SVGID_, polyline.select_key_SVGID_ { fill:none;stroke:red; }\nrect.select_key_SVGID_, polygon.select_key_SVGID_, path.select_key_SVGID_ { fill:red;stroke:none; }\nimage.select_key_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"select_theme":{"css":".select_theme_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_theme_SVGID_ { stroke:none;fill:red; }\ncircle.select_theme_SVGID_ { fill:red;stroke:black; }\nline.select_theme_SVGID_, polyline.select_theme_SVGID_ { fill:none;stroke:red; }\nrect.select_theme_SVGID_, polygon.select_theme_SVGID_, path.select_theme_SVGID_ { fill:red;stroke:none; }\nimage.select_theme_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"zoom":{"min":1,"max":1,"duration":300,"default_on":false},"toolbar":{"position":"topright","pngname":"diagram","tooltips":null,"fixed":false,"hidden":[],"delay_over":200,"delay_out":500},"sizing":{"rescale":true,"width":1}}},"evals":[],"jsHooks":[]}</script>
 <p><br/><br/></p>
 <pre class="r"><code># install.packages(&quot;likert&quot;)
 library(likert)
@@ -1649,11 +1680,12 @@ p &lt;- plot_ly(
   )
 
 p</code></pre>
-<div class="plotly html-widget html-fill-item" id="htmlwidget-5e6159cebc2c99dccc95" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-5e6159cebc2c99dccc95">{"x":{"visdat":{"a6117987268":["function () ","plotlyVisDat"]},"cur_data":"a6117987268","attrs":{"a6117987268":{"x":{},"y":{},"mode":"markers","text":{},"hoverinfo":"text","marker":{"size":10,"opacity":0.80000000000000004},"color":{},"colors":["#163A5F","#245B89","#2C78A8"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Dispersión interactiva (Plotly)","xaxis":{"domain":[0,1],"automargin":true,"title":"Edad (años)"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Ingreso (COP)"},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[35,36,33,36,32,44,39,33,34,32,27,37,38,33,46,29,33,36,38,37,32,40,33,23,40,29,37,40,33,32,32,46,30],"y":[5152.4574006022667,4548.3814327349846,6418.9966090607659,5444.4380344754609,6019.4072039434623,5801.153362166714,4650.2956539664174,4475.8712093950871,4552.5253858151982,7343.8620052322076,4848.0500983045413,6944.5508584233485,4039.3599290751781,7409.1035692174828,3985.3323462182489,4969.0934778296969,6187.9167729758274,6287.7388474751779,5127.5612438961707,6552.7114655793321,4450.8229933339344,6016.8620443136087,5284.6194923583062,5565.293033525315,5465.9327462615356,5810.480749443137,5302.824105651448,6609.9202897136402,6254.053785184522,4604.6366420224585,7497.2133847479663,6100.7088236724176,4314.5199154026895],"mode":"markers","text":["Grupo: A<br>Edad: 35<br>Ingreso: 5152","Grupo: A<br>Edad: 36<br>Ingreso: 4548","Grupo: A<br>Edad: 33<br>Ingreso: 6419","Grupo: A<br>Edad: 36<br>Ingreso: 5444","Grupo: A<br>Edad: 32<br>Ingreso: 6019","Grupo: A<br>Edad: 44<br>Ingreso: 5801","Grupo: A<br>Edad: 39<br>Ingreso: 4650","Grupo: A<br>Edad: 33<br>Ingreso: 4476","Grupo: A<br>Edad: 34<br>Ingreso: 4553","Grupo: A<br>Edad: 32<br>Ingreso: 7344","Grupo: A<br>Edad: 27<br>Ingreso: 4848","Grupo: A<br>Edad: 37<br>Ingreso: 6945","Grupo: A<br>Edad: 38<br>Ingreso: 4039","Grupo: A<br>Edad: 33<br>Ingreso: 7409","Grupo: A<br>Edad: 46<br>Ingreso: 3985","Grupo: A<br>Edad: 29<br>Ingreso: 4969","Grupo: A<br>Edad: 33<br>Ingreso: 6188","Grupo: A<br>Edad: 36<br>Ingreso: 6288","Grupo: A<br>Edad: 38<br>Ingreso: 5128","Grupo: A<br>Edad: 37<br>Ingreso: 6553","Grupo: A<br>Edad: 32<br>Ingreso: 4451","Grupo: A<br>Edad: 40<br>Ingreso: 6017","Grupo: A<br>Edad: 33<br>Ingreso: 5285","Grupo: A<br>Edad: 23<br>Ingreso: 5565","Grupo: A<br>Edad: 40<br>Ingreso: 5466","Grupo: A<br>Edad: 29<br>Ingreso: 5810","Grupo: A<br>Edad: 37<br>Ingreso: 5303","Grupo: A<br>Edad: 40<br>Ingreso: 6610","Grupo: A<br>Edad: 33<br>Ingreso: 6254","Grupo: A<br>Edad: 32<br>Ingreso: 4605","Grupo: A<br>Edad: 32<br>Ingreso: 7497","Grupo: A<br>Edad: 46<br>Ingreso: 6101","Grupo: A<br>Edad: 30<br>Ingreso: 4315"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(22,58,95,1)","size":10,"opacity":0.80000000000000004,"line":{"color":"rgba(22,58,95,1)"}},"type":"scatter","name":"A","textfont":{"color":"rgba(22,58,95,1)"},"error_y":{"color":"rgba(22,58,95,1)"},"error_x":{"color":"rgba(22,58,95,1)"},"line":{"color":"rgba(22,58,95,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[37,32,41,37,37,31,36,41,34,39,35,33,32,34,29,41,33,35,35,34,36,30,37,37,35,45,31,32,36,34,34,41,40,36,34],"y":[4715.0955305429243,5119.7734797122375,4924.6530373916084,6107.9643222250334,3882.1172917108361,5243.9078078017528,5577.9608495637103,5428.6919138764015,5951.5040530792148,5077.5031676603749,6239.9475108773349,4056.1068390282007,6201.7843353747112,5237.8025105975321,3927.8558408545123,3898.4638264254063,4038.2444150041001,4212.9695239648208,5832.2025789501176,5380.5473933693411,6476.9733866856204,8741.0399349424042,5798.2275915407154,6136.569674033849,5016.2193742912568,5868.9645273850856,7628.4518990161814,4758.6639037271716,5936.5234789101833,5041.634667288894,5263.7204310589032,5000.7079828277392,5714.4453095816016,5594.5835281735717,4888.8340833195789],"mode":"markers","text":["Grupo: B<br>Edad: 37<br>Ingreso: 4715","Grupo: B<br>Edad: 32<br>Ingreso: 5120","Grupo: B<br>Edad: 41<br>Ingreso: 4925","Grupo: B<br>Edad: 37<br>Ingreso: 6108","Grupo: B<br>Edad: 37<br>Ingreso: 3882","Grupo: B<br>Edad: 31<br>Ingreso: 5244","Grupo: B<br>Edad: 36<br>Ingreso: 5578","Grupo: B<br>Edad: 41<br>Ingreso: 5429","Grupo: B<br>Edad: 34<br>Ingreso: 5952","Grupo: B<br>Edad: 39<br>Ingreso: 5078","Grupo: B<br>Edad: 35<br>Ingreso: 6240","Grupo: B<br>Edad: 33<br>Ingreso: 4056","Grupo: B<br>Edad: 32<br>Ingreso: 6202","Grupo: B<br>Edad: 34<br>Ingreso: 5238","Grupo: B<br>Edad: 29<br>Ingreso: 3928","Grupo: B<br>Edad: 41<br>Ingreso: 3898","Grupo: B<br>Edad: 33<br>Ingreso: 4038","Grupo: B<br>Edad: 35<br>Ingreso: 4213","Grupo: B<br>Edad: 35<br>Ingreso: 5832","Grupo: B<br>Edad: 34<br>Ingreso: 5381","Grupo: B<br>Edad: 36<br>Ingreso: 6477","Grupo: B<br>Edad: 30<br>Ingreso: 8741","Grupo: B<br>Edad: 37<br>Ingreso: 5798","Grupo: B<br>Edad: 37<br>Ingreso: 6137","Grupo: B<br>Edad: 35<br>Ingreso: 5016","Grupo: B<br>Edad: 45<br>Ingreso: 5869","Grupo: B<br>Edad: 31<br>Ingreso: 7628","Grupo: B<br>Edad: 32<br>Ingreso: 4759","Grupo: B<br>Edad: 36<br>Ingreso: 5937","Grupo: B<br>Edad: 34<br>Ingreso: 5042","Grupo: B<br>Edad: 34<br>Ingreso: 5264","Grupo: B<br>Edad: 41<br>Ingreso: 5001","Grupo: B<br>Edad: 40<br>Ingreso: 5714","Grupo: B<br>Edad: 36<br>Ingreso: 5595","Grupo: B<br>Edad: 34<br>Ingreso: 4889"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(36,91,137,1)","size":10,"opacity":0.80000000000000004,"line":{"color":"rgba(36,91,137,1)"}},"type":"scatter","name":"B","textfont":{"color":"rgba(36,91,137,1)"},"error_y":{"color":"rgba(36,91,137,1)"},"error_x":{"color":"rgba(36,91,137,1)"},"line":{"color":"rgba(36,91,137,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[32,34,43,44,29,37,25,30,30,39,29,39,39,38,39,35,42,43,27,36,33,30,40,34,35,37,33,38,37,38,42,43],"y":[4789.5934363006991,5756.8837091565292,5253.308121537626,5454.9722751910795,3832.0580634118633,5605.6761941489431,4859.2939916946234,5617.6465971001262,5009.442556299332,5735.3865722848568,4538.1433658698716,5541.2329219929397,3446.7527784594845,6631.3372134141755,7600.1089405256716,6269.0422410009096,4491.623391722992,5219.6046648297533,6062.9895332204796,5125.4191422329859,4239.8447552418875,5083.142411839568,4404.0037329253364,5537.7883991710787,4436.6738660288092,6763.1851760894897,5150.3496120464451,4634.4871373466258,5584.7372921971964,5175.3140885091652,4189.1984666720282,4248.7286383750561],"mode":"markers","text":["Grupo: C<br>Edad: 32<br>Ingreso: 4790","Grupo: C<br>Edad: 34<br>Ingreso: 5757","Grupo: C<br>Edad: 43<br>Ingreso: 5253","Grupo: C<br>Edad: 44<br>Ingreso: 5455","Grupo: C<br>Edad: 29<br>Ingreso: 3832","Grupo: C<br>Edad: 37<br>Ingreso: 5606","Grupo: C<br>Edad: 25<br>Ingreso: 4859","Grupo: C<br>Edad: 30<br>Ingreso: 5618","Grupo: C<br>Edad: 30<br>Ingreso: 5009","Grupo: C<br>Edad: 39<br>Ingreso: 5735","Grupo: C<br>Edad: 29<br>Ingreso: 4538","Grupo: C<br>Edad: 39<br>Ingreso: 5541","Grupo: C<br>Edad: 39<br>Ingreso: 3447","Grupo: C<br>Edad: 38<br>Ingreso: 6631","Grupo: C<br>Edad: 39<br>Ingreso: 7600","Grupo: C<br>Edad: 35<br>Ingreso: 6269","Grupo: C<br>Edad: 42<br>Ingreso: 4492","Grupo: C<br>Edad: 43<br>Ingreso: 5220","Grupo: C<br>Edad: 27<br>Ingreso: 6063","Grupo: C<br>Edad: 36<br>Ingreso: 5125","Grupo: C<br>Edad: 33<br>Ingreso: 4240","Grupo: C<br>Edad: 30<br>Ingreso: 5083","Grupo: C<br>Edad: 40<br>Ingreso: 4404","Grupo: C<br>Edad: 34<br>Ingreso: 5538","Grupo: C<br>Edad: 35<br>Ingreso: 4437","Grupo: C<br>Edad: 37<br>Ingreso: 6763","Grupo: C<br>Edad: 33<br>Ingreso: 5150","Grupo: C<br>Edad: 38<br>Ingreso: 4634","Grupo: C<br>Edad: 37<br>Ingreso: 5585","Grupo: C<br>Edad: 38<br>Ingreso: 5175","Grupo: C<br>Edad: 42<br>Ingreso: 4189","Grupo: C<br>Edad: 43<br>Ingreso: 4249"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(44,120,168,1)","size":10,"opacity":0.80000000000000004,"line":{"color":"rgba(44,120,168,1)"}},"type":"scatter","name":"C","textfont":{"color":"rgba(44,120,168,1)"},"error_y":{"color":"rgba(44,120,168,1)"},"error_x":{"color":"rgba(44,120,168,1)"},"line":{"color":"rgba(44,120,168,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f6674eb914c022dd1582" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f6674eb914c022dd1582">{"x":{"visdat":{"30afd55bfbc1f":["function () ","plotlyVisDat"]},"cur_data":"30afd55bfbc1f","attrs":{"30afd55bfbc1f":{"x":{},"y":{},"mode":"markers","text":{},"hoverinfo":"text","marker":{"size":10,"opacity":0.80000000000000004},"color":{},"colors":["#163A5F","#245B89","#2C78A8"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Dispersión interactiva (Plotly)","xaxis":{"domain":[0,1],"automargin":true,"title":"Edad (años)"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Ingreso (COP)"},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[35,36,33,36,32,44,39,33,34,32,27,37,38,33,46,29,33,36,38,37,32,40,33,23,40,29,37,40,33,32,32,46,30],"y":[5152.4574006022667,4548.3814327349846,6418.9966090607659,5444.4380344754609,6019.4072039434623,5801.153362166714,4650.2956539664174,4475.8712093950871,4552.5253858151982,7343.8620052322076,4848.0500983045413,6944.5508584233485,4039.3599290751781,7409.1035692174828,3985.3323462182489,4969.0934778296969,6187.9167729758274,6287.7388474751779,5127.5612438961707,6552.7114655793321,4450.8229933339344,6016.8620443136087,5284.6194923583062,5565.293033525315,5465.9327462615356,5810.480749443137,5302.824105651448,6609.9202897136402,6254.053785184522,4604.6366420224585,7497.2133847479663,6100.7088236724176,4314.5199154026895],"mode":"markers","text":["Grupo: A<br>Edad: 35<br>Ingreso: 5152","Grupo: A<br>Edad: 36<br>Ingreso: 4548","Grupo: A<br>Edad: 33<br>Ingreso: 6419","Grupo: A<br>Edad: 36<br>Ingreso: 5444","Grupo: A<br>Edad: 32<br>Ingreso: 6019","Grupo: A<br>Edad: 44<br>Ingreso: 5801","Grupo: A<br>Edad: 39<br>Ingreso: 4650","Grupo: A<br>Edad: 33<br>Ingreso: 4476","Grupo: A<br>Edad: 34<br>Ingreso: 4553","Grupo: A<br>Edad: 32<br>Ingreso: 7344","Grupo: A<br>Edad: 27<br>Ingreso: 4848","Grupo: A<br>Edad: 37<br>Ingreso: 6945","Grupo: A<br>Edad: 38<br>Ingreso: 4039","Grupo: A<br>Edad: 33<br>Ingreso: 7409","Grupo: A<br>Edad: 46<br>Ingreso: 3985","Grupo: A<br>Edad: 29<br>Ingreso: 4969","Grupo: A<br>Edad: 33<br>Ingreso: 6188","Grupo: A<br>Edad: 36<br>Ingreso: 6288","Grupo: A<br>Edad: 38<br>Ingreso: 5128","Grupo: A<br>Edad: 37<br>Ingreso: 6553","Grupo: A<br>Edad: 32<br>Ingreso: 4451","Grupo: A<br>Edad: 40<br>Ingreso: 6017","Grupo: A<br>Edad: 33<br>Ingreso: 5285","Grupo: A<br>Edad: 23<br>Ingreso: 5565","Grupo: A<br>Edad: 40<br>Ingreso: 5466","Grupo: A<br>Edad: 29<br>Ingreso: 5810","Grupo: A<br>Edad: 37<br>Ingreso: 5303","Grupo: A<br>Edad: 40<br>Ingreso: 6610","Grupo: A<br>Edad: 33<br>Ingreso: 6254","Grupo: A<br>Edad: 32<br>Ingreso: 4605","Grupo: A<br>Edad: 32<br>Ingreso: 7497","Grupo: A<br>Edad: 46<br>Ingreso: 6101","Grupo: A<br>Edad: 30<br>Ingreso: 4315"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(22,58,95,1)","size":10,"opacity":0.80000000000000004,"line":{"color":"rgba(22,58,95,1)"}},"type":"scatter","name":"A","textfont":{"color":"rgba(22,58,95,1)"},"error_y":{"color":"rgba(22,58,95,1)"},"error_x":{"color":"rgba(22,58,95,1)"},"line":{"color":"rgba(22,58,95,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[37,32,41,37,37,31,36,41,34,39,35,33,32,34,29,41,33,35,35,34,36,30,37,37,35,45,31,32,36,34,34,41,40,36,34],"y":[4715.0955305429243,5119.7734797122375,4924.6530373916084,6107.9643222250334,3882.1172917108361,5243.9078078017528,5577.9608495637103,5428.6919138764015,5951.5040530792148,5077.5031676603749,6239.9475108773349,4056.1068390282007,6201.7843353747112,5237.8025105975321,3927.8558408545123,3898.4638264254063,4038.2444150041001,4212.9695239648208,5832.2025789501176,5380.5473933693411,6476.9733866856204,8741.0399349424042,5798.2275915407154,6136.569674033849,5016.2193742912568,5868.9645273850856,7628.4518990161814,4758.6639037271716,5936.5234789101833,5041.634667288894,5263.7204310589032,5000.7079828277392,5714.4453095816016,5594.5835281735717,4888.8340833195789],"mode":"markers","text":["Grupo: B<br>Edad: 37<br>Ingreso: 4715","Grupo: B<br>Edad: 32<br>Ingreso: 5120","Grupo: B<br>Edad: 41<br>Ingreso: 4925","Grupo: B<br>Edad: 37<br>Ingreso: 6108","Grupo: B<br>Edad: 37<br>Ingreso: 3882","Grupo: B<br>Edad: 31<br>Ingreso: 5244","Grupo: B<br>Edad: 36<br>Ingreso: 5578","Grupo: B<br>Edad: 41<br>Ingreso: 5429","Grupo: B<br>Edad: 34<br>Ingreso: 5952","Grupo: B<br>Edad: 39<br>Ingreso: 5078","Grupo: B<br>Edad: 35<br>Ingreso: 6240","Grupo: B<br>Edad: 33<br>Ingreso: 4056","Grupo: B<br>Edad: 32<br>Ingreso: 6202","Grupo: B<br>Edad: 34<br>Ingreso: 5238","Grupo: B<br>Edad: 29<br>Ingreso: 3928","Grupo: B<br>Edad: 41<br>Ingreso: 3898","Grupo: B<br>Edad: 33<br>Ingreso: 4038","Grupo: B<br>Edad: 35<br>Ingreso: 4213","Grupo: B<br>Edad: 35<br>Ingreso: 5832","Grupo: B<br>Edad: 34<br>Ingreso: 5381","Grupo: B<br>Edad: 36<br>Ingreso: 6477","Grupo: B<br>Edad: 30<br>Ingreso: 8741","Grupo: B<br>Edad: 37<br>Ingreso: 5798","Grupo: B<br>Edad: 37<br>Ingreso: 6137","Grupo: B<br>Edad: 35<br>Ingreso: 5016","Grupo: B<br>Edad: 45<br>Ingreso: 5869","Grupo: B<br>Edad: 31<br>Ingreso: 7628","Grupo: B<br>Edad: 32<br>Ingreso: 4759","Grupo: B<br>Edad: 36<br>Ingreso: 5937","Grupo: B<br>Edad: 34<br>Ingreso: 5042","Grupo: B<br>Edad: 34<br>Ingreso: 5264","Grupo: B<br>Edad: 41<br>Ingreso: 5001","Grupo: B<br>Edad: 40<br>Ingreso: 5714","Grupo: B<br>Edad: 36<br>Ingreso: 5595","Grupo: B<br>Edad: 34<br>Ingreso: 4889"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(36,91,137,1)","size":10,"opacity":0.80000000000000004,"line":{"color":"rgba(36,91,137,1)"}},"type":"scatter","name":"B","textfont":{"color":"rgba(36,91,137,1)"},"error_y":{"color":"rgba(36,91,137,1)"},"error_x":{"color":"rgba(36,91,137,1)"},"line":{"color":"rgba(36,91,137,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[32,34,43,44,29,37,25,30,30,39,29,39,39,38,39,35,42,43,27,36,33,30,40,34,35,37,33,38,37,38,42,43],"y":[4789.5934363006991,5756.8837091565292,5253.308121537626,5454.9722751910795,3832.0580634118633,5605.6761941489431,4859.2939916946234,5617.6465971001262,5009.442556299332,5735.3865722848568,4538.1433658698716,5541.2329219929397,3446.7527784594845,6631.3372134141755,7600.1089405256716,6269.0422410009096,4491.623391722992,5219.6046648297533,6062.9895332204796,5125.4191422329859,4239.8447552418875,5083.142411839568,4404.0037329253364,5537.7883991710787,4436.6738660288092,6763.1851760894897,5150.3496120464451,4634.4871373466258,5584.7372921971964,5175.3140885091652,4189.1984666720282,4248.7286383750561],"mode":"markers","text":["Grupo: C<br>Edad: 32<br>Ingreso: 4790","Grupo: C<br>Edad: 34<br>Ingreso: 5757","Grupo: C<br>Edad: 43<br>Ingreso: 5253","Grupo: C<br>Edad: 44<br>Ingreso: 5455","Grupo: C<br>Edad: 29<br>Ingreso: 3832","Grupo: C<br>Edad: 37<br>Ingreso: 5606","Grupo: C<br>Edad: 25<br>Ingreso: 4859","Grupo: C<br>Edad: 30<br>Ingreso: 5618","Grupo: C<br>Edad: 30<br>Ingreso: 5009","Grupo: C<br>Edad: 39<br>Ingreso: 5735","Grupo: C<br>Edad: 29<br>Ingreso: 4538","Grupo: C<br>Edad: 39<br>Ingreso: 5541","Grupo: C<br>Edad: 39<br>Ingreso: 3447","Grupo: C<br>Edad: 38<br>Ingreso: 6631","Grupo: C<br>Edad: 39<br>Ingreso: 7600","Grupo: C<br>Edad: 35<br>Ingreso: 6269","Grupo: C<br>Edad: 42<br>Ingreso: 4492","Grupo: C<br>Edad: 43<br>Ingreso: 5220","Grupo: C<br>Edad: 27<br>Ingreso: 6063","Grupo: C<br>Edad: 36<br>Ingreso: 5125","Grupo: C<br>Edad: 33<br>Ingreso: 4240","Grupo: C<br>Edad: 30<br>Ingreso: 5083","Grupo: C<br>Edad: 40<br>Ingreso: 4404","Grupo: C<br>Edad: 34<br>Ingreso: 5538","Grupo: C<br>Edad: 35<br>Ingreso: 4437","Grupo: C<br>Edad: 37<br>Ingreso: 6763","Grupo: C<br>Edad: 33<br>Ingreso: 5150","Grupo: C<br>Edad: 38<br>Ingreso: 4634","Grupo: C<br>Edad: 37<br>Ingreso: 5585","Grupo: C<br>Edad: 38<br>Ingreso: 5175","Grupo: C<br>Edad: 42<br>Ingreso: 4189","Grupo: C<br>Edad: 43<br>Ingreso: 4249"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(44,120,168,1)","size":10,"opacity":0.80000000000000004,"line":{"color":"rgba(44,120,168,1)"}},"type":"scatter","name":"C","textfont":{"color":"rgba(44,120,168,1)"},"error_y":{"color":"rgba(44,120,168,1)"},"error_x":{"color":"rgba(44,120,168,1)"},"line":{"color":"rgba(44,120,168,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p><br/><br/><br/><br/></p>
+</div>
 <div id="una-imagen-dice-mas-que-mil-palabras" class="section level3">
-<h3><strong>Una imagen dice mas que mil palabras…</strong></h3>
+<h3>Una imagen dice mas que mil palabras…</h3>
 <p>Las imágenes también comunican contexto y refuerzan la narrativa del
 informe. En presentaciones de mercadeo, una foto puede conectar datos
 con la realidad del entorno.</p>
@@ -1661,6 +1693,7 @@ con la realidad del entorno.</p>
 <p>Imagen tomada de :<a
 href="https://javerianacali.edu.co/noticias/la-javeriana-bogota-y-cali-1-de-colombia"
 class="uri">https://javerianacali.edu.co/noticias/la-javeriana-bogota-y-cali-1-de-colombia</a></p>
+</div>
 </div>
 </div>
 

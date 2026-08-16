@@ -1,17 +1,16 @@
 ---
-title: " "
-pagetitle: "Caso 1 — Estadística para la toma de decisiones"
-subtitle: " "
-author: "dgonzalez "
+title: <span style="color:#f9ceca"> </span>  
+author: <span style="color:#f9ceca">dgonzalez</span> 
+subtitle: <span style="color:#f9ceca"> </span> 
 output:
   html_document:
-    toc: no
+    toc: no 
     toc_depth: 2
     toc_float: yes
     code_folding: hide
     theme: flatly
     css: style.css
----
+---  
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
