@@ -55,4 +55,7 @@ c72 <- c07
 c80 <- c06
 c90 <- c07
 
+# Paleta principal de siete colores usada por materiales heredados.
+paleta1 <- c(c11, c21, c31, c41, c51, c61, c71)
+
 paleta4 <- c(c0,c1,c2,c3)

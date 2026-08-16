@@ -1,16 +1,16 @@
 ---
-title: <span style="color:#f9ceca"> </span>  
-author: <span style="color:#f9ceca">dgonzalez</span> 
-subtitle: <span style="color:#f9ceca"> </span> 
+title:  " "
+pagetitle: "Código 1.3 — Gráficos en R"
+author: "dgonzalez "
+subtitle: " "
 output:
   html_document:
-    toc: no 
+    toc: no
     toc_depth: 2
     toc_float: yes
     code_folding: hide
     theme: flatly
-    css: style.css
----  
+---
 
 
 
@@ -132,15 +132,13 @@ pie(t1,
 
 ## Diagrama de barras
 
-```{r}
-clientes <- clientes %>%
-  mutate(
-    edadR = case_when(
-      edad_cliente <= 30 ~ "1.Joven",
-      edad_cliente <= 60 ~ "2.Adulto",
-      TRUE ~ "3.Mayor"
-    )
-  )
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+
+clientes$edadR[clientes$edad_cliente <=30] = "1.Joven"
+clientes$edadR[clientes$edad_cliente>=31 & clientes$edad_cliente <=60] = "2.Adulto"
+clientes$edadR[clientes$edad_cliente>=61] = "3.Mayor"
+ 
 
 barplot(table(clientes$edadR), ylim = c(0, 600))
 
@@ -528,11 +526,28 @@ fig3
 ```
 
 
-```{r}
-fig=ggplot(data = ventas, aes(x = Tipo_Cliente, fill = Metodo_Pago)) + 
-      geom_bar(colour= "#2C5697", linewidth = 0.3) +
-  coord_polar() +
-  scale_fill_manual(values = c("#2C5697", "#21B5E4", "#F05A4A", "#F4B43C", "#FBE8C5" ))
+```{r grafico-polar-clientes, fig.width=9, fig.height=6}
+fig <- ggplot(
+  data = ventas,
+  aes(x = Tipo_Cliente, fill = Metodo_Pago)
+) +
+  geom_bar(colour = "#2C5697", linewidth = 0.3) +
+  coord_polar(clip = "off") +
+  scale_fill_manual(
+    values = c("#2C5697", "#21B5E4", "#F05A4A", "#F4B43C", "#FBE8C5")
+  ) +
+  labs(
+    x = "Tipo de cliente",
+    y = NULL,
+    fill = "Método de pago"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(margin = margin(t = 8)),
+    legend.position = "bottom",
+    plot.margin = margin(t = 20, r = 65, b = 20, l = 65)
+  )
+
 fig
 ```
 ```{r}
@@ -869,100 +884,70 @@ if (file.exists("img/poblacion_colombia.gif")) {
 }
 ```
 
-```{r poblacion-mundial-gif, echo=FALSE, eval=FALSE, message=FALSE, warning=FALSE}
-# Este bloque queda desactivado durante Knit.
-# Actívelo solamente cuando necesite regenerar el archivo GIF.
-ranked_by_year <- gapminder::gapminder %>%
-  dplyr::select(country, pop, year, continent) %>%
-  group_by(year) %>%
-  arrange(desc(pop), .by_group = TRUE) %>%
-  mutate(rank = row_number()) %>%
-  filter(rank <= 20) %>%
-  ungroup()
+```{r ranking-animado, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+ok_rank <- load_pkg("gapminder") && load_pkg("gganimate")
 
-grafico_poblacion_mundial <- ggplot(
-  ranked_by_year,
-  aes(
-    xmin = 0,
-    xmax = pop / 1e6,
-    ymin = rank - 0.45,
-    ymax = rank + 0.45,
-    y = rank,
-    fill = continent,
-    group = country
-  )
-) +
-  geom_rect(alpha = 0.78) +
-  geom_text(
-    aes(label = country),
-    x = -45,
-    hjust = "right",
-    colour = "gray13",
-    size = 3.6
-  ) +
-  geom_text(
-    aes(label = as.character(year)),
-    x = 1000,
-    y = -10,
-    family = "Times",
-    size = 11,
-    colour = "grey18"
-  ) +
-  scale_fill_manual(
-    values = c(
-      "Africa" = "#6B8EBC",
-      "Americas" = "#F05A4A",
-      "Asia" = "#F4B43C",
-      "Europe" = "#A7ABB9",
-      "Oceania" = "#21B5E4"
-    )
-  ) +
-  scale_x_continuous(
-    limits = c(-330, 1400),
-    breaks = c(0, 400, 800, 1200),
-    labels = scales::label_number(big.mark = ".", decimal.mark = ",")
-  ) +
-  scale_y_reverse() +
-  labs(
-    title = "Países más poblados del mundo",
-    subtitle = "Ranking por población · Año: {frame_time}",
-    x = "Población (millones)",
-    y = NULL,
-    fill = NULL,
-    caption = "Fuente: Gapminder"
-  ) +
-  theme_minimal(base_family = "Times", base_size = 13) +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank(),
-    panel.grid.major.y = element_blank(),
-    panel.grid.minor = element_blank(),
-    plot.title = element_text(face = "bold", colour = "#2C5697"),
-    legend.position = "right"
-  ) +
-  gganimate::transition_time(year) +
-  gganimate::ease_aes("cubic-in-out")
+if (ok_rank) {
+  gapminder::gapminder %>%
+    dplyr::select(country, pop, year, continent) %>%
+    # for each year we assign a rank
+    group_by(year) %>%
+    arrange(year, -pop) %>%
+    # assign ranking
+    mutate(rank = 1:n()) %>%
+    filter(rank <= 20) ->
+    ranked_by_year
 
-gif_poblacion_mundial <- gganimate::animate(
-  grafico_poblacion_mundial,
-  nframes = 144,
-  fps = 12,
-  width = 1000,
-  height = 720,
-  res = 96,
-  end_pause = 12,
-  renderer = gganimate::gifski_renderer(loop = TRUE)
-)
+  my_theme <- theme_minimal(base_family = "Times") +
+    theme(axis.text.y = element_blank()) +
+    theme(axis.ticks.y = element_blank()) +
+    theme(panel.grid.major.y = element_blank()) +
+    theme(panel.grid.minor = element_blank())
 
-gganimate::anim_save(
-  "img/poblacion_mundial_ranking.gif",
-  animation = gif_poblacion_mundial
-)
+  ranked_by_year %>%
+    ggplot() +
+    aes(xmin = 0,
+        xmax = pop / 1000000) +
+    aes(ymin = rank - .45,
+        ymax = rank + .45,
+        y = rank) +
+    facet_wrap(~ year) +
+    geom_rect(alpha = .7) +
+    aes(fill = continent) +
+    scale_fill_manual(values = c("#2C5697", "#F05A4A", "#F4B43C", "#A7ABB9")) +
+    geom_text(col = "gray13",
+              hjust = "right",
+              aes(label = country),
+              x = -50) +
+    scale_y_reverse() +
+    labs(fill = NULL) +
+    labs(x = 'Population (millions)') +
+    labs(y = "") +
+    my_theme ->
+    my_plot
+
+  my_plot +
+    facet_null() +
+    scale_x_continuous(
+      limits = c(-355, 1400),
+      breaks = c(0, 400, 800, 1200)) +
+    geom_text(x = 1000, y = -10,
+              family = "Times",
+              aes(label = as.character(year)),
+              size = 10, col = "grey18") +
+    aes(group = country) +
+    gganimate::transition_time(year)
+}
+
+
 ```
 
-```{r mostrar-poblacion-mundial-gif, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics("img/poblacion_mundial_ranking.gif")
+```{r mostrar-ranking-animado, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics(knitr::fig_chunk("ranking-animado", "gif"))
 ```
+
+
+
 
 
 ### Sismos más grandes por año
@@ -1299,7 +1284,6 @@ knitr::include_graphics("img/sismos_colombia_por_anio.gif")
 
 
 
-
 ## fmsb 
 
 <br/><br/>
@@ -1360,17 +1344,55 @@ if (load_pkg("fmsb")) {
 ### gráfico de barras polar
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r barras-polares, message=FALSE, warning=FALSE}
+ventas_polar <- ventas |>
+  count(Metodo_Pago, name = "frecuencia") |>
+  arrange(desc(frecuencia)) |>
+  mutate(
+    Metodo_Pago = factor(Metodo_Pago, levels = Metodo_Pago)
+  )
 
-
-
+ggplot(
+  ventas_polar,
+  aes(x = Metodo_Pago, y = frecuencia, fill = Metodo_Pago)
+) +
+  geom_col(width = 0.82, colour = "white", linewidth = 0.4) +
+  geom_text(
+    aes(label = frecuencia),
+    position = position_stack(vjust = 0.5),
+    colour = "white",
+    fontface = "bold",
+    size = 3.8
+  ) +
+  coord_polar(start = 0) +
+  scale_fill_manual(
+    values = rep(paleta1, length.out = nrow(ventas_polar))
+  ) +
+  labs(
+    title = "Frecuencia por método de pago",
+    x = NULL,
+    y = NULL,
+    fill = "Método de pago"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(
+      colour = "#2C5697",
+      face = "bold",
+      hjust = 0.5
+    ),
+    legend.position = "right"
+  )
 ```
 
  <br/><br/><br/>
  
 # Mapas 
 
-Los mapas de esta sección se construyen con `sf`, el estándar actual para trabajar con datos vectoriales en R. Para ejecutar los ejemplos, copie los archivos geográficos en las carpetas `map/cali` y `map/colombia`. Si todavía no están disponibles, el documento omite los mapas sin interrumpir el render.
+Los mapas de esta sección se construyen con `sf`, el estándar actual para trabajar con datos vectoriales en R. Los archivos geográficos necesarios están incluidos en las carpetas `map/cali` y `map/colombia`, por lo que los ejemplos funcionan sin descargar recursos durante el render.
 
 Un shapefile está compuesto por varios archivos asociados (`.shp`, `.shx`, `.dbf` y `.prj`). Todos deben conservar el mismo nombre base y permanecer en la misma carpeta.
 
@@ -1378,7 +1400,7 @@ Un shapefile está compuesto por varios archivos asociados (`.shp`, `.shx`, `.db
 
 El primer ejemplo muestra las 22 comunas de Cali. `st_make_valid()` corrige automáticamente las geometrías que puedan presentar inconsistencias topológicas.
 
-```{r mapa-cali-base, message=FALSE, warning=FALSE, fig.height=6, eval=requireNamespace("sf", quietly=TRUE) && file.exists("map/cali/cali.shp")}
+```{r mapa-cali-base, message=FALSE, warning=FALSE, fig.height=6}
 library(sf)
 
 cali <- st_read("map/cali/cali.shp", quiet = TRUE) |>
@@ -1403,77 +1425,198 @@ ggplot(cali) +
   )
 ```
 
-### Mapa de Cali con indicador
+### Microzonificación sísmica de Cali
 
-Para crear una coropleta se agrega una variable numérica al objeto espacial. En este ejemplo se simula un índice de satisfacción reproducible para cada comuna.
+El [Estudio de Microzonificación Sísmica de Santiago de Cali](https://repositorio.gestiondelriesgo.gov.co/handle/20.500.11762/19833), elaborado por INGEOMINAS y DAGMA en 2005, divide la ciudad en seis zonas principales de respuesta sísmica. Como la zona 4 se subdivide en 4A, 4B, 4C, 4D y 4E, el mapa contiene diez unidades cartográficas. La microzonificación fue adoptada mediante el Decreto municipal 0158 del 18 de marzo de 2014.
 
-```{r mapa-cali-indicador, message=FALSE, warning=FALSE, fig.height=6, eval=requireNamespace("sf", quietly=TRUE) && file.exists("map/cali/cali.shp")}
-set.seed(1301)
-cali_indicador <- cali |>
-  mutate(satisfaccion = round(runif(n(), min = 55, max = 95), 1))
+La capa vectorial proviene del servicio WFS de la Infraestructura de Datos Espaciales de Santiago de Cali (IDESC). El mapa muestra la clasificación relativa presentada en la referencia informativa. La leyenda muestra únicamente el nivel de intensidad asociado con cada color. Esta visualización es educativa y no reemplaza una consulta oficial para diseño estructural.
 
-ggplot(cali_indicador) +
-  geom_sf(aes(fill = satisfaccion), color = "white", linewidth = 0.3) +
-  scale_fill_gradientn(
-    colors = c(c42, c31, c61),
-    limits = c(50, 100),
-    name = "Satisfacción"
+```{r mapa-microzonificacion-sismica-cali, message=FALSE, warning=FALSE, fig.height=8, fig.width=9}
+microzonas_cali <- st_read(
+  "map/cali/microzonificacion_sismica.geojson",
+  quiet = TRUE
+) |>
+  st_make_valid() |>
+  filter(!is.na(label)) |>
+  distinct(label, .keep_all = TRUE) |>
+  transmute(
+    zona = label,
+    aceleracion_maxima = am_etc,
+    intensidad = case_when(
+      zona %in% c("Zona 1", "Zona 4D", "Zona 4E") ~ "Baja",
+      zona %in% c("Zona 4B", "Zona 5", "Zona 6") ~ "Moderada",
+      zona %in% c("Zona 2", "Zona 4A") ~ "Moderada alta",
+      zona %in% c("Zona 3", "Zona 4C") ~ "Alta"
+    ),
+    intensidad = factor(
+      intensidad,
+      levels = c("Baja", "Moderada", "Moderada alta", "Alta")
+    )
+  )
+
+etiquetas_comunas <- cali |>
+  st_transform(6249) |>
+  st_point_on_surface() |>
+  st_transform(st_crs(microzonas_cali)) |>
+  mutate(etiqueta_comuna = as.character(comuna))
+
+colores_intensidad <- c(
+  "Baja" = "#79B66A",
+  "Moderada" = "#E7D64A",
+  "Moderada alta" = "#F1A23A",
+  "Alta" = "#C83E37"
+)
+
+ggplot() +
+  geom_sf(
+    data = microzonas_cali,
+    aes(fill = intensidad),
+    color = "white",
+    linewidth = 0.35
   ) +
+  geom_sf(
+    data = cali,
+    fill = NA,
+    color = "#455A64",
+    linewidth = 0.18,
+    alpha = 0.65
+  ) +
+  geom_sf(
+    data = etiquetas_comunas,
+    shape = 21,
+    size = 4.2,
+    stroke = 0.45,
+    fill = scales::alpha("white", 0.9),
+    color = c41
+  ) +
+  geom_sf_text(
+    data = etiquetas_comunas,
+    aes(label = etiqueta_comuna),
+    size = 2.35,
+    fontface = "bold",
+    color = c41
+  ) +
+  scale_fill_manual(
+    values = colores_intensidad,
+    breaks = c("Baja", "Moderada", "Moderada alta", "Alta"),
+    labels = c("Baja", "Moderada", "Moderada alta", "Alta"),
+    drop = FALSE,
+    name = "Nivel de intensidad"
+  ) +
+  guides(
+    fill = guide_legend(
+      ncol = 2,
+      byrow = TRUE,
+      title.position = "top"
+    )
+  ) +
+  coord_sf(clip = "off") +
   labs(
-    title = "Índice de satisfacción por comuna",
-    subtitle = "Valores simulados con fines didácticos",
-    caption = "Fuente cartográfica: Infraestructura de Datos Espaciales de Santiago de Cali"
+    title = "Microzonificación sísmica de Santiago de Cali",
+    subtitle = "Círculos numerados: comunas",
+    caption = paste(
+      "Fuente: IDESC; INGEOMINAS–DAGMA (2005), mapa MZSC-RS2.",
+      "Adoptado mediante Decreto municipal 0158 de 2014."
+    )
   ) +
   theme_void() +
   theme(
-    plot.title = element_text(face = "bold", color = c41),
-    plot.subtitle = element_text(color = c41),
-    plot.caption = element_text(color = c41, hjust = 0),
-    legend.position = "right"
+    plot.title = element_text(face = "bold", color = c41, size = 16),
+    plot.subtitle = element_text(color = c41, size = 11),
+    plot.caption = element_text(color = c41, hjust = 0, size = 8),
+    plot.margin = margin(12, 18, 12, 18),
+    legend.position = "right",
+    legend.box = "vertical",
+    legend.title = element_text(face = "bold"),
+    legend.text = element_text(size = 8)
   )
 ```
 
 ### Mapa de Colombia
 
-El archivo de nivel administrativo 1 de GADM contiene los 32 departamentos y Bogotá, D. C. El campo `GID_1` funciona como identificador estable y `NAME_1` contiene el nombre de cada territorio.
+El siguiente mapa representa **riesgo sísmico relativo**, no solamente amenaza. La medida utilizada es la **Pérdida Anual Esperada (PAE) por sismo como proporción del valor expuesto**, expresada en partes por mil (‰). Este indicador combina amenaza, exposición y vulnerabilidad, pero permite comparar departamentos sin que el tamaño de su economía determine por sí solo el resultado.
 
-```{r mapa-colombia, message=FALSE, warning=FALSE, fig.height=7, eval=requireNamespace("sf", quietly=TRUE) && file.exists("map/colombia/gadm41_COL_1.shp")}
+Los intervalos corresponden al Mapa 20 del *Atlas de Riesgo de Colombia* de la UNGRD. La tabla `map/colombia/riesgo_sismico_relativo_departamentos.csv` contiene una fila para cada uno de los 32 departamentos y Bogotá, D. C. Se une a la cartografía GADM mediante `GID_1`, evitando depender de diferencias ortográficas en los nombres.
+
+```{r mapa-colombia, message=FALSE, warning=FALSE, fig.height=8, fig.width=10}
 mapco <- st_read("map/colombia/gadm41_COL_1.shp", quiet = TRUE) |>
   st_make_valid()
 
-# Tabla independiente que luego se une por el identificador territorial
-set.seed(1302)
-indicadores <- tibble(
-  GID_1 = mapco$GID_1,
-  indice = round(runif(nrow(mapco), min = 50, max = 100), 1)
+# Riesgo sísmico relativo importado del Atlas de Riesgo de Colombia
+riesgo_sismico <- read.csv(
+  "map/colombia/riesgo_sismico_relativo_departamentos.csv",
+  stringsAsFactors = FALSE,
+  check.names = FALSE
 )
 
-mapco_indicador <- mapco |>
-  left_join(indicadores, by = "GID_1")
+rangos_pae <- c(
+  "0,0 - 0,5", "0,5 - 1,0", "1,0 - 1,5", "1,5 - 2,0",
+  "2,0 - 2,5", "2,5 - 3,0", "3,0 - 4,0", "4,0 - 5,0",
+  "5,0 - 6,0", "> 6,0"
+)
 
-ggplot(mapco_indicador) +
-  geom_sf(aes(fill = indice), color = "white", linewidth = 0.15) +
-  scale_fill_gradientn(
-    colors = c(c42, c31, c61),
-    limits = c(50, 100),
-    name = "Índice"
+riesgo_sismico <- riesgo_sismico |>
+  mutate(
+    pae_sismo_relativa_rango = factor(
+      pae_sismo_relativa_rango,
+      levels = rangos_pae
+    )
+  )
+
+mapco_riesgo <- mapco |>
+  left_join(riesgo_sismico, by = "GID_1")
+
+# Comprobaciones para que ningún territorio quede sin dato o se duplique
+stopifnot(
+  nrow(riesgo_sismico) == 33,
+  !anyDuplicated(riesgo_sismico$GID_1),
+  !any(is.na(mapco_riesgo$pae_sismo_relativa_rango))
+)
+
+ggplot(mapco_riesgo) +
+  geom_sf(
+    aes(fill = pae_sismo_relativa_rango),
+    color = "white",
+    linewidth = 0.25,
+    show.legend = TRUE
+  ) +
+  scale_fill_manual(
+    values = c(
+      "0,0 - 0,5" = "#71C09E",
+      "0,5 - 1,0" = "#ABD190",
+      "1,0 - 1,5" = "#E1E26A",
+      "1,5 - 2,0" = "#FBEE6C",
+      "2,0 - 2,5" = "#FFD110",
+      "2,5 - 3,0" = "#F8AA21",
+      "3,0 - 4,0" = "#F08224",
+      "4,0 - 5,0" = "#E6342A",
+      "5,0 - 6,0" = "#C22032",
+      "> 6,0" = "#711A0C"
+    ),
+    drop = FALSE,
+    name = "Riesgo sísmico relativo\n(PAE en ‰)"
   ) +
   labs(
-    title = "Indicador por departamento",
-    subtitle = paste(nrow(mapco_indicador), "territorios representados · valores simulados"),
-    caption = "Fuente cartográfica: GADM 4.1"
+    title = "Riesgo sísmico de Colombia",
+    subtitle = "Pérdida Anual Esperada por sismo respecto al valor expuesto (‰)",
+    caption = paste0(
+      "Fuente: UNGRD (2018), Atlas de Riesgo de Colombia, Mapa 20; ",
+      "cálculos de Ingeniar: Risk Intelligence. Cartografía: GADM 4.1."
+    )
   ) +
-  coord_sf(datum = NA) +
+  coord_sf(datum = NA, expand = FALSE) +
   theme_void() +
   theme(
     plot.title = element_text(face = "bold", color = c41),
     plot.subtitle = element_text(color = c41),
     plot.caption = element_text(color = c41, hjust = 0),
-    legend.position = "right"
+    legend.position = "right",
+    legend.title = element_text(face = "bold"),
+    legend.key.height = unit(0.48, "cm")
   )
 ```
 
-Para trabajar con indicadores reales, la tabla externa debe contener una fila por territorio y una columna compatible con `GID_1`, `ISO_1` o `NAME_1`. La unión por una clave explícita evita asignar valores al departamento equivocado.
+La escala indica cuántas unidades monetarias se espera perder anualmente por cada mil unidades de valor expuesto. Por ejemplo, una PAE de 5‰ equivale a una pérdida media anual de 5 pesos por cada 1.000 pesos expuestos. Los tonos oscuros representan mayor riesgo sísmico relativo. No indican que necesariamente ocurran más sismos ni constituyen una escala de intensidad.
 
 <br/><br/>
 
