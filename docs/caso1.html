@@ -72,6 +72,7 @@ if (window.hljs) {
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="cajas.css" type="text/css" />
 
 
 
@@ -283,6 +284,12 @@ $(document).ready(function () {
     <li>
       <a href="productoria.html">Productoria</a>
     </li>
+    <li>
+      <a href="conjuntos.html">Conjuntos</a>
+    </li>
+    <li>
+      <a href="conteo.html">Conteo</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -333,6 +340,12 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="codigo13.html">Código 1.3</a>
+    </li>
+    <li>
+      <a href="tablero_flexdashboard.html">Tablero con flexdashboard</a>
+    </li>
+    <li>
+      <a href="tablero_shiny.html">Tablero con Shiny</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -517,20 +530,8 @@ debe señalar los principales patrones encontrados, advertir que las
 variables simuladas describen únicamente esta base académica y evitar
 conclusiones causales.</p>
 <p><br/><br/></p>
-</div>
-<div id="cargar-datos" class="section level1">
-<h1>Cargar datos</h1>
-<p><br/></p>
-<pre class="r"><code>library(readr)
-beer2 &lt;- read_csv(&quot;data/beer2.csv&quot;)</code></pre>
-<pre>
-library(readr)
-beer2 &lt;- read_csv("data/beer2.csv")
-</pre>
-<p><br/><br/></p>
-</div>
-<div id="base-de-datos" class="section level1">
-<h1>Base de datos</h1>
+<div id="base-de-datos" class="section level2">
+<h2>Base de datos</h2>
 <p><br/></p>
 <pre class="r"><code>library(DT)
 # Cargar los datos
@@ -542,25 +543,29 @@ DT::datatable(
   fillContainer = FALSE,
   options = list(pageLength = 8)
 )</code></pre>
-<div class="datatables html-widget html-fill-item" id="htmlwidget-4bf613916a9be1eed450" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-4bf613916a9be1eed450">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6"],[47986,48213,48215,47969,64883,52159],["Vecchio Birraio","Vecchio Birraio","Vecchio Birraio","Vecchio Birraio","Caldera Brewing Company","Caldera Brewing Company"],[4.04,4.32,4.64,4.56,5.76,5.46],[13.75,16.9,17.67,13.75,20.69,12.95],[11.5,14.2,15,10.5,15.2,12.1],[148,181,190,144,212,145],["Canadá","Canadá","Canadá","Canadá","Canadá","Canadá"],[1.5,3,3,3,4,3],[2,2.5,2.5,3,4.5,3.5],[2.5,3,3,3.5,4,3.5],[1.5,3,3,2.5,4,3],[1.5,3,3,3,4.5,3.5],["Sausa Weizen","Red Moon","Black Horse Black Beer","Sausa Pils","Cauldron DIPA","Caldera Ginger Beer"],["clara artesanal","cerveza normal y helada","cerveza normal y helada","lager importada","clara artesanal","cerveza normal y helada"],["importada","importada","importada","importada","importada","importada"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>marca<\/th>\n      <th>precio<\/th>\n      <th>alcohol<\/th>\n      <th>carbohidratos<\/th>\n      <th>calorias<\/th>\n      <th>nacionalidad<\/th>\n      <th>calificacion<\/th>\n      <th>aroma<\/th>\n      <th>apariencia<\/th>\n      <th>paladar<\/th>\n      <th>sabor<\/th>\n      <th>nombre_cerveza<\/th>\n      <th>tipo<\/th>\n      <th>origen<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,8,9,10,11,12]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"marca","targets":2},{"name":"precio","targets":3},{"name":"alcohol","targets":4},{"name":"carbohidratos","targets":5},{"name":"calorias","targets":6},{"name":"nacionalidad","targets":7},{"name":"calificacion","targets":8},{"name":"aroma","targets":9},{"name":"apariencia","targets":10},{"name":"paladar","targets":11},{"name":"sabor","targets":12},{"name":"nombre_cerveza","targets":13},{"name":"tipo","targets":14},{"name":"origen","targets":15}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f4336baf11a79bc816d9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f4336baf11a79bc816d9">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6"],[47986,48213,48215,47969,64883,52159],["Vecchio Birraio","Vecchio Birraio","Vecchio Birraio","Vecchio Birraio","Caldera Brewing Company","Caldera Brewing Company"],[4.04,4.32,4.64,4.56,5.76,5.46],[13.75,16.9,17.67,13.75,20.69,12.95],[11.5,14.2,15,10.5,15.2,12.1],[148,181,190,144,212,145],["Canadá","Canadá","Canadá","Canadá","Canadá","Canadá"],[1.5,3,3,3,4,3],[2,2.5,2.5,3,4.5,3.5],[2.5,3,3,3.5,4,3.5],[1.5,3,3,2.5,4,3],[1.5,3,3,3,4.5,3.5],["Sausa Weizen","Red Moon","Black Horse Black Beer","Sausa Pils","Cauldron DIPA","Caldera Ginger Beer"],["clara artesanal","cerveza normal y helada","cerveza normal y helada","lager importada","clara artesanal","cerveza normal y helada"],["importada","importada","importada","importada","importada","importada"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>marca<\/th>\n      <th>precio<\/th>\n      <th>alcohol<\/th>\n      <th>carbohidratos<\/th>\n      <th>calorias<\/th>\n      <th>nacionalidad<\/th>\n      <th>calificacion<\/th>\n      <th>aroma<\/th>\n      <th>apariencia<\/th>\n      <th>paladar<\/th>\n      <th>sabor<\/th>\n      <th>nombre_cerveza<\/th>\n      <th>tipo<\/th>\n      <th>origen<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":8,"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,8,9,10,11,12]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"marca","targets":2},{"name":"precio","targets":3},{"name":"alcohol","targets":4},{"name":"carbohidratos","targets":5},{"name":"calorias","targets":6},{"name":"nacionalidad","targets":7},{"name":"calificacion","targets":8},{"name":"aroma","targets":9},{"name":"apariencia","targets":10},{"name":"paladar","targets":11},{"name":"sabor","targets":12},{"name":"nombre_cerveza","targets":13},{"name":"tipo","targets":14},{"name":"origen","targets":15}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <p><br/></p>
-<!-- <br/><br/> -->
-<!-- " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-sh -->
-<!-- <center> -->
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/lVQ5MjSpi4E?si=Rlta13udaInGPPQj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-<!-- </center> -->
-<!-- <br/><br/> -->
-<!-- <center> -->
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sAwkejZDgBk?si=ITGRZE1g5hh96ZUg" title="YouTube video playerare" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-<!-- </center> -->
-<!-- <br/><br/> -->
-<!-- ## [Tablero](https://rpubs.com/dgonzalez80/caso1) -->
-<!-- <br/> -->
-<!-- ## [Flexdashboard](https://rstudio.github.io/flexdashboard/articles/using.html)  -->
-<!-- <br/> -->
-<!-- ## [icons](https://ionic.io/ionicons/v2/cheatsheet.html) -->
 <p><br/><br/></p>
+<p><br/><br/></p>
+<div id="tablero" class="section level4">
+<h4><a href="https://rpubs.com/dgonzalez80/caso1">Tablero</a></h4>
+<p><br/></p>
+</div>
+<div id="flexdashboard" class="section level4">
+<h4><a
+href="https://rstudio.github.io/flexdashboard/articles/using.html">Flexdashboard</a></h4>
+<p><br/></p>
+</div>
+<div id="icons" class="section level4">
+<h4><a
+href="https://ionic.io/ionicons/v2/cheatsheet.html">icons</a></h4>
+<p><br/><br/></p>
+</div>
+<div id="código-r" class="section level4 box2 with-label">
+<h4>Código R</h4>
+</div>
+</div>
 </div>
 
 

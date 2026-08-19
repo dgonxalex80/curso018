@@ -1,0 +1,209 @@
+/*=========================================================
+ THEME.CSS
+ Sistema de diseño para cursos (Quarto / RMarkdown / Shiny)
+=========================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Source+Sans+3:wght@400;600;700&family=Shadows+Into+Light&display=swap');
+
+:root{
+
+/*======================
+PALETA
+======================*/
+--c11:#F05A4A;
+--c12:#F9CECA;
+
+--c21:#F4B43C;
+--c22:#FBE8C5;
+
+--c31:#21B5E4;
+--c32:#C6EBF8;
+
+--c41:#7A6DB2;
+--c42:#D7D2E8;
+
+--c51:#79C45A;
+--c52:#D7EDCE;
+
+--white:#FFFFFF;
+--text:#333333;
+
+--font-title:'Anton',sans-serif;
+--font-body:'Source Sans 3',sans-serif;
+--font-note:'Shadows Into Light',cursive;
+
+--radius:12px;
+--shadow:0 4px 10px rgba(0,0,0,.12);
+
+}
+
+/*======================
+GENERAL
+======================*/
+
+body{
+    font-family:var(--font-body);
+    color:var(--text);
+    background:#fafafa;
+    line-height:1.7;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family:var(--font-title);
+    color:var(--c41);
+}
+
+/*======================
+CAJAS DEL CURSO
+======================*/
+
+/*
+  Las cajas usan el color del módulo activo. El primer h2/h3 se mantiene
+  como un título normal dentro del contenido, sin pestañas ni numeración.
+*/
+.box,
+.box1,
+.box2,
+.box3,
+.box4,
+.box5,
+.box6 {
+    --box-color:var(--module-color, #2C5697);
+    position:relative;
+    box-sizing:border-box;
+    margin:1.8rem 0;
+    padding:1.45rem 1.6rem;
+    border:2px solid var(--box-color);
+    border-radius:8px;
+    color:var(--text);
+    background:var(--white);
+    box-shadow:0 5px 14px rgba(38,55,74,.12);
+}
+
+/* Título normal, alineado con el color correspondiente al módulo. */
+:is(.box,.box1,.box2,.box3,.box4,.box5,.box6) > :is(h2,h3):first-child {
+    position:static;
+    margin:0 0 .8rem !important;
+    padding:0 !important;
+    border:0;
+    color:var(--box-color) !important;
+    background:transparent;
+    font-family:var(--font-title);
+    line-height:1.2;
+    text-align:left;
+}
+
+:is(.box,.box1,.box2,.box3,.box4,.box5,.box6) > h2:first-child {
+    font-size:32px !important;
+}
+
+:is(.box,.box1,.box2,.box3,.box4,.box5,.box6) > h3:first-child {
+    font-size:26px !important;
+}
+
+/* Evita espacio extra al final y mantiene fórmulas dentro del marco. */
+:is(.box,.box1,.box2,.box3,.box4,.box5,.box6) > :last-child {
+    margin-bottom:0;
+}
+
+:is(.box,.box1,.box2,.box3,.box4,.box5,.box6) .math.display {
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+@media (max-width:640px) {
+    .box,
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5,
+    .box6 {
+        padding:1.15rem 1rem;
+    }
+}
+
+
+/* Compatibilidad con el visor integrado de RStudio. */
+.main-container div.box,
+.main-container div.box1,
+.main-container div.box2,
+.main-container div.box3,
+.main-container div.box4,
+.main-container div.box5,
+.main-container div.box6 {
+    display:block;
+    position:relative;
+    box-sizing:border-box;
+    width:100%;
+    margin:1.8rem 0;
+    padding:1.45rem 1.6rem;
+    border-width:2px !important;
+    border-style:solid !important;
+    border-radius:8px !important;
+    background-color:#FFFFFF !important;
+    box-shadow:0 5px 14px rgba(38,55,74,.12);
+}
+
+.main-container div.box,
+.main-container div.box6 { border-color:#2C5697 !important; }
+.main-container div.box1 { border-color:#F05A4A !important; }
+.main-container div.box2 { border-color:#F4B43C !important; }
+.main-container div.box3 { border-color:#21B5E4 !important; }
+.main-container div.box4 { border-color:#7A6DB2 !important; }
+.main-container div.box5 { border-color:#79C45A !important; }
+
+.main-container div.box > h2:first-child,
+.main-container div.box > h3:first-child,
+.main-container div.box1 > h2:first-child,
+.main-container div.box1 > h3:first-child,
+.main-container div.box2 > h2:first-child,
+.main-container div.box2 > h3:first-child,
+.main-container div.box3 > h2:first-child,
+.main-container div.box3 > h3:first-child,
+.main-container div.box4 > h2:first-child,
+.main-container div.box4 > h3:first-child,
+.main-container div.box5 > h2:first-child,
+.main-container div.box5 > h3:first-child,
+.main-container div.box6 > h2:first-child,
+.main-container div.box6 > h3:first-child {
+    position:static;
+    margin:0 0 .8rem !important;
+    padding:0 !important;
+    border:0 !important;
+    background:transparent !important;
+    font-family:var(--font-title, "Anton", sans-serif);
+    line-height:1.2;
+    text-align:left;
+}
+
+.main-container div.box > h2:first-child,
+.main-container div.box > h3:first-child,
+.main-container div.box6 > h2:first-child,
+.main-container div.box6 > h3:first-child { color:#2C5697 !important; }
+.main-container div.box1 > h2:first-child,
+.main-container div.box1 > h3:first-child { color:#F05A4A !important; }
+.main-container div.box2 > h2:first-child,
+.main-container div.box2 > h3:first-child { color:#F4B43C !important; }
+.main-container div.box3 > h2:first-child,
+.main-container div.box3 > h3:first-child { color:#21B5E4 !important; }
+.main-container div.box4 > h2:first-child,
+.main-container div.box4 > h3:first-child { color:#7A6DB2 !important; }
+.main-container div.box5 > h2:first-child,
+.main-container div.box5 > h3:first-child { color:#79C45A !important; }
+
+.main-container div.box > h2:first-child,
+.main-container div.box1 > h2:first-child,
+.main-container div.box2 > h2:first-child,
+.main-container div.box3 > h2:first-child,
+.main-container div.box4 > h2:first-child,
+.main-container div.box5 > h2:first-child,
+.main-container div.box6 > h2:first-child { font-size:32px !important; }
+
+.main-container div.box > h3:first-child,
+.main-container div.box1 > h3:first-child,
+.main-container div.box2 > h3:first-child,
+.main-container div.box3 > h3:first-child,
+.main-container div.box4 > h3:first-child,
+.main-container div.box5 > h3:first-child,
+.main-container div.box6 > h3:first-child { font-size:26px !important; }

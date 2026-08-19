@@ -9,7 +9,9 @@ output:
     toc_float: yes
     code_folding: hide
     theme: flatly
-    css: style.css
+    css:
+      - style.css
+      - cajas.css
 ---  
 
 ```{r setup, include=FALSE}
@@ -91,23 +93,7 @@ El director de investigación le encarga, en calidad de analista de datos, elabo
 
 <br/><br/>
 
-# Cargar datos 
-
-<br/>
-
-```{r, eval=FALSE}
-library(readr)
-beer2 <- read_csv("data/beer2.csv")
-```
-
-<pre>
-library(readr)
-beer2 &lt;- read_csv("data/beer2.csv")
-</pre>
-
-<br/><br/>
-
-# Base de datos
+## Base de datos
 
 <br/>
 
@@ -126,34 +112,23 @@ DT::datatable(
 ```
 <br/>
 
-<!-- <br/><br/> -->
-<!-- " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-sh -->
-<!-- <center> -->
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/lVQ5MjSpi4E?si=Rlta13udaInGPPQj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-<!-- </center> -->
-
-
-<!-- <br/><br/> -->
-
-<!-- <center> -->
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sAwkejZDgBk?si=ITGRZE1g5hh96ZUg" title="YouTube video playerare" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-<!-- </center> -->
-
-
-<!-- <br/><br/> -->
-
-<!-- ## [Tablero](https://rpubs.com/dgonzalez80/caso1) -->
-
-<!-- <br/> -->
-
-
-<!-- ## [Flexdashboard](https://rstudio.github.io/flexdashboard/articles/using.html)  -->
-
-
-<!-- <br/> -->
-
-
-<!-- ## [icons](https://ionic.io/ionicons/v2/cheatsheet.html) -->
-
+<br/><br/>
 
 <br/><br/>
+
+#### [Tablero](https://rpubs.com/dgonzalez80/caso1)
+
+<br/>
+
+#### [Flexdashboard](https://rstudio.github.io/flexdashboard/articles/using.html)
+
+<br/>
+
+#### [icons](https://ionic.io/ionicons/v2/cheatsheet.html)
+
+<br/><br/>
+
+<div class="box2 with-label">
+#### Código R
+
+</div>

@@ -10,7 +10,9 @@ output:
     toc_float: yes
     code_folding: hide
     theme: flatly
-    css: style.css
+    css:
+      - style.css
+      - cajas.css
 ---   
 
 
@@ -308,7 +310,9 @@ str_to_sentence(texto)
 [Tutoriales interactivos con R](https://rstudio.github.io/learnr/)
 
 
-# Código resumen Covid-19
+# Código R
+
+## Resumen Covid-19
 
 ```{r, eval=FALSE}
 install.packages("tidyverse") #  instalacion de paquete para manejo de datos

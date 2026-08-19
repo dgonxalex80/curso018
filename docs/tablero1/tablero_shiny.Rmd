@@ -1,0 +1,315 @@
+---
+title: <span style="color:#f9ceca"> </span>  
+author: <span style="color:#f9ceca">dgonzalez</span> 
+subtitle: <span style="color:#f9ceca"> </span> 
+output:
+  html_document:
+    toc: no 
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    theme: flatly
+    css:
+      - style.css
+      - cajas.css
+--- 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/recurso1.png")
+```
+
+
+# Tableros con Shiny
+
+<br/>
+
+# Objetivo
+
+Esta guía explica cómo construir desde cero un tablero interactivo con `shiny`. La aplicación permitirá seleccionar una variable, filtrar observaciones y actualizar automáticamente indicadores, un histograma y una tabla.
+
+<div class="box1 with-label">
+## ¿Qué aporta Shiny?
+
+Shiny ejecuta código R en respuesta a las acciones del usuario. Es adecuado cuando los resultados deben cambiar al mover un control, seleccionar una categoría, cargar un archivo o presionar un botón. A diferencia de un HTML estático, una aplicación Shiny necesita un proceso de R activo mientras se utiliza.
+
+</div>
+
+# 1. Instalar los paquetes
+
+Ejecute una sola vez en la consola:
+
+```{r instalar, eval=FALSE}
+install.packages(c("shiny", "bslib", "ggplot2", "DT"))
+```
+
+# 2. Crear la aplicación
+
+1. Cree una carpeta llamada `tablero_shiny`.
+2. Dentro de ella cree un archivo llamado `app.R`.
+3. Si utiliza archivos propios, cree una carpeta `data`.
+4. Para imágenes, CSS u otros recursos web, cree una carpeta `www`.
+
+```text
+tablero_shiny/
+├── app.R
+├── data/
+└── www/
+```
+
+# 3. Las tres partes de Shiny
+
+Toda aplicación básica contiene:
+
+1. `ui`: define lo que el usuario ve.
+2. `server`: define los cálculos y salidas reactivas.
+3. `shinyApp(ui, server)`: une ambas partes e inicia la aplicación.
+
+La conexión se realiza mediante identificadores. Por ejemplo, `selectInput("variable", ...)` se consulta en el servidor con `input$variable`, mientras que `plotOutput("histograma")` recibe el resultado de `output$histograma`.
+
+# 4. Código completo de `app.R`
+
+Copie el siguiente código en `app.R`:
+
+```{r app-completa, eval=FALSE}
+library(shiny)
+library(bslib)
+library(ggplot2)
+library(DT)
+
+# Datos globales: se cargan una vez al iniciar la aplicación.
+datos <- mtcars
+datos$modelo <- rownames(mtcars)
+
+# Tema construido con la paleta del curso.
+tema_curso <- bs_theme(
+  version = 5,
+  bootswatch = "flatly",
+  primary = "#2C5697",
+  secondary = "#F05A4A",
+  success = "#79C45A",
+  warning = "#F4B43C",
+  info = "#21B5E4"
+)
+
+# Interfaz de usuario.
+ui <- page_sidebar(
+  title = "Tablero interactivo de automóviles",
+  theme = tema_curso,
+
+  sidebar = sidebar(
+    selectInput(
+      inputId = "variable",
+      label = "Variable numérica",
+      choices = c(
+        "Rendimiento (mpg)" = "mpg",
+        "Potencia (hp)" = "hp",
+        "Peso (wt)" = "wt"
+      )
+    ),
+    sliderInput(
+      inputId = "cilindros",
+      label = "Número de cilindros",
+      min = min(datos$cyl),
+      max = max(datos$cyl),
+      value = c(min(datos$cyl), max(datos$cyl)),
+      step = 2
+    ),
+    checkboxInput(
+      inputId = "mostrar_densidad",
+      label = "Agregar curva de densidad",
+      value = TRUE
+    )
+  ),
+
+  layout_columns(
+    value_box(
+      title = "Observaciones",
+      value = textOutput("numero_observaciones"),
+      theme = "primary"
+    ),
+    value_box(
+      title = "Promedio",
+      value = textOutput("promedio"),
+      theme = "secondary"
+    ),
+    value_box(
+      title = "Desviación estándar",
+      value = textOutput("desviacion"),
+      theme = "success"
+    )
+  ),
+
+  layout_columns(
+    card(
+      full_screen = TRUE,
+      card_header("Distribución de la variable seleccionada"),
+      plotOutput("histograma", height = 350)
+    ),
+    card(
+      full_screen = TRUE,
+      card_header("Datos filtrados"),
+      DTOutput("tabla")
+    ),
+    col_widths = c(6, 6)
+  )
+)
+
+# Lógica del servidor.
+server <- function(input, output, session) {
+
+  # Se recalcula cuando cambia el intervalo de cilindros.
+  datos_filtrados <- reactive({
+    subset(
+      datos,
+      cyl >= input$cilindros[1] & cyl <= input$cilindros[2]
+    )
+  })
+
+  # Extrae la variable elegida de los datos ya filtrados.
+  variable_seleccionada <- reactive({
+    datos_filtrados()[[input$variable]]
+  })
+
+  output$numero_observaciones <- renderText({
+    nrow(datos_filtrados())
+  })
+
+  output$promedio <- renderText({
+    round(mean(variable_seleccionada(), na.rm = TRUE), 2)
+  })
+
+  output$desviacion <- renderText({
+    round(sd(variable_seleccionada(), na.rm = TRUE), 2)
+  })
+
+  output$histograma <- renderPlot({
+    grafico <- ggplot(
+      datos_filtrados(),
+      aes(x = .data[[input$variable]])
+    ) +
+      geom_histogram(
+        aes(y = after_stat(density)),
+        bins = 8,
+        fill = "#21B5E4",
+        color = "white"
+      ) +
+      labs(x = input$variable, y = "Densidad") +
+      theme_minimal(base_size = 14)
+
+    if (input$mostrar_densidad) {
+      grafico <- grafico +
+        geom_density(color = "#F05A4A", linewidth = 1.2)
+    }
+
+    grafico
+  })
+
+  output$tabla <- renderDT({
+    datatable(
+      datos_filtrados()[, c("modelo", "mpg", "cyl", "hp", "wt")],
+      rownames = FALSE,
+      options = list(pageLength = 7, scrollX = TRUE)
+    )
+  })
+}
+
+# Construye y ejecuta la aplicación.
+shinyApp(ui = ui, server = server)
+```
+
+# 5. Entender la reactividad
+
+El flujo del ejemplo es:
+
+```text
+Controles del usuario
+        ↓
+input$variable e input$cilindros
+        ↓
+datos_filtrados() y variable_seleccionada()
+        ↓
+renderText(), renderPlot() y renderDT()
+        ↓
+Indicadores, gráfico y tabla
+```
+
+Las expresiones `reactive()` almacenan cálculos que pueden utilizar varias salidas. Deben llamarse con paréntesis, por ejemplo `datos_filtrados()`.
+
+# 6. Ejecutar y detener
+
+Abra `app.R` y pulse **Run App**. También puede usar:
+
+```{r ejecutar, eval=FALSE}
+shiny::runApp("tablero_shiny")
+```
+
+Mientras la aplicación está activa, R permanece ocupado atendiendo la sesión. Para detenerla pulse **Stop** en RStudio o presione `Esc` en la consola.
+
+# 7. Incorporar datos propios
+
+Los paquetes y datos compartidos por todos los usuarios deben cargarse antes de definir `ui` y `server`:
+
+```{r datos-propios, eval=FALSE}
+library(readr)
+datos <- read_csv("data/ventas.csv", show_col_types = FALSE)
+```
+
+Dentro de `server` deben quedar los cálculos que dependen del usuario. Evite leer el mismo archivo dentro de cada `renderPlot()` o `renderDT()`, porque esto hace más lenta la aplicación.
+
+# 8. Validaciones recomendadas
+
+Cuando una selección pueda producir cero filas, use `validate()` y `need()`:
+
+```{r validar, eval=FALSE}
+output$histograma <- renderPlot({
+  validate(need(nrow(datos_filtrados()) > 0, "No hay datos para este filtro"))
+  # Código del gráfico
+})
+```
+
+# 9. Publicar
+
+Una aplicación Shiny no funciona abriendo directamente un archivo HTML, porque necesita un servidor con R. Puede compartirse como código o publicarse en servicios como shinyapps.io, Posit Connect o Shiny Server.
+
+Para shinyapps.io:
+
+```{r publicar, eval=FALSE}
+install.packages("rsconnect")
+rsconnect::deployApp("tablero_shiny")
+```
+
+No publique contraseñas ni tokens dentro de `app.R`. Use variables de entorno o la configuración segura del servicio de despliegue.
+
+# 10. Alternativa: Shiny dentro de un Rmd
+
+También es posible crear un documento interactivo agregando `runtime: shiny` al YAML y usando bloques con `renderPlot()`. Sin embargo, ese documento también necesita un servidor Shiny y no puede incorporarse como una página HTML estática del sitio del curso.
+
+```yaml
+---
+title: "Documento interactivo"
+output: html_document
+runtime: shiny
+---
+```
+
+# Lista de comprobación
+
+- Cada `inputId` es único.
+- Cada `plotOutput()`, `textOutput()` o `DTOutput()` tiene su `render*()` correspondiente.
+- Los cálculos reactivos se llaman con paréntesis.
+- La aplicación funciona después de reiniciar R.
+- Las rutas a datos y recursos son relativas.
+- Los filtros sin resultados muestran un mensaje comprensible.
+
+# Referencias
+
+- [Introducción oficial a Shiny](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/)
+- [Construcción de la interfaz](https://shiny.posit.co/r/getstarted/shiny-basics/lesson2/)
+- [Publicación de aplicaciones Shiny](https://shiny.posit.co/r/getstarted/shiny-basics/lesson7/)
+
