@@ -1,0 +1,396 @@
+---
+title: "Caso 1 — Diagnóstico de preferencias cerveceras"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: flatly
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(DT)
+library(scales)
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+beer2 <- read_csv("data/beer2.csv", show_col_types = FALSE)
+
+azul <- "#2C5697"
+rojo <- "#E85A67"
+amarillo <- "#F6A623"
+cian <- "#3498C9"
+azul_medio <- "#476885"
+verde <- "#67C1A8"
+
+colores_tipo <- c(
+  "lager artesanal" = amarillo,
+  "clara artesanal" = cian,
+  "lager importada" = azul_medio,
+  "cerveza normal y helada" = rojo,
+  "baja en calorías / sin alcohol" = verde
+)
+
+cualitativas <- c("marca", "nacionalidad", "nombre_cerveza", "tipo", "origen")
+ordinales <- c("calificacion", "aroma", "apariencia", "paladar", "sabor")
+cuantitativas <- c("precio", "alcohol", "carbohidratos", "calorias")
+
+moda <- function(x) {
+  f <- table(x, useNA = "no")
+  paste(names(f)[f == max(f)], collapse = ", ")
+}
+
+tabla_frecuencia <- function(datos, variable) {
+  datos |>
+    count(nivel = as.character(.data[[variable]]), name = "frecuencia") |>
+    arrange(desc(frecuencia)) |>
+    mutate(
+      porcentaje = round(100 * frecuencia / sum(frecuencia), 2),
+      variable = variable,
+      .before = 1
+    )
+}
+
+resumen_variable <- function(x, variable) {
+  x <- x[!is.na(x)]
+  tibble(
+    variable, n = length(x), media = mean(x), mediana = median(x),
+    q1 = quantile(x, .25), q3 = quantile(x, .75),
+    minimo = min(x), maximo = max(x), desviacion = sd(x),
+    iqr = IQR(x), cv_porcentaje = 100 * sd(x) / abs(mean(x))
+  )
+}
+
+resumen_numerico <- bind_rows(lapply(
+  cuantitativas, function(v) resumen_variable(beer2[[v]], v)
+)) |>
+  mutate(across(where(is.numeric), ~ round(.x, 2)))
+
+resumen_ordinal <- bind_rows(lapply(ordinales, function(v) {
+  x <- beer2[[v]]
+  tibble(
+    variable = v, moda = moda(x), mediana = median(x),
+    q1 = quantile(x, .25), q3 = quantile(x, .75), iqr = IQR(x)
+  )
+}))
+
+frecuencia_tipo <- tabla_frecuencia(beer2, "tipo") |>
+  mutate(nivel = reorder(nivel, porcentaje))
+frecuencia_origen <- tabla_frecuencia(beer2, "origen")
+frecuencia_nacionalidad <- tabla_frecuencia(beer2, "nacionalidad")
+frecuencia_marca <- tabla_frecuencia(beer2, "marca")
+frecuencia_producto <- tabla_frecuencia(beer2, "nombre_cerveza")
+frecuencias_ordinales <- bind_rows(lapply(
+  ordinales, function(v) tabla_frecuencia(beer2, v)
+))
+
+modas <- bind_rows(lapply(c(cualitativas, ordinales), function(v) {
+  f <- tabla_frecuencia(beer2, v)
+  f |>
+    filter(frecuencia == max(frecuencia)) |>
+    transmute(variable, moda = nivel, frecuencia, porcentaje)
+}))
+
+resumen_tipo <- beer2 |>
+  group_by(tipo) |>
+  summarise(
+    resenas = n(), cervezas = n_distinct(id),
+    precio_mediano = median(precio), calorias_medianas = median(calorias),
+    calificacion_mediana = median(calificacion),
+    aroma_mediano = median(aroma), apariencia_mediana = median(apariencia),
+    paladar_mediano = median(paladar), sabor_mediano = median(sabor),
+    .groups = "drop"
+  )
+
+resumen_origen <- beer2 |>
+  group_by(origen) |>
+  summarise(
+    resenas = n(), cervezas = n_distinct(id),
+    precio_mediano = median(precio), calorias_medianas = median(calorias),
+    calificacion_mediana = median(calificacion),
+    aroma_mediano = median(aroma), sabor_mediano = median(sabor),
+    .groups = "drop"
+  )
+
+correlaciones <- cor(
+  beer2[, c(cuantitativas, ordinales)],
+  method = "spearman", use = "pairwise.complete.obs"
+)
+
+relacion_atributos <- tibble(
+  atributo = c("aroma", "apariencia", "paladar", "sabor"),
+  rho = c(
+    cor(beer2$aroma, beer2$calificacion, method = "spearman"),
+    cor(beer2$apariencia, beer2$calificacion, method = "spearman"),
+    cor(beer2$paladar, beer2$calificacion, method = "spearman"),
+    cor(beer2$sabor, beer2$calificacion, method = "spearman")
+  )
+) |>
+  arrange(desc(abs(rho)))
+
+ranking_productos <- beer2 |>
+  group_by(id, nombre_cerveza, marca, tipo, origen) |>
+  summarise(
+    resenas = n(), calificacion_mediana = median(calificacion),
+    calificacion_media = mean(calificacion),
+    precio_mediano = median(precio), .groups = "drop"
+  ) |>
+  filter(resenas >= 100) |>
+  arrange(desc(calificacion_mediana), desc(calificacion_media), desc(resenas))
+
+ranking_marcas <- beer2 |>
+  group_by(marca, nacionalidad, origen) |>
+  summarise(
+    resenas = n(), cervezas = n_distinct(id),
+    calificacion_mediana = median(calificacion),
+    calificacion_media = mean(calificacion), .groups = "drop"
+  ) |>
+  filter(resenas >= 500) |>
+  arrange(desc(calificacion_mediana), desc(calificacion_media), desc(resenas))
+
+hallazgos <- tibble(
+  aspecto = c(
+    "Tipo con mayor mediana de calificación",
+    "Origen con mayor mediana de calificación",
+    "Atributo más relacionado con la calificación",
+    "Producto destacado con mínimo de 100 reseñas"
+  ),
+  resultado = c(
+    resumen_tipo$tipo[which.max(resumen_tipo$calificacion_mediana)],
+    resumen_origen$origen[which.max(resumen_origen$calificacion_mediana)],
+    relacion_atributos$atributo[1],
+    ranking_productos$nombre_cerveza[1]
+  )
+)
+```
+
+Resumen ejecutivo
+=====================================
+
+Column {data-width=500}
+-------------------------------------
+
+### Participación de reseñas por tipo
+
+```{r}
+ggplot(frecuencia_tipo, aes(nivel, porcentaje, fill = nivel)) +
+  geom_col(show.legend = FALSE) + coord_flip() +
+  scale_fill_manual(values = colores_tipo) +
+  labs(x = NULL, y = "Porcentaje") +
+  theme_minimal(base_size = 13)
+```
+
+### Hallazgos principales
+
+```{r}
+datatable(hallazgos, rownames = FALSE,
+          options = list(dom = "t", pageLength = 4))
+```
+
+Column {data-width=300}
+-------------------------------------
+
+### Calificación mediana por tipo
+
+```{r}
+ggplot(resumen_tipo,
+       aes(reorder(tipo, calificacion_mediana),
+           calificacion_mediana, fill = tipo)) +
+  geom_col(show.legend = FALSE) + coord_flip() +
+  scale_fill_manual(values = colores_tipo) +
+  labs(x = NULL, y = "Mediana") +
+  theme_minimal(base_size = 12)
+```
+
+### Calificación mediana por origen
+
+```{r}
+ggplot(resumen_origen, aes(origen, calificacion_mediana, fill = origen)) +
+  geom_col(show.legend = FALSE) +
+  scale_fill_manual(values = c(importada = cian, nacional = rojo)) +
+  labs(x = NULL, y = "Mediana") +
+  theme_minimal(base_size = 12)
+```
+
+Column {data-width=200}
+-------------------------------------
+
+### Precio mínimo
+
+```{r}
+valueBox(paste0("$", min(beer2$precio)), icon = "fa-tag", color = "primary")
+```
+
+### Precio máximo
+
+```{r}
+valueBox(paste0("$", max(beer2$precio)), icon = "fa-arrow-up", color = "warning")
+```
+
+### Precio promedio
+
+```{r}
+valueBox(paste0("$", round(mean(beer2$precio), 2)),
+         icon = "fa-calculator", color = "success")
+```
+
+Diagnóstico descriptivo
+=====================================
+
+Column {data-width=500}
+-------------------------------------
+
+### Variables cuantitativas
+
+```{r}
+datatable(resumen_numerico, rownames = FALSE,
+          options = list(pageLength = 8, scrollX = TRUE))
+```
+
+Column {data-width=500}
+-------------------------------------
+
+### Variables ordinales
+
+```{r}
+datatable(resumen_ordinal, rownames = FALSE,
+          options = list(pageLength = 8, scrollX = TRUE))
+```
+
+Frecuencias y moda
+=====================================
+
+Column {.tabset}
+-------------------------------------
+
+### Modas
+
+```{r}
+datatable(modas, rownames = FALSE,
+          options = list(pageLength = 10, scrollX = TRUE))
+```
+
+### Tipo
+
+```{r}
+datatable(frecuencia_tipo |> mutate(nivel = as.character(nivel)),
+          rownames = FALSE, options = list(pageLength = 8))
+```
+
+### Origen
+
+```{r}
+datatable(frecuencia_origen, rownames = FALSE,
+          options = list(pageLength = 8))
+```
+
+### Nacionalidad
+
+```{r}
+datatable(frecuencia_nacionalidad, rownames = FALSE,
+          filter = "top", options = list(pageLength = 10))
+```
+
+### Marca
+
+```{r}
+datatable(frecuencia_marca, rownames = FALSE,
+          filter = "top", options = list(pageLength = 10))
+```
+
+### Producto
+
+```{r}
+datatable(frecuencia_producto, rownames = FALSE,
+          filter = "top", options = list(pageLength = 10))
+```
+
+### Variables ordinales
+
+```{r}
+datatable(frecuencias_ordinales, rownames = FALSE,
+          filter = "top", options = list(pageLength = 15))
+```
+
+Comparaciones
+=====================================
+
+Column {data-width=500}
+-------------------------------------
+
+### Indicadores por tipo
+
+```{r}
+datatable(resumen_tipo, rownames = FALSE,
+          options = list(pageLength = 8, scrollX = TRUE))
+```
+
+Column {data-width=500}
+-------------------------------------
+
+### Indicadores por origen
+
+```{r}
+datatable(resumen_origen, rownames = FALSE,
+          options = list(pageLength = 8, scrollX = TRUE))
+```
+
+Asociaciones
+=====================================
+
+Column {data-width=650}
+-------------------------------------
+
+### Correlaciones de Spearman
+
+```{r}
+corr_long <- as.data.frame(as.table(correlaciones))
+ggplot(corr_long, aes(Var1, Var2, fill = Freq)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient2(low = cian, mid = "white", high = rojo,
+                       midpoint = 0, limits = c(-1, 1)) +
+  coord_equal() +
+  labs(x = NULL, y = NULL, fill = "rho") +
+  theme_minimal(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Column {data-width=350}
+-------------------------------------
+
+### Atributos y calificación
+
+```{r}
+datatable(relacion_atributos |> mutate(rho = round(rho, 3)),
+          rownames = FALSE, options = list(dom = "t"))
+```
+
+Productos destacados
+=====================================
+
+Column {.tabset}
+-------------------------------------
+
+### Productos
+
+```{r}
+datatable(head(ranking_productos, 100), rownames = FALSE,
+          filter = "top", options = list(pageLength = 10, scrollX = TRUE))
+```
+
+### Marcas
+
+```{r}
+datatable(head(ranking_marcas, 100), rownames = FALSE,
+          filter = "top", options = list(pageLength = 10, scrollX = TRUE))
+```
+
+Metodología
+=====================================
+
+> Cada fila representa una reseña; una cerveza puede repetirse. El precio es simulado y describe únicamente esta base académica. Las asociaciones observadas son descriptivas y no permiten establecer relaciones causales.

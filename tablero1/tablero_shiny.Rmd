@@ -1,10 +1,10 @@
 ---
-title: <span style="color:#f9ceca"> </span>  
-author: <span style="color:#f9ceca">dgonzalez</span> 
-subtitle: <span style="color:#f9ceca"> </span> 
+title: <span style="color:#F8DCE0"> </span>
+author: <span style="color:#F8DCE0">dgonzalez</span>
+subtitle: <span style="color:#F8DCE0"> </span>
 output:
   html_document:
-    toc: no 
+    toc: no
     toc_depth: 2
     toc_float: yes
     code_folding: hide
@@ -12,304 +12,279 @@ output:
     css:
       - style.css
       - cajas.css
---- 
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 ```
 
-
-
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
 knitr::include_graphics("img/recurso1.png")
 ```
 
-
-# Tableros con Shiny
-
-<br/>
+# Tablero del Caso 1 con Shiny
 
 # Objetivo
 
-Esta guía explica cómo construir desde cero un tablero interactivo con `shiny`. La aplicación permitirá seleccionar una variable, filtrar observaciones y actualizar automáticamente indicadores, un histograma y una tabla.
+Crear una aplicación Shiny para explorar `data/beer2.csv` con filtros, indicadores, gráficos comparativos y un ranking.
 
 <div class="box1 with-label">
-## ¿Qué aporta Shiny?
+## Enunciado del Caso 1
 
-Shiny ejecuta código R en respuesta a las acciones del usuario. Es adecuado cuando los resultados deben cambiar al mover un control, seleccionar una categoría, cargar un archivo o presionar un botón. A diferencia de un HTML estático, una aplicación Shiny necesita un proceso de R activo mientras se utiliza.
+Una empresa cervecera desea comprender las preferencias de los consumidores y reconocer qué características se relacionan con mejores valoraciones. Deben estudiarse tipo, origen, composición nutricional, precio y atributos sensoriales.
 
+`beer2.csv` contiene 1.586.614 reseñas y 15 variables. Cada fila es una reseña y una cerveza puede repetirse. Se requieren frecuencias, indicadores descriptivos y comparaciones entre tipos y orígenes.
+
+El precio es simulado. Los resultados son descriptivos y no permiten establecer causalidad.
 </div>
 
-# 1. Instalar los paquetes
-
-Ejecute una sola vez en la consola:
+# 1. Preparar el proyecto
 
 ```{r instalar, eval=FALSE}
-install.packages(c("shiny", "bslib", "ggplot2", "DT"))
+install.packages(c("shiny", "bslib", "readr",
+                   "dplyr", "ggplot2", "DT"))
 ```
-
-# 2. Crear la aplicación
-
-1. Cree una carpeta llamada `tablero_shiny`.
-2. Dentro de ella cree un archivo llamado `app.R`.
-3. Si utiliza archivos propios, cree una carpeta `data`.
-4. Para imágenes, CSS u otros recursos web, cree una carpeta `www`.
 
 ```text
 tablero_shiny/
 ├── app.R
-├── data/
-└── www/
+└── data/
+    └── beer2.csv
 ```
 
-# 3. Las tres partes de Shiny
+# 2. Código completo de `app.R`
 
-Toda aplicación básica contiene:
-
-1. `ui`: define lo que el usuario ve.
-2. `server`: define los cálculos y salidas reactivas.
-3. `shinyApp(ui, server)`: une ambas partes e inicia la aplicación.
-
-La conexión se realiza mediante identificadores. Por ejemplo, `selectInput("variable", ...)` se consulta en el servidor con `input$variable`, mientras que `plotOutput("histograma")` recibe el resultado de `output$histograma`.
-
-# 4. Código completo de `app.R`
-
-Copie el siguiente código en `app.R`:
-
-```{r app-completa, eval=FALSE}
+```{r app-caso1, eval=FALSE}
 library(shiny)
 library(bslib)
+library(readr)
+library(dplyr)
 library(ggplot2)
 library(DT)
 
-# Datos globales: se cargan una vez al iniciar la aplicación.
-datos <- mtcars
-datos$modelo <- rownames(mtcars)
+# Se carga una sola vez al iniciar la aplicación.
+beer2 <- read_csv("data/beer2.csv", show_col_types = FALSE)
 
-# Tema construido con la paleta del curso.
-tema_curso <- bs_theme(
-  version = 5,
-  bootswatch = "flatly",
-  primary = "#2C5697",
-  secondary = "#F05A4A",
-  success = "#79C45A",
-  warning = "#F4B43C",
-  info = "#21B5E4"
+# Colores por tipo, adaptados a la identidad de curso013.
+colores_tipo <- c(
+  "lager artesanal" = "#F6A623",
+  "clara artesanal" = "#3498C9",
+  "lager importada" = "#476885",
+  "cerveza normal y helada" = "#E85A67",
+  "baja en calorías / sin alcohol" = "#67C1A8"
 )
 
-# Interfaz de usuario.
-ui <- page_sidebar(
-  title = "Tablero interactivo de automóviles",
-  theme = tema_curso,
+tema_curso <- bs_theme(
+  version = 5, bootswatch = "flatly",
+  primary = "#2C5697", secondary = "#E85A67",
+  success = "#67C1A8", warning = "#F6A623",
+  info = "#3498C9"
+)
 
+ui <- page_sidebar(
+  title = "Caso cerveza",
+  theme = tema_curso,
   sidebar = sidebar(
-    selectInput(
-      inputId = "variable",
-      label = "Variable numérica",
-      choices = c(
-        "Rendimiento (mpg)" = "mpg",
-        "Potencia (hp)" = "hp",
-        "Peso (wt)" = "wt"
+    selectInput("origen", "Origen",
+                c("Todos", sort(unique(beer2$origen)))),
+    selectInput("tipo", "Tipo de cerveza",
+                c("Todos", sort(unique(beer2$tipo)))),
+    sliderInput(
+      "calificacion_minima", "Calificación mínima",
+      min = min(beer2$calificacion, na.rm = TRUE),
+      max = max(beer2$calificacion, na.rm = TRUE),
+      value = min(beer2$calificacion, na.rm = TRUE),
+      step = 0.5
+    ),
+    helpText("El precio es simulado y el análisis no implica causalidad.")
+  ),
+
+  # Réplica reactiva de las columnas 500, 300 y 200.
+  layout_columns(
+    card(
+      full_screen = TRUE,
+      card_header("Reseñas por tipo de cerveza"),
+      plotOutput("grafico_tipo", height = 560)
+    ),
+    card(
+      full_screen = TRUE,
+      navset_card_tab(
+        nav_panel(
+          "Precio por tipo",
+          plotOutput("grafico_precio", height = 500)
+        ),
+        nav_panel(
+          "Calificación por origen",
+          plotOutput("grafico_origen", height = 500)
+        )
       )
     ),
-    sliderInput(
-      inputId = "cilindros",
-      label = "Número de cilindros",
-      min = min(datos$cyl),
-      max = max(datos$cyl),
-      value = c(min(datos$cyl), max(datos$cyl)),
-      step = 2
+    div(
+      class = "d-grid gap-3",
+      value_box(
+        "Precio mínimo", textOutput("precio_minimo"),
+        showcase = icon("tag"),
+        theme = "primary"
+      ),
+      value_box(
+        "Precio máximo", textOutput("precio_maximo"),
+        showcase = icon("arrow-up"),
+        theme = "warning"
+      ),
+      value_box(
+        "Precio promedio", textOutput("precio_promedio"),
+        showcase = icon("calculator"),
+        theme = "success"
+      )
     ),
-    checkboxInput(
-      inputId = "mostrar_densidad",
-      label = "Agregar curva de densidad",
-      value = TRUE
-    )
+    col_widths = c(6, 4, 2)
   ),
 
-  layout_columns(
-    value_box(
-      title = "Observaciones",
-      value = textOutput("numero_observaciones"),
-      theme = "primary"
-    ),
-    value_box(
-      title = "Promedio",
-      value = textOutput("promedio"),
-      theme = "secondary"
-    ),
-    value_box(
-      title = "Desviación estándar",
-      value = textOutput("desviacion"),
-      theme = "success"
-    )
-  ),
-
-  layout_columns(
-    card(
-      full_screen = TRUE,
-      card_header("Distribución de la variable seleccionada"),
-      plotOutput("histograma", height = 350)
-    ),
-    card(
-      full_screen = TRUE,
-      card_header("Datos filtrados"),
-      DTOutput("tabla")
-    ),
-    col_widths = c(6, 6)
+  card(
+    full_screen = TRUE,
+    card_header("Productos destacados"),
+    DTOutput("ranking")
   )
 )
 
-# Lógica del servidor.
 server <- function(input, output, session) {
-
-  # Se recalcula cuando cambia el intervalo de cilindros.
   datos_filtrados <- reactive({
-    subset(
-      datos,
-      cyl >= input$cilindros[1] & cyl <= input$cilindros[2]
-    )
-  })
-
-  # Extrae la variable elegida de los datos ya filtrados.
-  variable_seleccionada <- reactive({
-    datos_filtrados()[[input$variable]]
-  })
-
-  output$numero_observaciones <- renderText({
-    nrow(datos_filtrados())
-  })
-
-  output$promedio <- renderText({
-    round(mean(variable_seleccionada(), na.rm = TRUE), 2)
-  })
-
-  output$desviacion <- renderText({
-    round(sd(variable_seleccionada(), na.rm = TRUE), 2)
-  })
-
-  output$histograma <- renderPlot({
-    grafico <- ggplot(
-      datos_filtrados(),
-      aes(x = .data[[input$variable]])
-    ) +
-      geom_histogram(
-        aes(y = after_stat(density)),
-        bins = 8,
-        fill = "#21B5E4",
-        color = "white"
-      ) +
-      labs(x = input$variable, y = "Densidad") +
-      theme_minimal(base_size = 14)
-
-    if (input$mostrar_densidad) {
-      grafico <- grafico +
-        geom_density(color = "#F05A4A", linewidth = 1.2)
+    datos <- beer2 |>
+      filter(calificacion >= input$calificacion_minima)
+    if (input$origen != "Todos") {
+      datos <- datos |> filter(origen == input$origen)
     }
-
-    grafico
+    if (input$tipo != "Todos") {
+      datos <- datos |> filter(tipo == input$tipo)
+    }
+    datos
   })
 
-  output$tabla <- renderDT({
-    datatable(
-      datos_filtrados()[, c("modelo", "mpg", "cyl", "hp", "wt")],
-      rownames = FALSE,
-      options = list(pageLength = 7, scrollX = TRUE)
-    )
+  output$precio_minimo <- renderText({
+    datos <- datos_filtrados()
+    validate(need(nrow(datos) > 0, "Sin datos"))
+    paste0("$", round(min(datos$precio, na.rm = TRUE), 2))
+  })
+
+  output$precio_maximo <- renderText({
+    datos <- datos_filtrados()
+    validate(need(nrow(datos) > 0, "Sin datos"))
+    paste0("$", round(max(datos$precio, na.rm = TRUE), 2))
+  })
+
+  output$precio_promedio <- renderText({
+    datos <- datos_filtrados()
+    validate(need(nrow(datos) > 0, "Sin datos"))
+    paste0("$", round(mean(datos$precio, na.rm = TRUE), 2))
+  })
+
+  output$grafico_tipo <- renderPlot({
+    datos <- datos_filtrados()
+    validate(need(nrow(datos) > 0, "No hay reseñas para estos filtros"))
+    frecuencias <- datos |>
+      count(tipo, name = "frecuencia") |>
+      mutate(tipo = reorder(tipo, frecuencia))
+
+    ggplot(frecuencias, aes(tipo, frecuencia, fill = tipo)) +
+      geom_col(show.legend = FALSE) +
+      coord_flip() +
+      scale_fill_manual(values = colores_tipo) +
+      labs(x = NULL, y = "Número de reseñas") +
+      theme_minimal(base_size = 14)
+  })
+
+  output$grafico_precio <- renderPlot({
+    datos <- datos_filtrados()
+    validate(need(nrow(datos) > 0, "No hay reseñas para estos filtros"))
+    resumen <- datos |>
+      group_by(tipo) |>
+      summarise(
+        precio_mediano = median(precio, na.rm = TRUE),
+        .groups = "drop"
+      )
+
+    ggplot(resumen,
+           aes(reorder(tipo, precio_mediano),
+               precio_mediano, fill = tipo)) +
+      geom_col(show.legend = FALSE) +
+      coord_flip() +
+      scale_fill_manual(values = colores_tipo) +
+      labs(x = NULL, y = "Precio mediano simulado") +
+      theme_minimal(base_size = 13)
+  })
+
+  output$grafico_origen <- renderPlot({
+    datos <- datos_filtrados()
+    validate(need(nrow(datos) > 0, "No hay reseñas para estos filtros"))
+    resumen <- datos |>
+      group_by(origen) |>
+      summarise(
+        calificacion_mediana = median(calificacion, na.rm = TRUE),
+        .groups = "drop"
+      )
+
+    ggplot(resumen,
+           aes(origen, calificacion_mediana, fill = origen)) +
+      geom_col(show.legend = FALSE) +
+      scale_fill_manual(values = c(
+        "importada" = "#3498C9",
+        "nacional" = "#E85A67"
+      )) +
+      labs(x = NULL, y = "Calificación mediana") +
+      theme_minimal(base_size = 13)
+  })
+
+  output$ranking <- renderDT({
+    datos <- datos_filtrados()
+    validate(need(nrow(datos) > 0, "No hay reseñas para estos filtros"))
+    ranking <- datos |>
+      group_by(id, nombre_cerveza, marca, tipo, origen) |>
+      summarise(
+        resenas = n(),
+        calificacion_mediana = median(calificacion, na.rm = TRUE),
+        calificacion_media = mean(calificacion, na.rm = TRUE),
+        precio_mediano = median(precio, na.rm = TRUE),
+        .groups = "drop"
+      ) |>
+      filter(resenas >= 100) |>
+      arrange(desc(calificacion_mediana),
+              desc(calificacion_media), desc(resenas)) |>
+      slice_head(n = 100)
+    datatable(ranking, rownames = FALSE, filter = "top",
+              options = list(pageLength = 10, scrollX = TRUE))
   })
 }
 
-# Construye y ejecuta la aplicación.
 shinyApp(ui = ui, server = server)
 ```
 
-# 5. Entender la reactividad
+# 3. Cómo responde al enunciado
 
-El flujo del ejemplo es:
+La aplicación conserva la lógica visual del tablero de referencia: un gráfico principal, dos gráficos secundarios y tres indicadores de precio. Los filtros recalculan todos los elementos y el ranking ayuda a identificar productos destacados.
 
-```text
-Controles del usuario
-        ↓
-input$variable e input$cilindros
-        ↓
-datos_filtrados() y variable_seleccionada()
-        ↓
-renderText(), renderPlot() y renderDT()
-        ↓
-Indicadores, gráfico y tabla
-```
-
-Las expresiones `reactive()` almacenan cálculos que pueden utilizar varias salidas. Deben llamarse con paréntesis, por ejemplo `datos_filtrados()`.
-
-# 6. Ejecutar y detener
-
-Abra `app.R` y pulse **Run App**. También puede usar:
+# 4. Ejecutar y publicar
 
 ```{r ejecutar, eval=FALSE}
 shiny::runApp("tablero_shiny")
 ```
 
-Mientras la aplicación está activa, R permanece ocupado atendiendo la sesión. Para detenerla pulse **Stop** en RStudio o presione `Esc` en la consola.
-
-# 7. Incorporar datos propios
-
-Los paquetes y datos compartidos por todos los usuarios deben cargarse antes de definir `ui` y `server`:
-
-```{r datos-propios, eval=FALSE}
-library(readr)
-datos <- read_csv("data/ventas.csv", show_col_types = FALSE)
-```
-
-Dentro de `server` deben quedar los cálculos que dependen del usuario. Evite leer el mismo archivo dentro de cada `renderPlot()` o `renderDT()`, porque esto hace más lenta la aplicación.
-
-# 8. Validaciones recomendadas
-
-Cuando una selección pueda producir cero filas, use `validate()` y `need()`:
-
-```{r validar, eval=FALSE}
-output$histograma <- renderPlot({
-  validate(need(nrow(datos_filtrados()) > 0, "No hay datos para este filtro"))
-  # Código del gráfico
-})
-```
-
-# 9. Publicar
-
-Una aplicación Shiny no funciona abriendo directamente un archivo HTML, porque necesita un servidor con R. Puede compartirse como código o publicarse en servicios como shinyapps.io, Posit Connect o Shiny Server.
-
-Para shinyapps.io:
+La base supera 1,5 millones de filas: cárguela fuera de `server` y no envíe todas las reseñas a una tabla HTML. Los gráficos trabajan con resúmenes por grupo.
 
 ```{r publicar, eval=FALSE}
 install.packages("rsconnect")
 rsconnect::deployApp("tablero_shiny")
 ```
 
-No publique contraseñas ni tokens dentro de `app.R`. Use variables de entorno o la configuración segura del servicio de despliegue.
-
-# 10. Alternativa: Shiny dentro de un Rmd
-
-También es posible crear un documento interactivo agregando `runtime: shiny` al YAML y usando bloques con `renderPlot()`. Sin embargo, ese documento también necesita un servidor Shiny y no puede incorporarse como una página HTML estática del sitio del curso.
-
-```yaml
----
-title: "Documento interactivo"
-output: html_document
-runtime: shiny
----
-```
-
 # Lista de comprobación
 
-- Cada `inputId` es único.
-- Cada `plotOutput()`, `textOutput()` o `DTOutput()` tiene su `render*()` correspondiente.
-- Los cálculos reactivos se llaman con paréntesis.
-- La aplicación funciona después de reiniciar R.
-- Las rutas a datos y recursos son relativas.
-- Los filtros sin resultados muestran un mensaje comprensible.
+- `beer2.csv` está dentro de `data`.
+- Los filtros sin resultados muestran un mensaje.
+- El precio se identifica como simulado.
+- El ranking exige un mínimo de reseñas.
+- Las interpretaciones no afirman causalidad.
 
 # Referencias
 
 - [Introducción oficial a Shiny](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/)
-- [Construcción de la interfaz](https://shiny.posit.co/r/getstarted/shiny-basics/lesson2/)
-- [Publicación de aplicaciones Shiny](https://shiny.posit.co/r/getstarted/shiny-basics/lesson7/)
-
+- [Diseño con bslib](https://rstudio.github.io/bslib/)
+- [Documentación de DT](https://rstudio.github.io/DT/)

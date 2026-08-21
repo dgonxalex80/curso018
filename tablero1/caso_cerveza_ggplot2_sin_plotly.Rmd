@@ -1,0 +1,408 @@
+---
+title: "Caso Cerveza"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: cosmo
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(DT)
+library(paquetePROB)
+
+data(beer)
+
+# Etiquetas
+labs_tp <- c(
+  "Lager artesanal",
+  "Clara artesanal",
+  "Lager importada",
+  "Normal y helada",
+  "Baja en alcohol"
+)
+
+labs_or <- c("Nacional", "Importada")
+
+# Paleta de colores
+colores <- c(
+  "#C68642",
+  "#F1C40F",
+  "#7B3F00",
+  "#F39C12",
+  "#BDC3C7"
+)
+
+# Variables con etiquetas legibles
+beer$tipo_lbl <- factor(
+  beer$tipo,
+  levels = sort(unique(beer$tipo)),
+  labels = labs_tp
+)
+
+beer$origen_lbl <- factor(
+  beer$origen,
+  levels = c(0, 1),
+  labels = labs_or
+)
+
+# Tema general de alto contraste
+tema_cerveza <- theme_bw(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15, colour = "#1F2937"),
+    plot.subtitle = element_text(size = 10, colour = "#4B5563"),
+    axis.title = element_text(face = "bold", colour = "#1F2937"),
+    axis.text = element_text(colour = "#111827"),
+    panel.grid.major = element_line(colour = "grey85", linewidth = 0.3),
+    panel.grid.minor = element_blank(),
+    panel.border = element_rect(colour = "#374151", linewidth = 0.7),
+    legend.position = "none"
+  )
+```
+
+Column {.tabset data-width=500}
+-----------------------------------------------------------------------
+
+### Precio
+
+```{r}
+g_precio <- ggplot(
+  beer,
+  aes(
+    x = tipo_lbl,
+    y = precio,
+    fill = tipo_lbl
+  )
+) +
+  geom_boxplot(alpha = 0.90, width = 0.65, outlier.alpha = 0.65, colour = "#303030") +
+  scale_fill_manual(values = colores) +
+  coord_flip() +
+  labs(
+    title = "Distribución del precio",
+    subtitle = "Por unidad de 12 oz",
+    x = NULL,
+    y = "Precio"
+  ) +
+  tema_cerveza
+
+g_precio
+```
+
+### Calorías
+
+```{r}
+g_calorias <- ggplot(
+  beer,
+  aes(
+    x = tipo_lbl,
+    y = calorias,
+    fill = tipo_lbl
+  )
+) +
+  geom_boxplot(alpha = 0.90, width = 0.65, outlier.alpha = 0.65, colour = "#303030") +
+  scale_fill_manual(values = colores) +
+  coord_flip() +
+  labs(
+    title = "Distribución de calorías",
+    subtitle = "Contenido por unidad de 12 oz",
+    x = NULL,
+    y = "Calorías"
+  ) +
+  tema_cerveza
+
+g_calorias
+```
+
+### Alcohol
+
+```{r}
+g_alcohol <- ggplot(
+  beer,
+  aes(
+    x = tipo_lbl,
+    y = poralcoh,
+    fill = tipo_lbl
+  )
+) +
+  geom_boxplot(alpha = 0.90, width = 0.65, outlier.alpha = 0.65, colour = "#303030") +
+  scale_fill_manual(values = colores) +
+  coord_flip() +
+  labs(
+    title = "Distribución del contenido de alcohol",
+    subtitle = "Porcentaje de alcohol por unidad de 12 oz",
+    x = NULL,
+    y = "Alcohol (%)"
+  ) +
+  tema_cerveza
+
+g_alcohol
+```
+
+### Precio × Calorías
+
+```{r}
+g_pc <- ggplot(
+  beer,
+  aes(x = precio, y = calorias, colour = tipo_lbl)
+) +
+  geom_point(size = 2.8, alpha = 0.75) +
+  scale_colour_manual(values = colores) +
+  labs(
+    title = "Precio y calorías",
+    subtitle = "Relación entre precio y contenido calórico",
+    x = "Precio",
+    y = "Calorías",
+    colour = "Tipo"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15),
+    panel.grid.minor = element_blank(),
+    legend.position = "bottom"
+  )
+
+g_pc
+```
+
+### Calorías × Alcohol
+
+```{r}
+g_ca <- ggplot(
+  beer,
+  aes(x = calorias, y = poralcoh, colour = tipo_lbl)
+) +
+  geom_point(size = 2.8, alpha = 0.75) +
+  scale_colour_manual(values = colores) +
+  labs(
+    title = "Calorías y contenido de alcohol",
+    subtitle = "Relación entre contenido calórico y porcentaje de alcohol",
+    x = "Calorías",
+    y = "Alcohol (%)",
+    colour = "Tipo"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15),
+    panel.grid.minor = element_blank(),
+    legend.position = "bottom"
+  )
+
+g_ca
+```
+
+### Descriptivas
+
+```{r}
+summarytools::descr(
+  beer[, c("precio", "calorias", "poralcoh")],
+  stats = c("mean", "sd", "min", "med", "max", "n.valid")
+)
+```
+
+Column {.tabset data-width=350}
+-----------------------------------------------------------------------
+
+### Tipo
+
+```{r}
+tabla_tipo <- as.data.frame(table(beer$tipo_lbl))
+names(tabla_tipo) <- c("Tipo", "Frecuencia")
+
+tabla_tipo$Porcentaje <- 100 * tabla_tipo$Frecuencia /
+  sum(tabla_tipo$Frecuencia)
+
+g_tipo <- ggplot(
+  tabla_tipo,
+  aes(x = Tipo, y = Frecuencia, fill = Tipo)
+) +
+  geom_col(width = 0.7, alpha = 0.9, colour = "#303030", linewidth = 0.4) +
+  geom_text(
+    aes(label = Frecuencia),
+    vjust = -0.55,
+    size = 4,
+    fontface = "bold",
+    colour = "#1F2937"
+  ) +
+  scale_fill_manual(values = colores) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.16))
+  ) +
+  labs(
+    title = "Distribución por tipo de cerveza",
+    x = NULL,
+    y = "Frecuencia"
+  ) +
+  tema_cerveza +
+  theme(
+    axis.text.x = element_text(angle = 20, hjust = 1)
+  )
+
+g_tipo
+```
+
+### Origen
+
+
+```{r}
+# Tabla de frecuencias
+tabla_origen <- as.data.frame(table(beer$origen_lbl))
+
+names(tabla_origen) <- c("Origen", "Frecuencia")
+
+# Porcentaje
+tabla_origen$Porcentaje <- 
+  100 * tabla_origen$Frecuencia / sum(tabla_origen$Frecuencia)
+
+# Etiqueta
+tabla_origen$Etiqueta <- paste0(
+  tabla_origen$Origen,
+  "\n",
+  round(tabla_origen$Porcentaje, 1),
+  "%"
+)
+
+# Gráfico de torta con ggplot2
+ggplot(
+  tabla_origen,
+  aes(
+    x = 1,
+    y = Frecuencia,
+    fill = Origen
+  )
+) +
+  
+  geom_col(
+    width = 1,
+    colour = "white",
+    linewidth = 1
+  ) +
+  
+  coord_polar(
+    theta = "y",
+    start = 0
+  ) +
+  
+  geom_text(
+    aes(label = Etiqueta),
+    position = position_stack(vjust = 0.5),
+    size = 4.5,
+    fontface = "bold"
+  ) +
+  
+  scale_fill_manual(
+    values = c(
+      "Nacional" = "#F39C12",
+      "Importada" = "#BDC3C7"
+    )
+  ) +
+  
+  labs(
+    title = "Distribución de cervezas según origen",
+    fill = "Origen"
+  ) +
+  
+  theme_void(base_size = 12) +
+  
+  theme(
+    plot.title = element_text(
+      face = "bold",
+      size = 15,
+      hjust = 0.5
+    ),
+    legend.position = "bottom"
+  )
+```
+
+### Data
+
+```{r}
+DT::datatable(
+  beer,
+  rownames = FALSE,
+  filter = "top",
+  extensions = "Buttons",
+  options = list(
+    pageLength = 8,
+    scrollX = TRUE,
+    dom = "Bfrtip",
+    buttons = c("copy", "csv", "excel")
+  )
+)
+```
+
+### Informe
+
+El tablero presenta una exploración descriptiva de las principales variables
+del conjunto de datos **beer**. Los diagramas de caja permiten comparar el
+precio, las calorías y el porcentaje de alcohol entre los distintos tipos de
+cerveza. Los diagramas de dispersión permiten estudiar visualmente las
+relaciones entre variables cuantitativas.
+
+Los gráficos se presentan con `ggplot2` y un diseño de alto contraste para facilitar
+la comparación visual entre categorías y variables.
+
+Column {data-width=150}
+-----------------------------------------------------------------------
+
+### Precio mínimo
+
+```{r}
+pmin <- min(beer$precio, na.rm = TRUE)
+
+valueBox(
+  paste0("$", round(pmin, 2)),
+  caption = "Precio mínimo",
+  icon = "fa-dollar-sign",
+  color = "primary"
+)
+```
+
+### Precio máximo
+
+```{r}
+pmax <- max(beer$precio, na.rm = TRUE)
+
+valueBox(
+  paste0("$", round(pmax, 2)),
+  caption = "Precio máximo",
+  icon = "fa-dollar-sign",
+  color = "warning"
+)
+```
+
+### Precio promedio
+
+```{r}
+pmean <- mean(beer$precio, na.rm = TRUE)
+
+valueBox(
+  paste0("$", round(pmean, 2)),
+  caption = "Precio promedio",
+  icon = "fa-chart-line",
+  color = ifelse(pmean > 10, "warning", "primary")
+)
+```
+
+### Cerveza importada
+
+```{r}
+pct_import <- 100 * sum(
+  beer$origen_lbl == "Importada",
+  na.rm = TRUE
+) / sum(!is.na(beer$origen_lbl))
+
+gauge(
+  round(pct_import, 1),
+  min = 0,
+  max = 100,
+  symbol = "%",
+  label = "Importada",
+  sectors = gaugeSectors(
+    success = c(60, 100),
+    warning = c(30, 60),
+    danger = c(0, 30)
+  )
+)
+```

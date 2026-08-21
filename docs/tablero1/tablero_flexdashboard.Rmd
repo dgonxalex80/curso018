@@ -1,10 +1,10 @@
 ---
-title: <span style="color:#f9ceca"> </span>  
-author: <span style="color:#f9ceca">dgonzalez</span> 
-subtitle: <span style="color:#f9ceca"> </span> 
+title: <span style="color:#F8DCE0"> </span>
+author: <span style="color:#F8DCE0">dgonzalez</span>
+subtitle: <span style="color:#F8DCE0"> </span>
 output:
   html_document:
-    toc: no 
+    toc: no
     toc_depth: 2
     toc_float: yes
     code_folding: hide
@@ -12,79 +12,51 @@ output:
     css:
       - style.css
       - cajas.css
---- 
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 ```
 
-
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
 knitr::include_graphics("img/recurso1.png")
 ```
 
-# Tablero flexdashboard
-
-<br/>
+# Tablero del Caso 1 con flexdashboard
 
 # Objetivo
 
-Esta guía muestra cómo construir desde cero un tablero con el paquete `flexdashboard`. Al finalizar se tendrá un archivo `dashboard.Rmd` que reúne indicadores, gráficos y una tabla en una sola página HTML.
+Construir un tablero estático para responder el Caso 1 usando `data/beer2.csv`.
 
 <div class="box1 with-label">
-## ¿Cuándo usar flexdashboard?
+## Enunciado del Caso 1
 
-Es apropiado cuando el análisis se puede calcular al renderizar el documento y el usuario necesita consultar gráficos, tablas o indicadores en un archivo HTML. Puede incorporar componentes interactivos, pero para recalcular resultados a partir de entradas del usuario se necesita Shiny.
+Una empresa cervecera desea comprender las preferencias de los consumidores y reconocer qué características se relacionan con mejores valoraciones. Se estudiarán tipo, origen, composición nutricional, precio y atributos sensoriales.
 
+`beer2.csv` contiene 1.586.614 reseñas y 15 variables. Cada fila es una reseña y una cerveza puede aparecer varias veces. Se requieren frecuencias, indicadores descriptivos y comparaciones por tipo y origen.
+
+El precio es simulado. El análisis es descriptivo y no permite establecer causalidad.
 </div>
 
-# 1. Instalar los paquetes
-
-La instalación se realiza una sola vez desde la consola de R:
+# 1. Preparar el proyecto
 
 ```{r instalar, eval=FALSE}
-install.packages(c("flexdashboard", "rmarkdown", "DT"))
+install.packages(c("flexdashboard", "rmarkdown", "readr",
+                   "dplyr", "tidyr", "ggplot2", "DT", "scales"))
 ```
-
-Para comprobar que `flexdashboard` está disponible:
-
-```{r comprobar, eval=FALSE}
-packageVersion("flexdashboard")
-```
-
-# 2. Crear el proyecto
-
-1. Cree una carpeta llamada `tablero_flexdashboard`.
-2. Abra esa carpeta como proyecto de RStudio.
-3. Cree un archivo llamado `dashboard.Rmd`.
-4. Guarde los datos adicionales en una subcarpeta llamada `data`.
-
-La estructura recomendada es:
 
 ```text
 tablero_flexdashboard/
 ├── dashboard.Rmd
 └── data/
+    └── beer2.csv
 ```
 
-# 3. Comprender la estructura
-
-Un tablero contiene cuatro partes principales:
-
-1. El encabezado YAML, que define el título y el formato de salida.
-2. El bloque `setup`, donde se cargan paquetes y datos.
-3. Las filas o columnas que organizan la pantalla.
-4. Los bloques de R que producen indicadores, gráficos y tablas.
-
-# 4. Construir el tablero completo
-
-Copie los siguientes fragmentos en `dashboard.Rmd`, respetando el orden en que aparecen.
-
-## 4.1 Encabezado YAML
+# 2. Encabezado de `dashboard.Rmd`
 
 ```yaml
 ---
-title: "Tablero de desempeño de automóviles"
+title: "Diagnóstico de preferencias cerveceras"
 output:
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -93,183 +65,236 @@ output:
 ---
 ```
 
-## 4.2 Preparación de los datos
+# 3. Cargar y resumir los datos
 
-```{r flex-ejemplo-setup, eval=FALSE}
+```{r flex-caso-setup, eval=FALSE}
 library(flexdashboard)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
 library(DT)
+library(scales)
 
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
-# Datos incluidos en R para que el ejemplo sea reproducible.
-datos <- mtcars
-datos$modelo <- rownames(mtcars)
+# Cada fila corresponde a una reseña.
+beer2 <- read_csv("data/beer2.csv", show_col_types = FALSE)
 
-# Paleta del curso.
+# Paleta de curso013.
 azul <- "#2C5697"
-rojo <- "#F05A4A"
-amarillo <- "#F4B43C"
-cian <- "#21B5E4"
+rojo <- "#E85A67"
+amarillo <- "#F6A623"
+cian <- "#3498C9"
+verde <- "#67C1A8"
+azul_medio <- "#476885"
+
+# Colores por tipo, adaptados a la identidad de curso013.
+colores_tipo <- c(
+  "lager artesanal" = amarillo,
+  "clara artesanal" = cian,
+  "lager importada" = azul_medio,
+  "cerveza normal y helada" = rojo,
+  "baja en calorías / sin alcohol" = verde
+)
+
+frecuencia_tipo <- beer2 |>
+  count(tipo, name = "frecuencia") |>
+  mutate(
+    porcentaje = frecuencia / sum(frecuencia),
+    tipo = reorder(tipo, porcentaje)
+  )
+
+resumen_tipo <- beer2 |>
+  group_by(tipo) |>
+  summarise(
+    resenas = n(),
+    cervezas = n_distinct(id),
+    precio_mediano = median(precio, na.rm = TRUE),
+    calificacion_mediana = median(calificacion, na.rm = TRUE),
+    aroma_mediano = median(aroma, na.rm = TRUE),
+    sabor_mediano = median(sabor, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+resumen_origen <- beer2 |>
+  group_by(origen) |>
+  summarise(
+    resenas = n(),
+    cervezas = n_distinct(id),
+    precio_mediano = median(precio, na.rm = TRUE),
+    calorias_medianas = median(calorias, na.rm = TRUE),
+    calificacion_mediana = median(calificacion, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# El mínimo de reseñas evita rankings inestables.
+ranking_productos <- beer2 |>
+  group_by(id, nombre_cerveza, marca, tipo, origen) |>
+  summarise(
+    resenas = n(),
+    calificacion_mediana = median(calificacion, na.rm = TRUE),
+    calificacion_media = mean(calificacion, na.rm = TRUE),
+    precio_mediano = median(precio, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  filter(resenas >= 100) |>
+  arrange(desc(calificacion_mediana),
+          desc(calificacion_media), desc(resenas))
 ```
 
-## 4.3 Estilos del tablero
+# 4. Construir la distribución en tres columnas
 
-```html
-<style>
-.navbar { background-color: #2C5697; }
-.value-box { border-radius: 10px; }
-.chart-title { color: #2C5697; font-weight: 700; }
-</style>
+El tablero de referencia usa una columna principal, una columna secundaria y una columna estrecha para indicadores. En este caso se emplean anchos 500, 300 y 200 para que los textos de las cajas sean legibles.
+
+## 4.1 Columna principal
+
+```markdown
+Column {data-width=500}
+-------------------------------------
+
+### Reseñas por tipo de cerveza
 ```
 
-## 4.4 Primera columna: indicadores
+```{r flex-chart-a, eval=FALSE}
+ggplot(frecuencia_tipo, aes(tipo, porcentaje, fill = tipo)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  scale_fill_manual(values = colores_tipo) +
+  scale_y_continuous(labels = percent_format()) +
+  labs(x = NULL, y = "Porcentaje de reseñas") +
+  theme_minimal(base_size = 13)
+```
 
-Agregue primero la definición de la columna:
+## 4.2 Columna secundaria
 
 ```markdown
 Column {data-width=300}
 -------------------------------------
 
-### Número de automóviles
+### Calificación mediana por tipo
 ```
 
-Debajo del título anterior agregue el indicador:
-
-```{r flex-indicador-n, eval=FALSE}
-valueBox(
-  value = nrow(datos),
-  caption = "Automóviles analizados",
-  color = "#2C5697"
-)
-```
-
-A continuación agregue los otros dos títulos y sus bloques:
-
-```markdown
-### Rendimiento promedio
-```
-
-```{r flex-indicador-mpg, eval=FALSE}
-valueBox(
-  value = paste0(round(mean(datos$mpg), 1), " mpg"),
-  caption = "Promedio de rendimiento",
-  color = "#F05A4A"
-)
+```{r flex-chart-b, eval=FALSE}
+ggplot(
+  resumen_tipo,
+  aes(reorder(tipo, calificacion_mediana),
+      calificacion_mediana, fill = tipo)
+) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  scale_fill_manual(values = colores_tipo) +
+  labs(x = NULL, y = "Calificación mediana") +
+  theme_minimal(base_size = 12)
 ```
 
 ```markdown
-### Potencia promedio
+### Precio y calificación por origen
 ```
 
-```{r flex-indicador-hp, eval=FALSE}
-valueBox(
-  value = round(mean(datos$hp), 1),
-  caption = "Caballos de fuerza",
-  color = "#F4B43C"
-)
+```{r flex-chart-c, eval=FALSE}
+resumen_origen |>
+  select(origen, precio_mediano, calificacion_mediana) |>
+  tidyr::pivot_longer(
+    -origen, names_to = "indicador", values_to = "valor"
+  ) |>
+  ggplot(aes(origen, valor, fill = indicador)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ indicador, scales = "free_y") +
+  scale_fill_manual(values = c(rojo, cian)) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none")
 ```
 
-## 4.5 Segunda columna: gráficos
+Agregue `"tidyr"` a la instalación y `library(tidyr)` al bloque inicial.
+
+## 4.3 Columna de indicadores
 
 ```markdown
-Column {data-width=700}
+Column {data-width=200}
 -------------------------------------
 
-### Distribución del rendimiento
+### Precio mínimo
 ```
 
-```{r flex-histograma, eval=FALSE}
-hist(
-  datos$mpg,
-  breaks = 8,
-  col = cian,
-  border = "white",
-  main = "Millas por galón",
-  xlab = "mpg"
+```{r flex-precio-minimo, eval=FALSE}
+precio_minimo <- min(beer2$precio, na.rm = TRUE)
+valueBox(
+  paste0("$", round(precio_minimo, 2)),
+  icon = "fa-tag",
+  color = "primary"
 )
 ```
 
 ```markdown
-### Automóviles por número de cilindros
+### Precio máximo
 ```
 
-```{r flex-barras, eval=FALSE}
-barplot(
-  table(datos$cyl),
-  col = c(amarillo, rojo, azul),
-  border = NA,
-  xlab = "Número de cilindros",
-  ylab = "Frecuencia"
-)
-```
-
-## 4.6 Pestañas con tabla y resumen
-
-```markdown
-### Datos {.tabset}
-
-#### Tabla
-```
-
-```{r flex-tabla, eval=FALSE}
-datatable(
-  datos[, c("modelo", "mpg", "cyl", "hp", "wt")],
-  rownames = FALSE,
-  options = list(pageLength = 6)
+```{r flex-precio-maximo, eval=FALSE}
+precio_maximo <- max(beer2$precio, na.rm = TRUE)
+valueBox(
+  paste0("$", round(precio_maximo, 2)),
+  icon = "fa-arrow-up",
+  color = "warning"
 )
 ```
 
 ```markdown
-#### Resumen
+### Precio promedio
 ```
 
-```{r flex-resumen, eval=FALSE}
-summary(datos[, c("mpg", "cyl", "hp", "wt")])
+```{r flex-precio-promedio, eval=FALSE}
+precio_promedio <- mean(beer2$precio, na.rm = TRUE)
+valueBox(
+  paste0("$", round(precio_promedio, 2)),
+  icon = "fa-calculator",
+  color = ifelse(precio_promedio > 6, "warning", "success")
+)
 ```
 
-# 5. Cómo funciona el diseño
+# 5. Añadir las tablas en una segunda página
 
-- `orientation: columns` organiza el tablero mediante columnas.
-- `data-width` asigna el ancho relativo de cada columna.
-- Cada título de nivel 3 (`###`) crea una caja o panel.
-- `{.tabset}` convierte los títulos de nivel 4 en pestañas.
-- `valueBox()` crea un indicador destacado.
-- `datatable()` crea una tabla con búsqueda y paginación.
+```markdown
+Datos {.tabset}
+=====================================
 
-Para usar filas, cambie `orientation: columns` por `orientation: rows` y escriba secciones `Row` en lugar de `Column`.
+### Comparación por tipo
+```
 
-# 6. Renderizar y revisar
+```{r flex-tabla-tipo, eval=FALSE}
+datatable(resumen_tipo, rownames = FALSE,
+          options = list(pageLength = 8, scrollX = TRUE))
+```
 
-En RStudio puede pulsar **Knit**. También puede generar el tablero desde la consola:
+```markdown
+### Comparación por origen
+```
+
+```{r flex-tabla-origen, eval=FALSE}
+datatable(resumen_origen, rownames = FALSE,
+          options = list(pageLength = 8, scrollX = TRUE))
+```
+
+```markdown
+### Productos destacados
+```
+
+```{r flex-tabla-ranking, eval=FALSE}
+datatable(head(ranking_productos, 100), rownames = FALSE,
+          filter = "top",
+          options = list(pageLength = 10, scrollX = TRUE))
+```
+
+# 6. Interpretar y publicar
+
+El tablero compara tipos y orígenes e identifica productos destacados. La unidad de observación es la reseña; el precio es simulado y ninguna asociación debe interpretarse como causal.
 
 ```{r renderizar, eval=FALSE}
 rmarkdown::render("dashboard.Rmd")
 ```
 
-El resultado será `dashboard.html`. Revise que:
-
-- no aparezcan errores en la consola;
-- los gráficos tengan títulos y unidades;
-- los colores mantengan buen contraste;
-- la tabla no muestre variables innecesarias;
-- el tablero se adapte a una ventana pequeña.
-
-# 7. Usar datos propios
-
-Reemplace `mtcars` por la lectura de su archivo dentro del bloque `setup`:
-
-```{r datos-propios, eval=FALSE}
-datos <- read.csv("data/ventas.csv", stringsAsFactors = FALSE)
-```
-
-Use rutas relativas al proyecto. Evite rutas como `C:/Usuarios/...`, porque dejan de funcionar al mover o publicar el tablero.
-
-# 8. Publicar
-
-Un tablero sin Shiny puede compartirse como archivo HTML o publicarse en GitHub Pages, Netlify o Posit Connect. Antes de publicarlo, renderice el documento en una sesión nueva de R para comprobar que no depende de objetos creados manualmente.
-
 # Referencias
 
-- [Documentación oficial de flexdashboard](https://pkgs.rstudio.com/flexdashboard/)
-- [Artículos y diseños de flexdashboard](https://pkgs.rstudio.com/flexdashboard/articles/)
-
+- [Documentación de flexdashboard](https://pkgs.rstudio.com/flexdashboard/)
+- [Documentación de DT](https://rstudio.github.io/DT/)
