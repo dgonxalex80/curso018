@@ -1,6 +1,7 @@
 ---
-title: <span style="color:#C6EBF8"> </span>
-author: <span style="color:#C6EBF8">dgonzalez</span>
+title: <span style="color:#1E4E6B">Estadística para la toma de decisiones</span>
+author: <span style="color:#1E4E6B">dgonzalez</span> 
+subtitle: <span style="color:#1E4E6B"> </span> 
 output:
   html_document:
     toc: no
@@ -45,13 +46,10 @@ Empezaremos con su definición.
 
 <br/><br/>
 
-<div class="box1 with-label">
 ### Definición de conjunto
 
+>Un conjunto es una colección de objetos que se denota con una letra mayúscula (comúnmente las primeras letras del alfabeto A,B,C..) .
 
-Un conjunto es una colección de objetos que se denota con una letra mayúscula (comúnmente las primeras letras del alfabeto A,B,C..) .
-
-</div>
 
 <br/><br/><br/>
 
@@ -73,11 +71,11 @@ La unión del conjunto $A$ con el conjunto $B$ se denota por $A \cup B$. La zona
 
 
 ```{r, echo=FALSE, out.width="50%", fig.align = "center"}
-knitr::include_graphics("img/union.svg")
+knitr::include_graphics("img/union.png")
 ```
 
 
-<div class="box1 with-label">
+<div class="box0 with-label">
 ### Ejemplo
 
 Supongamos los siguientes conjuntos
@@ -99,13 +97,13 @@ La intersección entre el conjunto $A$ y el $B$ se denota por : $A \cap B$ y se 
 
 
 ```{r, echo=FALSE, out.width="50%", fig.align = "center"}
-knitr::include_graphics("img/interseccion.svg")
+knitr::include_graphics("img/interseccion.png")
 ```
 
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box0 with-label">
 
 ### Ejemplo
 
@@ -134,7 +132,7 @@ knitr::include_graphics("img/complemento.png")
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box0 with-label">
 ### Ejemplo
 
 Supongamos los siguientes conjuntos:
@@ -163,7 +161,7 @@ knitr::include_graphics("img/resta.png")
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box0 with-label">
 ### Ejemplo
 
 Supongamos los siguientes conjuntos
@@ -246,7 +244,7 @@ $$B-A =\{ 8,10,12,14,16,18,20 \}$$
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box6 with-label">
 ### Código R
 
 ```{r codigo-conjuntos, eval=FALSE}

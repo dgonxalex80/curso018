@@ -6,6 +6,22 @@ output:
     vertical_layout: fill
 ---
 
+<style>
+/* Colores del tablero inspirados en cerveza: malta, ámbar y dorado. */
+.navbar-inverse {
+  background-color: #6B3513;
+  border-color: #4A240D;
+}
+
+.value-box-primary {
+  background-color: #9A5200;
+}
+
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-top-color: #D99000;
+}
+</style>
+
 ```{r setup, include=FALSE}
 library(flexdashboard)
 library(paquetePROB)
@@ -13,13 +29,26 @@ data(beer)
 # https://rstudio.github.io/flexdashboard/articles/layouts.html
 # https://rstudio.github.io/flexdashboard/articles/using.html
 
-# Definir colores
+# Paleta inspirada en "The Colors of Beer".
+beer_palette <- c(
+  "Pale Ale"       = "#FFE34F",
+  "Lager"          = "#F7C928",
+  "Pilsner"        = "#F2A536",
+  "Wheat Beer"     = "#E78A2F",
+  "Golden Ale"     = "#DE5A24",
+  "Dark Ale"        = "#99151A",
+  "Porter"         = "#721316",
+  "Stout"          = "#52150F",
+  "Imperial Stout" = "#291310"
+)
+
+# Correspondencia con las cinco categorías presentes en la base beer.
 colores <- c(
-  "#C68642", # 1-lager artesanal - ámbar
-  "#F1C40F", # 2-clara artesanal - dorado
-  "#7B3F00", # 3-lager importada - marrón
-  "#F39C12", # 4-normal y helada - amarillo intenso
-  "#BDC3C7"  # 5-baja en alcohol - gris claro
+  "lager artesanal" = beer_palette[["Lager"]],
+  "clara artesanal" = beer_palette[["Pale Ale"]],
+  "lager importada" = beer_palette[["Pilsner"]],
+  "normal y helada" = beer_palette[["Golden Ale"]],
+  "baja en alcohol" = beer_palette[["Wheat Beer"]]
 )
 
 # Etiquetas
@@ -111,8 +140,8 @@ grid()
 ```{r, warning=FALSE,message=FALSE}
 plot(beer$precio, beer$calorias,
      pch = 21,
-     bg = "#F6A623",   # Color de fondo
-     col = "#7B3F00", # Color del borde
+     bg = beer_palette[["Lager"]],
+     col = beer_palette[["Porter"]],
      cex = 1,      # Tamaño del símbolo
      lwd = 1,      # Ancho del borde
      las=1,
@@ -132,8 +161,8 @@ grid()
 ```{r, warning=FALSE,message=FALSE}
 plot(beer$calorias, beer$poralcoh,
      pch = 21,
-     bg = "#F6A623",   # Color de fondo
-     col = "#7B3F00", # Color del borde
+     bg = beer_palette[["Lager"]],
+     col = beer_palette[["Porter"]],
      cex = 1,      # Tamaño del símbolo
      lwd = 1,      # Ancho del borde
      las=1,
@@ -170,7 +199,6 @@ labs <- c("1-lager artesanal","2-clara artesanal","3-lager importada",
 names(t1) <- labs_tp  # asigna etiquetas al vector
 # margenes exteriores c(bottom, left, top, right)
 par(mai = c(1.5, 1.5, 1.5, .2)) # margenes del grafico
-# colores que ya tienes definidos: c30, c41, c50, c01, c21
 barplot(t1,
         horiz = TRUE,
         las = 1,
@@ -196,7 +224,7 @@ labs=paste(labs, pct);labs=paste(labs, "%", sep = " ")
 pie(t2, 
     labels=labs, 
     main=" Distribución por origen",
-    col=c("#F1C40F", "#F39C12"),
+    col = beer_palette[c("Pale Ale", "Dark Ale")],
     cex.main = tam_titulo,
     cex.lab  = tam_ejes,
     cex.axis = tam_etiquetas,

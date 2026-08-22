@@ -3,6 +3,7 @@
  Sistema de diseño para cursos (Quarto / RMarkdown / Shiny)
 =========================================================*/
 
+/* Carga las tipografías usadas por títulos, texto y notas. */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Source+Sans+3:wght@400;600;700&family=Shadows+Into+Light&display=swap');
 
 :root{
@@ -10,28 +11,40 @@
 /*======================
 PALETA
 ======================*/
+/* Módulo 0: color principal. */
+--c01:#1E4E6B;
+--c02:#BCCAD3;
+
+/* Módulo 1: color principal y tono claro. */
 --c11:#F05A4A;
 --c12:#F9CECA;
 
+/* Módulo 2: color principal y tono claro. */
 --c21:#F4B43C;
 --c22:#FBE8C5;
 
+/* Módulo 3: color principal y tono claro. */
 --c31:#21B5E4;
 --c32:#C6EBF8;
 
+/* Módulo 4: color principal y tono claro. */
 --c41:#7A6DB2;
 --c42:#D7D2E8;
 
+/* Módulo 5: color principal y tono claro. */
 --c51:#79C45A;
 --c52:#D7EDCE;
 
+/* Colores neutros para fondos y texto. */
 --white:#FFFFFF;
 --text:#333333;
 
+/* Familias tipográficas reutilizables. */
 --font-title:'Anton',sans-serif;
 --font-body:'Source Sans 3',sans-serif;
 --font-note:'Shadows Into Light',cursive;
 
+/* Valores comunes para esquinas y sombras. */
 --radius:12px;
 --shadow:0 4px 10px rgba(0,0,0,.12);
 
@@ -42,12 +55,14 @@ GENERAL
 ======================*/
 
 body{
+    /* Tipografía, color, fondo e interlineado generales. */
     font-family:var(--font-body);
     color:var(--text);
     background:#fafafa;
     line-height:1.7;
 }
 
+/* Apariencia uniforme para todos los niveles de encabezado. */
 h1,h2,h3,h4,h5,h6{
     font-family:var(--font-title);
     color:var(--c41);
@@ -62,13 +77,16 @@ CAJAS DEL CURSO
   como un título normal dentro del contenido, sin pestañas ni numeración.
 */
 .box,
+.box0,
 .box1,
 .box2,
 .box3,
 .box4,
 .box5,
 .box6 {
-    --box-color:var(--module-color, #2C5697);
+    /* Usa el color del módulo o azul si no está definido. */
+    --box-color:var(--modulo-color, var(--module-color, #2C5697));
+    /* Configura geometría, separación y aspecto de la caja. */
     position:relative;
     box-sizing:border-box;
     margin:1.8rem 0;
@@ -80,8 +98,19 @@ CAJAS DEL CURSO
     box-shadow:0 5px 14px rgba(38,55,74,.12);
 }
 
+/* Correspondencia fija entre cada clase de caja y el color de su módulo. */
+.box,
+.box6 { --box-color:#2C5697; }
+.box0 { --box-color:var(--c01, #1E4E6B); }
+.box1 { --box-color:var(--c11, #F05A4A); }
+.box2 { --box-color:var(--c21, #F4B43C); }
+.box3 { --box-color:var(--c31, #21B5E4); }
+.box4 { --box-color:var(--c41, #7A6DB2); }
+.box5 { --box-color:var(--c51, #79C45A); }
+
 /* Título normal, alineado con el color correspondiente al módulo. */
-:is(.box,.box1,.box2,.box3,.box4,.box5,.box6) > :is(h2,h3):first-child {
+:is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6) > :is(h2,h3):first-child {
+    /* Neutraliza estilos externos y mantiene el título en el flujo normal. */
     position:static;
     margin:0 0 .8rem !important;
     padding:0 !important;
@@ -93,26 +122,46 @@ CAJAS DEL CURSO
     text-align:left;
 }
 
-:is(.box,.box1,.box2,.box3,.box4,.box5,.box6) > h2:first-child {
-    font-size:32px !important;
-}
-
-:is(.box,.box1,.box2,.box3,.box4,.box5,.box6) > h3:first-child {
+/* Todos los títulos de caja, aunque se escriban como h2, se muestran con
+   el tamaño visual de un encabezado Markdown ### (h3). */
+:is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6) > h2:first-child {
     font-size:26px !important;
 }
 
+/* Tamaño de los títulos secundarios de las cajas. */
+:is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6) > h3:first-child {
+    font-size:26px !important;
+}
+
+/* También aplica el formato de ### a los títulos creados con
+   <div class="label"> en las cajas con etiqueta. */
+:is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6).with-label > .label {
+    margin:0 0 .8rem;
+    padding:0;
+    color:var(--box-color, var(--module-color, #2C5697)) !important;
+    background:transparent;
+    font-family:var(--font-title, "Anton", sans-serif);
+    font-size:26px !important;
+    font-weight:400;
+    line-height:1.2;
+    text-align:left;
+}
+
 /* Evita espacio extra al final y mantiene fórmulas dentro del marco. */
-:is(.box,.box1,.box2,.box3,.box4,.box5,.box6) > :last-child {
+:is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6) > :last-child {
     margin-bottom:0;
 }
 
-:is(.box,.box1,.box2,.box3,.box4,.box5,.box6) .math.display {
+:is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6) .math.display {
+    /* Permite desplazar fórmulas anchas sin desbordar el marco. */
     overflow-x:auto;
     overflow-y:hidden;
 }
 
+/* Reduce el espacio interior de las cajas en pantallas pequeñas. */
 @media (max-width:640px) {
     .box,
+    .box0,
     .box1,
     .box2,
     .box3,
@@ -125,13 +174,16 @@ CAJAS DEL CURSO
 
 
 /* Compatibilidad con el visor integrado de RStudio. */
+/* Se aumenta la especificidad para prevalecer sobre .main-container. */
 .main-container div.box,
+.main-container div.box0,
 .main-container div.box1,
 .main-container div.box2,
 .main-container div.box3,
 .main-container div.box4,
 .main-container div.box5,
 .main-container div.box6 {
+    /* Fuerza dimensiones y apariencia consistentes dentro del visor. */
     display:block;
     position:relative;
     box-sizing:border-box;
@@ -145,8 +197,10 @@ CAJAS DEL CURSO
     box-shadow:0 5px 14px rgba(38,55,74,.12);
 }
 
+/* Color explícito del borde para cada módulo. */
 .main-container div.box,
 .main-container div.box6 { border-color:#2C5697 !important; }
+.main-container div.box0 { border-color:#1E4E6B !important; }
 .main-container div.box1 { border-color:#F05A4A !important; }
 .main-container div.box2 { border-color:#F4B43C !important; }
 .main-container div.box3 { border-color:#21B5E4 !important; }
@@ -154,7 +208,9 @@ CAJAS DEL CURSO
 .main-container div.box5 { border-color:#79C45A !important; }
 
 .main-container div.box > h2:first-child,
+.main-container div.box0 > h2:first-child,
 .main-container div.box > h3:first-child,
+.main-container div.box0 > h3:first-child,
 .main-container div.box1 > h2:first-child,
 .main-container div.box1 > h3:first-child,
 .main-container div.box2 > h2:first-child,
@@ -167,6 +223,7 @@ CAJAS DEL CURSO
 .main-container div.box5 > h3:first-child,
 .main-container div.box6 > h2:first-child,
 .main-container div.box6 > h3:first-child {
+    /* Neutraliza la presentación de encabezados propia del visor. */
     position:static;
     margin:0 0 .8rem !important;
     padding:0 !important;
@@ -177,10 +234,13 @@ CAJAS DEL CURSO
     text-align:left;
 }
 
+/* Color explícito del título para cada módulo. */
 .main-container div.box > h2:first-child,
 .main-container div.box > h3:first-child,
 .main-container div.box6 > h2:first-child,
 .main-container div.box6 > h3:first-child { color:#2C5697 !important; }
+.main-container div.box0 > h2:first-child,
+.main-container div.box0 > h3:first-child { color:#1E4E6B !important; }
 .main-container div.box1 > h2:first-child,
 .main-container div.box1 > h3:first-child { color:#F05A4A !important; }
 .main-container div.box2 > h2:first-child,
@@ -192,18 +252,32 @@ CAJAS DEL CURSO
 .main-container div.box5 > h2:first-child,
 .main-container div.box5 > h3:first-child { color:#79C45A !important; }
 
+/* Tamaño de ### también para los encabezados h2 en el visor de RStudio. */
 .main-container div.box > h2:first-child,
+.main-container div.box0 > h2:first-child,
 .main-container div.box1 > h2:first-child,
 .main-container div.box2 > h2:first-child,
 .main-container div.box3 > h2:first-child,
 .main-container div.box4 > h2:first-child,
 .main-container div.box5 > h2:first-child,
-.main-container div.box6 > h2:first-child { font-size:32px !important; }
+.main-container div.box6 > h2:first-child { font-size:26px !important; }
 
+/* Tamaño uniforme de los encabezados h3. */
 .main-container div.box > h3:first-child,
+.main-container div.box0 > h3:first-child,
 .main-container div.box1 > h3:first-child,
 .main-container div.box2 > h3:first-child,
 .main-container div.box3 > h3:first-child,
 .main-container div.box4 > h3:first-child,
 .main-container div.box5 > h3:first-child,
 .main-container div.box6 > h3:first-child { font-size:26px !important; }
+
+/* Conserva el mismo tamaño para las etiquetas en el visor de RStudio. */
+.main-container div.box.with-label > .label,
+.main-container div.box0.with-label > .label,
+.main-container div.box1.with-label > .label,
+.main-container div.box2.with-label > .label,
+.main-container div.box3.with-label > .label,
+.main-container div.box4.with-label > .label,
+.main-container div.box5.with-label > .label,
+.main-container div.box6.with-label > .label { font-size:26px !important; }

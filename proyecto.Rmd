@@ -1,8 +1,7 @@
 ---
-title:  " "
-pagetitle: "Proyecto de Estadística"
-subtitle: "Estadística para la toma de decisiones"
-author: "dgonzalez"
+title: <span style="color:#79C45A">Estadística para la toma de decisiones</span>
+author: <span style="color:#79C45A">dgonzalez</span> 
+subtitle: <span style="color:#79C45A"> </span> 
 output:
   html_document:
     toc: no

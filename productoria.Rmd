@@ -1,8 +1,7 @@
 ---
-title: <span style="color:#C6EBF8"> </span>  
-pagetitle: "Productoria"
-author: <span style="color:#C6EBF8">dgonzalez</span> 
-subtitle: <span style="color:#C6EBF8"> </span> 
+title: <span style="color:#1E4E6B">Estadística para la toma de decisiones</span>
+author: <span style="color:#1E4E6B">dgonzalez</span> 
+subtitle: <span style="color:#1E4E6B"> </span> 
 output:
   html_document:
     toc: no
@@ -48,9 +47,7 @@ source("colores.R")
 Este operador será utilizado para desarrollar el método de estimación de Máxima Verosimilitud, soporte de la inferencia estadística abordado en la Unidad 4.1 del Módulo 4.
 
 
-
-<div class="box box1">
-
+<div class="box box0">
 ## Definición
 
 Se define como:
@@ -142,7 +139,7 @@ para las siguientes funciones:
 
 
 
-<div class="box1 with-label">
+<div class="box6 with-label">
 ### Código R
 
 

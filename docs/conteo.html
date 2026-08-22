@@ -12,7 +12,7 @@
 <meta name="author" content="dgonzalez" />
 
 
-<title> </title>
+<title>Estadística para la toma de decisiones</title>
 
 <script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -352,6 +352,18 @@ $(document).ready(function () {
       <a href="modulo2.html">Módulo 2</a>
     </li>
     <li class="divider"></li>
+    <li>
+      <a href="guia21.html">Guía 2.1</a>
+    </li>
+    <li>
+      <a href="recurso21.html">Recursos 2.1</a>
+    </li>
+    <li>
+      <a href="codigo21.html">Código 2.1</a>
+    </li>
+    <li>
+      <a href="taller211.html">Taller 211</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -425,8 +437,10 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><span style="color:#C6EBF8"> </span></h1>
-<h4 class="author"><span style="color:#C6EBF8">dgonzalez</span></h4>
+<h1 class="title toc-ignore"><span style="color:#1E4E6B">Estadística
+para la toma de decisiones</span></h1>
+<h3 class="subtitle"><span style="color:#1E4E6B"> </span></h3>
+<h4 class="author"><span style="color:#1E4E6B">dgonzalez</span></h4>
 
 </div>
 
@@ -436,13 +450,15 @@ $(document).ready(function () {
 <div id="técnicas-de-conteo" class="section level1">
 <h1>Técnicas de conteo</h1>
 <p><br/><br/></p>
+<blockquote>
 <p>Las técnicas de conteo constituyen una serie de estrategias que
 permiten, mediante reglas, establecer el número de elementos de un
 conjunto finito.</p>
+</blockquote>
 <p>Inicialmente empezaremos por definir dos reglas:</p>
 <p><br/><br/></p>
 <div id="principio-de-la-adicción"
-class="section level3 box1 with-label">
+class="section level3 box0 with-label">
 <h3>Principio de la adicción</h3>
 <p>Supongamos que un procedimiento, designado con <span
 class="math inline">\(P_1\)</span>, se puede hacer de <span
@@ -456,7 +472,7 @@ class="math inline">\(P_2\)</span> es <span
 class="math inline">\(n_1+n_2\)</span>.</p>
 </div>
 <p><br/><br/></p>
-<div id="ejemplo" class="section level3">
+<div id="ejemplo" class="section level3 box0 with-label">
 <h3>Ejemplo</h3>
 <p>Un estudiante tiene dos posibilidades de ir de su casa a la
 universidad: En transporte público o en transporte particular. Para el
@@ -468,11 +484,11 @@ puede transportar de la casa a la universidad será <span
 class="math inline">\(n=n_{1}+n_{2}=11\)</span> formas diferentes de ir
 a la U.</p>
 <p><br/></p>
-<p><img src="img/psuma.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
-<p><br/><br/><br/></p>
+<p><img src="img/psuma1.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
 </div>
+<p><br/><br/><br/></p>
 <div id="principio-de-la-multiplicación"
-class="section level3 box1 with-label">
+class="section level3 box0 with-label">
 <h3>Principio de la multiplicación</h3>
 <p>Supongamos que un procedimiento <span
 class="math inline">\(P_1\)</span> se puede realizar de <span
@@ -485,7 +501,7 @@ class="math inline">\(P_2\)</span> consecutivamente es <span
 class="math inline">\(n_1\times n_2\)</span>.</p>
 </div>
 <p><br/><br/></p>
-<div id="ejemplo-1" class="section level3">
+<div id="ejemplo-1" class="section level3 box0 with-label">
 <h3>Ejemplo</h3>
 <p>En el proceso de fabricación de una silla se diferencian las
 siguientes etapas: El diseño de la silla (<span
@@ -499,9 +515,9 @@ puede construir una silla?</p>
 <p>El número de posibles formas como puede fabricar una silla será:
 <span class="math inline">\(n_{1} \times n_{2} = 3 \times 4 =
 12\)</span></p>
-<p><img src="img/pmultiplicacion.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
-<p><br/><br/></p>
+<p><img src="img/pmultiplicacion1.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
 </div>
+<p><br/><br/></p>
 </div>
 <div id="otras-técnicas-de-conteo" class="section level1">
 <h1>Otras técnicas de conteo</h1>
@@ -512,7 +528,7 @@ elementos todos numerables ( se pueden contar) y de ellos se quiere
 seleccionar <span class="math inline">\(k\)</span> elementos como se
 muestra en la siguiente figura.</p>
 <p><br/><br/></p>
-<p><img src="img/urna.png" alt="" width="35%" style="display: block; margin: auto;" /></p>
+<p><img src="img/urna2.png" alt="" width="35%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
 <p>Este procedimiento se puede realizar de varias formas:</p>
 <p>A. Cuando importa el orden</p>
@@ -566,7 +582,7 @@ selección.</p>
 contar los conjuntos anteriores</p>
 <p><br/><br/></p>
 <div id="importa-el-orden-con-sustitución"
-class="section level3 box1 with-label">
+class="section level3 box0 with-label">
 <h3>Importa el orden con sustitución</h3>
 <p><span class="math display">\[\mathcal{P}^{\prime}(n,k) =
 \underbrace{n \times n \times \cdots \times n}_{k\text{ factores}} =
@@ -578,7 +594,7 @@ hay sustitución, es <span class="math inline">\(n^k\)</span>.</p>
 </div>
 <p><br/><br/></p>
 <div id="importa-el-orden-sin-sustitución"
-class="section level3 box1 with-label">
+class="section level3 box0 with-label">
 <h3>Importa el orden sin sustitución</h3>
 <p><span class="math display">\[\mathcal{P}(n,k) = n \times (n-1) \times
 (n-2) \times \cdots \times (n-k+1) = \dfrac{n!}{(n-k)!}\]</span></p>
@@ -600,7 +616,7 @@ puede hacerlo?</p>
 \dfrac{6!}{(6-6)!}=6! =720\]</span></p>
 <p><br/><br/></p>
 <div id="no-importa-el-orden-sin-sustitución"
-class="section level3 box1 with-label">
+class="section level3 box0 with-label">
 <h3>No importa el orden sin sustitución</h3>
 <p><span class="math display">\[\mathcal{C}(n,k) = \dfrac{n!}{(n-k)!
 k!}= \binom{n}{k}\]</span></p>
@@ -625,7 +641,7 @@ Baloto será:</p>
 \binom{45}{6}=8&#39;145,060\]</span></p>
 <p><br/><br/></p>
 <div id="no-importa-el-orden-con-sustitución"
-class="section level3 box1 with-label">
+class="section level3 box0 with-label">
 <h3>No importa el orden con sustitución</h3>
 <p><span class="math display">\[\mathcal{C}^{\prime}(n,k) =
 \binom{n+k-1}{k}\]</span></p>
@@ -760,7 +776,7 @@ que adivine correctamente en el primer intento?</li>
 </ol>
 <p>Problemas tomados y basados en Meyer(1986)</p>
 <p><br/><br/></p>
-<div id="código-r" class="section level3 box1 with-label">
+<div id="código-r" class="section level3 box6 with-label">
 <h3>Código R</h3>
 <pre class="r"><code># Funciones auxiliares para aplicar directamente las fórmulas de conteo.
 # nPk calcula permutaciones sin repetición: n factorial dividido entre (n-k) factorial.

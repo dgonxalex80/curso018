@@ -1,8 +1,7 @@
 ---
-title: <span style="color:#f9ceca"> </span>  
-pagetitle: "Recursos 1.2"
-author: <span style="color:#f9ceca">dgonzalez</span> 
-subtitle: <span style="color:#f9ceca"> </span> 
+title: <span style="color:#F05A4A">Estadística para la toma de decisiones</span>
+author: <span style="color:#F05A4A">dgonzalez</span> 
+subtitle: <span style="color:#F05A4A"> </span>  
 output:
   html_document:
     toc: no
@@ -223,9 +222,12 @@ as.data.frame(table(nota))
 # Rango percentil
 
  <br/>
+
+ <div class="box6 with-label">
+## Percentil  
  
 Es un número que divide la muestra en dos partes. $x$ % de los datos de la muestra son iguales o menores que $P_{x}$ y un $(100-x)$ % por encima de él.
-
+</div>
 
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
  knitr::include_graphics("img/carrera2.png")
@@ -237,7 +239,7 @@ Es un número que divide la muestra en dos partes. $x$ % de los datos de la mues
  
  <br/> <br/>
  
- 
+ <div class="box6 with-label">
 ## Reto : 
  
  Qué significado tiene:
@@ -250,6 +252,7 @@ Es un número que divide la muestra en dos partes. $x$ % de los datos de la mues
 
 + Que significa: $P_{25}$ ; $P_{50}$ ;  $P_{75}$
 
+</div>
 
  <br/> <br/> <br/>
  
@@ -341,7 +344,6 @@ p
 ```
  
 
-
  <br/> <br/> <br/>
  
  
@@ -349,8 +351,8 @@ p
  
 ```{r}
 set.seed(567)
-edad = sample(clientes$edad_cliente, 50)
-stem(edad)
+nota = tiempo
+stem(tiempo)
 ```
  <br/> <br/>
  
@@ -405,11 +407,15 @@ quantile(clientes$edad_cliente, c(.10,0.25,.50,0.75,0.90))
 
 # Indicadores de Centro
 
-## Media aritmética 
+ <div class="box6 with-label">
+### Media aritmética 
+
+La media aritmética (también llamada promedio) es una medida que representa el valor central de un conjunto de datos. Se obtiene sumando todos los valores y dividiendo el resultado entre la cantidad de valores.
 
  <br/>
  
 $$\bar{x}= \frac{1}{n} \sum_{i=1}^{n} x_{i}$$
+</div>
 
  <br/>
  
@@ -431,27 +437,50 @@ Propiedades de la media :
 
  <br/> <br/>
  
+<div class="box1 with-label">
 ### Ejemplo 1
 
 El promedio de edad de los clientes se obtiene con:
 
 ```{r}
-mean(clientes$edad_cliente,na.rm = TRUE)
-cat("media : ", mean(clientes$edad_cliente,na.rm = TRUE))
+# clientes$edad_cliente
+# 
+# 38 21 60 40 65 31 19 43 53 55 23 68 29 64 33 53 57 22 37 31 19 22 36 41 69 33 54 30 18 23 36 60 29 44 45 30 47 48 31 22 23 52 35 28 50 49 56 48 19 68 61 24 45 33 56 42 63 49 43 21 23 30 49 50 27 32 36 43 32 49 23 58 31 38 58 60 49 32 30 68 65 36 36 56 19 31  59 31 18 45 32 39 65 46 30 23 63 49 21 26 40 18 19 60 20 55 19 65 57 56 37 64 58 32 64 59 62 62 33 68 47 43 26 30 66 26 58 40 67  61 51 67 25 26 29 31 48 67 18 18 23 37 55 41 44 58 69 47 34 54 55 45 43 30 53 24 69 61 58 36 69 64 45 60 64 41 18 36 51 37 21 19  56 47 33 34 65 67 45 48 49 40 43 27 41 40 35 55 45 41 35 63 69 69 67 48 34 39 45 63 45 25 66 49 27 34 58 59 60 47 40 18 47 33 69 26 46 55 57 69 62 67 53 51 54 19 65 53 19 56 24 66 41 29 19 42 62 64 64 44 41 31 25 47 28 44 54 28 54 47 43 25 49 66 27 46 26 37  68 39 39 60 64 57 63 53 57 23 33 28 69 52 47 60 22 39 53 63 47 53 61 34 33 43 63 51 31 56 38 43 45 62 45 47 18 56 40 39 59 55 52 50 59 50 32 48 26 54 64 50 53 30 69 44 68 20 18 23 61 34 43 46 55 30 41 59 50 41 68 28 30 38 21 58 60 40 58 42 28 48 31 69 32 41 33 62 38 39 44 56 68 47 61 63 38 32 49 57 50 38 28 21 26 63 21 19 65 53 63 23 20 39 30 64 33 25 46 45 41 59 67 68 65 46 38 69 51 25 34 37 67 28 55 69 69 54 23 48 19 41 32 63 40 36 21 29 24 40 63 20 43 61 19 69 57 38 52 51 64 46 46 56 62 56 41 40 47 54 20 64 40 29 44 57 32 52 48 47 63 23 46 26 47 62 62 53 27 31 50 48 24 45 30 27 28 61 30 62 30 55 41 57 53 65 54 69 25 54 32 53 32 35 53  54 36 38 42 48 58 19 54 65 44 40 65 66 22 47 26 19 22 39 51 35 59 33 56 54 25 47 42 61 22 18 22 66 58 48 68 19 24 33 19 69 28 32 18 45 45 38 69 29 32 47 33 52 62 23 57 27 61 19 36 28 46 62 48 39 27 36 33 69 68 66 23 44 60 22 39 53 50 20 69 61 66 25 45 40 33 63 61 18 23 56 68 29 22 45 29 18 36 19 40 48 49 51 32 64 21 51 46 19 33 30 51 62 20 47 29 33 53 22 62 29 28 46 50 56 41 52 53 20 33 47 18 39 30 41 53 23 42 33 60 64 69 43 29 53 29 53 20 33 30 59 41 19 27 39 65 64 47 29 43 51 23 24 52 34 68 57 59 34 64 54 67 62 24 43 27 47 27 32 41 48 45 33 27 61 35 54 69 66 30 56 37 31 29 27 52 55 34 30 47 32 64 64 51 63 46 36 49 61 27 42 37 30 59 30 69 39 53 23 28 64 45 61 36 33 55 31 31 26 26 52 42 29 47 68 44 43 43 18 19 30 43 48 47 57 21 69 27 45 20 21 48 40 18 28 50 19 53 29 49 23 38 52 28 18 61 62 50 45 64 56 30 60 26 57 22 41 63 31 28 52 61 30 19 35 64 27 47 57 63 61 40 41 45 33 19 61 55 26 51 52 24 31 19 46 56 65 53 22 39 47 45 30 57 33 25 61 59 18 63 50 33 47 47 68 25 35 61 51 64 59 51 49 24 33 46 35 27 53 19 56 53 50 37 69 46 52 41 26 69 38 30 48 62 34 37 28 43 69 43 38 41 30 69 57 43 58 40 33 50 43 45 60 22 60 56 48 51 64 22 27 18 45 19 67 22 22 21 20 42 41 57 22 68 51 49 57 57 63 42 35 25 60 51 45 51 59 47 61 62 50 58 26 60 29 33 60 22 66 24 63 27 53 32 64 48 52 57 55 33 64 64 25 62 59 27 55 66 54 38 55 18 26 49 36 28 60 66 58 68 20 53 39 46 28 35 42 59 31 18 47 48 51 43 64 37 56 54 36 54 47 65 59 60 21 62 45 41 29 51 44 30 60 60 26 38 61 23 60 66 26 49 58 46 23 61 68 58 41 43 48 49 30 37 45 66 45 30 59 68 51 35 66 22 26 26 31 21 53 22 29 60 57 23 23 22 36
+
 ```
 
+<pre>
+mean(clientes$edad_cliente,na.rm = TRUE)
+</pre>
+```{r}
+mean(clientes$edad_cliente,na.rm = TRUE)
+```
+
+</div>
+
  <br/> <br/>
+
+<div class="box1 with-label">
 
 ### Ejemplo 2
 
 El valor promedio de ingresos de los clientes se obtiene con:
 
+<pre>
+mean(clientes$ingresos, na.rm = TRUE)
+</pre>
+
+
 ```{r}
 mean(clientes$ingresos, na.rm = TRUE)
 ```
 
+</div>
+
  <br/> <br/>
  
+<div class="box1 with-label">
+
 ### Ejemplo 3
 
 El promedio del conjunto de números enteros entre uno y diez es 5.5 
@@ -460,13 +489,14 @@ El promedio del conjunto de números enteros entre uno y diez es 5.5
 x=1:10
 x
 cat("media :",mean(x))
-
-
 ```
 
+</div>
 
  <br/> <br/>
  
+<div class="box1 with-label">
+
 ### Ejemplo 4
 
 Surge el problema de qué se puede tener este indicador cuando uno de sus datos cambia drásticamente. Por ejemplo, si se cambia el último dato (10) por otro valor como 100, ¿qué pasaría con la media?
@@ -480,13 +510,20 @@ x
 cat("media :" ,mean(x))
 ```
 
+</div>
+
  <br/> <br/>
  
 # Mediana 
 
-**Me** :Es el número que divide la muestra en dos partes de igual proporción (50% : 50%). Es decir que corresponde a:
+ <div class="box6 with-label">
+## Mediana 
+
+Es el número que divide la muestra en dos partes de igual proporción (50% : 50%). Es decir que corresponde a:
 
 $$P_{50} = D_{5} = Q_{2}$$
+</div>
+
 
 también corresponde a la línea central del diagrama de cajas.
 
@@ -507,25 +544,37 @@ La **Me** corresponde a la línea central de la caja en el diagrama de cajas.
 
 La mediana es más robusta a los cambios en los datos extremos. En presencia de datos atípicos es mejor utilizar la mediana en lugar de la media.
 
+ <div class="box1 with-label">
+## Ejemplo
+
 ```{r}
 x=1:10
 x
 cat("media :" ,median(x))
 ```
 
+</div>
+
  <br/> <br/>
- 
+
+ <div class="box1 with-label">
+## Ejemplo 
 ```{r}
-x[10]=20
+x =sort(sample(100,20))
 x
+sum(x)
 cat("media :" ,median(x))
 ```
+</div>
 
  <br/> <br/>
 
 # Moda  
 
-**Mo** : Dato o valor que más se repite. Es utilizada como medida de tendencia central en variables cualitativas o en cuantitativas discretas con pocos valores. En una tabla o gráfico se puede distinguir fácilmente. 
+ <div class="box6 with-label">
+### Moda
+
+Dato o valor que más se repite. Es utilizada como medida de tendencia central en variables cualitativas o en cuantitativas discretas con pocos valores. En una tabla o gráfico se puede distinguir fácilmente. 
 
 ```{r, message=FALSE}
 #utilizando summarytools
@@ -535,7 +584,14 @@ tabla_moda$Porcentaje <- round(100 * tabla_moda$Frecuencia / sum(tabla_moda$Frec
 tabla_moda
 ```
 
-moda: la categoría con mayor frecuencia.
+```{r}
+#install.packages("DescTools")
+library(DescTools)
+
+Mode(clientes$categoria_preferida)
+```
+
+</div>
 
  <br/> <br/>
  
@@ -545,7 +601,14 @@ moda: la categoría con mayor frecuencia.
  
 # Media truncada
 
-Con el fin de evitar que los datos atípicos generen sesgos en el indicador de la media, es posible separar el 90% de los datos, quitando un 5% de los datos más pequeños y un 5% de los datos mayores. A este indicador se le llama media truncada al 10% ($\bar{x}_{_{0.10}}$).
+<div class="box6 with-label">
+### Media truncada
+
+La media truncada es una medida de tendencia central que se obtiene después de eliminar un porcentaje de los valores más pequeños y más grandes del conjunto de datos y calcular la media con las observaciones restantes. Su objetivo principal es reducir la influencia de los valores extremos o atípicos y evitar generen sesgos en el indicador de la media.  
+
+Es posible separar el 90% de los datos centrales, quitando un 5% de los datos más pequeños y un 5% de los datos mayores. A este indicador se le llama media truncada al 10% ($\bar{x}_{_{0.10}}$).
+
+</div>
 
  <br/> <br/>
  
@@ -556,10 +619,17 @@ mean(clientes$edad_cliente, na.rm = TRUE, trim = 0.10)
 
 <br/> <br/>
  
+
 # Rango medio  
 
-$$\frac{1}{2}\Big(max(x)+min(x)\Big)$$
+<div class="box6 with-label">
+### Rango medio
 
+Es una medida de tendencia central que se obtiene calculando el promedio entre el valor mínimo y el valor máximo de un conjunto de datos.
+
+
+$$\frac{1}{2}\Big(max(x)+min(x)\Big)$$
+</div>
 
 ```{r, warning=FALSE, message=FALSE}
 (max(clientes$edad_cliente,na.rm = TRUE)+min(clientes$edad_cliente,na.rm = TRUE))/2
@@ -568,13 +638,24 @@ $$\frac{1}{2}\Big(max(x)+min(x)\Big)$$
 La diferencia entre el valor máximo y el mínimo corresponde al rango de la variable.
  <br/> <br/>
  
+ 
+ 
 #  Media geométrica 
 
-Este indicador de tendencia central se utiliza para promediar tasa de crecimiento o de interés. Para encontrar su valor se multiplican los valores de $n$ tasas incrementadas en uno ($1+r$). A ese producto se le extrae la raíz n-esima.
+<div class="box6 with-label">
+### Media geométrica
+
+La media geométrica es una medida de tendencia central que se obtiene calculando la raíz n-ésima del producto de n valores.
+
+Es especialmente útil cuando los datos representan tasas de crecimiento, rendimientos, razones, índices o cambios porcentuales multiplicativos.
 
 $$MG = \Bigg(\displaystyle\prod_{i=1}^n (r_{i}+1)\Bigg)^{1/n}$$
 
+</div>
+
  <br/> <br/>
+
+<div class="box1 with-label">
 
 ### Ejemplo 
 
@@ -596,16 +677,26 @@ psych::geometric.mean(x, na.rm = TRUE)
 
 $$\text{inflación promedio : } 7.11 \%$$ 
 
+</div>
+
 <br/><br/> 
 
 #  Media armónica  
 
+<div class="box6 with-label">
+### Media armónica
+
+La media armónica es una medida de tendencia central que representa un valor promedio de un conjunto de observaciones, pero, a diferencia de la media aritmética, se calcula a partir de los recíprocos o inversos de los valores. Es especialmente apropiada cuando los datos representan tasas, razones, velocidades, rendimientos o cantidades expresadas por unidad, particularmente cuando se mantiene constante el numerador de dichas razones.
+
+La media armónica asigna mayor influencia a los valores pequeños y menor influencia a los valores grandes. Por esta razón, suele producir un resultado menor que la media aritmética y resulta útil cuando valores pequeños de una tasa tienen un efecto importante sobre el promedio global.
 
 $$H = \dfrac{n}{\frac{1}{x_{1}}+\frac{1}{x_{2}}+ ... + \frac{1}{x_{n}}}  $$
+</div>
 
 Este indicador corresponde al inverso de la media aritmética 
 
 
+<div class="box1 with-label">
 ###  Ejemplo 
 
 Un equipo tiene 3 personas que realizan la misma tarea repetitiva (por ejemplo: revisar formularios). Medimos su productividad en tareas/hora:
@@ -625,6 +716,8 @@ $$H=\frac{n}{\frac{1}{x_1}+\frac{1}{x_2}+\frac{1}{x_3}}$$
 Calculamos:
 
 $$H=\frac{3}{\frac{1}{12}+\frac{1}{8}+\frac{1}{6}} = 8 \ \text{tareas/hora}$$
+
+</div>
 
  <br/> <br/>
  
@@ -654,7 +747,14 @@ Hace falta otro indicador que nos oriente de cuál grupo hablamos cuando solo te
 
 # Rango
 
+ <div class="box6 with-label">
+### Rango
+
+El rango es una medida de dispersión que indica la amplitud total de los datos, es decir, la distancia entre el valor más grande y el valor más pequeño de una variable cuantitativa.
+
 $r = max(x) - min(x)$
+
+</div>
 
 En caso de los dos grupos:
 
@@ -672,9 +772,13 @@ Es importante hacer notar que si además de la media conocemos también un indic
  
 # Varianza
 
+ <div class="box6 with-label">
+### Varianza
+
 Es la medida de dispersión más utilizada en estadística y está definida por 
 
 $$s^{2}=\frac{1}{n-1} \sum_{i=1}^{n} (x_{i}-\bar{x})^{2}$$
+</div>
 
  <br/> <br/>
  
@@ -708,8 +812,12 @@ Es la raíz cuadrada de la varianza
 
 $$s=\sqrt{s^{2}}$$
 
+ <div class="box6 with-label">
+
 ### Nota : 
-no aplican todas las propiedades de la varianza
+Las propiedades de la varianza solo aplican para ella y no para la desviación estandar.
+</div>
+
 
 ```{r}
 cat( "Varianza            :",var(clientes$edad_cliente),"años cuadrados", "\n" )
@@ -721,6 +829,13 @@ Aunque la desviación estándar reduce el problema debido a tener las mismas uni
  <br/> <br/>
  
 # Coeficiente de variación
+
+ <div class="box6 with-label">
+### Coeficiente de variación (CV) 
+
+Es una medida de dispersión relativa que indica qué tan grande es la variabilidad de los datos en relación con su media.
+
+</div>
 
 Nos indica qué tan grande o qué tan pequeña es la desviación estándar con respecto a su media.
 
@@ -743,6 +858,19 @@ En este caso se obtiene un valor del coeficiente de variación que indica la dis
 
 # Curtosis
 
+<div class="box6 with-label">
+### Curtosis
+
+La curtosis es una medida que describe la forma de una distribución, particularmente qué tan propensa es a presentar valores extremos en comparación con una distribución normal.
+
+$$K =
+\frac{\dfrac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^4
+}{
+\left[\dfrac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^2
+\right]^2
+}$$
+</div>
+
 Se mide a través del coeficiente de curtosis que mide cuán **puntiaguda** es una distribución respecto a la curva de la distribución normal estándar.
 
 De acuerdo con su valor, la puntiagudez de los datos puede clasificarse en tres grupos:
@@ -763,11 +891,6 @@ p=ggdistribution(dnorm, seq(-5, 5, 0.01),   mean = 0, sd = 1.5,colour = c03, p=p
 p
 ```
 
- <br/> <br/>
-
-
-
-$$CA = \dfrac{1}{s^{4}}\Bigg(\dfrac{1}{n} \sum_{i=1}^{n} (x-\bar{x})^{4} \Bigg) - 3$$
 <br/><br/>
 
 
@@ -781,13 +904,22 @@ rapportools::kurtosis(clientes$edad_cliente)
  
 # Asimetría o sesgo
 
+<div class="box6 with-label">
+### Asimetría
+
+La asimetría es una medida que indica el grado y la dirección en que una distribución de datos se aparta de la simetría.
+
+$$CAs = \dfrac{1}{s^{4}}\Bigg(\dfrac{1}{n} \sum_{i=1}^{n} (x-\bar{x})^{4} \Bigg) - 3$$
+</div>
+
+
 Mide que tanto la forma de la distribución de frecuencias de los datos es simétrica o no con respecto a la media. Esta característica de los datos se mide a través del coeficiente de asimetría o sesgo.
 
-+ Es <span style="color:#F4B43C">**simétrica**</span> si el  valor del indicador es 0  ($\bar{x}=Me$)
++ Es <span style="color:#F6A623">**simétrica**</span> si el  valor del indicador es 0  ($\bar{x}=Me$)
 
-+ Es <span style="color:#21B5E4">**asimétrica a la izquierda**</span> si el valor del indicador es negativo ($\bar{x}<Me$)
++ Es <span style="color:#8A6FD1">**asimétrica a la izquierda**</span> si el valor del indicador es negativo ($\bar{x}<Me$)
 
-+ Es <span style="color:#7A6DB2">**asimétrica a la derecha**</span> si el valor del indicador es positivo ($\bar{x}>Me$)
++ Es <span style="color:#3498C9">**asimétrica a la derecha**</span> si el valor del indicador es positivo ($\bar{x}>Me$)
 
 ```{r, echo=FALSE, fig.height=3, fig.width=14}
 library(ggplot2)
@@ -796,14 +928,14 @@ library(ggplot2)
 # Paleta: extremos y centro
 # =========================
 pal_fill <- c(
-  "Asimetría izquierda" = c01_70,
+  "Asimetría izquierda" = c04_70,
   "Simétrica"           = c02_70,
   "Asimetría derecha"   = c03_70
 )
 
 # Líneas (borde): la simétrica la dibujo con azul oscuro para contraste
 pal_line <- c(
-  "Asimetría izquierda" = c01,
+  "Asimetría izquierda" = c04,
   "Simétrica"           = c02,
   "Asimetría derecha"   = c03
 )
@@ -849,11 +981,6 @@ ggplot(df, aes(x = x, y = y, fill = tipo, color = tipo)) +
 + **Simétrica**: Poco con poco, poco con mucho, mucho alrededor de un centro
 + **Asimetría positiva**: Mucho con poco, poco con mucho
 
-<br/><br/>
-
-
-
-$$CA = \dfrac{1}{s^{4}}\Bigg(\dfrac{1}{n} \sum_{i=1}^{n} (x-\bar{x})^{4} \Bigg) - 3$$
 
 <br/><br/>
 
@@ -929,14 +1056,14 @@ d2=density(clientes$ingresos); plot(d2, col = c04, lwd = 2)
  <br/> <br/>
 
 
-### Ejemplo
-
+<div class="box6 with-label">
 # Nivel de ansiedad
 
+## Nivel de ansiedad
 
 |               |                             |
 |:--------------|:----------------------------|    
-| ![](img/ansiedad2.png){width=150px} | Los siguientes datos corresponden al **nivel de ansiedad** de un grupo de estudiantes de la universidad, valorados antes de la presentación del primer examen parcial. El investigador a cargo del proyecto utilizó una prueba para medir el nivel de ansiedad que permite puntajes entre 0 y 100. Los valores inferiores a 50 puntos se consideran como nivel bajo. Entre 50 y 80, nivel medio y superiores a 80 se consideran altos.|
+| ![](img/ansiedad.png){width=150px} | Los siguientes datos corresponden al **nivel de ansiedad** de un grupo de estudiantes de la universidad, valorados antes de la presentación del primer examen parcial. El investigador a cargo del proyecto utilizó una prueba para medir el nivel de ansiedad que permite puntajes entre 0 y 100. Los valores inferiores a 50 puntos se consideran como nivel bajo. Entre 50 y 80, nivel medio y superiores a 80 se consideran altos.|
 
 
 Otra variable importante en el análisis corresponde a la **facultad** a la que pertenece el estudiante
@@ -1034,6 +1161,8 @@ Los resultados indican una mayor proporción de estudiantes de la Facultad de In
 <br/><br/>
 
 <br/><br/>
+
+</div>
 
 <img src="img/person-1245959_1920.jpg" width="1000">
 

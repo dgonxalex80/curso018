@@ -1,8 +1,7 @@
 ---
-title: <span style="color:#f9ceca"> </span>  
-pagetitle: "Recursos 1.1"
-author: <span style="color:#f9ceca">dgonzalez</span> 
-subtitle: <span style="color:#f9ceca"> </span> 
+title: <span style="color:#F05A4A">Estadística para la toma de decisiones</span>
+author: <span style="color:#F05A4A">dgonzalez</span> 
+subtitle: <span style="color:#F05A4A"> </span> 
 output:
   html_document:
     toc: no
@@ -138,6 +137,15 @@ En caso de tratarse de un problema con cierta frecuencia pero con característic
 
 <br/><br/>
 
+
+
+
+
+
+
+
+<div class="box1 with-label">
+
 ### Ejemplo 1
 
 * Aumento de embarazo de adolescentes en Colombia 
@@ -149,6 +157,7 @@ En caso de tratarse de un problema con cierta frecuencia pero con característic
 * Aumentó corrupción en Colombia, según Transparencia Internacional  
 * Disminución de la demanda de educación en el área de las ingenierías 
 
+</div>
 
 <br/><br/>
 
@@ -167,6 +176,8 @@ Algunos verbos que se recomienda no utilizar: saber, aprender, conocer, entender
 
 <br/><br/>
 
+<div class="box1 with-label">
+
 ### Ejemplo 2
 
 + Establecer los principales causas de las fugas de energía eléctrica en la  ciudad 
@@ -174,6 +185,7 @@ Algunos verbos que se recomienda no utilizar: saber, aprender, conocer, entender
 + Determinar los principales factores que inciden sobre el aumento del tiempo de atención 
 + Establecer cuáles son los principales factores que inciden en la escogencia de la carrera universitaria en ingeniería
 
+</div>
 
 <br/><br/>
 
@@ -202,6 +214,8 @@ Corresponden a valores no númericos que pueden corresponder a factores o a nive
 
 <br/><br/>
 
+<div class="box1 with-label">
+
 ### Ejemplo 3
 
 + Día de la semana, (Lun, Mar, Mié, Jue, Vie, Sáb, Dom) 
@@ -213,6 +227,7 @@ Corresponden a valores no númericos que pueden corresponder a factores o a nive
 + Asignatura cursada
 + Carrera o programa académico 
 
+</div>
 
 <br/><br/>
 
@@ -222,6 +237,8 @@ Son valores numéricos que pueden estar relacionados con la medición, el conteo
 
 
 <br/><br/>
+
+<div class="box1 with-label">
 
 ### Ejemplo 4
 
@@ -238,6 +255,7 @@ Son valores numéricos que pueden estar relacionados con la medición, el conteo
 
 Las variables se miden en diferentes escalas, dependiendo del tipo de valor que pueden tomar. Es necesario tener claro además del tipo de variables,  el tipo de escala, por cuanto esto puede determinar el tipo de procesamiento estadística que se debe utilizar.
 
+</div>
 
 <br/><br/>
 
@@ -269,6 +287,8 @@ Operaciones posibles  al comparar dos valores:
 
 <br/><br/>
 
+<div class="box1 with-label">
+
 ### Ejemplo 5
 
 + Genero 
@@ -276,6 +296,7 @@ Operaciones posibles  al comparar dos valores:
 + Nacionalidad 
 + Carrera o programa académico
 
+</div>
 
 <br/><br/>
 
@@ -291,6 +312,8 @@ Corresponde a valores no numéricos con presencia de orden entre ellos. Es posib
 
 <br/><br/>
 
+<div class="box1 with-label">
+
 ###  Ejemplo 6
 
 Considera que el servicio que acaba de recibir es:
@@ -302,6 +325,7 @@ Considera que el servicio que acaba de recibir es:
 + $\square$  Muy regular,
 + $\square$  Pésimo     
 
+</div>
 
 <br/><br/>
 
@@ -318,6 +342,8 @@ Corresponde a valores numéricos, dentro de los cuales solo tiene sentido la dif
 
 
 <br/><br/>
+
+<div class="box1 with-label">
 
 ### Ejemplo 7  
 
@@ -343,6 +369,7 @@ Con frecuencia a las variables anteriores se les llama variables latentes debido
 
 A esta transformación numérica (suma de los puntajes obtenidos al totalizar los puntajes obtenidos) se conoce como **operacionalización** a escala de intervalo de una variable cualitativa.  
 
+</div>
 
 <br/><br/>
 
@@ -361,6 +388,8 @@ Corresponde a valores  numéricos, para los cuales además de las diferencias ta
 
 <br/><br/>
 
+<div class="box1 with-label">
+
 ### Ejemplo 8
 
 + Consumo de energía por hogar en kW-h 
@@ -369,13 +398,16 @@ Corresponde a valores  numéricos, para los cuales además de las diferencias ta
 +	Nivel de endeudamiento de una empresa al final del año en porcentaje 
 + Precio del metro cuadrado de tierra  en a comuna 22 de Cali 
 
+</div>
 
 <br/><br/>
 
+<div class="box6 with-label">
 ### Nota
 
 Es importante poder distinguir entre variables estadísticas y variables no estadística en una base de datos. Para hacerlo nos preguntamos si para la variable en análisis tiene sentido un análisis estadístico (gráficos, tabla o indicadores).  Por ejemplo: No tiene sentido realizar un análisis con variables como :  id, nombre, correo electrónico, dirección, teléfono, longitud y latitud, representante legal, entro otras 
 
+</div>
 
 <br/><br/>
 
@@ -531,6 +563,7 @@ Para realizarlo se requiere de poseer un marco muestral actualizado y un sistema
 
 <br/><br/>
 
+<div class="box6 with-label">
 ### Código R
 
 |           |                                                                               |
@@ -538,7 +571,7 @@ Para realizarlo se requiere de poseer un marco muestral actualizado y un sistema
 |Excel :    |`=ALEATORIO.ENTRE(1;2000)` permite elegir un número aleatorio entre 1-2000 )   |
 |R :        |`sample(1:2000, 50, rep=FALSE)`                                                |
 
-
+</div>
 <br/><br/>
 
 ### Muestreo Aleatorio Estratificado
@@ -735,4 +768,3 @@ Por último es la etapa de la redacción del informe final y la construcción de
 Se puede afirmar que cuando se cumple un objetivo  se produce una conclusión. 
 Cuando no se cumple se produce una recomendación. Ambas tanto conclusiones como recomendaciones son de mucha importancia para la realización de futuras investigaciones.
  
-

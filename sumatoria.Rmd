@@ -1,8 +1,7 @@
 ---
-title: <span style="color:#C6EBF8"> </span>  
-pagetitle: "Sumatoria"
-author: <span style="color:#C6EBF8">dgonzalez</span> 
-subtitle: <span style="color:#C6EBF8"> </span> 
+title: <span style="color:#1E4E6B">Estadística para la toma de decisiones</span>
+author: <span style="color:#1E4E6B">dgonzalez</span> 
+subtitle: <span style="color:#1E4E6B"> </span> 
 output:
   html_document:
     toc: no
@@ -39,13 +38,13 @@ source("colores.R")
 
 # Sumatoria
 
-El **sumatorio** o **sumatoria** también conocida como operador de suma, notación sigma o símbolo de suma, es una notación matemática que permite representar una suma de varios sumandos, n o incluso infinitos sumandos son colocar puntos suspensivos. Se expresa mediante la letra sigma mayúscula.
-
-Wikipedia
+>El **sumatorio** o **sumatoria** también conocida como operador de suma, notación sigma o símbolo de suma, es una notación matemática que permite representar una suma de varios sumandos, n o incluso infinitos sumandos son colocar puntos suspensivos. Se expresa mediante la letra sigma mayúscula.
+>
+>Wikipedia
 
 Este operador será utilizado en el curso en la construcción de conceptos como media aritmética, varianza, covarianza, correlación, estimación de los coeficientes del modelo de regresión entre otros
 
-<div class="box box1">
+<div class="box box0">
 ## Definición de sumatoria
 
 Se define como
@@ -97,7 +96,7 @@ sum(x)/12
 <br/><br/>
 
 
-<div class="box box1">
+<div class="box box0">
 ## Propiedades de la sumatoria
 
 

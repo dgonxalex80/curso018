@@ -1,8 +1,7 @@
 ---
-title: <span style="color:#C6EBF8"> </span>  
-pagetitle: "Módulo 3"
-author: <span style="color:#C6EBF8"> dgonzalez</span>
-subtitle: <span style="color:#C6EBF8"> </span> 
+title: <span style="color:#21B5E4">Estadística para la toma de decisiones</span>
+author: <span style="color:#21B5E4">dgonzalez</span> 
+subtitle: <span style="color:#21B5E4"> </span> 
 output:
   html_document:
     toc: no

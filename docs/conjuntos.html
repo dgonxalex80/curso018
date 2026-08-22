@@ -12,7 +12,7 @@
 <meta name="author" content="dgonzalez" />
 
 
-<title> </title>
+<title>Estadística para la toma de decisiones</title>
 
 <script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -352,6 +352,18 @@ $(document).ready(function () {
       <a href="modulo2.html">Módulo 2</a>
     </li>
     <li class="divider"></li>
+    <li>
+      <a href="guia21.html">Guía 2.1</a>
+    </li>
+    <li>
+      <a href="recurso21.html">Recursos 2.1</a>
+    </li>
+    <li>
+      <a href="codigo21.html">Código 2.1</a>
+    </li>
+    <li>
+      <a href="taller211.html">Taller 211</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -425,8 +437,10 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><span style="color:#C6EBF8"> </span></h1>
-<h4 class="author"><span style="color:#C6EBF8">dgonzalez</span></h4>
+<h1 class="title toc-ignore"><span style="color:#1E4E6B">Estadística
+para la toma de decisiones</span></h1>
+<h3 class="subtitle"><span style="color:#1E4E6B"> </span></h3>
+<h4 class="author"><span style="color:#1E4E6B">dgonzalez</span></h4>
 
 </div>
 
@@ -445,11 +459,12 @@ importantes al abordar los conceptos básicos de probabilidad que se
 expondrán en el Módulo 2.</p>
 <p>Empezaremos con su definición.</p>
 <p><br/><br/></p>
-<div id="definición-de-conjunto" class="section level3 box1 with-label">
+<div id="definición-de-conjunto" class="section level3">
 <h3>Definición de conjunto</h3>
+<blockquote>
 <p>Un conjunto es una colección de objetos que se denota con una letra
 mayúscula (comúnmente las primeras letras del alfabeto A,B,C..) .</p>
-</div>
+</blockquote>
 <p><br/><br/><br/></p>
 <p>Se pueden escribir por:</p>
 <ul>
@@ -467,14 +482,15 @@ class="math inline">\(A \cup B\)</span>, <span class="math inline">\(A
 \cap B\)</span>,</p>
 <p><br/><br/><br/></p>
 </div>
+</div>
 <div id="unión-del-conjunto" class="section level1">
 <h1>Unión del conjunto</h1>
 <p>La unión del conjunto <span class="math inline">\(A\)</span> con el
 conjunto <span class="math inline">\(B\)</span> se denota por <span
 class="math inline">\(A \cup B\)</span>. La zona sombreada en la
 siguiente figura representa esta operación.</p>
-<p><img src="img/union.svg" alt="" width="50%" style="display: block; margin: auto;" /></p>
-<div id="ejemplo" class="section level3 box1 with-label">
+<p><img src="img/union.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
+<div id="ejemplo" class="section level3 box0 with-label">
 <h3>Ejemplo</h3>
 <p>Supongamos los siguientes conjuntos</p>
 <ul>
@@ -494,9 +510,9 @@ class="math inline">\(A\)</span> y el <span
 class="math inline">\(B\)</span> se denota por : <span
 class="math inline">\(A \cap B\)</span> y se representa por la siguiente
 zona sombreada</p>
-<p><img src="img/interseccion.svg" alt="" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="img/interseccion.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
-<div id="ejemplo-1" class="section level3 box1 with-label">
+<div id="ejemplo-1" class="section level3 box0 with-label">
 <h3>Ejemplo</h3>
 <p>Supongamos los siguientes conjuntos:</p>
 <ul>
@@ -515,7 +531,7 @@ escribe como: <span class="math inline">\(\overline{A}\)</span> y se
 representa por la siguiente zona sombreada</p>
 <p><img src="img/complemento.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
-<div id="ejemplo-2" class="section level3 box1 with-label">
+<div id="ejemplo-2" class="section level3 box0 with-label">
 <h3>Ejemplo</h3>
 <p>Supongamos los siguientes conjuntos:</p>
 <ul>
@@ -536,7 +552,7 @@ class="math inline">\(B-A\)</span> , está representada por la zona
 sombreada en la siguiente figura</p>
 <p><img src="img/resta.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
-<div id="ejemplo-3" class="section level3 box1 with-label">
+<div id="ejemplo-3" class="section level3 box0 with-label">
 <h3>Ejemplo</h3>
 <p>Supongamos los siguientes conjuntos</p>
 <ul>
@@ -636,7 +652,7 @@ mediante un diagrama de Venn:</li>
 <p>(b). <span class="math inline">\(A\cap(B\cup C)\)</span>.</p>
 <p>(c). <span class="math inline">\((A-B)\cup(B-C)\)</span>.</p>
 <p><br/><br/></p>
-<div id="código-r" class="section level3 box1 with-label">
+<div id="código-r" class="section level3 box6 with-label">
 <h3>Código R</h3>
 <pre class="r"><code># Ejercicio 1: construye los conjuntos definidos por comprensión.
 A &lt;- 1:8                    # Números naturales entre 1 y 8.

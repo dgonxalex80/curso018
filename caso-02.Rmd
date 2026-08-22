@@ -1,7 +1,7 @@
 ---
-title: <span style="color:#f9ceca"> </span>  
-author: <span style="color:#f9ceca">dgonzalez</span> 
-subtitle: <span style="color:#f9ceca"> </span> 
+title: <span style="color:#F05A4A">Estadística para la toma de decisiones</span>
+author: <span style="color:#F05A4A">dgonzalez</span> 
+subtitle: <span style="color:#F05A4A"> </span> 
 output:
   html_document:
     toc: no 
@@ -19,8 +19,8 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = N
 library(psych)
 library(summarytools)
 
-# install.packages("devtools")
-# devtools::install_github("dgonxalex80/paqueteDEG")
+# install.packages("pak")
+# pak::pak("dgonxalex80/paquetePROB")
 # El paquete se carga en la sección de datos.
 
 # colores
@@ -79,16 +79,16 @@ Finalmente adjunte un análisis de los resultados obtenidos.
 
 
 <pre>
-install.packages("devtools") # solo una vez
-devtools::install_github("dgonxalex80/paquetePROB") # descarga paquetePROB
-library(paquetePROB # activa paquetePROB
+install.packages("pak") # solo una vez
+pak::pak("dgonxalex80/paquetePROB") # descarga paquetePROB
+library(paquetePROB) # activa paquetePROB
 data("beer") # carga la base beer
 </pre>
 
 ```{r, eval=FALSE}
-install.packages("devtools") # solo una vez
-devtools::install_github("dgonxalex80/paquetePROB") # descarga paqueteDEG
-library(paquetePROB) # activa paqueteDEG
+install.packages("pak") # solo una vez
+pak::pak("dgonxalex80/paquetePROB") # descarga paquetePROB
+library(paquetePROB) # activa paquetePROB
 data("beer") # carga la base beer
 ```
 
@@ -109,14 +109,14 @@ DT::datatable(
 <br/>
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lVQ5MjSpi4E?si=Rlta13udaInGPPQj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lVQ5MjSpi4E" data-external="1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 
 <br/><br/>
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sAwkejZDgBk?si=ITGRZE1g5hh96ZUg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sAwkejZDgBk" data-external="1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 

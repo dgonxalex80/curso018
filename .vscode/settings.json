@@ -1,0 +1,73 @@
+{
+  "workbench.colorTheme": "Default High Contrast Light",
+  "workbench.colorCustomizations": {
+    "editor.background": "#002B55",
+    "editor.foreground": "#FFFFFF",
+    "editorLineNumber.foreground": "#6FA8DC",
+    "editorLineNumber.activeForeground": "#FFFFFF",
+    "editorCursor.foreground": "#FFC600",
+    "editor.selectionBackground": "#21466F",
+    "editor.inactiveSelectionBackground": "#173B63",
+    "editor.lineHighlightBackground": "#123D68",
+    "editorIndentGuide.background1": "#174A75",
+    "editorIndentGuide.activeBackground1": "#6FA8DC",
+    "sideBar.background": "#002B55",
+    "sideBar.foreground": "#FFFFFF",
+    "activityBar.background": "#001F3F",
+    "activityBar.foreground": "#FFFFFF",
+    "panel.background": "#002B55",
+    "panel.border": "#526777",
+    "terminal.background": "#002B55",
+    "terminal.foreground": "#FFFFFF",
+    "statusBar.background": "#526777",
+    "statusBar.foreground": "#FFFFFF",
+    "titleBar.activeBackground": "#526777",
+    "titleBar.activeForeground": "#FFFFFF",
+    "tab.activeBorderTop": "#FFC600",
+    "panelTitle.activeBorder": "#FFC600",
+    "notebook.cellEditorBackground": "#002B55",
+    "notebook.focusedCellBorder": "#6FA8DC"
+  },
+  "editor.tokenColorCustomizations": {
+    "comments": "#0088FF",
+    "strings": "#3AD900",
+    "numbers": "#FF9D00",
+    "keywords": "#FF628C",
+    "functions": "#FFC600",
+    "variables": "#FFFFFF",
+    "textMateRules": [
+      {
+        "scope": [
+          "entity.name.type",
+          "entity.name.class",
+          "support.type"
+        ],
+        "settings": {
+          "foreground": "#80FFBB"
+        }
+      },
+      {
+        "scope": [
+          "punctuation",
+          "meta.brace"
+        ],
+        "settings": {
+          "foreground": "#FFFFFF"
+        }
+      }
+    ]
+  },
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true,
+    "rules": {
+      "comment": "#0088FF",
+      "string": "#3AD900",
+      "number": "#FF9D00",
+      "keyword": "#FF628C",
+      "function": "#FFC600",
+      "method": "#FFC600",
+      "class": "#80FFBB",
+      "type": "#80FFBB"
+    }
+  }
+}

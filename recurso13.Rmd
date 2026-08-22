@@ -1,7 +1,7 @@
 ---
-title: <span style="color:#f9ceca"> </span>  
-author: <span style="color:#f9ceca">dgonzalez</span> 
-subtitle: <span style="color:#f9ceca"> </span> 
+title: <span style="color:#F05A4A">Estadística para la toma de decisiones</span>
+author: <span style="color:#F05A4A">dgonzalez</span> 
+subtitle: <span style="color:#F05A4A"> </span> 
 output:
   html_document:
     toc: no 
@@ -977,6 +977,8 @@ Usa el color solo cuando aporte información. Evita combinaciones que dificulten
 
 </br></br>
 
+<div class="box1 with-label">
+
 ### Ejemplos
 
 ```{r}
@@ -1137,6 +1139,7 @@ p
 
 <br/><br/><br/><br/>
 
+</div>
 
 ### Una imagen dice mas que mil palabras...
 

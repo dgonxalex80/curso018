@@ -1,8 +1,7 @@
 ---
-title:  " "
-pagetitle: "Código 1.3 — Gráficos en R"
-author: "dgonzalez "
-subtitle: " "
+title: <span style="color:#F05A4A">Estadística para la toma de decisiones</span>
+author: <span style="color:#F05A4A">dgonzalez</span> 
+subtitle: <span style="color:#F05A4A"> </span> 
 output:
   html_document:
     toc: no
@@ -505,6 +504,8 @@ fig
 
 <br/><br/><br/>
 
+<div class="box1 with-label">
+
 ### Otros ejemplos de ggplot2
 
 ```{r}
@@ -567,6 +568,8 @@ ggplot(ventas, aes(x = Tipo_Cliente, y = Ventas_Netas, fill = Tipo_Cliente)) +
 ```
 
 
+
+</div>
 
 ## highcharter  
 
@@ -1768,6 +1771,8 @@ http://brandcolors.net/
 
 <br/> <br/> <br/> 
 
+<div class="box1 with-label">
+
 ## Ejemplo de tablero
 
 <br/> <br/> 
@@ -1805,6 +1810,8 @@ document.getElementById('dl-rmd').addEventListener('click', async () => {
 </html>
 
 <br/> <br/> 
+
+</div>
 
 ## Descarga de practica
 
