@@ -84,9 +84,9 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 
 |Actividad 132   | Descripción                   | 
 |:--------------|:-----------------------------  |
-|Trabajo equipo|  Deben construir un **mapa mental** del *Módulo 1*  que resuma los conceptos más importantes del Modulo 1. El mapa debe ser construido a mano en medio pliego de cartulina. Los equipos podrán estar conformados por 3  estudiantes - Se sugiere que cada estudiante lleve su mapa mental como aporte a la construcción colectiva |
-|Fecha  |  por definir       |
-|Hora   | al final de la sesión |
+|Trabajo equipo|  Deben construir un **mapa mental** del *Módulo 1*  que resuma los conceptos más importantes del Modulo 1. El mapa debe ser construido a mano en una hoja tamaño carta. Se debe entregar con el cuestionario y la hoja de respuesta. |
+|Fecha  |  11 de septiembre       |
+|Hora   | al final el examen parcial  |
 
 </div>
 
@@ -112,11 +112,11 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 | Entregable    | Descripción                   | 
 |:--------------|:------------------------------|
 | Actividad131  | Tablero Acompañado de descripción de los resultados |
-| Fecha         | 21 de agosto          |
-|Hora límite    | por definir           |
+| Fecha         | 11 de septiembre          |
+|Hora límite    | 23:59           |
 |Activiada132   | Mapa mental |
-|Fecha          |                                |
-|Hora límite    | al finalizar la sesión        |
+|Fecha          | 11 de septiembre                     |
+|Hora límite    | al finalizar el primer parcial       |
 |               |                               |
 
 </div>

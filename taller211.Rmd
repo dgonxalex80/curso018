@@ -25,8 +25,6 @@ knitr::include_graphics("img/taller2.png")
 <div class="box2 with-label">
 <div class="label">Problema 1</div>
 
-<br/>
-
 En una universidad de la región hay 4226 estudiantes distribuidos en tres grupos: primeros semestres (1 a 3), mitad de carrera (4 a 7) y final de carrera (8 a 10). Esta población está conformada por estudiantes que participan en actividades extracurriculares y estudiantes que no participan.
 
 **Convenciones**
@@ -55,15 +53,15 @@ knitr::include_graphics("img/taller-01b.png")
 
 Se ha encomendado a un grupo de profesores consejeros, seleccionar un estudiante de este grupo para guiarlos académicamente en su proceso de formación. El grupo de profesores está conformado por Sandra, Isabel, David, Daniel y Gerardo.
 
-* Sandra prefiere que el grupo de estudiantes a su cargo sean estudiantes de primeros semestres y que participan en actividades del Medio Universitario (MU) . 
+* **Sandra** prefiere que el grupo de estudiantes a su cargo sean estudiantes de primeros semestres y que participan en actividades del Medio Universitario (MU) . 
 
-* Isabel en cambio los elegirá dentro del grupo de estudiantes que está finalizando carrera, dentro del grupo de los que prefieren no participar en actividades del MU. 
+* **Isabel** en cambio los elegirá dentro del grupo de estudiantes que está finalizando carrera, dentro del grupo de los que prefieren no participar en actividades del MU. 
 
-* David desea estudiantes que sean del rango intermedio o mitad de carrera, pues ellos no han realizado la escogencia del énfasis. 
+* **David** desea estudiantes que sean del rango intermedio o mitad de carrera, pues ellos no han realizado la escogencia del énfasis. 
 
-* Daniel solicita un listado de los estudiantes que participan en actividades del MU y de ellos desea que el estudiante a su cargo esté cursando últimos semestres. 
+* **Daniel** solicita un listado de los estudiantes que participan en actividades del MU y de ellos desea que el estudiante a su cargo esté cursando últimos semestres. 
 
-* Gerardo solo quiere que el estudiante seleccionado para su acompañamiento sea de primeros semestres. 
+* **Gerardo** solo quiere que el estudiante seleccionado para su acompañamiento sea de primeros semestres. 
 
 Si en cada caso los estudiantes son seleccionados de manera aleatoria de toda la población, ¿qué profesor tiene la mayor probabilidad de ver cumplidos sus deseos?
 
@@ -76,8 +74,6 @@ Si en cada caso los estudiantes son seleccionados de manera aleatoria de toda la
 <div class="box2 with-label">
 <div class="label">Problema 2</div>
 
-<br/>
-
 En una fábrica de artı́culos para protección biodegradables ,cuatro operarios colocan etiquetas de caducidad en cada artı́culo al final de la lı́nea de producción. Juan, quien coloca la fecha de caducidad en un 40% de los paquetes no logra ponerla en uno de cada 200 paquetes; Nicolle, quien coloca en 30% de los paquetes, no logra colocarla en uno de 100 paquetes; Sara, quien coloca etiquetas en el 15% de los paquetes, no lo hace una vez en 90 paquetes; y Nelson que fecha 15% de los paquetes, falla en uno de cada 200 paquetes. Si un cliente se queja de que su paquete no muestra la fecha de caducidad. ¿Cuál de los empleados es el más probable culpable de esta omisión?
 
 </div>
@@ -87,8 +83,6 @@ En una fábrica de artı́culos para protección biodegradables ,cuatro operario
 
 <div class="box2 with-label">
 <div class="label">Problema 3</div>
-
-<br/>
 
 Una empresa de servicios financieros analizó `500` posibles clientes que mostraron interés por sus productos después de revisar dos canales de mercadeo: pauta digital y referidos comerciales.
 
@@ -130,8 +124,6 @@ Con el fin de realizar una buena asignación del presuipuesto comercial para est
 <div class="box2 with-label">
 <div class="label">Problema 4</div>
 
-<br/>
-
 En diversas universidades se aplican pruebas de detección de consumo de drogas a los estudiantes, con el propósito de contribuir al bienestar y la seguridad dentro del campus, así como de reducir la probabilidad de conductas inapropiadas, accidentes y dificultades académicas. No obstante, algunos sectores cuestionan esta práctica, debido a que tales pruebas no son completamente infalibles y, en consecuencia, podrían producir clasificaciones erróneas.
 
 Suponga que una universidad utiliza una prueba de detección para la cual, si un estudiante consume drogas, la probabilidad de que sea clasificado correctamente como consumidor es de 0.98 $P(+|C)=0.98$. Por otra parte, si un estudiante no consume drogas, la probabilidad de que sea clasificado correctamente como no consumidor es de 0.95 $P(-|C')=0.95$. En consecuencia,
@@ -154,8 +146,6 @@ Con base en la información anterior, determine la probabilidad de ocurrencia de
 <div class="box2 with-label">
 <div class="label">Problema 5</div>
 
-<br/>
-
 Una compañia de seguros de automóviles trabaja con cuatro tipo de autos :  Rayquaza, Etenatus, Mewtwo y Groudon, sobre los que cuenta con la información que se muestra en la siguiente tabla.
 
 Construya un diagrama de árbol que represente la información suministrada y a partir de los resultados obtenidos ayude al gerente de la compañía quien está interesado en conocer cuál marca tiene mayor probabilidad de accidente si se conoce que ha tenido un accidente. Esto le ayudará a realizar ajustes en los precios de las pólizas.
@@ -177,8 +167,6 @@ knitr::include_graphics("img/taller-05.png")
 <div class="box2 with-label">
 <div class="label">Problema 6</div> 
 
-<br/>
-
 Un dispositivo sirve para identificar una cierta enfermedad. Si alguien está enfermo, hay un 90 % de posibilidades de que la prueba sea positiva. Si no está enfermo hay todavía un 1 % de posibilidades de que la prueba sea positiva. Aproximadamente el 1 % de la población está enferma. Smith pasa la prueba y resulta positiva. ¿Cuál es la probabilidad de que tenga la enfermedad? (Carmen Diaz-2005)
 
 <br/>
@@ -199,8 +187,6 @@ En una ciudad hay 60 hombres y 40 mujeres por cada 100 habitantes. La mitad de l
 
 <div class="box2 with-label">
 <div class="label">Problema 8</div> 
-
-<br/>
 
 En una empresa de distribución, se están evaluando tres tipos de estrategias de capacitación implementadas para el personal comercial: capacitación presencial tradicional, capacitación virtual interactiva y capacitación basada en acompañamiento en campo. Se ha determinado que el 25% de los vendedores recibió capacitación presencial tradicional, el 50% capacitación virtual interactiva, y el 25% capacitación basada en acompañamiento en campo.
 

@@ -4,7 +4,7 @@
 =========================================================*/
 
 /* Carga las tipografías usadas por títulos, texto y notas. */
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Source+Sans+3:wght@400;600;700&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Andika:wght@400;700&family=Shadows+Into+Light&display=swap');
 
 :root{
 
@@ -41,7 +41,7 @@ PALETA
 
 /* Familias tipográficas reutilizables. */
 --font-title:'Anton',sans-serif;
---font-body:'Source Sans 3',sans-serif;
+--font-body:'Andika',sans-serif;
 --font-note:'Shadows Into Light',cursive;
 
 /* Valores comunes para esquinas y sombras. */
@@ -122,10 +122,9 @@ CAJAS DEL CURSO
     text-align:left;
 }
 
-/* Todos los títulos de caja, aunque se escriban como h2, se muestran con
-   el tamaño visual de un encabezado Markdown ### (h3). */
+/* Jerarquía principal de los títulos h2 dentro de las cajas. */
 :is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6) > h2:first-child {
-    font-size:26px !important;
+    font-size:32px !important;
 }
 
 /* Tamaño de los títulos secundarios de las cajas. */
@@ -252,7 +251,7 @@ CAJAS DEL CURSO
 .main-container div.box5 > h2:first-child,
 .main-container div.box5 > h3:first-child { color:#79C45A !important; }
 
-/* Tamaño de ### también para los encabezados h2 en el visor de RStudio. */
+/* Conserva la jerarquía principal de los h2 en el visor de RStudio. */
 .main-container div.box > h2:first-child,
 .main-container div.box0 > h2:first-child,
 .main-container div.box1 > h2:first-child,
@@ -260,7 +259,7 @@ CAJAS DEL CURSO
 .main-container div.box3 > h2:first-child,
 .main-container div.box4 > h2:first-child,
 .main-container div.box5 > h2:first-child,
-.main-container div.box6 > h2:first-child { font-size:26px !important; }
+.main-container div.box6 > h2:first-child { font-size:32px !important; }
 
 /* Tamaño uniforme de los encabezados h3. */
 .main-container div.box > h3:first-child,

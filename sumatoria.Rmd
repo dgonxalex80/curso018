@@ -45,7 +45,7 @@ source("colores.R")
 Este operador será utilizado en el curso en la construcción de conceptos como media aritmética, varianza, covarianza, correlación, estimación de los coeficientes del modelo de regresión entre otros
 
 <div class="box box0">
-## Definición de sumatoria
+### Definición de sumatoria
 
 Se define como
 

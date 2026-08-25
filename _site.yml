@@ -71,6 +71,10 @@ navbar:
           href: codigo21.html
         - text: "Taller 211"
           href: taller211.html     
+        - text: "--------"        
+        - text: "Monitoría 2"  
+          href: monitoria2.html            
+          
 
     - text: "Módulo 3"
       menu:
