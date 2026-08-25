@@ -74,7 +74,7 @@ Para alcanzar los objetivos planteados se propone realizar la siguiente activida
 
 |Actividad      | Descripción                    | 
 |:--------------|:-----------------------------  |
-| Taller 211 | **Taller 211**. Resuelva las preguntas del taller y entregue su solución en formato **PDF** en el enlace correspondiente de Brightspace. |
+| Taller 211 | **Taller 211**. Resuelva las preguntas del taller **a mano** y entregue su solución en formato **PDF** en el enlace correspondiente de Brightspace. |
 | Trabajo en parejas | Cada integrante debe subir su solución de manera individual en Brightspace. | 
 |Fecha  | 30 de agosto 23.59 hora local     |
 |||
