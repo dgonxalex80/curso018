@@ -160,12 +160,15 @@ Un experimento aleatorio es una acción repetible cuyo resultado no puede conoce
 <div class="box6 with-label">
 ### Ejemplos 
 
-- $E_1$: Lanzar dos dados y observar la suma del resultado obtenido en sus caras superiores.
-- $E_2$: Enviar un correo promocional y observar si el cliente abre o no.
-- $E_3$: Ofrecer una llamada comercial y observar si hay compra.
-- $E_4$: Recibir una solicitud de crédito y observar si entra en mora.
-- $E_5$: Publicar una pauta digital y observar si la campaña supera el objetivo midiendo el número de compras.
-- $E_6$ Realizar un examen de estadística y observar el resultado obtenido
++ $E_{1}$: Lanzar una moneda dos veces y observar los resultados obtenidos en sus caras superiores 
+
++ $E_{2}$: Lanzar dos dados y observar la suma de los resultados superiores 
+
++ $E_{3}$: Realizar un examen de estadística y observar el resultado obtenido  
+
++ $E_{4}$: En una salida de campo, observo si se cumple o no, totalmente el objetivo planteado 
+
++ $E_{5}$: Observo el número total de ensayos de laboratorio exitosos en  20 intentos realizados.
 
 </div>
 
@@ -184,7 +187,8 @@ El espacio muestral (\(S\) o \(\Omega\)) es el conjunto de <strong>todos</strong
 <div class="box6 with-label">
 ### Ejemplos 
 
-- $S_1=\{ 2,3,4,5,6,7,8,9,10,11,12 \}$
++ $S_{1}$= $\{ (cc), (cs), (sc), (ss) \}$  
+<br/>
 
 :::: {style="display: flex;"}
 
@@ -214,12 +218,17 @@ knitr::include_graphics("img/dados.png")
 
 ::::
 
+<br/>
 
-- $S_2=\{\text{Abre},\text{No abre}\}$
-- $S_3=\{\text{Efectivo},\text{Tarjeta crédito},\text{Tarjeta débito}\}$
-- $S_4=\{0,1,2,3,4,\dots\}$
-- $S_5= \{ x \in \mathbb{R} | 0 \leq x \leq 5   \}$
++ $S_{3}$= $\{ x \in \mathbb{R} | 0 \leq x \leq 5   \}$ 
 
+<br/>
+
++ $S_{4}$= $\{ x \in \mathbb{N}| 0 \leq x \leq 1 \}$ 
+
+<br/>
+
++ $S_{5}$= $\{ x \in \mathbb{N}| 0 \leq x \leq 20 \}$
 </div>
 
 <br/><br/>
@@ -237,12 +246,23 @@ Un evento es un subconjunto del espacio muestral que representa un resultado de 
 
 ### Ejemplos
 
-- $A_{1}$ Obtener solo caras                    
-- $A_{2}$ Sacar un resultados es inferior a 4  
-- $A_{3}$ Ganar el examen                       
-- $A_{4}$ Cumplir el objetivo de la salida      
-- $A_{5}$ Obtener más de 5 ensayos éxitos       
+|           |                                       |                      |
+|:----------|:--------------------------------------|:---------------------|
+|$A_{1}$    | Obtener solo caras                    | $A_{1}=\{ (c,c)\}$
+| $A_{2}$   | Sacar un resultados es inferior a 4   | $A_{2}=\{(1,1),(1,2)(2,1)\}$
+| $A_{3}$   | Ganar el examen                       | $A_{3}=\{ x \in \mathbb{R} | 3.0 \leq x \leq 5.0 \}$
+| $A_{4}$   | Cumplir el objetivo de la salida      | $A_{4} =\{ 1 \}$
+| $A_{5}$   | Obtener más de 5 ensayos éxitos       | $A_{5}$= $\{ x \in \mathbb{N}| 6 \leq x \leq 20 \}$     
 
+Resumiendo:
+
+|Experimento aleatorio| Espacio muestral | Evento aleatorio |
+|:--------------------|:-----------------|:-----------------|
+|Lanzar una moneda dos veces y observar los resultados obtenidos en sus caras superiores| $S_{1}$= $\{ (cc), (cs), (sc), (ss) \}$ | Obtiener solo caras |
+|Lanzar dos dados y observar la suma de los resultados superiores| $S_{2}$= $\{(1,1),(1,2), \dots, (6,6) \}$ | Sacar un resultados es inferior a 6 |
+|Realizar un examen de estadística y observar el resultado obtenido|  $S_{3}$= $\{ x \in \mathbb{R} | 0 \leq x \leq 5 \}$| Ganar el examen|
+|En una salida de campo, observo si se cumple o no, totalmente el objetivo planteado| $S_{4}$= $\{ x \in \mathbb{N}| 0 \leq x \leq 1 \}$| Cumplir el objetivo de la salida |
+|Observo el número total de ensayos de laboratorio exitosos en  20 intentos realizados| $S_{5}$= $\{ x \in \mathbb{N}| 0 \leq x \leq 20 \}$| Obtener más de 5 ensayos éxitos |
 
 </div>
 
@@ -267,10 +287,13 @@ $$P(A)=\frac{n(A)}{n(S)}$$
 
 ### Ejemplos 
 
-Una empresa sortea 1 bono entre 10 clientes finalistas con igual oportunidad.  
-La probabilidad de que un cliente específico gane es:
+En el caso del evento $A_{1}=\{(c,c)\}$, su probabilidad se obtiene como: 
 
-$$P(\text{ganar})=\frac{1}{10}=0.10$$
+$P(A_{1}=\dfrac{n(A_{1})}{n(S_{1})}=\dfrac{1}{4}=0.25$ 
+
+Para $A_{2}$, la suma de los resultados es inferior a 6, se obtiene de la siguiente forma
+
+$P(A_{2})=\dfrac{n(A_{2})}{n(S_{2})}=\dfrac{9}{36}=0.25$
 
 </div>
 
@@ -323,11 +346,27 @@ El gerente comercial estima en $0.60$ la probabilidad de cerrar un contrato estr
 <div class="box6 with-label">
 ### Axiomas de probabilidad
 
-1. $(P(S)=1)$
-2. $0\leq P(A)\leq 1$
-3. Si $A$ y $B$ son excluyentes: $P(A\cup B)=P(A)+P(B)$ 
-4. Regla del complemento: $P(A^c)=1-P(A)$
-5. $P(\varnothing)=0$
++ $A_{1}$ : Sea $S$ un espacio muestral  asociado a un experimento. Entonces:
+
+$$P(S)=1$$ 
+
++ $A_{2}$ : Para cualquier evento $A$, se cumple que:
+
+$$0 \leq P(A) \leq 1$$ 
+
++ $A_{3}$ : Si $A$ y $B$ son dos eventos mutuamente excluyentes, entonces: 
+$$P(A \cup B) = P(A) + P(B)$$ 
+En general 
+
+$$P(A \cup B) = P(A)+ P(B) - P(A \cap B)$$ 
+
+
++ $A_{4}$ : Para cualquier evento $A$, $P(A')=1-P(A)$
+
++ $A_{5}$ : La probabilidad que no ocurra nada : 
+
+$$P(\phi) = 0$$   
+
 
 <br/><br/>
 
