@@ -343,7 +343,7 @@ El gerente comercial estima en $0.60$ la probabilidad de cerrar un contrato estr
 
 <br/>
 
-<div class="box6 with-label">
+<div class="box2 with-label">
 ### Axiomas de probabilidad
 
 + $A_{1}$ : Sea $S$ un espacio muestral  asociado a un experimento. Entonces:
@@ -396,7 +396,19 @@ A partir de esta tabla cruzada podemos definir las siguientes probabilidades, ba
 
 <br/><br/><br/>
 
+<div class="box2 with-label">
 ### Probabilidad simple o marginal
+
+a probabilidad simple, también llamada probabilidad marginal, es la probabilidad de que ocurra un solo evento, sin considerar simultáneamente la ocurrencia de otros eventos.
+
+$$P(A) = \dfrac{\text{número de resultados favirables de A}}{\text{número total de resultados posibles}} $$
+Se denomina marginal especialmente cuando trabajamos con dos o más eventos o variables en una tabla conjunta, porque se obtiene la probabilidad de un evento sin condicionar por el otro, normalmente a partir de los totales marginales de la tabla.
+</div>
+
+<br/><br/>
+
+<div class="box6 with-label">
+### Ejemplo 
 
 + $P(A)$ : probabilidad de que ocurra A `:       70/200`
 
@@ -405,11 +417,24 @@ A partir de esta tabla cruzada podemos definir las siguientes probabilidades, ba
 + $P(B)$ : probabilidad de que ocurra B `:       80/200`
 
 + $P(B')$ : probabilidad de que NO ocurra B `:   120/200` 
+</div>			
 			
 <br/><br/>
 
+<div class="box2 with-label">
 ### Probabilidad conjunta
-			
+
+Probabilidad conjunta: es la probabilidad de que dos o más eventos ocurran simultáneamente; es decir, que se presente tanto un evento como el otro.
+
+$$P(A \cap B)$$ 
+Se lee : "probabilidad de que ocurra A y B" 
+</div>
+
+<br/><br/>
+
+<div class="box2 with-label">
+### Ejemplo
+
 + $P(A \cap B)$ : probabilidad de que ocurra A y B `:              45/200`
 			
 + $P(A' \cap B)$ : probabilidad de que NO ocurra A y ocurra B `:     35/200`
@@ -417,6 +442,8 @@ A partir de esta tabla cruzada podemos definir las siguientes probabilidades, ba
 + $P(A \cap B')$ : probabilidad de que ocurra A y NO ocurra B `:     25/200`
 
 + $P(A' \cap B')$ : probabilidad de que NO ocurra A ni B  `:         65/200`
+
+</div>
 
 <br/><br/>
 
@@ -471,6 +498,11 @@ knitr::include_graphics("img/tabla-212.png")
 
 <br/>
 
+
+```{r, echo=FALSE, out.width="60%", fig.align = "center"}
+knitr::include_graphics("img/tabla-21A.png")
+```
+
 |       |                                                                                                        |
 |:------|:-------------------------------------------------------------------------------------------------------|
 |$P(LA)$| probabilidad de que un cliente seleccionado de manera aleatoria tenga lealtad con la marca **alta**    |
@@ -485,6 +517,10 @@ knitr::include_graphics("img/tabla-212.png")
 
 ## Probabilidad conjunta 
 
+
+```{r, echo=FALSE, out.width="60%", fig.align = "center"}
+knitr::include_graphics("img/tabla-21B.png")
+```
 <br/>
 
 |                 |                                                                                                                                                    |
@@ -501,19 +537,16 @@ knitr::include_graphics("img/tabla-212.png")
 
 <br/><br/><br/>
 
+<div class="box2 with-label">
 ## Probabilidad condicional
 
-<br/>
-
-La probabilidad condicional de $B$, dado $A$, se denota como $P(B|A)$, se define como:
+Probabilidad condicional: es la probabilidad de que ocurra un evento A, sabiendo que otro evento B ya ha ocurrido, se denota como $P(B|A)$, se define como:
 
 $$P(B|A)=\dfrac{P(A \cap B)}{P(A)}$$
 
 Siempre que $P(A) > 0$
 
-
-
-<br/><br/>
+<br/>
 
 $P(B|A)$ se puede leer como :
 
@@ -523,12 +556,16 @@ $P(B|A)$ se puede leer como :
 
 + Si sabemos que ha ocurrido el evento $A$, la probabilidad de que ocurra $B$
 
+</div>
+
 <br/><br/>
 
 El efecto de conocer la ocurrencia del evento $A$ hace que el espacio muestral de referencia pase de ser $S$ a solo $A$.  Ahora dentro de este nuevo espacio muestral de referencia se debe establecer la probabilidad de que ocurra $B$
 
 De esta manera la probabilidad se expresa como la razón entre la probabilidad conjunta 
 $P(A \cap B)$ con la probabilidad de $A$
+
+
 
 <br/><br/><br/>
 
@@ -568,17 +605,23 @@ O tambien mediante un diagrama de árbol
 
 <br/>
 
+
 ```{r, echo=FALSE, out.width="50%", fig.align = "center"}
-knitr::include_graphics("img/arbol-5.png")
+knitr::include_graphics("img/arbol-6.png")
+```
+
+<br/><br/>
+
+En terminos de probabilidad podemos visalizar que la probabilidad condicional se construye a partir de la división de una probabiliad conjunta con una probabilidad marginal 
+
+<br/>
+
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
+knitr::include_graphics("img/tabla-21C.png")
 ```
 
 
-
-<br/><br/>
-
-Por despeje se pueden obtener la llanada regla de la multiplicación :
-
-<br/><br/>
+<br/><br/><br/>
 
 
 
@@ -611,7 +654,6 @@ En el caso que se requiera evaluar si dos eventos son independientes o no, parti
 
 <div class="box2 with-label">
 ### Independencia de eventos  
-
 
 
 Dos eventos A y B son independientes si y solo si la probabiliad del evento B no es afectada por la ocurrencia del evento A o viceversa.

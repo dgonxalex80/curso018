@@ -819,7 +819,7 @@ contrato estratégico tras una reunión clave.</p>
 <h2>Axiomas de probabilidad</h2>
 <p><br/></p>
 <div id="axiomas-de-probabilidad-1"
-class="section level3 box6 with-label">
+class="section level3 box2 with-label">
 <h3>Axiomas de probabilidad</h3>
 <ul>
 <li><span class="math inline">\(A_{1}\)</span> : Sea <span
@@ -866,8 +866,22 @@ no ocurra nada :</p></li>
 <p>A partir de esta tabla cruzada podemos definir las siguientes
 probabilidades, bajo el enfoque frecuentista:</p>
 <p><br/><br/><br/></p>
-<div id="probabilidad-simple-o-marginal" class="section level3">
+<div id="probabilidad-simple-o-marginal"
+class="section level3 box2 with-label">
 <h3>Probabilidad simple o marginal</h3>
+<p>a probabilidad simple, también llamada probabilidad marginal, es la
+probabilidad de que ocurra un solo evento, sin considerar
+simultáneamente la ocurrencia de otros eventos.</p>
+<p><span class="math display">\[P(A) = \dfrac{\text{número de resultados
+favirables de A}}{\text{número total de resultados posibles}} \]</span>
+Se denomina marginal especialmente cuando trabajamos con dos o más
+eventos o variables en una tabla conjunta, porque se obtiene la
+probabilidad de un evento sin condicionar por el otro, normalmente a
+partir de los totales marginales de la tabla.</p>
+</div>
+<p><br/><br/></p>
+<div id="ejemplo-1" class="section level3 box6 with-label">
+<h3>Ejemplo</h3>
 <ul>
 <li><p><span class="math inline">\(P(A)\)</span> : probabilidad de que
 ocurra A <code>:       70/200</code></p></li>
@@ -878,10 +892,19 @@ ocurra B <code>:       80/200</code></p></li>
 <li><p><span class="math inline">\(P(B&#39;)\)</span> : probabilidad de
 que NO ocurra B <code>:   120/200</code></p></li>
 </ul>
-<p><br/><br/></p>
 </div>
-<div id="probabilidad-conjunta" class="section level3">
+<p><br/><br/></p>
+<div id="probabilidad-conjunta" class="section level3 box2 with-label">
 <h3>Probabilidad conjunta</h3>
+<p>Probabilidad conjunta: es la probabilidad de que dos o más eventos
+ocurran simultáneamente; es decir, que se presente tanto un evento como
+el otro.</p>
+<p><span class="math display">\[P(A \cap B)\]</span> Se lee :
+“probabilidad de que ocurra A y B”</p>
+</div>
+<p><br/><br/></p>
+<div id="ejemplo-2" class="section level3 box2 with-label">
+<h3>Ejemplo</h3>
 <ul>
 <li><p><span class="math inline">\(P(A \cap B)\)</span> : probabilidad
 de que ocurra A y B <code>:              45/200</code></p></li>
@@ -895,12 +918,12 @@ probabilidad de que ocurra A y NO ocurra B
 probabilidad de que NO ocurra A ni B
 <code>:         65/200</code></p></li>
 </ul>
+</div>
 <p><br/><br/></p>
 <p><img src="img/tabla-122.png" alt="" width="40%" style="display: block; margin: auto;" /></p>
 <p><br/></p>
 <p><img src="img/diagrama5-22.png" alt="" width="40%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="ejemplo-1" class="section level3 box6 with-label">
+<div id="ejemplo-3" class="section level3 box6 with-label">
 <h3>Ejemplo</h3>
 <p>Se requiere estudiar la relación entre la satisfacción del cliente y
 la lealtad a la marca en una empresa. Para ello, se emplea información
@@ -927,6 +950,7 @@ seleccionadas</p>
 <div id="probabilidad-simple-o-marginal-1" class="section level2">
 <h2>Probabilidad simple o marginal</h2>
 <p><br/></p>
+<p><img src="img/tabla-21A.png" alt="" width="60%" style="display: block; margin: auto;" /></p>
 <table>
 <colgroup>
 <col width="6%" />
@@ -969,7 +993,8 @@ aleatoria tenga un nivel de satisfacción <strong>baja</strong></td>
 </div>
 <div id="probabilidad-conjunta-1" class="section level2">
 <h2>Probabilidad conjunta</h2>
-<p><br/></p>
+<p><img src="img/tabla-21B.png" alt="" width="60%" style="display: block; margin: auto;" />
+<br/></p>
 <table>
 <colgroup>
 <col width="10%" />
@@ -1034,17 +1059,16 @@ nivel <strong>bajo</strong> de satisfacción</td>
 </table>
 <p><br/><br/><br/></p>
 </div>
-<div id="probabilidad-condicional" class="section level2">
+<div id="probabilidad-condicional"
+class="section level2 box2 with-label">
 <h2>Probabilidad condicional</h2>
-<p><br/></p>
-<p>La probabilidad condicional de <span
-class="math inline">\(B\)</span>, dado <span
-class="math inline">\(A\)</span>, se denota como <span
+<p>Probabilidad condicional: es la probabilidad de que ocurra un evento
+A, sabiendo que otro evento B ya ha ocurrido, se denota como <span
 class="math inline">\(P(B|A)\)</span>, se define como:</p>
 <p><span class="math display">\[P(B|A)=\dfrac{P(A \cap
 B)}{P(A)}\]</span></p>
 <p>Siempre que <span class="math inline">\(P(A) &gt; 0\)</span></p>
-<p><br/><br/></p>
+<p><br/></p>
 <p><span class="math inline">\(P(B|A)\)</span> se puede leer como :</p>
 <ul>
 <li><p>Probabilidad de que ocurra <span class="math inline">\(B\)</span>
@@ -1057,6 +1081,7 @@ class="math inline">\(A\)</span></p></li>
 class="math inline">\(A\)</span>, la probabilidad de que ocurra <span
 class="math inline">\(B\)</span></p></li>
 </ul>
+</div>
 <p><br/><br/></p>
 <p>El efecto de conocer la ocurrencia del evento <span
 class="math inline">\(A\)</span> hace que el espacio muestral de
@@ -1068,7 +1093,7 @@ ocurra <span class="math inline">\(B\)</span></p>
 probabilidad conjunta <span class="math inline">\(P(A \cap B)\)</span>
 con la probabilidad de <span class="math inline">\(A\)</span></p>
 <p><br/><br/><br/></p>
-<div id="ejemplo-2" class="section level3 box6 with-label">
+<div id="ejemplo-4" class="section level3 box6 with-label">
 <h3>Ejemplo</h3>
 <p>Supongamos que se tiene la siguiente información escrita en una tabla
 de doble entrada o tabla cruzada que contiene dos eventos <span
@@ -1088,11 +1113,14 @@ Venn</p>
 <br/><br/></p>
 <p>O tambien mediante un diagrama de árbol</p>
 <p><br/></p>
-<p><img src="img/arbol-5.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="img/arbol-6.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
-<p>Por despeje se pueden obtener la llanada regla de la multiplicación
-:</p>
-<p><br/><br/></p>
+<p>En terminos de probabilidad podemos visalizar que la probabilidad
+condicional se construye a partir de la división de una probabiliad
+conjunta con una probabilidad marginal</p>
+<p><br/></p>
+<p><img src="img/tabla-21C.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><br/><br/><br/></p>
 <div id="regla-de-la-multiplicación-de-eventos"
 class="section level3 box2 with-label">
 <h3>Regla de la multiplicación de eventos</h3>
@@ -1150,7 +1178,7 @@ independientes</p>
 <p>Una aplicación de este concepto se ilustra con los siguientes
 ejemplos:</p>
 <p><br/><br/></p>
-<div id="ejemplo-3" class="section level3 box6 with-label">
+<div id="ejemplo-5" class="section level3 box6 with-label">
 <h3>Ejemplo</h3>
 <p>Se tiene un circuito formado por dos componentes <span
 class="math inline">\(A_{1}\)</span> y <span
@@ -1174,7 +1202,7 @@ independencia tenemos que:</p>
 <p><span class="math display">\[P(A_{1} \cap A_{2}) = P(A_{1}) P(A_{2})
 = 0.90 \times  0.95 = 0.855\]</span></p>
 <p><br/><br/><br/></p>
-<div id="ejemplo-4" class="section level3 box6 with-label">
+<div id="ejemplo-6" class="section level3 box6 with-label">
 <h3>Ejemplo</h3>
 <p>Ahora supongamos que el circuito anterior está conectado en paralelo.
 Determinar la probabilidad de que el circuito funcione</p>
@@ -1195,7 +1223,7 @@ cualquier evento <span class="math inline">\(A\)</span>, <span
 class="math inline">\(P(A&#39;)=1-P(A)\)</span></p>
 <p><span class="math display">\[1-0.005 = 0.995\]</span></p>
 <p><br/><br/><br/></p>
-<div id="ejemplo-5" class="section level3 box6 with-label">
+<div id="ejemplo-7" class="section level3 box6 with-label">
 <h3>Ejemplo</h3>
 <p>El departamento de crédito de la universidad, informa que el 30% de
 los pagos realizados en la universidad se efectúan en efectivo, un 40%
@@ -1300,7 +1328,6 @@ mil pesos</li>
 </tbody>
 </table>
 <p><br/><br/><br/></p>
-</div>
 <div id="probabilidad-total" class="section level2">
 <h2>Probabilidad Total</h2>
 <p>Ahora supongamos que el espacio muestral esta formado por un conjunto
@@ -1561,7 +1588,7 @@ arbol=rpart( formula = Survived ~ Sex,
              data = titanic_train,
              method = &quot;class&quot;)
 fancyRpartPlot(arbol)</code></pre>
-<p><img src="recurso21_files/figure-html/unnamed-chunk-21-1.png" alt="" width="672" />
+<p><img src="recurso21_files/figure-html/unnamed-chunk-24-1.png" alt="" width="672" />
 <br/> Código basado en: <a
 href="https://www.youtube.com/watch?v=t0lmtrm_aa0">Video de
 referencia</a></p>
