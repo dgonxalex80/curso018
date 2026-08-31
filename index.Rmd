@@ -84,7 +84,7 @@ knitr::include_graphics("img/modulos.png")
 
 
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
-knitr::include_graphics("img/calendario.png")
+knitr::include_graphics("img/calendario1.png")
 ```
 </div>
 
@@ -96,7 +96,7 @@ knitr::include_graphics("img/calendario.png")
 
 
 ```{r, echo=FALSE, out.width="50%", fig.align = "center"}
- knitr::include_graphics("img/salones.png")
+ knitr::include_graphics("img/salones1.png")
 ```
 </div>
 
@@ -106,7 +106,7 @@ knitr::include_graphics("img/calendario.png")
 ## Metodología
 
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
-knitr::include_graphics("img/metodologia.png")
+# knitr::include_graphics("img/metodologia.png")
 ```
 </div>
 
@@ -119,7 +119,7 @@ correo : dgonzalez@javerianacali.edu.co
 
 <br/><br/>
 
-#### Monitor : Juan David Naranjo Zapata
+#### Monitor : Jeison David de Vuijst
 
 <br/><br/>
 
