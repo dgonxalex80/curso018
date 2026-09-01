@@ -68,8 +68,8 @@ Para alcanzar los objetivos planteados se propone realizar la siguiente activida
 |:---|:---|
 | Taller 211 | **Taller 211**. Resuelva las preguntas del taller **a mano** y entregue su solución en formato **PDF** en el enlace correspondiente de Brightspace. |
 | Trabajo en parejas | Cada integrante debe subir su solución de manera individual en Brightspace. |
-| Fecha | 30 de agosto 23.59 hora local |
-|  |  |
+| Fecha | 10 de septiembre de 2026 |
+| Hora límite | 23:59 hora local            |
 :::
 
 <br/><br/>
@@ -92,7 +92,7 @@ El **taller 211** de la unidad recoge los elementos estudiados y tiene como obje
 | Entregable  | Descripción                 |
 |:------------|:----------------------------|
 | Taller 211  | Solucionario del Taller 201 |
-| Fecha       | 30 de agosto de 2026        |
+| Fecha       | 10 de septiembre de 2026        |
 | Hora límite | 23:59 hora local            |
 :::
 
