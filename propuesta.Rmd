@@ -1,0 +1,70 @@
+---
+title: "Untitled"
+author: "Daniel Gonzalez"
+date: "2026-09-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problema. Tiempo diario de uso del celular
+
+La Dirección de Bienestar Universitario desea analizar los hábitos de uso del
+teléfono celular entre los estudiantes. Para ello, seleccionó una muestra de
+50 estudiantes y registró el **tiempo diario de uso de pantalla**, expresado
+en horas, durante un día habitual de actividades académicas.
+
+Los tiempos observados fueron:
+
+```{r}
+tiempo <- c(
+  2.8, 3.2, 3.5, 3.8, 4.0,
+  4.1, 4.3, 4.4, 4.5, 4.6,
+  4.7, 4.8, 4.9, 5.0, 5.1,
+  5.2, 5.3, 5.4, 5.5, 5.6,
+  5.7, 5.8, 5.9, 6.0, 6.1,
+  6.2, 6.3, 6.4, 6.5, 6.6,
+  6.7, 6.8, 6.9, 7.0, 7.1,
+  7.2, 7.3, 7.5, 7.7, 7.9,
+  8.1, 8.3, 8.5, 8.8, 9.0,
+  9.3, 9.7, 10.2, 12.5, 14.0
+)
+
+stem(tiempo)
+var(tiempo)*49
+var(tiempo)
+sd(tiempo)
+```
+
+El diagrama de tallo y hojas permite observar la distribución de los tiempos
+de uso del celular.
+
+Además, para facilitar algunos cálculos, se dispone de la siguiente
+información:
+
+```{r, echo=FALSE}
+cat("Número de estudiantes =", length(tiempo), "\n")
+cat("Suma de los tiempos =", sum(tiempo), "\n")
+cat("Suma de los cuadrados =", sum(tiempo^2), "\n")
+```
+
+A partir de la información suministrada:
+
+a. Construya un **diagrama de cajas** para el tiempo diario de uso del celular.
+
+b. Determine $Q_1$, $Q_2$ y $Q_3$ y calcule el **rango intercuartílico (RIQ)**.
+
+c. Utilizando el criterio de $1.5\,RIQ$, determine si existen estudiantes
+con tiempos de uso **atípicamente altos**.
+
+d. Determine el porcentaje de estudiantes que utiliza el celular durante
+más de **8 horas diarias**.
+
+e. Calcule la **media y la mediana**. Compare sus valores y explique qué
+indican acerca de la forma de la distribución.
+
+f. A partir del diagrama de cajas y de las medidas calculadas, escriba una
+breve conclusión sobre el comportamiento del tiempo diario de uso del celular
+en este grupo de estudiantes.

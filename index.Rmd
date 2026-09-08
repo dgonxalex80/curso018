@@ -84,7 +84,7 @@ knitr::include_graphics("img/modulos.png")
 
 
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
-knitr::include_graphics("img/calendario1.png")
+knitr::include_graphics("img/calendario2.png")
 ```
 </div>
 
@@ -177,7 +177,15 @@ knitr::include_graphics("img/atencion.png")
 
 </div>
 
+<br/><br/>
 
+<div class="box6 with-label">
+## Calendario académico 2026-2
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/calendario-2026-2.png")
+```
+</div>
 
 
 

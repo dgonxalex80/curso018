@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Daniel Gonzalez" />
 
+<meta name="date" content="2026-09-07" />
 
-<title>caso1B.knit</title>
+<title>Untitled</title>
 
 <script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -33,15 +35,6 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="site_libs/datatables-binding-0.34.0/datatables.js"></script>
-<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
-<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
@@ -459,104 +452,80 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Untitled</h1>
+<h4 class="author">Daniel Gonzalez</h4>
+<h4 class="date">2026-09-07</h4>
 
 </div>
 
 
-<p><img src="img/caso1.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
-<p><br/><br/></p>
-<div id="enunciado" class="section level2">
-<h2><strong>Enunciado</strong></h2>
-<!-- ![](img/cerveza.png) -->
-<p>La siguiente información recoge cinco de las principales
-características de un grupo de marcas de cerveza que fue recogida con la
-finalizad de clasificar los productos y además permita realizar un
-análisis descriptivo de las 69 marcas recogidas</p>
-<p>Inicialmente el director de investigación desea su apoyo en una
-primera etapa del análisis que consiste en resumir la información
-suministrada en tablas e indicadores que le permitan validar algunas de
-sus hipótesis.</p>
-<p>La base compartida contiene información sobre 69 marcas de cervezas
-que son distribuidas en la ciudad. Las variables recogidas corresponden
-a:</p>
-<ul>
-<li><p><span style="color:#b0394a"><strong>precio</strong></span> de la
-presentación en caja de seis botellas de 12 onzas,</p></li>
-<li><p>contendo de <span
-style="color:#b0394a"><strong>calorias</strong></span> congtenidas en
-una unidad de 12 onzas,</p></li>
-<li><p>porcentaje de contenido de <span
-style="color:#b0394a"><strong>alcohol</strong></span> por 12 onzas de
-contenido,</p></li>
-<li><p><span style="color:#b0394a"><strong>tipo</strong></span> de
-cerveza (1-lager artesanal, 2-clara artesanal, 3-lager importada,
-4-cerveza normal y helada, y 5-cerveza baja en calorías y sin alcohol)
-y</p></li>
-<li><p>país de <span
-style="color:#b0394a"><strong>origen</strong></span> (0-nacional, 1-
-importada).</p></li>
-</ul>
-<p>Su trabajo consiste en escribir un primer informe basado en una
-evaluación descriptiva, que contenga las tablas que resumen la
-información para cada variable de base de datos y resumen de sus
-indicadores estadísticos.</p>
-<p>Finalmente adjunte un análisis de los resultados obtenidos.</p>
-<p><br/><br/></p>
-</div>
-<div id="cargar-datos" class="section level2">
-<h2><strong>Cargar datos</strong></h2>
-<pre>
-install.packages("devtools") # solo una vez
-devtools::install_github("dgonxalex80/paquetePROB") # descarga paquetePROB
-library(paquetePROB # activa paquetePROB
-data("beer") # carga la base beer
-</pre>
-<pre class="r"><code>install.packages(&quot;devtools&quot;) # solo una vez
-devtools::install_github(&quot;dgonxalex80/paquetePROB&quot;) # descarga paqueteDEG
-library(paquetePROB) # activa paqueteDEG
-data(&quot;beer&quot;) # carga la base beer</code></pre>
-<p><br/><br/></p>
-</div>
-<div id="batos-de-datos" class="section level2">
-<h2><strong>Batos de datos</strong></h2>
-<pre class="r"><code>library(DT)
-# Cargar los datos
-library(paquetePROB)
-data(beer)
-# Mostrar la tabla con DataTable
-DT::datatable(
-  head(beer, fillContainer = FALSE, options = list(pageLength = 8))
-)</code></pre>
-<div class="datatables html-widget html-fill-item" id="htmlwidget-71b7009549302da9d37b" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-71b7009549302da9d37b">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6"],[1,2,3,4,5,6],[6.24,4.79,5.96,4.7,4.11,3.85],[159,160,160,162,157,151],[5.2,5,4.9,4.9,5.5,4.9],[1,1,1,1,1,1],[1,1,1,1,1,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>precio<\/th>\n      <th>calorias<\/th>\n      <th>poralcoh<\/th>\n      <th>tipo<\/th>\n      <th>origen<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"precio","targets":2},{"name":"calorias","targets":3},{"name":"poralcoh","targets":4},{"name":"tipo","targets":5},{"name":"origen","targets":6}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<p><br/></p>
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lVQ5MjSpi4E?si=Rlta13udaInGPPQj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-</iframe>
-</center>
-<p><br/><br/></p>
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sAwkejZDgBk?si=ITGRZE1g5hh96ZUg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-</iframe>
-</center>
-<p><br/><br/></p>
-<center>
-</center>
-<div id="tablero" class="section level3">
-<h3><a
-href="https://rpubs.com/dgonzalez80/caso1"><strong>Tablero</strong></a></h3>
-<p><br/></p>
-</div>
-<div id="flexdashboard" class="section level3">
-<h3><a
-href="https://rstudio.github.io/flexdashboard/articles/using.html"><strong>Flexdashboard</strong></a></h3>
-<p>k</p>
-<p><br/></p>
-</div>
-<div id="icons" class="section level3">
-<h3><a
-href="https://ionic.io/ionicons/v2/cheatsheet.html"><strong>icons</strong></a></h3>
-</div>
+<div id="problema.-tiempo-diario-de-uso-del-celular"
+class="section level2">
+<h2>Problema. Tiempo diario de uso del celular</h2>
+<p>La Dirección de Bienestar Universitario desea analizar los hábitos de
+uso del teléfono celular entre los estudiantes. Para ello, seleccionó
+una muestra de 50 estudiantes y registró el <strong>tiempo diario de uso
+de pantalla</strong>, expresado en horas, durante un día habitual de
+actividades académicas.</p>
+<p>Los tiempos observados fueron:</p>
+<pre class="r"><code>tiempo &lt;- c(
+  2.8, 3.2, 3.5, 3.8, 4.0,
+  4.1, 4.3, 4.4, 4.5, 4.6,
+  4.7, 4.8, 4.9, 5.0, 5.1,
+  5.2, 5.3, 5.4, 5.5, 5.6,
+  5.7, 5.8, 5.9, 6.0, 6.1,
+  6.2, 6.3, 6.4, 6.5, 6.6,
+  6.7, 6.8, 6.9, 7.0, 7.1,
+  7.2, 7.3, 7.5, 7.7, 7.9,
+  8.1, 8.3, 8.5, 8.8, 9.0,
+  9.3, 9.7, 10.2, 12.5, 14.0
+)
+
+stem(tiempo)</code></pre>
+<pre><code>## 
+##   The decimal point is at the |
+## 
+##    2 | 8258
+##    4 | 0134567890123456789
+##    6 | 01234567890123579
+##    8 | 1358037
+##   10 | 2
+##   12 | 5
+##   14 | 0</code></pre>
+<pre class="r"><code>var(tiempo)*49</code></pre>
+<pre><code>## [1] 242.5242</code></pre>
+<pre class="r"><code>var(tiempo)</code></pre>
+<pre><code>## [1] 4.949473</code></pre>
+<pre class="r"><code>sd(tiempo)</code></pre>
+<pre><code>## [1] 2.224741</code></pre>
+<p>El diagrama de tallo y hojas permite observar la distribución de los
+tiempos de uso del celular.</p>
+<p>Además, para facilitar algunos cálculos, se dispone de la siguiente
+información:</p>
+<pre><code>## Número de estudiantes = 50</code></pre>
+<pre><code>## Suma de los tiempos = 322.7</code></pre>
+<pre><code>## Suma de los cuadrados = 2325.23</code></pre>
+<p>A partir de la información suministrada:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Construya un <strong>diagrama de cajas</strong> para el tiempo
+diario de uso del celular.</p></li>
+<li><p>Determine <span class="math inline">\(Q_1\)</span>, <span
+class="math inline">\(Q_2\)</span> y <span
+class="math inline">\(Q_3\)</span> y calcule el <strong>rango
+intercuartílico (RIQ)</strong>.</p></li>
+<li><p>Utilizando el criterio de <span
+class="math inline">\(1.5\,RIQ\)</span>, determine si existen
+estudiantes con tiempos de uso <strong>atípicamente
+altos</strong>.</p></li>
+<li><p>Determine el porcentaje de estudiantes que utiliza el celular
+durante más de <strong>8 horas diarias</strong>.</p></li>
+<li><p>Calcule la <strong>media y la mediana</strong>. Compare sus
+valores y explique qué indican acerca de la forma de la
+distribución.</p></li>
+<li><p>A partir del diagrama de cajas y de las medidas calculadas,
+escriba una breve conclusión sobre el comportamiento del tiempo diario
+de uso del celular en este grupo de estudiantes.</p></li>
+</ol>
 </div>
 
 
