@@ -280,3 +280,29 @@ CAJAS DEL CURSO
 .main-container div.box4.with-label > .label,
 .main-container div.box5.with-label > .label,
 .main-container div.box6.with-label > .label { font-size:26px !important; }
+
+/* =========================================================
+   CORRECCIÓN DE BARRAS DE FRACCIONES - MATHJAX
+   ========================================================= */
+
+/* MathJax 2 - HTML-CSS */
+.MathJax .mfrac .frac-line,
+.MathJax_Display .mfrac .frac-line {
+    border-top: 1px solid currentColor !important;
+}
+
+/* MathJax 2 - CommonHTML */
+.MathJax_CHTML .mjx-mfrac .mjx-line {
+    border-top: 1px solid currentColor !important;
+}
+
+/* MathJax 3 - CommonHTML */
+mjx-container mjx-frac > mjx-frac-line {
+    border-top: 1px solid currentColor !important;
+}
+
+/* Evita que reglas generales eliminen la línea */
+.MathJax span,
+.MathJax_CHTML span {
+    border-color: currentColor;
+}

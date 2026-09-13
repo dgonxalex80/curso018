@@ -74,7 +74,7 @@ navbar:
           
         - text: "--------" 
         - text: "Guía 2.2"
-          href: guia21.html        
+          href: guia22.html        
         - text: "Recursos 2.2"
           href: recurso22.html     
         - text: "Taller 221"
@@ -90,6 +90,17 @@ navbar:
         - text: "Módulo 3"
           href: modulo3.html
         - text: "---------" 
+        - text: "Guía 3.1"
+          href: guia31.html        
+        - text: "Recursos 3.1"
+          href: recurso31.html     
+        - text: "Taller 311"
+          href: taller311.html            
+
+        - text: "--------"        
+        - text: "Monitoría 3"  
+          href: monitoria3.html            
+                  
      
     - text: "Módulo 4"
       menu:

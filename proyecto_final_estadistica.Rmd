@@ -1,0 +1,118 @@
+---
+title: "Proyecto final"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+---
+
+# Proyecto final
+
+El proyecto tiene como propósito integrar y aplicar los principales conceptos y herramientas desarrollados en el curso **Estadística para la toma de decisiones** al análisis de una situación real.
+
+Los estudiantes conformarán grupos de **máximo cuatro integrantes** y seleccionarán un problema de interés que pueda ser estudiado mediante datos y técnicas estadísticas.
+
+El tema deberá contar con el visto bueno del profesor.
+
+# Objetivos
+
++ Aplicar los conceptos y herramientas estadísticas desarrollados durante el curso.
+
++ Analizar una situación real a partir de datos.
+
++ Utilizar métodos de estadística descriptiva e inferencial para responder preguntas de interés.
+
++ Interpretar los resultados obtenidos y utilizarlos como apoyo para la toma de decisiones.
+
++ Fortalecer las habilidades para comunicar resultados estadísticos de manera clara y sustentada.
+
+# Requisitos
+
+El proyecto deberá:
+
++ Trabajar con una **base de datos real**, obtenida de una fuente confiable o recolectada por los estudiantes.
+
++ Plantear claramente el **problema**, los **objetivos** y las preguntas que se desean responder.
+
++ Describir las principales variables y características de los datos.
+
++ Realizar un análisis de **estadística descriptiva**, utilizando tablas, gráficos y medidas estadísticas apropiadas.
+
++ Incluir al menos **seis análisis de inferencia estadística**, mediante intervalos de confianza, pruebas de hipótesis o una combinación de ambos.
+
++ Interpretar los resultados en el contexto del problema.
+
++ Presentar conclusiones y recomendaciones que puedan contribuir a la **toma de decisiones**.
+
++ Referenciar adecuadamente las fuentes de información utilizadas.
+
+# Primera entrega
+
+**Fecha: 23 de septiembre de 2026**
+
+La primera entrega corresponde a la **propuesta del proyecto** y deberá contener:
+
+1. **Título del proyecto.**
+
+2. **Integrantes del grupo.**
+
+3. **Descripción del problema:** explicar brevemente qué se desea estudiar y por qué es importante.
+
+4. **Objetivo general y objetivos específicos.**
+
+5. **Preguntas de interés:** indicar qué preguntas se espera responder mediante el análisis estadístico.
+
+6. **Descripción de los datos:** fuente, tamaño de la base, unidad de análisis y principales variables.
+
+7. **Análisis propuesto:** indicar brevemente qué herramientas descriptivas e inferenciales se espera utilizar.
+
+8. **Referencias.**
+
+La propuesta deberá permitir establecer una relación clara entre:
+
+> **Problema → Datos → Análisis estadístico → Resultados → Toma de decisiones**
+
+# Entrega final
+
+**Fecha: 13 de noviembre de 2026**
+
+La entrega final deberá presentar el desarrollo completo del proyecto e incluir:
+
+1. **Introducción y descripción del problema.**
+
+2. **Objetivos.**
+
+3. **Descripción y preparación de los datos.**
+
+4. **Análisis descriptivo.**
+
+5. **Análisis inferencial.**
+
+6. **Interpretación de los principales resultados.**
+
+7. **Conclusiones y recomendaciones.**
+
+8. **Referencias.**
+
+## Productos finales
+
+Cada grupo deberá entregar:
+
++ Una **presentación en formato PDF** con los principales resultados del proyecto.
+
++ Un **video de sustentación** con una duración máxima de **10 minutos**.
+
+Todos los integrantes del grupo deberán participar en la sustentación.
+
+# Criterios de evaluación
+
+Se tendrá en cuenta:
+
++ Pertinencia y claridad del problema planteado.
++ Calidad y pertinencia de los datos.
++ Uso correcto de las herramientas estadísticas.
++ Calidad de tablas y gráficos.
++ Interpretación de los resultados.
++ Coherencia de las conclusiones y recomendaciones.
++ Calidad de la presentación.
++ Sustentación y participación de los integrantes.

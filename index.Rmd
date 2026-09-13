@@ -83,7 +83,7 @@ knitr::include_graphics("img/modulos.png")
 ## Cronograma
 
 
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
+```{r, echo=FALSE, out.width="90%", fig.align = "center"}
 knitr::include_graphics("img/calendario2.png")
 ```
 </div>
@@ -95,7 +95,7 @@ knitr::include_graphics("img/calendario2.png")
 ## Salones de clase
 
 
-```{r, echo=FALSE, out.width="50%", fig.align = "center"}
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
  knitr::include_graphics("img/salones2.png")
 ```
 </div>
@@ -105,7 +105,7 @@ knitr::include_graphics("img/calendario2.png")
 <div class="box6 with-label">
 ## Metodología
 
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
+```{r, echo=FALSE, out.width="90%", fig.align = "center"}
 knitr::include_graphics("img/metodologia2.png")
 ```
 
@@ -171,7 +171,7 @@ knitr::include_graphics("img/atencion.png")
 <div class="box6 with-label">
 ## Supletorios
 
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
+```{r, echo=FALSE, out.width="60%", fig.align = "center"}
 knitr::include_graphics("img/supletorios.png")
 ```
 
@@ -182,7 +182,7 @@ knitr::include_graphics("img/supletorios.png")
 <div class="box6 with-label">
 ## Calendario académico 2026-2
 
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/calendario-2026-2.png")
 ```
 </div>

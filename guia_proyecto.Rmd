@@ -1,0 +1,211 @@
+---
+title: <span style="color:#79C45A">Estadística para la toma de decisiones</span>  
+author: <span style="color:#79C45A"> dgonzalez</span>
+subtitle: <span style="color:#79C45A"> </span> 
+output:
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    theme: flatly
+    css:
+      - style.css
+      - cajas.css
+---  
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(
+  fig.width = 9,
+  fig.height = 3.5,
+  fig.retina = 3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+
+source("init.R")
+
+library(ggplot2)
+library(dplyr)
+```
+
+<br/><br/>
+
+```{r, echo=FALSE, out.width="100%", fig.align="left"}
+knitr::include_graphics("img/proyecto_aplicado.png")
+```
+
+<br/><br/>
+
+Los estudiantes deberán desarrollar un **proyecto aplicado** que les permita poner en práctica los conocimientos adquiridos en el curso de **Probabilidad y Estadística**, mediante el análisis de un problema de interés utilizando herramientas de **estadística descriptiva e inferencia estadística**.
+
+<br/><br/>
+
+<div class="box5 with-label">
+<div class="label">Objetivos</div>
+
++ Aplicar los conceptos y técnicas estadísticas estudiados durante el curso.
+
++ Desarrollar habilidades para analizar e interpretar información a partir de datos.
+
++ Utilizar herramientas de estadística descriptiva e inferencial para responder preguntas relacionadas con un problema específico.
+
++ Fortalecer el trabajo en equipo y la comunicación de resultados estadísticos.
+
+</div>
+
+<br/><br/>
+
+<div class="box5 with-label">
+<div class="label">Temática</div>
+
+
+En equipos de **tres estudiantes** se deberá seleccionar un problema de interés para el grupo que pueda ser estudiado mediante datos.
+
+El tema es de libre elección y deberá permitir la aplicación de técnicas de **estadística descriptiva e inferencia estadística**.
+
+El tema propuesto deberá contar con el visto bueno del profesor.
+
+</div>
+
+<br/><br/>
+
+<div class="box5 with-label">
+<div class="label">Requerimientos</div>
+
++ Equipos conformados por **tres estudiantes**.
+
++ Seleccionar un problema que pueda ser analizado mediante una base de datos.
+
++ Identificar claramente el objetivo del estudio y las variables de interés.
+
++ Realizar un análisis descriptivo utilizando medidas, tablas y gráficos apropiados.
+
++ Incluir **por lo menos seis resultados de inferencia estadística**, utilizando intervalos de confianza o pruebas de hipótesis.
+
++ Interpretar los resultados en el contexto del problema estudiado.
+
++ Presentar conclusiones sustentadas en los resultados obtenidos.
+
+</div>
+
+<br/><br/>
+
+<div class="box5 with-label">
+<div class="label">Estructura del trabajo</div>
+
+La presentación final deberá contener:
+
++ **Título e integrantes**
++ **Introducción**
++ **Objetivo**
++ **Metodología**
++ **Análisis descriptivo**
++ **Resultados de inferencia estadística**
++ **Conclusiones y recomendaciones**
++ **Bibliografía**
+
+Los resultados deberán presentarse de manera clara, utilizando únicamente las tablas y gráficos necesarios para sustentar los principales hallazgos.
+
+</div>
+
+<br/><br/>
+
+<div class="box5 with-label">
+<div class="label">Informe parcial</div>
+
+El informe parcial deberá contener:
+
++ Título provisional.
++ Integrantes.
++ Descripción del problema.
++ Objetivo.
++ Breve estado del arte o antecedentes.
++ Descripción de la base de datos.
++ Variables de interés.
++ Metodología estadística propuesta.
+
+**Fecha:** octubre 30 de 2025  
+**Hora:** 23:59
+
+</div>
+
+<br/><br/>
+
+<div class="box5 with-label">
+<div class="label">Entrega final</div>
+
+Cada grupo deberá entregar:
+
++ **Presentación en formato PDF**.
+
+La presentación tendrá una duración máxima de **10 minutos** y deberá contar con la participación de todos los integrantes del grupo.
+
+**Fecha:** noviembre 13 de 2025  
+**Hora:** 23:59
+
+
+
+</div>
+
+<!-- <br/><br/> -->
+
+<!-- <div class="box5 with-label"> -->
+<!-- <div class="label">Criterios de evaluación</div> -->
+
+<!-- | Criterio | Porcentaje | -->
+<!-- |:---|---:| -->
+<!-- | Problema, objetivo y metodología | 15% | -->
+<!-- | Análisis estadístico descriptivo | 20% | -->
+<!-- | Inferencia estadística | 30% | -->
+<!-- | Interpretación de resultados | 15% | -->
+<!-- | Conclusiones y recomendaciones | 10% | -->
+<!-- | Presentación y sustentación | 10% | -->
+<!-- | **Total** | **100%** | -->
+
+<!-- </div> -->
+
+<br/><br/>
+
+<div class="box5 with-label">
+<div class="label">Recomendaciones</div>
+
++ Seleccionar un problema concreto y que pueda responderse mediante datos.
+
++ Verificar desde el inicio que la base de datos sea adecuada para el análisis.
+
++ No realizar procedimientos estadísticos únicamente para cumplir un requisito.
+
++ Cada intervalo de confianza o prueba de hipótesis debe responder a una pregunta relacionada con el problema.
+
++ Interpretar los resultados y evitar presentar únicamente salidas del software.
+
++ Todos los integrantes deberán conocer el trabajo completo.
+
+</div>
+
+<br/><br/>
+
+<div class="box5 with-label">
+<div class="label">Referencias</div>
+
++ Hernández Sampieri, R. *Metodología de la investigación*. McGraw-Hill.
+
++ Malhotra, N. K. *Investigación de mercados*. Pearson.
+
++ [Presentaciones con R Markdown](https://bookdown.org/yihui/rmarkdown/xaringan.html)
+
++ [Trello - Gestión de proyectos](https://trello.com/es/tour)
+
+</div>
+
+<br/><br/>
+
+## Grupos
+
+<br/><br/>
