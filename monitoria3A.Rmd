@@ -1,0 +1,1499 @@
+---
+title: <span style="color:#21B5E4">Estadística para la toma de decisiones</span>
+author: <span style="color:#21B5E4">dgonzalez</span> 
+subtitle: <span style="color:#21B5E4"> </span> 
+output:
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    theme: flatly
+    css:
+      - style.css
+      - cajas_botones.css
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
+library(psych)
+library(summarytools)
+
+# install.packages("devtools")
+#devtools::install_github("dgonxalex80/paquete018")
+#library(paquete018)
+
+
+# colores
+source("init.R")
+
+```
+
+
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/monitoria3.png")
+```
+
+
+<br/><br/>
+
+# Unidad 3.1
+
+<br/>
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.1 
+
+Clasifique las siguientes variables aleatorias como discretas o continuas:
+
+* $X$ : el número de accidentes automovilísticos que ocurren al año en una ciudad determinada
+* $Y$ : el tiempo que dura un partido de futbol - tiempo real de juego en minutos-
+* $M$ : la cantidad de leche que una vaca determinada produce anualmente
+* $N$ : el número de huevos que una gallina pone mensualmente
+* $P$ : el número de permisos para construcción que los funcionarios de una  ciudad emiten cada mes
+* $Q$ : el peso del grano maiz producido por hectarea
+* $R$ : la edad de un estudiante que ingresa a la universidad
+* $S$ : el número de zapatos que tiene un adolescente 
+* $T$ : el número de crias que tiene una tortuga
+* $U$ : el consumo mensual de energía de un hogar en Cali
+* $V$ : el número de hijos por hagar en Colombia
+* $W$ : el número de pasajeros de un bus de servicio publico MIO
+* $X$ : el gasto diario de un estudiante universitario de la Javeriana Cali
+* $Y$ : la cantidad de calorías que un adulto  con actividad moderada gasta diariamente
+* $Z$ : la utilidad mensual de una microempresa
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Distinga entre contar elementos y medir una magnitud: los conteos toman valores aislados; las mediciones pueden tomar cualquier valor dentro de un intervalo.
+* Para la edad, el tiempo y el dinero, explicite si considera la magnitud continua o el registro redondeado a unidades determinadas.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.2 
+
+El tiempo que pasa, en horas, para que un radar detecte entre conductores sucesivos a los que exceden los límites de velocidad es una variable aleatoria continua con una  función de distribución acumulada:
+
+$$F_{_{X}}(x) = \left \{ 
+				\begin{matrix} 
+				 0  & \mbox{ , }	x \leq 0\\ 
+				 1-exp\{-8x \}  & x \geq 0 
+				\end{matrix}\right.  
+				$$
+				
+Calcule la probabilidad de que el tiempo que  pase para que el radar detecte entre conductores sucesivos a  los que exceden los límites de velocidad sea menor a 12 minutos
+
+* usando la función de distribución de probabilidad acumulada de $X$
+* utilizando la función de densidad de probabilidad de $X$
+* Represente las función $f(x)$ gráficamente
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Convierta primero los 12 minutos a horas para usar la misma unidad que $X$.
+* Use $P(X<t)=F_X(t)$, pues la variable es continua.
+* Obtenga la densidad derivando $F_X(x)$ para $x>0$ e integre entre $0$ y $t$. Para graficar la densidad, use esa derivada; el código de referencia siguiente dibuja la acumulada.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+```{r, eval=FALSE, fig.align='center'}
+# Cargar ggplot2
+library(ggplot2)
+
+# Definir la función F(x)
+Fx <- function(x) {
+  ifelse(x <= 0, 0, 1 - exp(-8 * x))
+}
+
+# Crear un rango de valores para x
+x_values <- seq(0, 1, length.out = 500)
+
+# Calcular los valores de F(x)
+Fx_values <- Fx(x_values)
+
+# Crear un dataframe con los valores
+data <- data.frame(x = x_values, Fx = Fx_values)
+
+# Graficar usando ggplot2
+ggplot(data, aes(x = x, y = Fx)) +
+  geom_line(color = c31, size = 1.2) +
+  labs(x = "x", y = "F(x)", title = expression(F[x](x))) +
+  theme_minimal() +
+  xlim(0, 1) +
+  ylim(0, 1) +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12)
+  ) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  geom_vline(xintercept = 0, linetype = "dashed")
+
+
+```
+
+
+
+<br/><br/>
+
+
+<div class="box3 with-label">
+### Problema 1.3
+
+Una variable aleatoria continua $X$, que puede tomar valores entre $x=2$ y $x=5$, tiene una función de densidad data por: 
+
+$$
+f_X(x)=
+\begin{cases}
+\dfrac{2(1+x)}{27}, & 2\leq x\leq 5, \\[6pt]
+0, & \text{en otro caso}.
+\end{cases}
+$$
+
+ Calcule: 
+
+* $P(X < 4)$
+* $P(3 \leq X < 4)$
+* Represente la función $f(x)$ gráficamente
+ 
+ </div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Calcule cada probabilidad como el área bajo la densidad, restringida al soporte $[2,5]$.
+* Para el primer evento integre desde $2$ hasta $4$; para el segundo, desde $3$ hasta $4$.
+* Grafique la expresión lineal en su soporte y recuerde que fuera de él la densidad vale cero.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+ 
+ <br/><br/>
+ 
+<div class="box3 with-label">
+### Problema 1.4
+
+Suponga que cierto tipo de pequeñas empresas de procesamiento de datos están tan especializadas que algunas tienen dificultades para obtener utilidades durante su primer año de operación. La función de densidad de probabilidad está dada por:
+ 
+ $$f_{_{Y}}(y) = \left \{ 
+				\begin{matrix} 
+				ky^4 (1-y)^3 & \mbox{ , }	0 \leq y \leq 1\\ 
+				0  & \mbox{en otro caso }
+				\end{matrix}\right.  
+				$$
+ 
+ 
+* ¿Cuál es el valor de $k$ que hace de la anterior una función de densidad de probabilidad válida?
+* Calcule la probabilidad de que al menos 50% de las empresas tengan utilidades durante el primer año
+* Calcule la probabilidad de que al menos el 80% de las empresas tengan utilidad durante el primer año
+* Represente la función $f(x)$ gráficamente
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Imponga la condición $k\int_0^1 y^4(1-y)^3\,dy=1$ para encontrar la constante.
+* Interprete «al menos» como una cola derecha: integre desde $0.5$ o $0.8$ hasta $1$.
+* Puede expandir $(1-y)^3$ antes de integrar; para la gráfica, use el valor de $k$ obtenido.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+ <br/><br/>
+
+<div class="box3 with-label">
+### Problema1.5 
+ 
+En un grupo de 10 estudiantes que participan en un proyecto universitario, 5 pertenecen a Ingeniería Industrial, 2 a Finanzas y 3 a Administración de Empresas. Para conformar un equipo de trabajo se seleccionan aleatoriamente 4 estudiantes, sin reemplazo.
+
+Sea $X$ el número de estudiantes de Ingeniería Industrial seleccionados. Determine la función de probabilidad de $X$ y explique sus resultados utilizando una fórmula apropiada.
+ 
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* La selección es sin reemplazo: considere una distribución hipergeométrica.
+* Para obtener $X=x$, cuente las formas de elegir $x$ estudiantes de Industrial y $4-x$ de las demás carreras; divida entre las formas de elegir cualquier grupo de cuatro.
+* Use combinaciones y determine qué valores de $x$ son posibles antes de construir la tabla.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details> 
+ 
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.6 
+
+En una cafetería universitaria hay 6 pedidos listos para entregar: 4 tienen un tiempo estimado de entrega de 10 minutos cada uno y 2 de 5 minutos cada uno. Un domiciliario selecciona aleatoriamente 3 pedidos, sin reemplazo, para realizar su siguiente recorrido.
+
+Sea $T$ la suma de los tiempos estimados de entrega de los tres pedidos seleccionados.
+
+Determine la función de probabilidad de $T$ y represente gráficamente la distribución obtenida.   
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Defina $X$ como el número de pedidos de 10 minutos seleccionados. Exprese el tiempo total como $T=10X+5(3-X)$.
+* Determine los valores posibles de $X$ teniendo en cuenta que solo hay dos pedidos de 5 minutos.
+* Calcule las probabilidades con un modelo hipergeométrico y asígnelas a los tiempos correspondientes. Use barras o puntos para la gráfica.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+
+<div class="box3 with-label">
+### Problema 1.7
+
+Con base en las pruebas extensas, el fabricante de una lavadora determinó que el tiempo $Y$ (en años) para que el electrodoméstico requiera una reparación mayor se obtiene mediante la siguiente función de densidad de probabilidad :
+
+ 
+  $$f_{_{Y}}(y) = \left \{ 
+				\begin{matrix} 
+				\dfrac{1}{4} exp\{-y/4\} & \mbox{ , }	y \geq 0\\ 
+				0  & \mbox{en otro caso }
+				\end{matrix}\right.  
+				$$
+ 
+* Los críticos considerarían que la lavadora es una ganga si no hay una probabilidad de que requiera una reparación mayor antes del sexto año. ¿Se puede considerar la lavadora como una ganga?
+
+* ¿Cuál es la probabilidad de que a lavadora requiera una reparación mayor durante el primer año?
+* Represente la función $f(x)$ gráficamente
+  
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* La densidad corresponde a una distribución exponencial con tasa $1/4$ por año.
+* Calcule $P(Y<6)$ y compárela con el criterio literal de que no exista probabilidad de reparación antes del sexto año.
+* Para el primer año integre desde $0$ hasta $1$; la gráfica debe ser decreciente en el soporte no negativo.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+
+```{r, eval=FALSE, fig.align='center', fig.width=4, fig.height=3}
+# Cargar ggplot2
+library(ggplot2)
+
+# Definir la función f_Y(y)
+fy <- function(y) {
+  ifelse(y >= 0, (1 / 4) * exp(-y / 4), 0)
+}
+
+# Crear un rango de valores para y
+y_values <- seq(0, 20, length.out = 500)
+
+# Calcular los valores de f_Y(y)
+fy_values <- fy(y_values)
+
+# Crear un dataframe con los valores
+data_fy <- data.frame(y = y_values, fy = fy_values)
+
+# Graficar usando ggplot2
+ggplot(data_fy, aes(x = y, y = fy)) +
+  geom_line(color = c32, size = 1.2) +
+  labs(x = "y", y = "f(y)", title = expression(f[Y](y))) +
+  theme_minimal() +
+  xlim(0, 20) +
+  ylim(0, 0.3) +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12)
+  ) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  geom_vline(xintercept = 0, linetype = "dashed")
+
+```
+
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.8
+
+Sea el número de llamadas telefónicas que recibe un conmutador durante un intervalo de 5 minutos una variable aleatoria $X$ con la siguiente función de distribución de probabilidad:
+
+<br/>
+
+$$
+f_X(x)=
+\left\{
+\begin{matrix}
+\dfrac{e^{-2}2^x}{x!}, & x=0,1,2,3,\ldots, \\[6pt]
+0, & \text{en otro caso}.
+\end{matrix}
+\right.
+$$
+
+<br/>
+
+* Determine la probabilidad de que $X$ sea igual a $0, 1, 2, 3, 4, 5$ y $6$
+* Grafique la función de distribución de probabilidad para estos valores de $X$
+* Determine la función de distribución acumulada para estos valores de $X$.
+* Represente la función $f(x)$ gráficamente
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Identifique una distribución de Poisson con parámetro $2$ para el intervalo de cinco minutos.
+* Evalúe la fórmula en cada entero solicitado; en R puede comprobar con `dpois(0:6, lambda = 2)`.
+* La acumulada se obtiene sumando desde $0$ hasta cada valor de $x$. Grafique la masa con barras y la acumulada como una función escalonada; queda probabilidad más allá de $6$.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.9 
+
+El congestionamiento de pasajeros es un problema de servicio en los aeropuertos, en los cuales se instalan trenes para reducir la congestión.  cuando se usa el tren el tiempo $X$, en minutos, que toma viajar desde la terminal principal hasta una  explanada específica tiene la siguiente función de densidad:
+
+
+ $$f_{_{X}}(x) = \left \{ 
+				\begin{matrix} 
+				\dfrac{1}{10} & \mbox{ , }	0 \leq y \leq 10\\ 
+				0  & \mbox{en otro caso }
+				\end{matrix}\right.  
+				$$
+
+* Determine que la función de  densidad de probabilidad anterior es válida
+* Calcule la probabilidad de que el tiempo que le toma a un pasajero viajar desde la terminal principal hasta la explanada no exceda los 7 minutos
+* Represente la función $f(x)$ gráficamente
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Compruebe que la densidad sea no negativa y que el área del rectángulo sobre $[0,10]$ sea uno.
+* «No exceda los 7 minutos» corresponde a $P(X\leq 7)$: integre desde $0$ hasta $7$.
+* Dibuje una altura constante dentro del soporte y cero fuera de él; la condición del enunciado debe leerse en términos de $x$.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+```{r, eval=FALSE, fig.align='center', fig.width=4, fig.height=3}
+# Cargar ggplot2
+library(ggplot2)
+
+# Definir la función f_X(x)
+fx <- function(x) {
+  ifelse(x >= 0 & x <= 10, 1/10, 0)
+}
+
+# Crear un rango de valores para x
+x_values <- seq(0, 10, length.out = 500)
+
+# Calcular los valores de f_X(x)
+fx_values <- fx(x_values)
+
+# Crear un dataframe con los valores
+data_fx <- data.frame(x = x_values, fx = fx_values)
+
+# Graficar usando ggplot2
+ggplot(data_fx, aes(x = x, y = fx)) +
+  geom_line(color = c32, size = 1.2) +
+  labs(x = "x", y = "f(x)", title = expression(f[X](x))) +
+  theme_minimal() +
+  xlim(0, 10) +
+  ylim(0, 0.12) +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12)
+  ) +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  geom_vline(xintercept = 0, linetype = "dashed")
+
+```
+
+
+
+
+<br/>
+
+Problemas tomado de walpole (2006)
+
+<br/><br/><br/>
+
+
+<div class="box3 with-label">
+### Problema 1.10
+
+Suponga que:
+
+$$
+f_X(x)=
+\begin{cases}
+e^{-x}, & x\geq 0, \\[4pt]
+0, & x<0.
+\end{cases}
+$$
+
+Determine :
+
+* $P(1 < X)$
+* $P(1 < X < 2.5$
+* $P(X = 3$
+* $P(X < 4)$
+* Los valores de $Me$, $Q_{1}$ y $Q_{3}$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Obtenga la acumulada integrando la densidad desde $0$ hasta $x$.
+* Use el complemento para la cola derecha y una diferencia de acumuladas para el intervalo.
+* Una variable continua tiene probabilidad cero en un punto. Para la mediana y los cuartiles, resuelva $F_X(q)=p$ con $p=0.5$, $0.25$ y $0.75$.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+
+<div class="box3 with-label">
+### Problema 1.11
+
+Para una variable aleatoria con función de densidad :  
+
+$$
+f_X(x)=
+\begin{cases}
+\dfrac{x}{8}, & 3<x<5, \\[4pt]
+0, & \text{en otro caso}.
+\end{cases}
+$$
+
+Determine :
+
+* $P(X < 4)$
+* $P(X > 3.5)$
+* $P(4 < X < 5)$
+* $P((X < 3.5) \cup (X > 4.5))$
+* el valor de $Me$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Integre $x/8$ únicamente dentro del soporte $(3,5)$.
+* Los eventos $X<3.5$ y $X>4.5$ son disjuntos, por lo que puede sumar sus probabilidades.
+* La mediana $m$ satisface $\int_3^m x/8\,dx=0.5$.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.12 
+
+Suponga que $X$ tiene una función de distribución acumulada :
+
+$$F_{_{X}}(x) = \left \{ 
+				\begin{matrix} 
+				 0    & \mbox{ , } x \leq 0\\ 
+				 2x   & \mbox{, } x < 0 < x 5  \\
+				 1    & \mbox{ , } 5 \leq 5
+				\end{matrix}\right.  
+				$$
+
+Determine:
+
+* $P(X < 4)$
+* $P(X = 1.5)$
+* $P(X > 3)$
+* $P(0.5 < X < 2.7$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Antes de calcular, revise la definición: una acumulada debe ser no decreciente, permanecer entre $0$ y $1$ y tener tramos bien definidos. La expresión $2x$ y las condiciones escritas en el enunciado no cumplen una definición coherente; confirme la fórmula y los límites correctos.
+* Una vez corregida, use diferencias de acumuladas para intervalos y el complemento para colas derechas. La probabilidad en un punto es el salto de la acumulada en ese punto.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+
+<div class="box3 with-label">
+### Problema 1.13
+
+Para la variable aleatoria que tiene la siguiente función de distribución de probabilidad :
+
+| $x$  | $-2$ | $-1$   | $0$    |  $1$   | $2$    |
+|:----:|:----:|:------:|:------:|:------:|:------:|
+|$f(x)$|$1/8$ |$2/8$   |$2/8$   |$2/8$   | $1/8$  |
+
+Determine:
+
+* $P(X \leq 2)$
+* $P(X > 3)$
+* $P(-1 \leq X \leq 1)$
+* $P(X < 3.5 ; X > 4.5)$
+* El valor de $Me$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Identifique qué valores del soporte satisfacen cada evento y sume solamente sus masas.
+* Compare los límites pedidos con el menor y el mayor valor de la tabla.
+* Aclare si el punto y coma del cuarto evento indica intersección o unión. Para la mediana, construya las sumas acumuladas y localice dónde se alcanza $0.5$.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.14
+
+Para una variable con función de distribución de probabilidad : 
+
+ $$f_{_{X}}(x) = \left \{ 
+				\begin{matrix} 
+				\dfrac{2x + 1}{25} & \mbox{ , }	x=0, 1, 2, 3, 4\\ 
+				0  & \mbox{en otro caso }
+				\end{matrix}\right.  
+				$$
+
+Determine:
+
+* $P(X =1)$
+* $P(X \leq 1)$
+* $P(2 \leq X < 4)$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Evalúe la función solo para los enteros $0,1,2,3,4$.
+* Para $X\leq 1$ sume las masas de los valores permitidos; para $2\leq X<4$, tenga en cuenta que el extremo superior está excluido.
+* Compruebe que la suma sobre todo el soporte sea uno.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+```{r, fig.align='center', fig.width=4, fig.height=3}
+# # Cargar ggplot2
+# library(ggplot2)
+# 
+# # Definir la función f_X(x)
+# fx <- function(x) {
+#   ifelse(x %in% 0:4, (2*x + 1)/25, 0)
+# }
+# 
+# # Crear un rango de valores para x
+# x_values <- 0:4
+# 
+# # Calcular los valores de f_X(x)
+# fx_values <- fx(x_values)
+# 
+# # Crear un dataframe con los valores
+# data_fx <- data.frame(x = x_values, fx = fx_values)
+# 
+# # Graficar usando ggplot2 en un diagrama de puntos
+# ggplot(data_fx, aes(x = x, y = fx)) +
+#   geom_point(color = c32, size = 2) +
+#   #geom_line(color = "blue", linetype = "dashed") +
+#   labs(x = "x", y = "f(x)", title = expression(f[X](x))) +
+#   theme_minimal() +
+#   ylim(0, 0.4) +
+#   theme(
+#     plot.title = element_text(hjust = 0.5, size = 16),
+#     axis.title = element_text(size = 14),
+#     axis.text = element_text(size = 12)
+#   )
+# 
+
+```
+
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.15 
+
+Para una variable aleatoria con función de distribución de probabilidad: 
+
+$$
+f_X(x)=
+\begin{cases}
+\dfrac{3}{4}\left(\dfrac{1}{4}\right)^x,
+& x=0,1,2,3,\ldots, \\[6pt]
+0, & \text{en otro caso}.
+\end{cases}
+$$
+
+* $P(X = 2)$
+* $P(X \leq 2)$
+* $P(2 \leq X$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Reconozca una serie geométrica con razón $1/4$ y soporte que empieza en cero.
+* Para $X\leq 2$, sume las masas de $0$, $1$ y $2$.
+* Interprete el último evento como $X\geq 2$ y use el complemento de $X<2$, cuidando incluir la masa en $2$.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.16 
+
+Sponga que $X$ tiene una función de probabilidad acumulada: 
+
+$$F_{_{X}}(x) = \left \{ 
+				\begin{matrix} 
+				 0    & \mbox{ , } x \leq 0\\ 
+				 0.2 x   & \mbox{, } 0 < x < 5  \\
+				 1    & \mbox{ , } x \geq 5
+				\end{matrix}\right.  
+				$$
+
+Determine: 
+* $P(X < 2.8)$
+
+```{r}
+Fx=function(x){0.2*x }
+Fx(2.8)
+```
+
+* $P(X > 1.5)$
+* $P(X < -2)$
+* Determine $f_{_{X}}(x)$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Seleccione el tramo de $F_X$ que corresponde a cada argumento, incluso cuando sea negativo.
+* Para la cola derecha use $P(X>a)=1-F_X(a)$.
+* Obtenga la densidad derivando por tramos en los intervalos abiertos y compruebe si hay saltos en los extremos.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.17 
+
+El tiempo de reparación (en minutos) de una máquina fotocopiadora tiene una función de densidad:
+
+
+ $$f_{_{X}}(x) = \left \{ 
+				\begin{matrix} 
+				\dfrac{1}{22} exp\{-x/22\} & \mbox{ , }	x > 0\\ 
+				0  & \mbox{en otro caso }
+				\end{matrix}\right.  
+				$$
+
+Cuando el profesor de Probabilidad y Estadística se preparaba para imprimir el cuestionario del segundo examen parcial, fue enterado por la secretaria del departamento que la máquina fotocopiadora se había averiado y que el técnico había acabado de llegar en ese instante y empezado a repararla. El profesor debe contar con por lo menos 10 minutos extras - tiempo de fotocopiado de 35 exámenes, organizar sus respectivas hojas de respuestas, sumado tiempo de su desplazamiento hasta el salón de clase, arreglo de las mesas y entrega de los cuestionarios a los estudiantes. Al mirar el reloj, el profesor observa que faltan 20 minutos para la hora en que debe empezar el examen y decide esperar a que el técnico repare la fotocopiadora. ¿Es acertada o no la decisión que tomó el profesor? Justifique su respuesta.   
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Reste de los 20 minutos disponibles los 10 minutos necesarios para las tareas posteriores: ese es el tiempo máximo de reparación admisible.
+* Integre la densidad hasta ese límite para estimar la probabilidad de iniciar a tiempo.
+* Compare esa probabilidad con la de retrasarse y justifique la decisión según el riesgo que se esté dispuesto a aceptar.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<!-- ```{r, echo=FALSE} -->
+<!-- library(downloadthis) -->
+<!-- download_link( -->
+<!--   link = "https://github.com/dgonxalex80/probabilidad20212.io/blob/main/talleres/Solucion_Taller_303.pdf", -->
+<!--   button_label = "Descarga: solución pdf ", -->
+<!--   button_type = "primary", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
+
+<br/><br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.18
+
+Suponga que:
+
+$$
+f_X(x)=
+\begin{cases}
+e^{-x}, & x\geq 0, \\[4pt]
+0, & x<0.
+\end{cases}
+$$
+
+
+Determine :
+
+* $E[X]$
+* $V[X]$
+* $P_{20}$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Use $E[X]=\int_0^\infty x f_X(x)\,dx$ y calcule también $E[X^2]$.
+* Obtenga la varianza con $V[X]=E[X^2]-(E[X])^2$.
+* Para el percentil 20, encuentre el valor $q$ que satisface $F_X(q)=0.20$.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.19
+
+Para una variable aleatoria con función de densidad :
+
+$$
+f_X(x)=
+\begin{cases}
+\dfrac{x}{8}, & 3<x<5, \\[4pt]
+0, & \text{en otro caso}.
+\end{cases}
+$$
+
+Determine :
+
+* $\mu_{_{X}}$
+* $\sigma_{_{X}}$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Calcule el primer y el segundo momento integrando $x f_X(x)$ y $x^2 f_X(x)$ sobre $(3,5)$.
+* La media es el primer momento; la desviación estándar es la raíz cuadrada de $E[X^2]-(E[X])^2$.
+* Compruebe que la media quede dentro del soporte.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<div class="box3 with-label">
+### Problema 1.20
+
+Suponga que $X$ tiene una función de distribución acumulada:
+
+$$
+F_X(x)=
+\begin{cases}
+0, & x<0, \\[4pt]
+\dfrac{x}{5}, & 0\leq x<5, \\[4pt]
+1, & x\geq 5.
+\end{cases}
+$$
+
+Determine : 
+
+* $E[X]$
+* $V[X]$
+* $P_{50}$
+* Se podría obtener el coeficiente de variación?. En caso afirmativo, ¿que valor tendría?
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Derive la acumulada en $(0,5)$ para identificar una densidad uniforme.
+* Calcule los dos primeros momentos y use $V[X]=E[X^2]-(E[X])^2$.
+* Resuelva $F_X(q)=0.5$ para el percentil 50. Para el coeficiente de variación, verifique que la media sea positiva y use $CV=\sigma_X/\mu_X$; multiplíquelo por $100$ si lo expresa en porcentaje.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.21
+
+Para la variable aleatoria que tiene la siguiente función de distribución de probabilidad :
+
+| $x$  | $-2$ | $-1$   | $0$    |  $1$   | $2$    |
+|:----:|:----:|:------:|:------:|:------:|:------:|
+|$f(x)$|$1/8$ |$2/8$   |$2/8$   |$2/8$   | $1/8$  |
+
+Determine : 
+
+* $E[X]$
+* $V[X]$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Calcule $E[X]=\sum_x x f_X(x)$; la simetría de la tabla permite comprobar el resultado.
+* Calcule por separado $E[X^2]=\sum_x x^2 f_X(x)$ y reste $(E[X])^2$ para obtener la varianza.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.22
+
+Para una variable con función de distribución de probabilidad : 
+
+ $$f_{_{X}}(x) = \left \{ 
+				\begin{matrix} 
+				\dfrac{(2x + 1)}{25} & \mbox{ , }	x=0, 1, 2, 3, 4\\ 
+				0  & \mbox{en otro caso }
+				\end{matrix}\right.  
+				$$
+
+Determine : 
+
+* $E[X]$
+* $V[X]$
+* Coeficiente de variación
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Construya una tabla con columnas $x$, $f_X(x)$, $x f_X(x)$ y $x^2 f_X(x)$ para $x=0,\ldots,4$.
+* Las sumas de las dos últimas columnas dan los momentos necesarios para la media y la varianza.
+* Para el coeficiente de variación, divida la desviación estándar entre la media; indique si lo expresa como razón o porcentaje.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.23
+
+Para una variable aleatoria con función de distribución de probabilidad: 
+
+$$
+f(x)=\frac{3}{4}\left(\frac{1}{4}\right)^x,
+\qquad x=0,1,2,3,\ldots
+$$
+
+Determine : 
+
+* $E[X]$
+* $V[X]$
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Reconozca la distribución geométrica que cuenta fracasos antes del primer éxito, con $p=3/4$ y soporte desde cero.
+* Para esta convención, use $E[X]=(1-p)/p$ y $V[X]=(1-p)/p^2$, o derive los momentos mediante series geométricas.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>
+
+Problemas tomados de Mongomery(2003)
+
+<br/><br/>
+
+<div class="box3 with-label">
+### Problema 1.24
+
+Una de las preocupaciones que tienen los padres hoy en dia está relacionada con el tiempo que pasan sus hijos usando celular. Un estudio determinó que el número de llamadas que un joven realiza durante un dia es una variable aleatoria ($X$) con función de distribución :
+
+ $$f_{_{X}}(x) = \left \{ 
+				\begin{matrix} 
+				\dfrac{8^{x}\hspace{.2cm} exp\{-8\}}{x!} & \mbox{ , para } \hspace{.3cm}	x = 0,1,2,3,4,5,.....\\ 
+				0  & \mbox{en otro caso }
+				\end{matrix}\right.  
+				$$
+
+El estudio afirma también que los jóvenes en promedio reciben al rededor de 12 llamadas por día, valor que es considerado muy alto, debido a que a esa edad por lo regular no se tienen actividades económicas que lo ameriten. También mencionan que debido a que se ha logrado identificar la función de distribución de probabilidad es fácil establecer que se trata de una variable con un comportamiento homogéneo. ¿Está de acuerdo con la información suministrada en el artículo? . Justifique su respuesta. 
+
+</div>
+
+<details class="caja-pista">
+<summary>Pista</summary>
+
+<div class="contenido">
+
+* Compare la función dada con la masa de una Poisson e identifique su parámetro; en este modelo, la media y la varianza coinciden con ese parámetro.
+* Distinga entre llamadas realizadas, que modela $X$, y llamadas recibidas, que menciona el artículo: una distribución de las primeras no permite verificar el promedio de las segundas.
+* Evalúe la dispersión relativa con $CV=\sqrt{V[X]}/E[X]$. Conocer la distribución no basta para afirmar homogeneidad: explicite el criterio de comparación.
+
+</div>
+</details>
+
+<details class="caja-respuesta">
+<summary>Respuesta</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar la respuesta breve del problema.*
+
+</div>
+</details>
+
+<details class="caja-solucion">
+<summary>Solución paso a paso</summary>
+
+<div class="contenido">
+
+*Espacio para incorporar el desarrollo completo de la solución.*
+
+</div>
+</details>

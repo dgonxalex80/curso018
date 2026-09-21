@@ -158,6 +158,8 @@ blockquote {
 .box0.with-label > h2:first-child { margin: 0 0 .65rem; padding-top: 0 !important; }
 .box0 > p:last-child { margin-bottom: 0; }
 
+/* Pista/Solución se definen en cajas_botones.css. */
+
 /* Ficha técnica de la guía 11. */
 .ficha-tecnica { margin: 1.5rem 0 2.5rem; padding: 1.75rem; border: 2px solid var(--curso-coral); border-radius: 12px; background: #fff; box-shadow: 0 8px 24px rgba(36, 50, 71, .08); }
 .ficha-tecnica .ficha-intro { margin: 0 0 1.25rem; padding: .85rem 1rem; border-left: 5px solid var(--curso-coral); border-radius: 6px; background: #FDF1EF; }
@@ -210,8 +212,7 @@ a:hover { color: var(--curso-rojo); }
   margin: 0 !important;
   object-fit: contain !important;
 }
-
- (max-width: 767px) {
+@media (max-width: 767px) {
   body { font-size: 16px; line-height: 1.65; }
   .main-container { padding: 0 1rem 3rem; }
   h1 { margin-top: 2.2rem; }

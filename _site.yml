@@ -95,8 +95,14 @@ navbar:
         - text: "Recursos 3.1"
           href: recurso31.html     
         - text: "Taller 311"
-          href: taller311.html            
-
+          href: taller311.html     
+        - text: "---------" 
+        - text: "Guía 3.2"
+          href: guia33.html        
+        - text: "Recursos 3.2"
+          href: recurso33.html     
+        - text: "Código 3.2"
+          href: codigo33.html               
         - text: "--------"        
         - text: "Monitoría 3"  
           href: monitoria3.html            

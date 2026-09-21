@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="dgonzalez" />
+<meta name="author" content="dgonzalez " />
 
 
-<title>guia33.knit</title>
+<title>Estadística para la toma de decisiones</title>
 
 <script src="site_libs/header-attrs/header-attrs.js"></script>
 <script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
@@ -402,6 +402,16 @@ $(document).ready(function () {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="guia33.html">Guía 3.2</a>
+    </li>
+    <li>
+      <a href="recurso33.html">Recursos 3.2</a>
+    </li>
+    <li>
+      <a href="codigo33.html">Código 3.2</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="monitoria3.html">Monitoría 3</a>
     </li>
   </ul>
@@ -464,29 +474,27 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore"><span
+style="color:#21B5E4 !important;">Estadística para la toma de
+decisiones</span></h1>
+<h3 class="subtitle"><span style="color:#21B5E4"> </span></h3>
+<h4 class="author"><span style="color:#21B5E4">dgonzalez </span></h4>
 
 </div>
 
 
 <p><br/><br/></p>
 <p><img src="img/guia3.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
-<div id="guía-de-aprendizaje-3.3" class="section level1">
-<h1><strong>Guía de aprendizaje 3.3</strong></h1>
 <p><br/><br/></p>
-<div id="introducción" class="section level2">
-<h2><strong>Introducción</strong></h2>
-<p>En las unidades 3.1 y 3.2 hemos recorrido los principales conceptos
+<div id="introducción" class="section level1">
+<h1>Introducción</h1>
+<p>En las unidades 3.1 hemos recorrido los principales conceptos
 relacionados caracterización de las variables aleatorias tanto discretas
 como continuas. Características como: <span
 class="math inline">\(f(x)\)</span>, <span
 class="math inline">\(F(x)\)</span>, <span
 class="math inline">\(E[X]\)</span>, <span
-class="math inline">\(V[X]\)</span>, en el caso univariado. Para el caso
-conjunto : <span class="math inline">\(f(x,y)\)</span>, <span
-class="math inline">\(F(x,y)\)</span>, <span
-class="math inline">\(E[XY]\)</span>, <span
-class="math inline">\(Cov[XY]\)</span> y <span
-class="math inline">\(\rho\)</span>.</p>
+class="math inline">\(V[X]\)</span> .</p>
 <p>En esta unidad se presentan los principales modelos estadísticos
 tanto para variables discretas como continuas y sus aplicaciones. En el
 caso de los modelos discretas se deberá identificar el modelo a través
@@ -495,26 +503,25 @@ el caso continuo los ejemplos indicaran el modelo correspondiente que
 genera la variable.</p>
 <p><br/><br/></p>
 </div>
-<div id="objetivos-de-la-unidad" class="section level2">
-<h2><strong>Objetivos de la unidad</strong></h2>
+<div id="objetivos-de-la-unidad" class="section level1">
+<h1>Objetivos de la unidad</h1>
 <p>Al finalizar la unidad los estudiantes estarán en capacidad de
 IDENTIFICAR, CALCULAR y APLICAR los diferentes modelos de probabilidad
 para la solución de problemas en contexto y su representación a través
 de la simulación.</p>
 <p><br/><br/></p>
 </div>
-<div id="duración" class="section level2">
-<h2><strong>Duración</strong></h2>
-<p>La presente unidad será desarrollada durante la comprendida entre 22
-de septiembre al 5 de octubre.<br />
-Ademas del material suministrado contaran con el acompañamiento del
-profesor en las sesiones descritas en el calentadario.</p>
+<div id="duración" class="section level1">
+<h1>Duración</h1>
+<p>La presente unidad será desarrollada durante la novena semana. Ademas
+del material suministrado contaran con el acompañamiento del profesor en
+las sesiones 1 y 2 y un espacio de monitoría.</p>
 <p>Para alcanzar los objetivos planteados se propone realizar las
 siguientes actividades</p>
 <p><br/><br/></p>
 </div>
-<div id="cronograma-de-trabajo" class="section level2">
-<h2><strong>Cronograma de trabajo</strong></h2>
+<div id="cronograma-de-trabajo" class="section level1">
+<h1>Cronograma de trabajo</h1>
 <table>
 <colgroup>
 <col width="18%" />
@@ -530,9 +537,10 @@ siguientes actividades</p>
 <tr class="odd">
 <td align="left"><strong>Actividad 331</strong></td>
 <td align="left">Construir un poster en formato A2 (42 cm x 59.4 cm).
-para el modelo asignado que contenga sus principales características. 
-Para la sustentación del poster se debe elaborar un VÍDEO de no mas de 5
-minutos y enviar el enlace para su visualización y evaluación.</td>
+para el modelo asignado que contenga sus principales
+características.Para la sustentación del poster se debe elaborar un
+VÍDEO de no mas de 5 minutos y enviar el enlace para su visualización y
+evaluación.</td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -540,35 +548,7 @@ minutos y enviar el enlace para su visualización y evaluación.</td>
 </tr>
 <tr class="odd">
 <td align="left">Fecha entrega</td>
-<td align="left">2 de octubre de 2025 - <strong>presentación de
-videos</strong></td>
-</tr>
-<tr class="even">
-<td align="left">Hora</td>
-<td align="left">14:00</td>
-</tr>
-</tbody>
-</table>
-<p><br/><br/></p>
-<table>
-<colgroup>
-<col width="17%" />
-<col width="82%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td align="left"><strong>Activiad 332</strong></td>
-<td align="left">A cada estudiante se le ha asignado  4 PROBLEMAS
-contenidos en la Actividad332. Se podrá cambiar uno de los problemas
-asignados por otro de su preferencia dentro de los restantes.</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Trabajo individual</td>
-</tr>
-<tr class="odd">
-<td align="left">Fecha</td>
-<td align="left">15 de octubre de 2025</td>
+<td align="left">septiembre 28 de 2026</td>
 </tr>
 <tr class="even">
 <td align="left">Hora</td>
@@ -578,8 +558,8 @@ asignados por otro de su preferencia dentro de los restantes.</td>
 </table>
 <p><br/><br/></p>
 </div>
-<div id="criterios-de-evaluación" class="section level2">
-<h2><strong>Criterios de evaluación</strong></h2>
+<div id="criterios-de-evaluación" class="section level1">
+<h1>Criterios de evaluación</h1>
 <p><br/><br/></p>
 <ul>
 <li><p>Reconoce los modelos especiales asociados a contextos y problemas
@@ -591,8 +571,8 @@ de problemas en contexto a través de la simulación</p></li>
 </ul>
 <p><br/><br/></p>
 </div>
-<div id="entregables" class="section level2">
-<h2><strong>Entregables</strong></h2>
+<div id="entregables" class="section level1">
+<h1>Entregables</h1>
 <p><br/><br/></p>
 <table>
 <colgroup>
@@ -609,18 +589,19 @@ de problemas en contexto a través de la simulación</p></li>
 <tr class="odd">
 <td align="left">Actividad 331</td>
 <td align="left"><strong>poster</strong> y presentación del mismo a
-través de video. Jueves 2 de octubre. Hora: 14:00</td>
+través de video.</td>
 </tr>
 <tr class="even">
-<td align="left">Actividad 332</td>
-<td align="left">enlace de Rmd publicado en <strong>RPub</strong> con el
-desarrollo del problema asignado. Domingo 15 de octubre. Hora :
-23:59</td>
+<td align="left">Fecha:</td>
+<td align="left">28 de septiembre.</td>
+</tr>
+<tr class="odd">
+<td align="left">Hora:</td>
+<td align="left">23:59</td>
 </tr>
 </tbody>
 </table>
 <p><br/><br/><br/><br/></p>
-</div>
 </div>
 
 
