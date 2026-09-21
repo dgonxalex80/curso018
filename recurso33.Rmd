@@ -99,7 +99,7 @@ A continuación se presentan los principales modelos discretos.
 
 <br/><br/><br/>
 
-##  <span style="color:#21B5E4"> Bernoulli</span>
+#  <span style="color:#21B5E4"> Bernoulli</span>
 
 <br/>
 
@@ -177,7 +177,7 @@ $$V[X] =p(1-p)= 0.16$$
 <br/><br/><br/>
 
 
-##  <span style="color:#21B5E4">  binomial </span>
+#  <span style="color:#21B5E4">  binomial </span>
 
 <br/>
 
@@ -288,7 +288,7 @@ fig_binom.pdf
 <br/><br/><br/>
 
 
-##  <span style="color:#21B5E4"> Poisson</span>  
+#  <span style="color:#21B5E4"> Poisson</span>  
 
 <br/>
 
@@ -371,7 +371,7 @@ dpois(0,2)
 
 <br/><br/><br/>
 
-##  <span style="color:#21B5E4"> hipergeometrico</span> 
+#  <span style="color:#21B5E4"> hipergeometrico</span> 
 
 Este modelo nace de la necesidad de modelar eventos Bernoulli con probabilidad no constante generados en elecciones sin repetición. 
 
@@ -443,7 +443,7 @@ phyper(0,5,135,20, lower.tail = FALSE)
 
 <br/><br/><br/>
 
-##  <span style="color:#21B5E4"> geométrico o de Pascal</span> 
+#  <span style="color:#21B5E4"> geométrico o de Pascal</span> 
 
 La distribución geométrica también conocida como distribución de Pascal, fue esbozada en el escrito El arte de la conjetura, escrita por Jakob Bernoulli. Esta distribución modela el número de ensayos Bernoulli necesarios para obtener el primer éxito. Los valores que puede tomar esta variable son:
 
@@ -534,7 +534,7 @@ dgeom(2, 0.50)
 
 <br/><br/><br/>
 
-##  <span style="color:#21B5E4">binomial negativo </span> 
+#  <span style="color:#21B5E4">binomial negativo </span> 
 
 <br/>
 
@@ -625,7 +625,7 @@ Las variables continuas proceden en su mayoría de la medición y se clasifican 
 
 <br/><br/><br/>
 
-## uniforme
+# <span style="color:#21B5E4">uniforme </span>
 
 <br/>
 
@@ -680,7 +680,7 @@ ggplot(data=dat,aes(x=x, y=fx))+
 
 
 
-##  <span style="color:#21B5E4">normal </span> 
+#  <span style="color:#21B5E4">normal </span> 
 
 La distribución normal es uno de los modelos más utilizados en las aplicaciones de la Estadística. Estas aplicaciones están relacionadas con:
 
@@ -752,7 +752,8 @@ a este proceso se le llama comúnmente estandarizar.
 </div> 
 
 
-##  <span style="color:#21B5E4">normal estándar</span> 
+#  <span style="color:#21B5E4">normal estándar</span> 
+
 ```{r, echo=FALSE, fig.height=3.5, fig.align='center'}
 library(ggfortify)
 ggdistribution(dnorm, seq(-4, 4, 0.1), mean = 0, sd = 1,fill = c31)
@@ -811,7 +812,7 @@ pnorm(70, mean=60, sd=4, lower.tail=FALSE)
 <br/><br/><br/>
 
 
-## <span style="color:#21B5E4">exponencial</span>   
+# <span style="color:#21B5E4">exponencial</span>   
 
 Este modelo fue  planteado por el matemático estadístico e ingeniero Agner Kraru Erlang, experto en el trafico de las comunicaciones y la teoría de colas. 
 Distribución utilizada para modelar el tiempo entre dos eventos consecutivos. 
@@ -912,7 +913,7 @@ Con las siguientes propiedades:
 
 <br/><br/><br/>
 
-##  <span style="color:#21B5E4">gamma </span>  
+#  <span style="color:#21B5E4">gamma </span>  
 
 Esta distribución tiene su origen en la familia de curvas sesgadas propuestas por Karl Pearson. Esta distribución es otra alternativa para modelar los tiempos de espera de ocurrencia de sucesos o eventos. En ocasiones puede relacionarse con la suma de los tiempos de variables exponenciales sucesivas con igual media.
 
@@ -990,7 +991,7 @@ pgamma(10,3,0.5, lower.tail = FALSE)
 
 <br/><br/><br/>
 
-## Weibull 
+# <span style="color:#21B5E4">Weibull </span> 
 
 <br/>
 
@@ -1101,7 +1102,7 @@ $$\begin{eqnarray*}
 <br/><br/><br/>
 
 
-##  <span style="color:#21B5E4">Tabla normal estandar </span> 
+#  <span style="color:#21B5E4">Tabla normal estandar </span> 
 
 
 ```{r, fig.align='center', fig.height=2, fig.width=4}
