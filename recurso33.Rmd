@@ -1101,74 +1101,10 @@ $$\begin{eqnarray*}
 
 <br/><br/><br/>
 
+<!-- --------------------------------------------------------------------------------- -->
 
-#  <span style="color:#21B5E4">Tabla normal estandar </span> 
+<br/><br/>
 
-
-```{r, fig.align='center', fig.height=2, fig.width=4}
-library(ggplot2)
-
-# Definir rango para la curva normal
-x <- seq(-4, 4, length=1000)
-y <- dnorm(x)
-
-# Valor de z
-z <- -1
-
-# Data frame para la curva
-df <- data.frame(x = x, y = y)
-
-# Data frame para el área sombreada
-df_shade <- subset(df, x <= z)
-
-# Graficar
-ggplot(df, aes(x, y)) +
-  geom_line(size=0.5) +
-  geom_area(data = df_shade, aes(x, y), fill=c31, alpha=0.8) +
-  geom_vline(xintercept = z, linetype="dashed") +
-  labs(x="z", y="Densidad") +
-  annotate("text", x = -2.8, y = 0.3, label = "F(-1) =  P(Z < -1)", size = 3, color="black") +
-  theme_minimal(base_size = 10)
-
-
-```
-
-
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
- knitr::include_graphics("img/tabla-normal1.png")
-```
-
-
-
-```{r, fig.align='center', fig.height=2, fig.width=4}
-library(ggplot2)
-
-# Definir rango para la curva normal
-x <- seq(-4, 4, length=1000)
-y <- dnorm(x)
-
-# Valor de z
-z <- 1
-
-# Data frame para la curva
-df <- data.frame(x = x, y = y)
-
-# Data frame para el área sombreada
-df_shade <- subset(df, x <= z)
-
-# Graficar
-ggplot(df, aes(x, y)) +
-  geom_line(size=0.5) +
-  geom_area(data = df_shade, aes(x, y), fill=c31, alpha=0.8) +
-  geom_vline(xintercept = z, linetype="dashed") +
-  labs(x="z", y="Densidad") +
-  annotate("text", x = -2.8, y = 0.3, label = "F(-1) =  P(Z < 1)", size = 3, color="black") +
-  theme_minimal(base_size = 10)
-```
-
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
- knitr::include_graphics("img/tabla-normal2.png")
-```
 
 
 <!-- <div class="box3 with-label"> -->
@@ -1325,7 +1261,7 @@ ggplot(df, aes(x, y)) +
 <!-- + [t-Student](https://github.com/dgonxalex80/probabilidad20212.io/blob/main/pdf/P-Distribuciones%20Continuas/1.png) -->
 <!-- + [F-Fisher](https://github.com/dgonxalex80/probabilidad20212.io/blob/main/pdf/P-Distribuciones%20Continuas/Distribucion%20fisher%20(1).pdf) -->
 
-<br/><br/>
+<br/><br/><br/>
 
 
 
@@ -1341,5 +1277,432 @@ ggplot(df, aes(x, y)) +
 <!-- ``` -->
 
 
+	
+
+# Formulario
+
+<br/><br/>
+
+## Modelos discretos
+
+<br/><br/>
+<div class="box3 with-label">
+
+### Distribución Bernoulli
+
+$$
+f(x)=
+\begin{cases}
+p, & \text{si } x=1,\\
+1-p, & \text{si } x=0.
+\end{cases}
+$$
+
+$$
+E[X]=p
+\qquad
+V[X]=p(1-p)
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+### Distribución Binomial
+
+$$
+f(x)=P(X=x)=
+\binom{n}{x}p^x(1-p)^{n-x},
+\qquad
+x=0,1,2,\ldots,n
+$$
+
+$$
+E[X]=np
+\qquad
+V[X]=np(1-p)
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Distribución Poisson
+
+$$
+f(x)=P(X=x)=
+\frac{\lambda^x}{x!}e^{-\lambda},
+\qquad
+x=0,1,2,\ldots
+$$
+
+$$
+E[X]=\lambda
+\qquad
+V[X]=\lambda
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Distribución Hipergeométrica
+
+$$
+f(x)=P(X=x)=
+\frac{
+\displaystyle \binom{R}{x}
+\displaystyle \binom{N-R}{n-x}
+}{
+\displaystyle \binom{N}{n}
+}
+$$
+
+para
+
+$$
+\max\left(0,n-(N-R)\right)
+\leq x \leq
+\min(n,R)
+$$
+
+$$
+E[X]=\frac{nR}{N}
+$$
+
+$$
+V[X]
+=
+n\left(\frac{R}{N}\right)
+\left(1-\frac{R}{N}\right)
+\left(\frac{N-n}{N-1}\right)
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Distribución Geométrica
+
+$$
+f(x)=P(X=x)=
+p(1-p)^{x-1},
+\qquad
+x=1,2,3,\ldots
+$$
+
+$$
+E[X]=\frac{1}{p}
+\qquad
+V[X]=\frac{1-p}{p^2}
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Distribución Binomial Negativa
+
+$$
+f(x)=P(X=x)=
+\binom{x-1}{r-1}
+p^r(1-p)^{x-r},
+\qquad
+x=r,r+1,r+2,\ldots
+$$
+
+$$
+E[X]=\frac{r}{p}
+\qquad
+V[X]=\frac{r(1-p)}{p^2}
+$$
+
+</div>
+
+<br/><br/><br/>
+
+# Modelos continuos
 
 
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Distribución Uniforme
+
+$$
+f(x)=
+\frac{1}{b-a},
+\qquad
+a\leq x\leq b
+$$
+
+$$
+E[X]=\frac{a+b}{2}
+\qquad
+V[X]=\frac{(b-a)^2}{12}
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Distribución Normal
+
+$$
+f(x)=
+\frac{1}{\sqrt{2\pi\sigma^2}}
+\exp\left[
+-\frac{1}{2\sigma^2}(x-\mu)^2
+\right],
+\qquad
+-\infty<x<\infty
+$$
+
+$$
+E[X]=\mu
+\qquad
+V[X]=\sigma^2
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Normal estandar:
+
+$$
+Z=\frac{X-\mu}{\sigma}
+\sim N(0,1)
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Distribución Lognormal
+
+Si
+
+$$
+\ln(X)\sim N(\mu,\sigma^2),
+$$
+
+entonces
+
+$$
+f(x)=
+\frac{1}{x\sigma\sqrt{2\pi}}
+\exp\left[
+-\frac{(\ln x-\mu)^2}{2\sigma^2}
+\right],
+\qquad
+x>0
+$$
+
+$$
+E[X]
+=
+\exp\left(
+\mu+\frac{\sigma^2}{2}
+\right)
+$$
+
+$$
+V[X]
+=
+\exp(2\mu+\sigma^2)
+\left[
+\exp(\sigma^2)-1
+\right]
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Distribución Exponencial
+
+$$
+f(x)=
+\lambda e^{-\lambda x},
+\qquad
+x>0
+$$
+
+$$
+F(x)=P(X\leq x)
+=
+1-e^{-\lambda x}
+$$
+
+$$
+E[X]=\frac{1}{\lambda}
+\qquad
+V[X]=\frac{1}{\lambda^2}
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Distribución Gamma
+
+Utilizando la parametrización con **forma** $r$ y **tasa** $\lambda$:
+
+$$
+f(x)=
+\frac{\lambda^r x^{r-1}e^{-\lambda x}}
+{\Gamma(r)},
+\qquad
+x>0
+$$
+
+$$
+E[X]=\frac{r}{\lambda}
+\qquad
+V[X]=\frac{r}{\lambda^2}
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Distribución Weibull
+
+Utilizando $\alpha$ como parámetro de **forma** y $\beta$ como parámetro de **tasa**:
+
+$$
+f(x)=
+\alpha\beta^\alpha x^{\alpha-1}
+e^{-(\beta x)^\alpha},
+\qquad
+x>0
+$$
+
+La función de distribución acumulada es
+
+$$
+F(x)
+=
+1-e^{-(\beta x)^\alpha},
+\qquad
+x>0
+$$
+
+La esperanza es
+
+$$
+E[X]
+=
+\frac{1}{\beta}
+\Gamma\left(
+1+\frac{1}{\alpha}
+\right)
+$$
+
+y la varianza
+
+$$
+V[X]
+=
+\frac{1}{\beta^2}
+\left[
+\Gamma\left(
+1+\frac{2}{\alpha}
+\right)
+-
+\left\{
+\Gamma\left(
+1+\frac{1}{\alpha}
+\right)
+\right\}^2
+\right]
+$$
+
+</div>
+
+<br/><br/><br/>
+
+# Aproximaciones
+
+
+<br/><br/>
+
+<div class="box3 with-label">
+
+### Aproximación Normal a la Binomial
+
+Si
+
+$$
+X\sim Bin(n,p)
+$$
+
+y se cumplen las condiciones
+
+$$
+np>10
+\qquad\text{y}\qquad
+n(1-p)>10,
+$$
+
+entonces la distribución Binomial puede aproximarse mediante
+
+$$
+X\approx N\left(
+np,\,
+np(1-p)
+\right).
+$$
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+### Aproximación Normal a la Poisson
+
+Si
+
+$$
+X\sim Poisson(\lambda)
+$$
+
+y
+
+$$
+\lambda>10,
+$$
+
+entonces puede utilizarse la aproximación
+
+$$
+X\approx N(\lambda,\lambda).
+$$
+
+</div>
+<br/><br/>
+
+<div class="box3 with-label">
+### Tasa de fallas
+
+La **función de riesgo** o tasa de fallas se define como
+
+$$
+Z(t)
+=
+\frac{f(t)}
+{1-F(t)}.
+$$
+</div>
+
+<br/><br/><br/><br/>

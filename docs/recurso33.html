@@ -14,13 +14,13 @@
 
 <title>Estadística para la toma de decisiones</title>
 
-<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs/header-attrs.js"></script>
+<script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -30,12 +30,12 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+<script src="site_libs/navigation/tabsets.js"></script>
+<script src="site_libs/navigation/codefolding.js"></script>
+<link href="site_libs/highlightjs/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs/highlight.js"></script>
+<link href="site_libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -409,6 +409,9 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="codigo33.html">Código 3.2</a>
+    </li>
+    <li>
+      <a href="taller-321.html">Taller 321</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -1210,14 +1213,6 @@ style="color:#F9573F"> <span
 class="math inline">\(N(0,1.5)\)</span></span> y <span
 style="color:#F6BB42"> <span
 class="math inline">\(N(2,1.5)\)</span></span></p>
-<pre><code>Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
-ℹ Please use tidy evaluation idioms with `aes()`.
-ℹ See also `vignette(&quot;ggplot2-in-packages&quot;)` for more information.
-ℹ The deprecated feature was likely used in the ggfortify package.
-  Please report the issue at &lt;https://github.com/sinhrks/ggfortify/issues&gt;.
-This warning is displayed once per session.
-Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-generated.</code></pre>
 <p><img src="recurso33_files/figure-html/unnamed-chunk-13-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <p>Dentro del sin número de posibles curvas que se pueden obtener con
 los parámetros <span class="math inline">\(\mu\)</span> y <span
@@ -1656,60 +1651,8 @@ determinada por: <span class="math display">\[\begin{eqnarray*}
 </table>
 </div>
 <p><br/><br/><br/></p>
-</div>
-</div>
-<div id="tabla-normal-estandar" class="section level1">
-<h1><span style="color:#21B5E4">Tabla normal estandar </span></h1>
-<pre class="r"><code>library(ggplot2)
-
-# Definir rango para la curva normal
-x &lt;- seq(-4, 4, length=1000)
-y &lt;- dnorm(x)
-
-# Valor de z
-z &lt;- -1
-
-# Data frame para la curva
-df &lt;- data.frame(x = x, y = y)
-
-# Data frame para el área sombreada
-df_shade &lt;- subset(df, x &lt;= z)
-
-# Graficar
-ggplot(df, aes(x, y)) +
-  geom_line(size=0.5) +
-  geom_area(data = df_shade, aes(x, y), fill=c31, alpha=0.8) +
-  geom_vline(xintercept = z, linetype=&quot;dashed&quot;) +
-  labs(x=&quot;z&quot;, y=&quot;Densidad&quot;) +
-  annotate(&quot;text&quot;, x = -2.8, y = 0.3, label = &quot;F(-1) =  P(Z &lt; -1)&quot;, size = 3, color=&quot;black&quot;) +
-  theme_minimal(base_size = 10)</code></pre>
-<p><img src="recurso33_files/figure-html/unnamed-chunk-23-1.png" alt="" width="384" style="display: block; margin: auto;" /></p>
-<p><img src="img/tabla-normal1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>library(ggplot2)
-
-# Definir rango para la curva normal
-x &lt;- seq(-4, 4, length=1000)
-y &lt;- dnorm(x)
-
-# Valor de z
-z &lt;- 1
-
-# Data frame para la curva
-df &lt;- data.frame(x = x, y = y)
-
-# Data frame para el área sombreada
-df_shade &lt;- subset(df, x &lt;= z)
-
-# Graficar
-ggplot(df, aes(x, y)) +
-  geom_line(size=0.5) +
-  geom_area(data = df_shade, aes(x, y), fill=c31, alpha=0.8) +
-  geom_vline(xintercept = z, linetype=&quot;dashed&quot;) +
-  labs(x=&quot;z&quot;, y=&quot;Densidad&quot;) +
-  annotate(&quot;text&quot;, x = -2.8, y = 0.3, label = &quot;F(-1) =  P(Z &lt; 1)&quot;, size = 3, color=&quot;black&quot;) +
-  theme_minimal(base_size = 10)</code></pre>
-<p><img src="recurso33_files/figure-html/unnamed-chunk-25-1.png" alt="" width="384" style="display: block; margin: auto;" /></p>
-<p><img src="img/tabla-normal2.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<!-- --------------------------------------------------------------------------------- -->
+<p><br/><br/></p>
 <!-- <div class="box3 with-label"> -->
 <!-- <div class="label">Tabla distribución normal 1</div> -->
 <!-- <pre> -->
@@ -1831,12 +1774,354 @@ ggplot(df, aes(x, y)) +
 <!-- + [ji-cuadrado](https://github.com/dgonxalex80/probabilidad20212.io/blob/main/pdf/P-Distribuciones%20Discretas/Ji-cuadrado.pdf) -->
 <!-- + [t-Student](https://github.com/dgonxalex80/probabilidad20212.io/blob/main/pdf/P-Distribuciones%20Continuas/1.png) -->
 <!-- + [F-Fisher](https://github.com/dgonxalex80/probabilidad20212.io/blob/main/pdf/P-Distribuciones%20Continuas/Distribucion%20fisher%20(1).pdf) -->
-<p><br/><br/></p>
+<p><br/><br/><br/></p>
 <!-- ## Tabla  -->
 <!-- [Tabla normal estandar](https://github.com/dgonxalex80/probabilidad20212.io/blob/main/pdf/tabla_normal.pdf) -->
 <!-- ```{r, echo=FALSE, out.width="100%", fig.align = "center"} -->
 <!--  knitr::include_graphics("img/TablaZ.png") -->
 <!-- ``` -->
+</div>
+</div>
+<div id="formulario" class="section level1">
+<h1>Formulario</h1>
+<p><br/><br/></p>
+<div id="modelos-discretos-1" class="section level2">
+<h2>Modelos discretos</h2>
+<br/><br/>
+<div id="distribución-bernoulli-1"
+class="section level3 box3 with-label">
+<h3>Distribución Bernoulli</h3>
+<p><span class="math display">\[
+f(x)=
+\begin{cases}
+p, &amp; \text{si } x=1,\\
+1-p, &amp; \text{si } x=0.
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+E[X]=p
+\qquad
+V[X]=p(1-p)
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="distribución-binomial-1"
+class="section level3 box3 with-label">
+<h3>Distribución Binomial</h3>
+<p><span class="math display">\[
+f(x)=P(X=x)=
+\binom{n}{x}p^x(1-p)^{n-x},
+\qquad
+x=0,1,2,\ldots,n
+\]</span></p>
+<p><span class="math display">\[
+E[X]=np
+\qquad
+V[X]=np(1-p)
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="distribución-poisson-1" class="section level3 box3 with-label">
+<h3>Distribución Poisson</h3>
+<p><span class="math display">\[
+f(x)=P(X=x)=
+\frac{\lambda^x}{x!}e^{-\lambda},
+\qquad
+x=0,1,2,\ldots
+\]</span></p>
+<p><span class="math display">\[
+E[X]=\lambda
+\qquad
+V[X]=\lambda
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="distribución-hipergeométrica"
+class="section level3 box3 with-label">
+<h3>Distribución Hipergeométrica</h3>
+<p><span class="math display">\[
+f(x)=P(X=x)=
+\frac{
+\displaystyle \binom{R}{x}
+\displaystyle \binom{N-R}{n-x}
+}{
+\displaystyle \binom{N}{n}
+}
+\]</span></p>
+<p>para</p>
+<p><span class="math display">\[
+\max\left(0,n-(N-R)\right)
+\leq x \leq
+\min(n,R)
+\]</span></p>
+<p><span class="math display">\[
+E[X]=\frac{nR}{N}
+\]</span></p>
+<p><span class="math display">\[
+V[X]
+=
+n\left(\frac{R}{N}\right)
+\left(1-\frac{R}{N}\right)
+\left(\frac{N-n}{N-1}\right)
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="distribución-geométrica-1"
+class="section level3 box3 with-label">
+<h3>Distribución Geométrica</h3>
+<p><span class="math display">\[
+f(x)=P(X=x)=
+p(1-p)^{x-1},
+\qquad
+x=1,2,3,\ldots
+\]</span></p>
+<p><span class="math display">\[
+E[X]=\frac{1}{p}
+\qquad
+V[X]=\frac{1-p}{p^2}
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="distribución-binomial-negativa-1"
+class="section level3 box3 with-label">
+<h3>Distribución Binomial Negativa</h3>
+<p><span class="math display">\[
+f(x)=P(X=x)=
+\binom{x-1}{r-1}
+p^r(1-p)^{x-r},
+\qquad
+x=r,r+1,r+2,\ldots
+\]</span></p>
+<p><span class="math display">\[
+E[X]=\frac{r}{p}
+\qquad
+V[X]=\frac{r(1-p)}{p^2}
+\]</span></p>
+</div>
+<p><br/><br/><br/></p>
+</div>
+</div>
+<div id="modelos-continuos-1" class="section level1">
+<h1>Modelos continuos</h1>
+<p><br/><br/></p>
+<div id="distribución-uniforme-1"
+class="section level3 box3 with-label">
+<h3>Distribución Uniforme</h3>
+<p><span class="math display">\[
+f(x)=
+\frac{1}{b-a},
+\qquad
+a\leq x\leq b
+\]</span></p>
+<p><span class="math display">\[
+E[X]=\frac{a+b}{2}
+\qquad
+V[X]=\frac{(b-a)^2}{12}
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="distribución-normal-1" class="section level3 box3 with-label">
+<h3>Distribución Normal</h3>
+<p><span class="math display">\[
+f(x)=
+\frac{1}{\sqrt{2\pi\sigma^2}}
+\exp\left[
+-\frac{1}{2\sigma^2}(x-\mu)^2
+\right],
+\qquad
+-\infty&lt;x&lt;\infty
+\]</span></p>
+<p><span class="math display">\[
+E[X]=\mu
+\qquad
+V[X]=\sigma^2
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="normal-estandar" class="section level3 box3 with-label">
+<h3>Normal estandar:</h3>
+<p><span class="math display">\[
+Z=\frac{X-\mu}{\sigma}
+\sim N(0,1)
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="distribución-lognormal" class="section level3 box3 with-label">
+<h3>Distribución Lognormal</h3>
+<p>Si</p>
+<p><span class="math display">\[
+\ln(X)\sim N(\mu,\sigma^2),
+\]</span></p>
+<p>entonces</p>
+<p><span class="math display">\[
+f(x)=
+\frac{1}{x\sigma\sqrt{2\pi}}
+\exp\left[
+-\frac{(\ln x-\mu)^2}{2\sigma^2}
+\right],
+\qquad
+x&gt;0
+\]</span></p>
+<p><span class="math display">\[
+E[X]
+=
+\exp\left(
+\mu+\frac{\sigma^2}{2}
+\right)
+\]</span></p>
+<p><span class="math display">\[
+V[X]
+=
+\exp(2\mu+\sigma^2)
+\left[
+\exp(\sigma^2)-1
+\right]
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="distribución-exponencial-1"
+class="section level3 box3 with-label">
+<h3>Distribución Exponencial</h3>
+<p><span class="math display">\[
+f(x)=
+\lambda e^{-\lambda x},
+\qquad
+x&gt;0
+\]</span></p>
+<p><span class="math display">\[
+F(x)=P(X\leq x)
+=
+1-e^{-\lambda x}
+\]</span></p>
+<p><span class="math display">\[
+E[X]=\frac{1}{\lambda}
+\qquad
+V[X]=\frac{1}{\lambda^2}
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="distribución-gamma-1" class="section level3 box3 with-label">
+<h3>Distribución Gamma</h3>
+<p>Utilizando la parametrización con <strong>forma</strong> <span
+class="math inline">\(r\)</span> y <strong>tasa</strong> <span
+class="math inline">\(\lambda\)</span>:</p>
+<p><span class="math display">\[
+f(x)=
+\frac{\lambda^r x^{r-1}e^{-\lambda x}}
+{\Gamma(r)},
+\qquad
+x&gt;0
+\]</span></p>
+<p><span class="math display">\[
+E[X]=\frac{r}{\lambda}
+\qquad
+V[X]=\frac{r}{\lambda^2}
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="distribución-weibull-1" class="section level3 box3 with-label">
+<h3>Distribución Weibull</h3>
+<p>Utilizando <span class="math inline">\(\alpha\)</span> como parámetro
+de <strong>forma</strong> y <span class="math inline">\(\beta\)</span>
+como parámetro de <strong>tasa</strong>:</p>
+<p><span class="math display">\[
+f(x)=
+\alpha\beta^\alpha x^{\alpha-1}
+e^{-(\beta x)^\alpha},
+\qquad
+x&gt;0
+\]</span></p>
+<p>La función de distribución acumulada es</p>
+<p><span class="math display">\[
+F(x)
+=
+1-e^{-(\beta x)^\alpha},
+\qquad
+x&gt;0
+\]</span></p>
+<p>La esperanza es</p>
+<p><span class="math display">\[
+E[X]
+=
+\frac{1}{\beta}
+\Gamma\left(
+1+\frac{1}{\alpha}
+\right)
+\]</span></p>
+<p>y la varianza</p>
+<p><span class="math display">\[
+V[X]
+=
+\frac{1}{\beta^2}
+\left[
+\Gamma\left(
+1+\frac{2}{\alpha}
+\right)
+-
+\left\{
+\Gamma\left(
+1+\frac{1}{\alpha}
+\right)
+\right\}^2
+\right]
+\]</span></p>
+</div>
+<p><br/><br/><br/></p>
+</div>
+<div id="aproximaciones" class="section level1">
+<h1>Aproximaciones</h1>
+<p><br/><br/></p>
+<div id="aproximación-normal-a-la-binomial"
+class="section level3 box3 with-label">
+<h3>Aproximación Normal a la Binomial</h3>
+<p>Si</p>
+<p><span class="math display">\[
+X\sim Bin(n,p)
+\]</span></p>
+<p>y se cumplen las condiciones</p>
+<p><span class="math display">\[
+np&gt;10
+\qquad\text{y}\qquad
+n(1-p)&gt;10,
+\]</span></p>
+<p>entonces la distribución Binomial puede aproximarse mediante</p>
+<p><span class="math display">\[
+X\approx N\left(
+np,\,
+np(1-p)
+\right).
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="aproximación-normal-a-la-poisson"
+class="section level3 box3 with-label">
+<h3>Aproximación Normal a la Poisson</h3>
+<p>Si</p>
+<p><span class="math display">\[
+X\sim Poisson(\lambda)
+\]</span></p>
+<p>y</p>
+<p><span class="math display">\[
+\lambda&gt;10,
+\]</span></p>
+<p>entonces puede utilizarse la aproximación</p>
+<p><span class="math display">\[
+X\approx N(\lambda,\lambda).
+\]</span></p>
+</div>
+<p><br/><br/></p>
+<div id="tasa-de-fallas" class="section level3 box3 with-label">
+<h3>Tasa de fallas</h3>
+<p>La <strong>función de riesgo</strong> o tasa de fallas se define
+como</p>
+<p><span class="math display">\[
+Z(t)
+=
+\frac{f(t)}
+{1-F(t)}.
+\]</span></p>
+</div>
+<p><br/><br/><br/><br/></p>
 </div>
 
 

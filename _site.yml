@@ -102,7 +102,10 @@ navbar:
         - text: "Recursos 3.2"
           href: recurso33.html     
         - text: "Código 3.2"
-          href: codigo33.html               
+          href: codigo33.html   
+        - text: "Taller 321"
+          href: taller-321.html              
+          
         - text: "--------"        
         - text: "Monitoría 3"  
           href: monitoria3.html            

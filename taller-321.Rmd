@@ -1,0 +1,398 @@
+---
+title: <span style="color:#21B5E4">Estadística para la toma de decisiones</span>
+author: <span style="color:#21B5E4">dgonzalez</span> 
+subtitle: <span style="color:#21B5E4"> </span> 
+output:
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    theme: flatly
+    css:
+      - style.css
+      - cajas.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
+```
+
+
+
+</br></br></br>
+
+```{r, echo=FALSE, out.width="100%", fig.align = "left"}
+knitr::include_graphics("img/taller3.png")
+```
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 1
+Sea $X\sim Binomial(n=10,p=0.20)$. Determine:
+
+1. $P(X=2)$.
+2. $P(X\leq 2)$.
+3. $P(3\leq X<5)$.
+4. $P(X\geq 8)$.
+5. $E[X]$ y $V[X]$.
+6. Represente gráficamente la función de probabilidad $f_X(x)$.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 2
+
+Una aerolínea nacional utiliza aviones con capacidad para 100 pasajeros. Se estima que la probabilidad de que una persona con tiquete se presente al vuelo es de $0.90$. Para reducir el número de sillas vacías, la aerolínea vende 105 tiquetes para cada vuelo.
+
+Sea $X$ el número de pasajeros que se presentan para abordar.
+
+1. Identifique el modelo de probabilidad y sus parámetros.
+2. Calcule la probabilidad de que todas las personas que se presenten tengan asiento.
+3. Calcule la probabilidad de que lleguen más de 100 pasajeros.
+4. Interprete los resultados en el contexto de la política de sobreventa de la aerolínea.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 3
+
+Sea $X\sim Poisson(\lambda=4)$. Determine:
+
+1. $P(X=0)$.
+2. $P(X=4)$.
+3. $P(X\geq 2)$.
+4. $P(X\leq 2)$.
+5. $P(2<X\leq 6)$.
+6. $E[X]$ y $V[X]$.
+7. Represente gráficamente la función de probabilidad $f_X(x)$.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 4
+
+Los clientes llegan al mostrador de una tienda de acuerdo con un proceso de Poisson, con una frecuencia promedio de ocho clientes por hora.
+
+1. Calcule la probabilidad de que entre las 8:00 a.m. y las 9:00 a.m. lleguen exactamente cinco clientes.
+2. Calcule la probabilidad de que durante una hora no lleguen más de tres clientes.
+3. Calcule la probabilidad de que lleguen exactamente dos clientes durante un intervalo de dos horas.
+4. Determine el número esperado de clientes que llegan entre las 2:00 p.m. y las 4:30 p.m.
+5. Explique cómo debe modificarse $\lambda$ cuando cambia la longitud del intervalo de observación.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 5
+
+Sea $X$ una variable aleatoria geométrica con $p=0.05$, donde $X$ representa el número de fracasos antes del primer éxito. Determine:
+
+1. $P(X=1)$.
+2. $P(X\leq 2)$.
+3. $P(X=8)$.
+4. $P(X\geq 2)$.
+5. $P(3\leq X\leq 7)$.
+6. $E[X]$ y $V[X]$.
+7. Represente gráficamente $f_X(x)$ para un rango adecuado de valores de $x$.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 6
+
+Un examen de Probabilidad consta de 100 preguntas de selección múltiple, cada una con cuatro opciones de respuesta. María responde cada pregunta al azar y las respuestas son independientes.
+
+Considere ahora $X$ como el número de preguntas incorrectas antes de obtener la primera respuesta correcta.
+
+1. Identifique el modelo de probabilidad y determine $p$.
+2. Calcule la probabilidad de que María deba responder 10 preguntas hasta obtener la primera respuesta correcta.
+3. Calcule la probabilidad de que obtenga su primera respuesta correcta antes de responder cinco preguntas.
+4. Determine el número esperado de respuestas incorrectas antes de obtener la primera respuesta correcta.
+5. Interprete los resultados en el contexto del examen.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 7
+
+Sea $X$ una variable aleatoria hipergeométrica con población de tamaño $N=100$, de la cual $K=20$ elementos se consideran éxitos. Se selecciona una muestra de tamaño $n=4$ sin reemplazo. Determine:
+
+1. $P(X=1)$.
+2. $P(X=0)$.
+3. $P(X\geq 1)$.
+4. $P(X=4)$.
+5. $P(1\leq X\leq 3)$.
+6. $E[X]$ y $V[X]$.
+7. Represente gráficamente la función de probabilidad.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 8
+
+En un grupo de 10 estudiantes que participan en un proyecto universitario, 5 pertenecen a Ingeniería Industrial, 2 a Finanzas y 3 a Administración de Empresas. Para conformar un equipo se seleccionan aleatoriamente 4 estudiantes, sin reemplazo.
+
+Sea $X$ el número de estudiantes de Ingeniería Industrial seleccionados.
+
+1. Identifique los parámetros del modelo hipergeométrico.
+2. Determine los valores posibles de $X$.
+3. Construya la función de probabilidad de $X$.
+4. Calcule $P(X=2)$.
+5. Calcule $P(X\geq 3)$.
+6. Interprete las probabilidades obtenidas en el contexto de la conformación del equipo.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 9
+
+Sea $X$ una variable aleatoria con distribución binomial negativa con probabilidad de éxito $p=0.20$ y $r=3$ éxitos requeridos. Considere que $X$ representa el número de fracasos antes de alcanzar el tercer éxito. Determine:
+
+1. $P(X=3)$.
+2. $P(X=6)$.
+3. $P(X\geq 10)$.
+4. $P(X\leq 12)$.
+5. $P(4\leq X\leq 8)$.
+6. $E[X]$ y $V[X]$.
+7. Represente gráficamente la función de probabilidad.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 10
+
+Un examen de Probabilidad consta de preguntas de selección múltiple con cuatro opciones. María responde al azar y sus respuestas son independientes, por lo que la probabilidad de responder correctamente cada pregunta es $p=0.25$.
+
+Sea $X$ el número de respuestas incorrectas que María obtiene antes de alcanzar cinco respuestas correctas.
+
+1. Identifique el modelo de probabilidad y sus parámetros.
+2. Calcule la probabilidad de que María cometa exactamente 10 errores antes de obtener la quinta respuesta correcta.
+3. Calcule la probabilidad de que cometa como máximo 8 errores antes de alcanzar cinco respuestas correctas.
+4. Determine el número esperado de respuestas incorrectas antes de obtener cinco respuestas correctas.
+5. Interprete el resultado en el contexto del examen.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 11
+
+Sea $X\sim U(10,20)$. Determine:
+
+1. La función de densidad $f_X(x)$ y realice un bosquejo de su gráfica.
+2. $P(X\leq 12)$.
+3. $P(13\leq X<15)$.
+4. $P(X\geq 18)$.
+5. $P(12<X<19)$.
+6. $E[X]$ y $V[X]$.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 12
+
+El tiempo $X$, en minutos, que tarda un asesor comercial en realizar la atención inicial de un cliente en una sucursal se modela mediante una distribución uniforme en el intervalo $[0,10]$.
+
+Escriba la función de densidad de $X$.
+Verifique que se trata de una función de densidad válida.
+Calcule la probabilidad de que la atención inicial no exceda 7 minutos.
+Calcule la probabilidad de que la atención dure entre 4 y 8 minutos.
+Determine el tiempo esperado de atención.
+Interprete los resultados desde el punto de vista de la gestión del servicio al cliente.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 13
+
+Sea $X\sim N(10,4)$, es decir, $\mu=10$ y $\sigma=2$. Determine:
+
+1. $P(X<13)$.
+2. $P(X>9)$.
+3. $P(6<X<14)$.
+4. $P(2<X<4)$.
+5. $P(-2<X<8)$.
+6. El valor $x$ tal que $P(X>x)=0.10$.
+7. Represente gráficamente al menos dos de las áreas calculadas.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 14
+
+Las ventas mensuales de un producto en una cadena de establecimientos se distribuyen normalmente con una media de 10 mil unidades y una desviación estándar de 1.4 mil unidades.
+
+Calcule la probabilidad de que las ventas mensuales superen las 12 mil unidades.
+Calcule la probabilidad de que las ventas se encuentren entre 9 y 11.5 mil unidades.
+Determine el primer cuartil de las ventas mensuales.
+Determine el percentil 95 de las ventas mensuales.
+Interprete estos valores desde el punto de vista de la planeación comercial y de inventarios.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 15
+
+Sea $X\sim Exp(\lambda=2)$. Determine:
+
+1. $P(X\leq 1)$.
+2. $P(X\geq 2)$.
+3. $P(1<X<2)$.
+4. $P(X>3)$.
+5. $E[X]$ y $V[X]$.
+6. Realice un bosquejo de la función de densidad $f_X(x)$.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 16
+
+Una empresa de servicios ha determinado que el tiempo $Y$, en años, que transcurre desde la vinculación de un cliente hasta que cancela definitivamente el servicio tiene densidad
+
+$$
+f_Y(y)=
+\begin{cases}
+\dfrac{1}{4}e^{-y/4}, & y\geq 0,\\
+0, & \text{en otro caso}.
+\end{cases}
+$$
+1. Identifique el modelo y su parámetro.
+2. Calcule la probabilidad de que un cliente cancele el servicio antes del sexto año.
+3. Calcule la probabilidad de que un cliente cancele el servicio durante el primer año.
+4. Calcule la probabilidad de que la cancelación ocurra entre los años 2 y 5.
+5. Determine el tiempo esperado de permanencia de un cliente.
+6. Interprete los resultados desde el punto de vista de la retención y fidelización de clientes.
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 17
+
+Considere una variable aleatoria $X$ con distribución gamma con parámetros $\alpha=2$ y $\beta=1/2$, usando $\beta$ como **tasa**. Determine:
+
+1. $P(X\leq 1)$.
+2. $P(X>2)$.
+3. $P(1<X<4)$.
+4. El valor $x$ tal que $P(X\leq x)=0.90$.
+5. $E[X]$ y $V[X]$.
+6. Represente gráficamente la función de densidad.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 18
+
+Una empresa de comercio electrónico analiza el tiempo $X$, medido en horas, requerido para procesar un pedido desde que es recibido hasta que queda listo para despacho. Este tiempo puede modelarse mediante una distribución gamma con parámetros $\alpha=2$ y $\beta=1/2$ (tasa).
+
+La empresa establece como indicador de eficiencia operativa que un pedido debe quedar listo para despacho en máximo una hora.
+
+Calcule la probabilidad de que un pedido cumpla el indicador de una hora.
+Calcule la probabilidad de que el procesamiento de un pedido tarde más de 2 horas.
+Calcule la probabilidad de que el tiempo de procesamiento esté entre 1 y 3 horas.
+Determine el tiempo medio de procesamiento de un pedido.
+A partir de las probabilidades calculadas, describa el nivel de cumplimiento del indicador de eficiencia operativa.
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 19
+
+Sea $X$ una variable aleatoria Weibull cuya función de distribución acumulada se expresa como
+
+$$
+F_X(x)=1-\exp(-\beta x^{\alpha}), \qquad x\geq 0,
+$$
+
+con $\alpha=1.5$ y $\beta=0.0001$. Determine:
+
+1. $P(X\leq 500)$.
+2. $P(X>1000)$.
+3. $P(500<X<2000)$.
+4. El valor $x$ correspondiente al percentil 90.
+5. El valor de la mediana.
+6. Represente gráficamente la función de distribución acumulada.
+
+</div>
+
+</br></br></br>
+
+<div class="box3 with-label">
+### Problema 20
+
+Un fabricante afirma que su ventilador para el hogar dura más de 9000 horas de uso. Como estrategia comercial, ofrece reemplazar sin costo los ventiladores que fallen antes de ese tiempo. Un asesor advierte que esta garantía podría resultar costosa.
+
+El tiempo de vida $X$ de un ventilador de características similares se modela mediante una distribución Weibull con parámetros $\alpha=1.5$ y $\beta=0.0001$, bajo la parametrización
+
+$$
+F_X(x)=1-\exp(-\beta x^{\alpha}), \qquad x\geq0.
+$$
+
+1. Calcule la probabilidad de que un ventilador falle antes de 9000 horas.
+2. Calcule la probabilidad de que dure más de 9000 horas.
+3. Si se venden 1000 ventiladores, estime el número esperado de unidades que serían reemplazadas bajo la garantía.
+4. Determine la mediana de la vida útil.
+5. Utilice los resultados para discutir cuantitativamente la afirmación del fabricante y la preocupación del asesor.
+
+
+</div>
+
+<br/></br>
+
+<div class="box3 with-label">
+### Problema de aplicación - simulación
+
+**A**ntonio un vendedor y proveedor distribuye partes para motocicletas, de acuerdo a los registros de uno de sus clientes las partes que vende tienen aproximadamente una probabilidad de $0.03$ de estar defectuosa. Otro de los proveedores llamada **B**eatriz también distribuye las mismas piezas, pero en su caso la probabilidad de estar defectuosas es de aproximadamente $0.05$. Usted recibe un envío de 100 partes por parte de cada vendedor.
+
+Sea :
+
+$X$: número de partes defectuosas del proveedor A 
+
+$Y$: número de partes defectuosas del proveedor B
+
+</br>
+
+* Determine la distribución apropiada para representar estos dos variables
+* Ralice una simulación de las distribuciones de X y Y  para una muestra de tamaño 200 pedidos ( recuerde que cada pedido consta de 100 unidades)
+* Si las piezas se mesclan en la bodega, estime la probabilidad de que el número total de piezas de defectuosas sean menor a 10
+* Obtenga la probabilidad de que A tenga más partes defectuosas que B
+* Grafique que la función de X, Y y T=X+Y
+* Determine el valor esperado de T y su varianza
+
+</div>
+
+
+
