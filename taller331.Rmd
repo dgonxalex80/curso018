@@ -1,7 +1,7 @@
 ---
-title: " "
-subtitle: " " 
-author: "dgonzalez "
+title: "<span style='color:#21B5E4 !important;'>Estadística para la toma de decisiones</span>"
+author: <span style="color:#21B5E4">dgonzalez </span> 
+subtitle: <span style="color:#21B5E4"> </span> 
 output:
   html_document:
     toc: no
@@ -9,9 +9,11 @@ output:
     toc_float: yes
     code_folding: hide
     theme: flatly
-    css: style.css
+    css:
+      - style.css
+      - cajas_botones018.css
+      - curso.js
 ---
-
 
 
 ```{r setup, include=FALSE}
@@ -52,7 +54,7 @@ knitr::include_graphics("img/taller3.png")
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 1</div>
 
 Para una variable aleatoria con distribución binomial $X  \sim binom(x, n=10, p=0.5)$  . 
@@ -69,9 +71,25 @@ Determine:
 </div>
 
 
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>Pista</summary>
+<div class="contenido">
+
+<pre>
+dbinom(x, size, prob)
+pbinom(q, size, prob, lower.tail = TRUE)
+</pre>
+
+</div>
+</details>
+</div>
+
+
+
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 2</div>
 
 Sea una variable geométrica $X \sim geomn,(x,p=0.05)$
@@ -86,10 +104,25 @@ Determine :
 
 </div>
 
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>Pista</summary>
+<div class="contenido">
+
+<pre>
+dgeom(x, prob)
+pgeom(q, prob, lower.tail = TRUE)
+</pre>
+
+</div>
+</details>
+</div>
+
+
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 3</div>
 
 Suponga que X tiene una distribución hipergeometrica con $N=100$, $n=4$ y $K=20$. ($X \sim hyper(x,N=100,n=4,k=20)$)
@@ -104,10 +137,23 @@ Determine:
   
 </div>
 
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>Pista</summary>
+<div class="contenido">
+
+<pre>
+
+
+</pre>
+
+</div>
+</details>
+</div>
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 4</div>
 
 Suponga que X tiene una distribución Poisson con media $\lambda=4$ ($X  \sim pois(x,\lambda=4)$). 
@@ -122,10 +168,23 @@ Determine:
   
 </div>
 
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>Pista</summary>
+<div class="contenido">
+
+<pre>
+
+
+</pre>
+
+</div>
+</details>
+</div>
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 5</div>
 
 Sea la variable $X$ con distribución binomial negativa con N=100 , K=20, n=5 ($X \sim nbinom(x,n,p,mu)$ )	
@@ -141,10 +200,23 @@ Determine:
 
 </div>
 
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>Pista</summary>
+<div class="contenido">
+
+<pre>
+
+
+</pre>
+
+</div>
+</details>
+</div>
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 6</div>
 
 En un cargamento grande de llantas para automóviles, del cual el 5% tiene imperfecciones. Se eligen de manera aleatoria 4 llantas para ser instalada en un automóvil.  (Sea X el número de llantas con imperfecciones. $X  \sim binom(n=4, p=0.05$ )
@@ -158,7 +230,7 @@ En un cargamento grande de llantas para automóviles, del cual el 5% tiene imper
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 7</div>
 
 Los clientes llegan al mostrador de una tienda de acuerdo con una variable aleatoria Poisson con una frecuencia promedio de ocho clientes por hora. 
@@ -170,10 +242,24 @@ Los clientes llegan al mostrador de una tienda de acuerdo con una variable aleat
 
 </div>
 
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>Pista</summary>
+<div class="contenido">
+
+<pre>
+
+
+</pre>
+
+</div>
+</details>
+</div>
+
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 8</div>
 
 Se está desarrollando una nueva variedad de maíz en una extensión de experimentación agrícola. Se espera que tenga una tasa de germinación del 90\%. Para verificar esto, se plantan 20 semillas en suelos de idéntica composición y se les dedican los mismos cuidados. Si la cifra 90\% es correcta, ¿cuántas semillas se espera que germinen? Si sólo germinan 15 o menos, ¿hay razón para sospechar de la cifra 90\%?
@@ -183,7 +269,7 @@ Se está desarrollando una nueva variedad de maíz en una extensión de experime
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 9</div>
 
 Un examen de Probabilidad consta de 100 preguntas de selección múltiple, cada una con cuatro opciones de respuesta. Maria responde cada pregunta al azar y sus respuestas son independientes 
@@ -199,7 +285,7 @@ Un examen de Probabilidad consta de 100 preguntas de selección múltiple, cada 
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 10</div>
 
 
@@ -211,10 +297,23 @@ Un examen de Probabilidad consta de 100 preguntas de selección múltiple, cada 
 
 </div>
 
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>Pista</summary>
+<div class="contenido">
+
+<pre>
+
+
+</pre>
+
+</div>
+</details>
+</div>
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 11</div>
 
 Una aéreolinea nacional tiene aviones de 100 asientos para el servicio de transporte nacional. Se estima que la probabilidad de que una persona llegue al vuelo es de 0.90, debido a lo cual  la aereolinea vende 105 tiquetes con el fin de minimizar la partida de aviones con sillas vacias. ¿cuál es la probabilidad de que todas las personas que lleguen para abordar el avión tengan asiento?   
@@ -224,7 +323,7 @@ Una aéreolinea nacional tiene aviones de 100 asientos para el servicio de trans
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">Problema 12</div>
 
 El número de grietas en un pavimento se estima en una grieta por cada 100m  en promedio. Se desea estimar la probabilidad de:
@@ -235,60 +334,19 @@ El número de grietas en un pavimento se estima en una grieta por cada 100m  en 
  
 </div>
 
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>Pista</summary>
+<div class="contenido">
 
-</br></br>
-
-<div class="box2 with-label">
-<div class="label">Problema 13</div>
-
-Un sistema de seguridad para casas está diseñado para tener una confiabilidad del 95\% . Suponga que 10 casas equipadas con este dispositivo sufrieron tentativa de robo. Se requiere calcular la probabilidad de que en siete de las nueve, la alarma se activará. 
-			
-</div>
-
-</br></br></br></br>
-
-<div class="box3 with-label">
-<div class="label">Código R</div>
 <pre>
-# Distribución binomial
-dbinom(x, size, prob)
-pbinom(q, size, prob, lower.tail = TRUE)
-qbinom(p, size, prob, lower.tail = TRUE)
-rbinom(n, size, prob)
 
-# Distribución Poisson
-dpois(x, lambda)
-ppois(q, lambda, lower.tail = TRUE)
-qpois(p, lambda, lower.tail = TRUE)
-rpois(n, lambda)
 
-# Distribución geométrica
-dgeom(x, prob)
-pgeom(q, prob, lower.tail = TRUE)
-qgeom(p, prob, lower.tail = TRUE)
-rgeom(n, prob)
-
-# Distribución hipergeométrica
-dhyper(x, m, n, k)
-phyper(q, m, n, k, lower.tail = TRUE)
-qhyper(p, m, n, k, lower.tail = TRUE)
-rhyper(nn, m, n, k)
-
-# Distribución binomial negativa
-dnbinom(x, size, prob, mu)
-pnbinom(q, size, prob, mu, lower.tail = TRUE)
-qnbinom(p, size, prob, mu, lower.tail = TRUE)
-rnbinom(n, size, prob, mu)
 </pre>
 
 </div>
+</details>
+</div>
 
-
-
-
-
-
-
-
-
+</br></br>
 

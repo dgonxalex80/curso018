@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="dgonzalez" />
+<meta name="author" content="dgonzalez " />
 
 
-<title>taller331.knit</title>
+<title>Estadística para la toma de decisiones</title>
 
 <script src="site_libs/header-attrs/header-attrs.js"></script>
 <script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
@@ -63,6 +63,8 @@ if (window.hljs) {
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="cajas_botones018.css" type="text/css" />
+<link rel="stylesheet" href="curso.js" type="text/css" />
 
 
 
@@ -401,7 +403,7 @@ $(document).ready(function () {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="guia33.html">Guía 3.2</a>
+      <a href="guia32.html">Guía 3.2</a>
     </li>
     <li>
       <a href="recurso33.html">Recursos 3.2</a>
@@ -476,6 +478,11 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore"><span
+style="color:#21B5E4 !important;">Estadística para la toma de
+decisiones</span></h1>
+<h3 class="subtitle"><span style="color:#21B5E4"> </span></h3>
+<h4 class="author"><span style="color:#21B5E4">dgonzalez </span></h4>
 
 </div>
 
@@ -483,7 +490,7 @@ $(document).ready(function () {
 <p></br></br></br></p>
 <p><img src="img/taller3.png" alt="" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 1
 </div>
@@ -501,8 +508,21 @@ class="math inline">\(X\)</span>.</li>
 class="math inline">\(f_{_{X}}(x)\)</span></li>
 </ul>
 </div>
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>
+Pista
+</summary>
+<div class="contenido">
+<pre>
+dbinom(x, size, prob)
+pbinom(q, size, prob, lower.tail = TRUE)
+</pre>
+</div>
+</details>
+</div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 2
 </div>
@@ -519,8 +539,21 @@ geomn,(x,p=0.05)\)</span></p>
 class="math inline">\(f_{_{X}}(x)\)</span></li>
 </ul>
 </div>
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>
+Pista
+</summary>
+<div class="contenido">
+<pre>
+dgeom(x, prob)
+pgeom(q, prob, lower.tail = TRUE)
+</pre>
+</div>
+</details>
+</div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 3
 </div>
@@ -537,8 +570,21 @@ class="math inline">\(P(X = 4)\)</span><br />
 * Construya la gráfica de <span
 class="math inline">\(f_{_{X}}(x)\)</span></p>
 </div>
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>
+Pista
+</summary>
+<div class="contenido">
+<pre>
+
+
+</pre>
+</div>
+</details>
+</div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 4
 </div>
@@ -556,8 +602,21 @@ class="math inline">\(X  \sim pois(x,\lambda=4)\)</span>).</p>
 class="math inline">\(f_{_{X}}(x)\)</span></li>
 </ul>
 </div>
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>
+Pista
+</summary>
+<div class="contenido">
+<pre>
+
+
+</pre>
+</div>
+</details>
+</div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 5
 </div>
@@ -577,8 +636,21 @@ class="math inline">\(V[X]\)</span><br />
 class="math inline">\(f_{_{X}}(x)\)</span></li>
 </ul>
 </div>
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>
+Pista
+</summary>
+<div class="contenido">
+<pre>
+
+
+</pre>
+</div>
+</details>
+</div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 6
 </div>
@@ -597,7 +669,7 @@ imperfecciones?</li>
 </ul>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 7
 </div>
@@ -616,8 +688,21 @@ dentro de un intervalo de dos horas continuas, por ejemplo entre 10 AM y
 tienda entre las 2 PM y las 4:30 PM.</li>
 </ul>
 </div>
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>
+Pista
+</summary>
+<div class="contenido">
+<pre>
+
+
+</pre>
+</div>
+</details>
+</div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 8
 </div>
@@ -629,7 +714,7 @@ idéntica composición y se les dedican los mismos cuidados. Si la cifra
 germinan 15 o menos, ¿hay razón para sospechar de la cifra 90%?</p>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 9
 </div>
@@ -647,7 +732,7 @@ erróneamente hasta responder 5 preguntas correctamente?</li>
 </ul>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 10
 </div>
@@ -664,8 +749,21 @@ calcular la probabilidad de que:</p>
 <li>La siguiente muestra contenga exactamente dos microorganismos.</li>
 </ul>
 </div>
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>
+Pista
+</summary>
+<div class="contenido">
+<pre>
+
+
+</pre>
+</div>
+</details>
+</div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 11
 </div>
@@ -677,7 +775,7 @@ sillas vacias. ¿cuál es la probabilidad de que todas las personas que
 lleguen para abordar el avión tengan asiento?</p>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box3 with-label">
 <div class="label">
 Problema 12
 </div>
@@ -689,53 +787,20 @@ Problema 12
 <li>Se presenten menos de 2 grietas en 500 m</li>
 </ul>
 </div>
-<p></br></br></p>
-<div class="box2 with-label">
-<div class="label">
-Problema 13
-</div>
-<p>Un sistema de seguridad para casas está diseñado para tener una
-confiabilidad del 95% . Suponga que 10 casas equipadas con este
-dispositivo sufrieron tentativa de robo. Se requiere calcular la
-probabilidad de que en siete de las nueve, la alarma se activará.</p>
-</div>
-<p></br></br></br></br></p>
-<div class="box3 with-label">
-<div class="label">
-Código R
-</div>
+<div class="botones-ayuda">
+<details class="boton-pista">
+<summary>
+Pista
+</summary>
+<div class="contenido">
 <pre>
-# Distribución binomial
-dbinom(x, size, prob)
-pbinom(q, size, prob, lower.tail = TRUE)
-qbinom(p, size, prob, lower.tail = TRUE)
-rbinom(n, size, prob)
 
-# Distribución Poisson
-dpois(x, lambda)
-ppois(q, lambda, lower.tail = TRUE)
-qpois(p, lambda, lower.tail = TRUE)
-rpois(n, lambda)
 
-# Distribución geométrica
-dgeom(x, prob)
-pgeom(q, prob, lower.tail = TRUE)
-qgeom(p, prob, lower.tail = TRUE)
-rgeom(n, prob)
-
-# Distribución hipergeométrica
-dhyper(x, m, n, k)
-phyper(q, m, n, k, lower.tail = TRUE)
-qhyper(p, m, n, k, lower.tail = TRUE)
-rhyper(nn, m, n, k)
-
-# Distribución binomial negativa
-dnbinom(x, size, prob, mu)
-pnbinom(q, size, prob, mu, lower.tail = TRUE)
-qnbinom(p, size, prob, mu, lower.tail = TRUE)
-rnbinom(n, size, prob, mu)
 </pre>
 </div>
+</details>
+</div>
+<p></br></br></p>
 
 
 
