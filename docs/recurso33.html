@@ -14,13 +14,13 @@
 
 <title>Estadística para la toma de decisiones</title>
 
-<script src="site_libs/header-attrs/header-attrs.js"></script>
-<script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap/shim/respond.min.js"></script>
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -30,12 +30,12 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation/tabsets.js"></script>
-<script src="site_libs/navigation/codefolding.js"></script>
-<link href="site_libs/highlightjs/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs/highlight.js"></script>
-<link href="site_libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -625,10 +625,13 @@ de distribución de probabilidad $</p>
 <p><br/><br/></p>
 <div id="ejemplo-1" class="section level3 box6 with-label">
 <h3>Ejemplo 1</h3>
-<p>Un biólogo realiza una salida de campo para estudiar el
-comportamiento del cucarachero común. Se considera éxito si puede filmar
-al animal y fracaso si no puede hacerlo. Por información suministrada en
-artículos científicos la probabilidad de lograrlo se estima en 0.20.</p>
+<p>Un grupo de estudiantes del área de Negocios Internacionales realiza
+una visita a las instalaciones de un puerto marítimo para observar en
+campo los procesos tanto de importación como de exportación. Se
+considera éxito si logran observar y documentar completamente cada uno
+de los procesos, y fracaso si no pueden observarlos o la información
+resulta incompleta. Con base en experiencias previas, la probabilidad de
+lograrlo se estima en 0.80.</p>
 </div>
 <p><br/><br/></p>
 <div id="solución" class="section level3">
@@ -641,25 +644,27 @@ Bernoulli y confrontarlas contra el contexto presentado en el
 ejemplo.</p>
 <p>Primero existe un solo ensayo o salida de campo, durante después de
 la salida de campo se pueden obtener dos resultados posibles: lograr el
-objetivo de visualizar y filmar al animal (Éxito) y por otro lado el no
-lograrlo (Fracaso). También se posee la probabilidad de éxito (<span
-class="math inline">\(0.20\)</span>), este caso establecida mediante el
-enfoque subjetivo de un experto en un artículo científico. Lo anterior
-nos permite poder asociar la variable que llamaremos <span
-class="math inline">\(X\)</span> asociada con el poder o no realizar la
-filmación.</p>
+objetivo (Éxito) y por otro lado el no lograrlo (Fracaso). También se
+posee la probabilidad de éxito (<span
+class="math inline">\(0.80\)</span>), este caso establecida mediante el
+enfoque subjetivo de un experto en los registros de la universidad en
+experiencias anteriores. Lo anterior nos permite poder asociar la
+variable que llamaremos <span class="math inline">\(X\)</span> asociada
+con el poder o no realizar la observación.</p>
 <p>La variable aleatoria se define en este caso como:</p>
 <p><span class="math display">\[X =\left\lbrace
 \begin{array}{lll}
-    1 &amp; \mbox{si se realiza la filmación del ave}   \\
-    0 &amp; \mbox{si no se logra realizar la filmación}
+    1 &amp; \mbox{si se realiza la observación y documentación de los
+procesos }   \\
+    0 &amp; \mbox{si no se logra realizar ni la observación, ni la
+documentacion de los procesos}
 \end{array}
 \right.\]</span></p>
 <p>y su función de distribución de probabilidad está dada por:</p>
-<p><span class="math display">\[f(x)= 0.2^{x} (1-0.2)^{1-x} ,\text{ si }
-x=0,1.\]</span> <span class="math display">\[E[X]=p =0.20\]</span></p>
-<p><span class="math display">\[V[X] =p(1-p)= 0.16\]</span>
-<br/><br/><br/></p>
+<p><span class="math display">\[f(x)= 0.8^{x} (1-0.8)^{1-x} ,\text{ si }
+x=0,1.\]</span> <span class="math display">\[E[X]=p =0.80\]</span></p>
+<p><span class="math display">\[V[X] =p(1-p)= 0.16\]</span></p>
+<p><br/><br/><br/></p>
 </div>
 </div>
 <div id="binomial" class="section level1">
@@ -1133,13 +1138,13 @@ class="math inline">\(0,1\)</span>)</strong></p>
 <p><img src="recurso33_files/figure-html/unnamed-chunk-12-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <div id="ejemplo-7" class="section level3 box6 with-label">
 <h3>Ejemplo 7</h3>
-<p>En la fabricación de portaobjetos, que son láminas rectangulares de
-vidrio muy delgada (76x26 mm y 1 mm de espesor), utilizados para la
-observación de sustancias en el microscopio. Una de sus principales
-características está relacionada con su espesor (<span
-class="math inline">\(X\)</span>), el cual tiene una distribución
-uniforme entre 0.95 mm y 1.05 mm. Determine la probabilidad de que un
-portaobjeto determinado tenga un espesor superior a 1.03 mm.|</p>
+<p>En una empresa de servicios se ha determinado que el tiempo requerido
+para atender una solicitud administrativa varía entre clientes. A partir
+de registros históricos, se considera que el tiempo de atención (<span
+class="math inline">\(X\)</span>) puede modelarse mediante una
+distribución uniforme continua entre 9.5 y 10.5 minutos.</p>
+<p>Determine la probabilidad de que una solicitud seleccionada al azar
+requiera un tiempo de atención superior a 10.3 minutos.</p>
 </div>
 <p><br/><br/></p>
 <div id="solución-6" class="section level3">
@@ -1207,11 +1212,11 @@ class="math display">\[V[X]=\sigma^{2}\]</span></p>
 producto de cambios en la media o en la varianza. A mayor valor de la
 media la curva se desplaza a la derecha, mientras que a menor varianza
 la curva se vuelve mas angosta o puntiaguda</p>
-<p>Distribuciones normales : <span style="color:#00B845"><span
+<p>Distribuciones normales : <span style="color:#79C45A"><span
 class="math inline">\(N(0,1)\)</span></span>, <span
-style="color:#F9573F"> <span
+style="color:#1E4E6B"> <span
 class="math inline">\(N(0,1.5)\)</span></span> y <span
-style="color:#F6BB42"> <span
+style="color:#F4B43C"> <span
 class="math inline">\(N(2,1.5)\)</span></span></p>
 <p><img src="recurso33_files/figure-html/unnamed-chunk-13-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <p>Dentro del sin número de posibles curvas que se pueden obtener con
@@ -1318,11 +1323,11 @@ class="math inline">\(\lambda\)</span></p>
 \hspace{1cm} x &gt; 0\]</span></p>
 </div>
 <p><br/><br/></p>
-<p>Distribuciones exponenciales : <span style="color:#00B845"> <span
+<p>Distribuciones exponenciales : <span style="color:#79C45A"> <span
 class="math inline">\(exp(1)\)</span></span>, <span
-style="color:#F9573F"> <span
+style="color:#2C5697"> <span
 class="math inline">\(exp(2)\)</span></span> y <span
-style="color:#F6BB42"> <span
+style="color:#F4B43C"> <span
 class="math inline">\(exp(5)\)</span></span></p>
 <p><img src="recurso33_files/figure-html/unnamed-chunk-17-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>Distribuciones exponenciales acumuladas</strong></p>
@@ -1407,11 +1412,11 @@ class="math inline">\(r\)</span></p>
 class="math display">\[V[X]= \dfrac{r}{\lambda^{2}}\]</span></p>
 </div>
 <p><br/><br/></p>
-<p>Distribuciones : <span style="color:#00B845"> <span
+<p>Distribuciones : <span style="color:#79C45A"> <span
 class="math inline">\(gamma(3,1)\)</span></span>, <span
-style="color:#F9573F"><span
+style="color:#2C5697"><span
 class="math inline">\(gamma(2,1)\)</span></span> y <span
-style="color:#F6BB42"> <span
+style="color:#F4B43C"> <span
 class="math inline">\(gamma(5,1)\)</span></span></p>
 <p><img src="recurso33_files/figure-html/unnamed-chunk-20-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <div id="ejemplo-10" class="section level3 box6 with-label">

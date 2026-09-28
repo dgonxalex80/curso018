@@ -143,11 +143,12 @@ $$V[X]= pq$$
 <div class="box6 with-label">
 ### Ejemplo 1
 
-Un biólogo realiza una salida de campo para estudiar el comportamiento del cucarachero común. Se considera éxito si puede filmar al animal y fracaso si no puede hacerlo. Por información suministrada en artículos científicos la probabilidad de lograrlo se estima en 0.20. 
+Un grupo de estudiantes del área de Negocios Internacionales realiza una visita a las instalaciones de un puerto marítimo para observar en campo los procesos tanto de importación como de exportación.
+Se considera éxito si logran observar y documentar completamente cada uno de los procesos, y fracaso si no pueden observarlos o la información resulta incompleta.
+Con base en experiencias previas, la probabilidad de lograrlo se estima en 0.80.
 
 
 </div>
-
 
 <br/><br/>
 
@@ -157,23 +158,24 @@ Se requiere examinar si dentro de este contexto existe una variable que proceda 
 
  Primero es necesario revisar las características de un experimento Bernoulli y confrontarlas contra el contexto presentado en el ejemplo. 
 
-Primero existe un solo ensayo o salida de campo, durante después de la salida de campo se pueden obtener dos resultados posibles: lograr el objetivo de visualizar y filmar al animal (Éxito) y por otro lado el no lograrlo (Fracaso). También se posee la probabilidad de éxito ($0.20$), este caso establecida mediante el enfoque subjetivo de un experto en un artículo científico. Lo anterior nos permite poder asociar la variable que llamaremos $X$ asociada con el poder o no realizar la filmación.
+Primero existe un solo ensayo o salida de campo, durante después de la salida de campo se pueden obtener dos resultados posibles: lograr el objetivo (Éxito) y por otro lado el no lograrlo (Fracaso). También se posee la probabilidad de éxito ($0.80$), este caso establecida mediante el enfoque subjetivo de un experto en los registros de la universidad en experiencias anteriores. Lo anterior nos permite poder asociar la variable que llamaremos $X$ asociada con el poder o no realizar la observación. 
 
 La variable aleatoria se define en este caso como:
 
 $$X =\left\lbrace
 \begin{array}{lll}
-	1 & \mbox{si se realiza la filmación del ave}   \\
-	0 & \mbox{si no se logra realizar la filmación}
+	1 & \mbox{si se realiza la observación y documentación de los procesos }   \\
+	0 & \mbox{si no se logra realizar ni la observación, ni la documentacion de los procesos}
 \end{array}
 \right.$$
 
 y su función de distribución de probabilidad está dada por:
 
-$$f(x)= 0.2^{x} (1-0.2)^{1-x} ,\text{ si } x=0,1.$$
-$$E[X]=p =0.20$$ 
+$$f(x)= 0.8^{x} (1-0.8)^{1-x} ,\text{ si } x=0,1.$$
+$$E[X]=p =0.80$$ 
 
 $$V[X] =p(1-p)= 0.16$$
+
 <br/><br/><br/>
 
 
@@ -665,8 +667,9 @@ ggplot(data=dat,aes(x=x, y=fx))+
 <div class="box6 with-label">
 ### Ejemplo 7
 
- En la fabricación de portaobjetos, que son láminas rectangulares de vidrio muy delgada (76x26 mm y 1 mm de espesor), utilizados para  la observación de sustancias en el microscopio. Una de sus principales características está relacionada con su espesor ($X$), el cual tiene una distribución uniforme entre 0.95 mm y 1.05 mm. Determine la probabilidad de que un portaobjeto determinado tenga un espesor superior a 1.03 mm.|          
+En una empresa de servicios se ha determinado que el tiempo requerido para atender una solicitud administrativa varía entre clientes. A partir de registros históricos, se considera que el tiempo de atención ($X$) puede modelarse mediante una distribución uniforme continua entre 9.5 y 10.5 minutos.
 
+Determine la probabilidad de que una solicitud seleccionada al azar requiera un tiempo de atención superior a 10.3 minutos.
 </div>
 
 <br/><br/>
@@ -721,15 +724,45 @@ $$V[X]=\sigma^{2}$$
 
 En la siguente gráfica se muestra el efecto en la curva normal, producto de cambios en la media o en la varianza. A mayor valor de la media la curva se desplaza a la derecha, mientras que a menor varianza la curva se vuelve mas angosta o puntiaguda 
 
-Distribuciones normales : <span style="color:#00B845">$N(0,1)$</span>, <span style="color:#F9573F"> $N(0,1.5)$</span> y <span style="color:#F6BB42"> $N(2,1.5)$</span>
+Distribuciones normales : <span style="color:#79C45A">$N(0,1)$</span>, <span style="color:#1E4E6B"> $N(0,1.5)$</span> y <span style="color:#F4B43C"> $N(2,1.5)$</span>
 
-```{r, echo=FALSE, fig.height=3.5, fig.align='center'}
+```{r, echo=FALSE, fig.height=3.5, fig.align='center', warning=FALSE, message=FALSE}
 # Distribucion normal
 library(ggfortify)
 
-p=ggdistribution(dnorm, seq(-4, 8, 0.1), mean = 0, sd = 1,colour = "#00B845")
-p=ggdistribution(dnorm, seq(-4, 8, 0.1), mean = 0, sd = 1.5,colour = "#F9573F", p=p)
-ggdistribution(dnorm, seq(-4, 8, 0.1),   mean = 2, sd = 1.5,colour = "#F6BB42", p=p)
+# p=ggdistribution(dnorm, seq(-4, 8, 0.1), mean = 0, sd = 1,colour = "#79C45A", linewidth = 1.5)
+# p=ggdistribution(dnorm, seq(-4, 8, 0.1), mean = 0, sd = 1.5,colour = "#1E4E6B", p=p)
+# ggdistribution(dnorm, seq(-4, 8, 0.1),   mean = 2, sd = 1.5,colour = "#F4B43C", p=p)
+
+library(ggfortify)
+library(ggplot2)
+
+p <- ggdistribution(
+  dnorm, seq(-4, 8, 0.1),
+  mean = 0, sd = 1,
+  colour = "#79C45A"
+)
+
+p <- ggdistribution(
+  dnorm, seq(-4, 8, 0.1),
+  mean = 0, sd = 1.5,
+  colour = "#1E4E6B",
+  p = p
+)
+
+p <- ggdistribution(
+  dnorm, seq(-4, 8, 0.1),
+  mean = 2, sd = 1.5,
+  colour = "#F4B43C",
+  p = p
+)
+
+# Aumentar grosor de las tres curvas
+for (i in seq_along(p$layers)) {
+  p$layers[[i]]$aes_params$linewidth <- 1.1
+}
+
+p
 ```
 
 
@@ -847,14 +880,38 @@ $$F(x)=P(X \leq x)=1-e^{-\lambda x} \hspace{1cm} x > 0$$
 <br/><br/>
 
 
-Distribuciones exponenciales : <span style="color:#00B845"> $exp(1)$</span>, <span style="color:#F9573F"> $exp(2)$</span> y <span style="color:#F6BB42"> $exp(5)$</span>
+Distribuciones exponenciales : <span style="color:#79C45A"> $exp(1)$</span>, <span style="color:#2C5697"> $exp(2)$</span> y <span style="color:#F4B43C"> $exp(5)$</span>
 
 ```{r, echo=FALSE, fig.height=3.5, fig.align='center'}
-#exponencial
 library(ggfortify)
-p=ggdistribution(dexp, seq(0, 10, 0.1),rate=1 ,colour = "#00B845")
-p=ggdistribution(dexp, seq(0, 10, 0.1),rate=2 ,colour = "#F9573F", p=p)
-ggdistribution(dexp, seq(0, 10, 0.1),rate=0.5,colour =  "#F6BB42", p=p)
+
+p <- ggdistribution(
+  dexp, seq(0, 10, 0.1),
+  rate = 1,
+  colour = "#79C45A"
+)
+
+p <- ggdistribution(
+  dexp, seq(0, 10, 0.1),
+  rate = 2,
+  colour = "#2C5697",
+  p = p
+)
+
+p <- ggdistribution(
+  dexp, seq(0, 10, 0.1),
+  rate = 0.5,
+  colour = "#F4B43C",
+  p = p
+)
+
+# Aumentar el grosor de todas las curvas
+for (i in seq_along(p$layers)) {
+  p$layers[[i]]$aes_params$linewidth <- 1.1
+}
+
+p
+
 ```
  
 
@@ -863,7 +920,18 @@ ggdistribution(dexp, seq(0, 10, 0.1),rate=0.5,colour =  "#F6BB42", p=p)
 
 ```{r, echo=FALSE, fig.height=3.5}
 library(ggfortify)
-ggdistribution(pexp, seq(0, 10, 0.1),rate=1 ,colour = c31)
+
+p <- ggdistribution(
+  pexp,
+  seq(0, 10, 0.1),
+  rate = 1,
+  colour = "#2C5697"
+)
+
+# Aumentar grosor de la curva
+p$layers[[1]]$aes_params$linewidth <- 1.1
+
+p
 ```
 
 <br/><br/>
@@ -952,14 +1020,38 @@ $$V[X]= \dfrac{r}{\lambda^{2}}$$
 
 <br/><br/>
 
-Distribuciones : <span style="color:#00B845"> $gamma(3,1)$</span>, <span style="color:#F9573F">$gamma(2,1)$</span> y <span style="color:#F6BB42"> $gamma(5,1)$</span>
+Distribuciones : <span style="color:#79C45A"> $gamma(3,1)$</span>, <span style="color:#2C5697">$gamma(2,1)$</span> y <span style="color:#F4B43C"> $gamma(5,1)$</span>
 
 ```{r, echo=FALSE, fig.height=3.5, fig.align='center'}
 # gamma
 library(ggfortify)
-p=ggdistribution(dgamma, seq(0, 15, 0.1),shape=3,rate=1 ,colour= "#00B845")
-p=ggdistribution(dgamma, seq(0, 15, 0.1),shape=2,rate=1 ,colour = "#F9573F", p=p)
-ggdistribution(dgamma, seq(0, 15, 0.1),shape=5,rate=1,colour = "#F6BB42", p=p)
+
+p <- ggdistribution(
+  dgamma, seq(0, 15, 0.1),
+  shape = 3, rate = 1,
+  colour = "#79C45A"
+)
+
+p <- ggdistribution(
+  dgamma, seq(0, 15, 0.1),
+  shape = 2, rate = 1,
+  colour = "#2C5697",
+  p = p
+)
+
+p <- ggdistribution(
+  dgamma, seq(0, 15, 0.1),
+  shape = 5, rate = 1,
+  colour = "#F4B43C",
+  p = p
+)
+
+# Aumentar el grosor de las tres curvas
+for (i in seq_along(p$layers)) {
+  p$layers[[i]]$aes_params$linewidth <- 1.1
+}
+
+p
 
 ```
 
