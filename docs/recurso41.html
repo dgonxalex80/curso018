@@ -14,13 +14,13 @@
 
 <title>Estadística para la toma de decisiones</title>
 
-<script src="site_libs/header-attrs/header-attrs.js"></script>
-<script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap/shim/respond.min.js"></script>
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -30,15 +30,15 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui/jquery-ui.min.js"></script>
-<link href="site_libs/tocify/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify/jquery.tocify.js"></script>
-<script src="site_libs/navigation/tabsets.js"></script>
-<script src="site_libs/navigation/codefolding.js"></script>
-<link href="site_libs/highlightjs/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs/highlight.js"></script>
-<link href="site_libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -1283,12 +1283,12 @@ abline(h=5, col = &quot;red&quot;)</code></pre>
 <p><img src="recurso41_files/figure-html/unnamed-chunk-4-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code># Se calulan las medias
 apply(T123,2, mean)</code></pre>
-<pre><code>   T1    T2    T3 
-4.996 5.004 4.972 </code></pre>
+<pre><code>      T1       T2       T3 
+4.995938 5.004249 4.972429 </code></pre>
 <pre class="r"><code># Se calculan las varianzas
 apply(T123,2, var)</code></pre>
-<pre><code>   T1    T2    T3 
-6.671 7.276 6.001 </code></pre>
+<pre><code>      T1       T2       T3 
+6.671239 7.276362 6.001471 </code></pre>
 </div>
 <p><br/></p>
 <p>Los tres estimadores son insesgados. Bajo independencia, sus
@@ -1428,19 +1428,19 @@ chi-cuadrado calcule:</p>
 class="math inline">\(v = 15\)</span></li>
 </ul>
 <pre class="r"><code>qchisq(0.025,15)</code></pre>
-<pre><code>[1] 6.262</code></pre>
+<pre><code>[1] 6.262138</code></pre>
 <ul>
 <li><span class="math inline">\(\chi^{2}_{0.01}\)</span>, cuando <span
 class="math inline">\(v = 7\)</span></li>
 </ul>
 <pre class="r"><code>qchisq(0.01,7)</code></pre>
-<pre><code>[1] 1.239</code></pre>
+<pre><code>[1] 1.239042</code></pre>
 <ul>
 <li><span class="math inline">\(\chi^{2}_{0.05}\)</span>, cuando <span
 class="math inline">\(v = 24\)</span></li>
 </ul>
 <pre class="r"><code>qchisq(0.05,24)</code></pre>
-<pre><code>[1] 13.85</code></pre>
+<pre><code>[1] 13.84843</code></pre>
 </div>
 <p><br/><br/></p>
 </div>
@@ -1499,19 +1499,19 @@ Ejemplo
 class="math inline">\(v = 14\)</span></li>
 </ul>
 <pre class="r"><code>qt(0.025,14)</code></pre>
-<pre><code>[1] -2.145</code></pre>
+<pre><code>[1] -2.144787</code></pre>
 <ul>
 <li>Calcule <span class="math inline">\(t_{0.975}\)</span>, cuando <span
 class="math inline">\(v = 10\)</span></li>
 </ul>
 <pre class="r"><code>qt(0.975, 10)</code></pre>
-<pre><code>[1] 2.228</code></pre>
+<pre><code>[1] 2.228139</code></pre>
 <ul>
 <li>Calcule <span class="math inline">\(t_{0.10}\)</span>, cuando <span
 class="math inline">\(v = 7\)</span></li>
 </ul>
 <pre class="r"><code>qt(0.10, 7)</code></pre>
-<pre><code>[1] -1.415</code></pre>
+<pre><code>[1] -1.414924</code></pre>
 </div>
 <p><br/><br/></p>
 </div>
@@ -1559,16 +1559,16 @@ class="math inline">\(v_{1} = 7\)</span> y <span
 class="math inline">\(v_{2} = 15\)</span></li>
 </ul>
 <pre class="r"><code>qf(0.025, 7,15)</code></pre>
-<pre><code>[1] 0.2189</code></pre>
+<pre><code>[1] 0.2189244</code></pre>
 <ul>
 <li>Calcule <span class="math inline">\(f_{0.975}\)</span>, con <span
 class="math inline">\(v_{1} = 7\)</span> y <span
 class="math inline">\(v_{2} = 15\)</span></li>
 </ul>
 <pre class="r"><code>qf(0.975, 7, 15)</code></pre>
-<pre><code>[1] 3.293</code></pre>
+<pre><code>[1] 3.29336</code></pre>
 <pre class="r"><code>1/qf(0.025, 15,7)</code></pre>
-<pre><code>[1] 3.293</code></pre>
+<pre><code>[1] 3.29336</code></pre>
 </div>
 <p><br/><br/></p>
 </div>
@@ -2149,6 +2149,7 @@ class="math inline">\(\dfrac{p_{1}q_{1}}{n_{1}}+\dfrac{p_{2}q_{2}}{n_{2}}\)</spa
 <div id="teorema-del-límite-central" class="section level1">
 <h1>Teorema del límite central</h1>
 <p><br/></p>
+<p><img src="img/teorema.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
 <p>Sean <span class="math inline">\(X_1,\ldots,X_n\)</span> variables
 independientes e idénticamente distribuidas con media <span
 class="math inline">\(\mu\)</span> y varianza finita <span

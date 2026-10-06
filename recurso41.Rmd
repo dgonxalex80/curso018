@@ -1007,6 +1007,12 @@ Las varianzas de la siguiente tabla suponen muestreo independiente; las diferenc
 
 <br/>
 
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/teorema.png")
+```
+
+
 Sean $X_1,\ldots,X_n$ variables independientes e idénticamente distribuidas con media $\mu$ y varianza finita $0<\sigma^2<\infty$. El teorema central del límite establece la convergencia en distribución de la media estandarizada:
 
 $$Z_n=\dfrac{\bar{X}-\mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0,1),\qquad n\to\infty.$$
