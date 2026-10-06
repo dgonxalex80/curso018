@@ -1635,9 +1635,9 @@ h. $P(3 < X < x) = 0.99$
 <div class="box3 with-label">
 ### Problema 2.33
 
-:::: {style="display: flex;"}
-
-::: {}
+<div class="img-derecha">
+  <img src="img/suelo.png">
+</div>
 
 La densidad del grosor del suelo se define como la masa de sólido seco por unidad de volumen de grosor. Que sea alta implica que el suelo es compacto, es decir con pocos poros. Esta densidad es un factor importante, que influye en el desarrollo de raíces y plántulas, así como en la aireación del suelo. Sea $X$ la densidad del grosor de la arcilla para moldeo Pima. Los estudios muestran que $X$ tiene distribución aproximadamente normal, con $\mu = 1.5\ g/cm^3$ y $\sigma = 0.2\ g/cm^3$.
 
@@ -1647,18 +1647,6 @@ b. ¿Le sorprendería que una muestra seleccionada aleatoriamente de este tipo d
 
 c. ¿Para qué valor de grosor se posee la propiedad de tener sólo el 10% de las muestras de suelo con las densidades de grosor más altas?
 
-:::
-
-::: {}
-
-
-```{r, echo=FALSE, out.width="80%", fig.align = "left"}
- knitr::include_graphics("img/suelo.png")
-```
-
-:::
-
-::::
 
 </div>
 
@@ -1667,13 +1655,9 @@ c. ¿Para qué valor de grosor se posee la propiedad de tener sólo el 10% de la
 <div class="box3 with-label">
 ### Problema 2.34
 
-
-
-
-:::: {style="display: flex;"}
-
-
-::: {}
+<div class="img-derecha">
+  <img src="img/comerciante.png">
+</div>
 
 La demanda de un producto A tiene distribución aproximadamente normal con una media de doscientas unidades y desviación estándar de cuarenta. La demanda de otro producto independiente B, también tiene distribución aproximadamente normal con media de quinientas unidades y desviación estándar de ochenta. Un comerciante que vende estos productos, tiene en su almacén a comienzos del mes, doscientas ochenta unidades del producto A y seiscientas sesenta unidades del producto B.
 
@@ -1683,18 +1667,6 @@ b. ¿Cuántas unidades B debe vender el comerciante para que la probabilidad de 
 
 c. ¿Cuál es la probabilidad de que el comerciante venda todas las unidades de A y todas las unidades del producto B que tenía a comienzos del mes?
 
-:::
-
-::: {}
-
-
-```{r, echo=FALSE, out.width="80%", fig.align = "left"}
- knitr::include_graphics("img/comerciante.png")
-```
-
-:::
-
-::::
 
 </div>
 
@@ -1703,11 +1675,11 @@ c. ¿Cuál es la probabilidad de que el comerciante venda todas las unidades de 
 <div class="box3 with-label">
 ### Problema 2.35
 
+<div class="img-derecha">
+  <img src="img/puertas.png">
+</div>
 
 
-:::: {style="display: flex;"}
-
-::: {}
 
 Uno de los productos más vendidos de IK, fabricante de cocinas integrales, corresponde a un novedoso estilo de puertas para los gabinetes. Cada una de las puertas se construye con el ensamble de tres partes de madera $P_1$, $P_2$ y $P_3$, que son cortadas y procesadas por tres operarios en tres máquinas distintas. Un estudio realizado recientemente en estos tres procesos determinó que el ancho de cada una de las piezas se distribuye normalmente con medias: 10.4 cm, 7.2 cm y 12.2 cm, y con desviaciones estándar 0.2 cm, 0.1 cm y 0.3 cm respectivamente. Para pegar las piezas el fabricante utiliza una cinta doble faz de espesor constante 0.1 cm, la cual se puede suponer de ancho constante.
 
@@ -1718,19 +1690,6 @@ Se podría afirmar que el proceso está bajo control siempre y cuando el porcent
 a. Basados en la información anterior, ¿es posible establecer si el proceso de fabricación de las puertas está bajo control? En caso de poder hacerlo, realice los cálculos y determine el estado del proceso. En todos los casos, justifique su respuesta.
 
 b. Actualmente en la fábrica se producen diariamente 120 puertas y se tiene como meta realizar por lo menos 100 dentro de los estándares de producción. Si se supone que la producción mantiene sus características estables, ¿qué tan cerca o alejado se está de cumplir con este requerimiento?
-
-:::
-
-::: {}
-
-
-```{r, echo=FALSE, out.width="80%", fig.align = "left"}
- knitr::include_graphics("img/puertas.png")
-```
-
-:::
-
-::::
 
 
 

@@ -428,3 +428,19 @@ mjx-container mjx-frac > mjx-frac-line {
     padding: .9rem 1rem !important;
   }
 }
+
+/* =========================================================
+   BOTONES PISTA / SOLUCIÓN - IMAGEN A LA DERECHA
+   ========================================================= */
+
+.img-derecha {
+  float: right;
+  width: 35%;
+  max-width: 350px;
+  margin: 0 0 15px 25px;
+}
+
+.img-derecha img {
+  width: 100%;
+  height: auto;
+}

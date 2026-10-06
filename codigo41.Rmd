@@ -1,0 +1,614 @@
+---
+title: "<span style='color:#8A6FD1 !important;'>Estadística para la toma de decisiones</span>"
+author: <span style="color:#8A6FD1">dgonzalez </span> 
+subtitle: <span style="color:#8A6FD1"> </span> 
+output:
+  html_document:
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    theme: flatly
+    css:
+      - style.css
+      - cajas.css
+---
+
+       
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA, fig.align = "center")
+options(digits = 4)
+set.seed(1234)
+library(psych)
+library(summarytools)
+library(tidyverse)
+# install.packages("devtools")
+# devtools::install_github("dgonxalex80/paqueteDEG")
+#library(paqueteDEG)
+
+# colores
+source("colores.R")
+
+# install.packages('gtools')
+# install.packages("TeachingSampling")
+
+#load library
+library(gtools)
+library(TeachingSampling)
+library(readr)
+base_muestreo <- read_delim("data/base_muestreo.csv", 
+    delim = ";", escape_double = FALSE, col_types = cols(ID = col_integer()), 
+    trim_ws = TRUE)
+#library(paqueteDEG)
+
+```
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/codigo4.png")
+```
+
+<br/><br/><br/>
+
+
+
+# Propiedad de los estimadores
+
+<br/><br/>
+
+Para una variable con distribución uniforme $unif(a=0, b=20)$ se desea determinar las propiedades de los siguientes  estimadores del parámetro $b$
+
+
+* $\widehat{\theta_{1}} = 2 \bar{x}$ 
+
+* $\widehat{\theta_{2}} = \max\{x\}$
+
+* $\widehat{\theta_{3}} = \dfrac{(n+1)}{n} \max\{x\}$
+
+<br/><br/>
+
+
+
+```{r}
+# uniforme
+library(ggplot2)
+x= c(0,20) 
+fx=c(1/20, 1/20) 
+dat=data.frame(x,fx)
+ggplot(data=dat,aes(x=x, y=fx))+ 
+  scale_y_continuous(limits=c(0,.05))+
+  geom_line(linewidth = 1, colour = '#476885') +
+  labs(x = 'x', y = 'f(x)', title = 'Distribución uniforme U(0,20)') +
+  theme_minimal()
+```
+
+
+Para ello se realiza una simulación, para posteriormente evaluar los estimadores propuestos y determinar sus propiedades.
+
+
+
+<br/><br/>
+
+```{r}
+library(ggplot2)
+n=10
+B=10000  # número de réplicas de Monte Carlo
+Y=matrix(runif(B*n, min=0, max=20), nrow=B, ncol=n) # B muestras de tamaño n
+Mx=apply(Y,1,mean)
+Max=apply(Y,1,max)
+T1=2*Mx
+T2=Max
+T3=((n+1)/n)*T2
+T123=data.frame(T1,T2,T3)
+
+boxplot(T123, las=1, main="Comparación de estimadores con n=10",
+        ylab="Valor del estimador")
+abline(h=20, col="red", lty=2)
+
+res10 <- data.frame(
+  Estimador = c("T1 = 2 X̄", "T2 = X(n)", "T3 = (n+1)X(n)/n"),
+  Media_simulada = colMeans(T123),
+  Sesgo_simulado = colMeans(T123) - 20,
+  Varianza_simulada = apply(T123, 2, var),
+  ECM_simulado = colMeans((T123 - 20)^2)
+)
+knitr::kable(res10, digits=4, align=c("l","r","r","r","r"),
+             caption="Desempeño de los estimadores para n = 10")
+```
+
+Para un tamaño de muestra $n=10$, $T_1=2\bar{X}$ y $T_3=\frac{n+1}{n}X_{(n)}$ son estimadores insesgados de $b$. En cambio, $T_2=X_{(n)}$ presenta sesgo negativo, pues $E[T_2]=\frac{n}{n+1}b$. Entre los estimadores insesgados considerados, $T_3$ presenta menor varianza que $T_1$, por lo que resulta más eficiente dentro de esta comparación.
+
+
+```{r}
+n=100
+B=10000  # mismo número de réplicas para facilitar la comparación
+Y=matrix(runif(B*n, min=0, max=20), nrow=B, ncol=n) # B muestras de tamaño n
+Mx=apply(Y,1,mean)
+Max=apply(Y,1,max)
+T1=2*Mx
+T2=Max
+T3=((n+1)/n)*T2
+T123=data.frame(T1,T2,T3)
+
+boxplot(T123, las=1, main="Comparación de estimadores con n=100",
+        ylab="Valor del estimador")
+abline(h=20, col="red", lty=2)
+
+res100 <- data.frame(
+  Estimador = c("T1 = 2 X̄", "T2 = X(n)", "T3 = (n+1)X(n)/n"),
+  Media_simulada = colMeans(T123),
+  Sesgo_simulado = colMeans(T123) - 20,
+  Varianza_simulada = apply(T123, 2, var),
+  ECM_simulado = colMeans((T123 - 20)^2)
+)
+knitr::kable(res100, digits=4, align=c("l","r","r","r","r"),
+             caption="Desempeño de los estimadores para n = 100")
+```
+
+
+Los resultados muestran nuevamente que $T_3$ es el estimador más preciso entre los tres considerados. El estimador $T_2$ continúa siendo sesgado, pero su sesgo disminuye cuando aumenta $n$; por ello, su valor esperado se aproxima a $b=20$. Esta propiedad corresponde a la **consistencia** del estimador, no a la insesgadez. 
+
+<br/><br/><br/><br/>
+
+# Teorema Central del Límite
+
+Verificación del Teorema Central del Límite para una población exponencial con $\lambda=1$
+
+Con este fin se siguen los siguientes pasos:
+
+1. Se construye una matriz de dimensión 1000 x 1000 con números procedentes del modelo determinado
+2. Se separan matrices de dimensión 1000 x n , para n=1,2,20,30,50, 100 y 1000 . 
+3. A cada matriz construida en el paso anterior se le calcula la media por filas, como resultado se obtiene un vector de 1000 medias 
+4. Cada uno de los vectores resultantes se visualiza a través de un histograma, gráfico de densidad y se construye también un gráfico de normalidad con el fin de validar el resultado 
+
+<br/><br/>
+
+```{r}
+par(cex=0.5, cex.axis=.5, cex.lab=.5, cex.main=.5, cex.sub=.5,  mfrow=c(3,2), mai = c(.5, .5, .5, .5))
+# Teorema Central del Límite-----------------------------
+# Paso 1
+n=1000   #  numero de columnas (tamaño máximo de muestra)
+m=1000*n
+# Caso --------------------------------------------------
+# distribución exponencial-------------------------------
+X=matrix(rexp(m,1),ncol=n)
+# Paso 2
+# generación de muestras-------------
+X1=X[ ,1]            # n=1
+X2=X[ ,1:2]          # n=2
+X20=X[ ,1:20]        # n=20
+X30=X[ ,1:30]        # n=30
+X50=X[ ,1:50]        # n=50
+X100=X[ ,1:100]      # n=100
+X1000=X[ ,1:1000]    # n=1000
+# Paso 3
+# generacion de medias---------------
+Mx2=apply(X2,1,mean)        # medias de muestras de tamaño n=2
+Mx20=apply(X20,1,mean)      # medias de muestras de tamaño n=20
+Mx30=apply(X30,1,mean)      # medias de muestras de tamaño n=30
+Mx50=apply(X50,1,mean)      # medias de muestras de tamaño n=50
+Mx100=apply(X100,1,mean)    # medias de muestras de tamaño n=100
+Mx1000=apply(X1000,1,mean)  # medias de muestras de tamaño n=1000
+# Paso 4 
+# generación de densidad empírica --
+d=density(X1)
+d2=density(Mx2)
+#d20=density(Mx20)
+d30=density(Mx30)
+d50=density(Mx50)
+d100=density(Mx100)
+d1000=density(Mx1000)
+# Gráficos de densidad -------------------------------
+# configuración de las gráficas
+par(cex=0.7, cex.axis=.7, cex.lab=.7, cex.main=.8, cex.sub=.7, mfrow=c(3,2), mai=c(.55,.55,.4,.25))
+# histogramas  de comparacion-------------------------
+plot(d, main=" ", xlab = "n=1")
+plot(d2,main=" ", xlab = "n=2")
+#plot(d20, main="", xlab = "n=20")
+plot(d30, main=" ", xlab = "n=30")
+plot(d50, main=" ", xlab = "n=50")
+plot(d100, main=" ", xlab = "n=100")
+plot(d1000,main=" ", xlab="n=1000")
+# histogramas  de comparacion--------------------------
+hist(X1,  main = "n=1", freq=FALSE)
+hist(Mx2, main ="n=2", freq=FALSE) 
+# hist(Mx20, main = "n=20",freq=FALSE)
+hist(Mx30, main = "n=30",freq=FALSE) 
+hist(Mx50, main = "n=50",freq=FALSE) 
+hist(Mx100, main = "n=100", freq=FALSE) 
+hist(Mx1000, main = "n=1000", freq = FALSE) 
+# histogramas  de comparacion--------------------------
+qqnorm(X1) ; qqline(X1, col="red")
+qqnorm(Mx2) ; qqline(Mx2, col="red")
+# qqnorm(Mx20) ; qqline(Mx20, col="red")
+qqnorm(Mx30) ; qqline(Mx30, col="red")
+qqnorm(Mx50) ; qqline(Mx50, col="red")
+qqnorm(Mx100) ; qqline(Mx100, col="red")
+qqnorm(Mx1000) ; qqline(Mx1000, col="red")
+```
+
+
+
+Se puede observar la convergencia de la distribución de la media muestral a una distribución normal al aumentarse el tamaño de la muestra
+
+<br/><br/><br/>
+
+# Distribuciones muestrales
+
+A continuación se presentan las principales características de la media muestral $\bar{x}$ y de la proporción muestral $\widehat{p}$.  En cada uno de los casos vamos a suponer el conocimiento de una población pequeña.
+
+<br/><br/><br/>
+
+## Media muestral
+
+<br/><br/>
+
+## Propiedades de la media muestral
+
+#### Paso 1
+
+Definir la  población
+
+Supongamos que una población esta conformada por los valores : $\{1,2,3,4,5 \}$, donde $N=5$
+
+Ahora que se desea calcular todas las medias que se puedan obtener de esta población para un tamaño de muestra $n=2$. En otras palabras la población de medias para $n=2$.
+
+
+Inicialmente definimos dos funciones para calcular los parámetros poblacionales media y varianza: 
+
+$$\mu =\dfrac{1}{N} \sum_{i=1}^{N} x_{i}$$
+
+$$\sigma^{2}= \dfrac{1}{N} \sum_{i=1}^{N} (x_{i}-\mu)^{2}$$
+
+```{r }
+media=function(x){sum(x)/length(x)}
+varianza=function(x){sum((x-media(x))^2)/(length(x))}
+```
+
+<br/><br/>
+
+#### Paso 2
+
+Determinar la media y la varianza poblacional . La media y varianza poblacional de esta población estará dada por:
+
+```{r }
+poblacion_x=c(1,2,3,4,5)
+cat("media poblacional    :",media(poblacion_x),"\n")
+cat("varianza poblacional :",varianza(poblacion_x),"\n")
+cat("\n")
+```
+
+<br/><br/>
+
+#### Paso 3
+
+Se determinan todas las muestras que se pueden construir de la población 
+
+Para determinar la media y la varianza de todas las medias muestrales para $n=2$ que se pueden obtener de la población, suponemos que las  muestras se escogen con repetición:
+
+$(1,1), (1,2),(1,3),(1,4),(1,5),(2,1),(2,2),(2,3),.....,(5,5)$.
+
+```{r }
+poblacion_n2=permutations(5,2,1:5, repeats=TRUE)
+mx=apply(poblacion_n2, 1,mean)
+tabla_con_rep <- data.frame(X1=poblacion_n2[,1], X2=poblacion_n2[,2], Media=mx)
+knitr::kable(tabla_con_rep, digits=2, caption="Todas las muestras ordenadas de tamaño 2 con reemplazo")
+cat("media de la distribución de X̄     :", media(mx),"\n")
+cat("varianza de la distribución de X̄ :",varianza(mx),"\n")
+ cat("\n")
+ cat("Compara los resultados obtenidos con los respectivos valores de la población ")
+ plot(poblacion_n2, pch=19)
+ grid()
+```
+
+<br/><br/>
+
+#### Paso 4
+
+Determinar la  población de medias de tamaño $n=2$, cuando el proceso se realiza sin repetición
+
+En este caso desaparecen las muestras $(1,1),(2,2),(3,3),(4,4),(5,5)$ además de $(2,1)$, pues ya esta contenida en la muestra $(1,2$. En total quedarán 10 posibles muestras
+
+```{r, echo=FALSE}
+poblacion_n2s=combinations(5,2,1:5, repeats=FALSE)
+mx=apply(poblacion_n2s, 1,mean)
+tabla_sin_rep <- data.frame(X1=poblacion_n2s[,1], X2=poblacion_n2s[,2], Media=mx)
+knitr::kable(tabla_sin_rep, digits=2, caption="Todas las muestras de tamaño 2 sin reemplazo")
+cat("media de la distribución de X̄     :", media(mx),"\n")
+cat("varianza poblacional de la media muestral :",varianza(mx))
+cat("\n")
+cat("Compara los resultados obtenidos con los respectivos valores de la población ")
+plot(poblacion_n2s, pch=19)
+grid()
+```
+
+<br/><br/>
+
+### Conclusiones
+
++  $E[\bar{X}] = E[X] = \mu$
+
++ $V[\bar{X}] = \dfrac{V[X]}{n}$
+
++ Cuando $\dfrac{n}{N}>0.05$, como el muestreo se realiza sin repetición ( un cliente solo parece una vez en la muestra) , la probabilidad de selección en cada momento cambia a medida que se elige la muestra. Estos cambios hacen necesario realizar un ajuste en la varianza:
+
+$$V[\bar{X}] = \dfrac{V[X]}{n} \dfrac{(N-n)}{(N-1)}$$
+
+<br/><br/><br/>
+
+# Proporción muestral
+
+Otro parámetro de interés es la proporción muestral para lo cual tambien se define una población pequeña que facilite la comprensión de sus propiedades. 
+
+<br/><br/><br/>
+
+### Propiedades de la proporción muestral
+
+#### Paso 1
+
+Definir la  población
+
+Supongamos que una población esta conformada por $\{$si, no,si, no, no $\}$
+
+Ahora que se desea calcular todas las medias que se puedan obtener de esta población para un tamaño de muestra $n=2$. 
+
+En otras palabras la población de medias para $n=2$.
+
+
+
+```{r }
+library(gtools)
+media=function(x){sum(x)/length(x)}
+varianza=function(x){sum((x-media(x))^2)/(length(x))}
+```
+
+<br/><br/>
+
+#### Paso 2
+
+Determinar la media y la varianza poblacionales 
+
+La media y varianza poblacional de esta población estará dada por:
+
+```{r }
+poblacion_x=c(1,0,1,0,0)
+cat("media poblacional    :",media(poblacion_x),"\n")
+cat("varianza poblacional :",varianza(poblacion_x),"\n")
+cat("\n")
+```
+#### Paso 3
+
+Se determinan todas las muestras que se pueden construir de la población 
+
+Para determinar la media y la varianza de todas las medias muestrales para $n=2$ que se pueden obtener de la población, suponemos que las  muestras se escogen con repetición:
+
+$(si,si)$, $(si,no)$......$(no,no)$
+
+```{r}
+estado <- c(1,0,1,0,0)
+ids <- 1:5
+muestra_ids <- permutations(n=5, r=2, v=ids, repeats.allowed=TRUE)
+phat <- rowMeans(matrix(estado[muestra_ids], ncol=2))
+tabla_p_rep <- data.frame(
+  Unidad1=muestra_ids[,1], Unidad2=muestra_ids[,2],
+  Resultado1=estado[muestra_ids[,1]], Resultado2=estado[muestra_ids[,2]],
+  p_hat=phat
+)
+knitr::kable(tabla_p_rep, digits=2, caption="Distribución de la proporción muestral con reemplazo")
+cat("media de la proporción muestral    :", media(phat), "\n")
+cat("varianza de la proporción muestral :", varianza(phat))
+```
+
+<br/><br/>
+
+#### Paso 4
+
+Determinar la  población de medias de tamaño $n=2$, cuando el proceso se realiza sin repetición
+
+En este caso desaparecen las muestras $(1,1),(2,2),(3,3),(4,4),(5,5)$ además de $(2,1)$, pues ya esta contenida en la muestra $(1,2$. En total quedarán 10 posibles muestras
+
+```{r, echo=FALSE}
+muestra_ids <- combinations(5, 2, ids, repeats=FALSE)
+phat_sin <- rowMeans(matrix(estado[muestra_ids], ncol=2))
+tabla_p_sin <- data.frame(
+  Unidad1=muestra_ids[,1], Unidad2=muestra_ids[,2],
+  Resultado1=estado[muestra_ids[,1]], Resultado2=estado[muestra_ids[,2]],
+  p_hat=phat_sin
+)
+knitr::kable(tabla_p_sin, digits=2, caption="Distribución de la proporción muestral sin reemplazo")
+cat("media de la proporción muestral    :", media(phat_sin),"\n")
+cat("varianza de la proporción muestral :",varianza(phat_sin),"\n")
+cat("\n")
+cat("Compara los resultados obtenidos con los respectivos valores de la población ")
+```
+
+<br/><br/>
+
+### Conclusiones
+
++  $E[\widehat{p}] = p$
+
++ $V[\widehat{p}] = \dfrac{pq}{n}$
+
++ Si $\dfrac{n}{N}>0.05$, se hace necesario realizar un ajuste en la varianza:
+
+$$V[\widehat{p}] = \dfrac{pq}{n} \dfrac{(N-n)}{(N-1)}$$
+
+
+<br/><br/><br/><br/>
+
+# Muestreo
+
+<br/><br/>
+
+### Muestreo aleatorio simple
+
+Para seleccionar una muestra de una variable, supongamos que se distinguen por un Id del 1 al 1000, utilizamos la función **sample** para seleccionar la muestra:
+
+```{r}
+x<-seq(1,1000,1)
+sample(x, 20, replace = FALSE)
+```
+En este caso se ha seleccionado una muestra de tamaño $n=20$ de una población de $N=1000$ unidades. Como se especificó `replace = FALSE`, ninguna unidad puede aparecer más de una vez; por tanto, se trata de un muestreo aleatorio simple sin reemplazo.
+
+También es posible realizar muestreo con reemplazo. Este mecanismo es, además, la base de procedimientos de remuestreo como el *bootstrap*:
+
+```{r}
+x<-1:10
+sample(x, 20, replace = TRUE)
+```
+
+<br/><br/>
+
+### Muestreo sistemático
+
+```{r}
+N=2000
+a=100
+ids=S.SY(N, a)
+ids
+```
+<br/><br/>
+
+### Ejemplo muestreo aleatorio simple
+
+```{r}
+# se importa base de datos
+library(readr)
+base_muestreo <- read_delim("data/base_muestreo.csv", 
+    delim = ";", escape_double = FALSE, col_types = cols(ID = col_integer()), 
+    trim_ws = TRUE)
+head(base_muestreo) # primeras 6 filas de la base
+dim(base_muestreo) # dimension de la base
+```
+<br/><br/>
+
+Para seleccionar una muestra aleatoria  mediante el **muestreo aleatorio simple** de la base utilizamos la función **sample**
+
+```{r}
+# se extrae la muestra
+ muestra1=base_muestreo[sample(1:nrow(base_muestreo),50,replace=F),] 
+```
+
+<br/><br/>
+
+### Ejemplo muestreo aleatorio sistemático
+
+Ahora si se requiere un muestreo sistemático 
+
+```{r}
+N=180
+n=10
+a=N/n
+ids=S.SY(N, a)
+ids
+base2=base_muestreo[ids,]
+base2
+```
+
+<br/><br/>
+
+Para los casos de los muestreos estratificado y muestreo por conglomerados se utiliza el muestreo aleatorio simple como base. 
+
+
+
+
+<br/><br/><br/><br/>
+
+# PaqueteDEG
+
+<br/><br/>
+
+1. Instalación del paquete.
+
+El paquete paqueteDEG en construcción permitirá realizar algunos cálculos del tamaño de la muestra y tutoriales. Para su instalación corremos el siguiente código
+
+```{r, eval=FALSE}
+# install.packages("devtools")  # solo si no  esta instalado
+devtools::install_github("dgonxalex80/paqueteDEG")
+```
+
+2. Cálculo del tamaño de la muestra para la estimación de una media poblacional
+
+Ejemplo:
+
+Determinar el tamaño de la muestra para estimar la media de una variable, en una población de tamaño $N = 2000$ con varianza conocida igual a $\sigma^{2}=3025$, con una confianza del 95% y un error de muestreo de 5 unidades
+
+Solución: 
+
+Información del problema :
+
++ $\sigma^{2}=3025$  -->  $\sigma = 55$
++ $N = 2000$
++ Confianza del 95% : Percentil 97.5 = $z_{_{\alpha/2}} = 1.96$
++ Error de muestreo : $e = 5$ 
+
+$$n_0 = \frac{z_{\alpha/2}^{2}\sigma^{2}}{e^{2}} = \frac{1.96^{2}(3025)}{5^{2}} = 464.83 \approx 465$$
+
+Como la población es finita ($N=2000$), puede aplicarse la corrección por población finita:
+
+$$n = \frac{N n_0}{N+n_0-1} \approx 377.33$$
+
+Por tanto, si el tamaño muestral debe ser entero y se desea garantizar que el error no exceda 5 unidades, se recomienda redondear hacia arriba: $n=378$.
+
+
+
+<br/><br/><br/>
+
+Ahora con una base de datos que contiene la carrera y la nota final del curso de matemáticas fundamental.
+
+```{r}
+head(base_muestreo)
+```
+
+```{r}
+resumen_base <- data.frame(
+  Indicador=c("Número de registros", "Número de variables", "Media poblacional de NF"),
+  Valor=c(nrow(base_muestreo), ncol(base_muestreo), mean(base_muestreo$NF))
+)
+knitr::kable(resumen_base, digits=3, caption="Resumen de la base de muestreo")
+
+t <- prop.table(table(base_muestreo$CAR))
+knitr::kable(data.frame(Programa=names(t), Proporcion=as.numeric(t)), digits=3,
+             caption="Distribución poblacional por programa")
+```
+
+Con 180 registros y tres columnas o variables :
+
++ ID  : identificación del estudiante
++ CAR : programa en el que se encuentra matriculado
++ NF : nota final de matemáticas fundamentales
+
+
+Cómo seleccionar una muestra aleatoria de 20 estudiantes: 
+
+```{r}
+idm=sample(seq_len(nrow(base_muestreo)), 20, replace = FALSE)
+muestra <- base_muestreo[idm,]
+knitr::kable(muestra, digits=2, caption="Muestra aleatoria simple de 20 estudiantes")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

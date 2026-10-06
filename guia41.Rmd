@@ -1,7 +1,7 @@
 ---
-title: " "
-subtitle: " "
-author: "dgonzalez "
+title: "<span style='color:#8A6FD1 !important;'>Estadística para la toma de decisiones</span>"
+author: <span style="color:#8A6FD1">dgonzalez </span> 
+subtitle: <span style="color:#8A6FD1"> </span> 
 output:
   html_document:
     toc: no
@@ -9,7 +9,9 @@ output:
     toc_float: yes
     code_folding: hide
     theme: flatly
-    css: style.css
+    css:
+      - style.css
+      - cajas.css
 ---
 
 
@@ -47,7 +49,7 @@ Al finalizar esta unidad el estudiante estará en capacidad de RECONOCER los ele
 
 ## **Duración**
 
-La presente  unidad será desarrollada durante los dias 6 al 14  de octubre .    
+La presente  unidad será desarrollada durante los dias 7 al 13  de octubre .    
 Ademas del material suministrado  contaran con el acompañamiento del profesor y de monitor para  el apoyo de las actividades académicas. 
 
 Para alcanzar los objetivos planteados se propone realizar las siguientes actividades
@@ -61,9 +63,8 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 |:-------------------|:-----------------------------  |
 |**Actividad411**        | Construya un mapa mental **a mano** con que contenga el siguiente grupo de palabras : **población, parámetro, censo, muestra, muestreo, muestreo probabilistico, muestreo no probabilistico, muestreo aleatorio simple, muestreo aleatorio estratificado, muestreo por conglomerados, muestreo por juicio, muestreo por conveniciencia, muestreo bola de nieve, estimador puntual, estimador insesgado, estimador consistente, estimador eficiente, estimación por intervalos de confianza, pruebas de hipotesis** |
 |Trabajo  individual |    |
-|Recursos | [Tablero](https://padlet.com/dgonzalez80/lijxz9p7nvz5mm2q)  realizado por 300MAE005 A 2020-2    |
 |         |      |                                                 |
-|Fecha    | 16 de octubre  |
+|Fecha    | 13 de octubre  |
 |Hora     | **se debe entregar con las hojas del segundo exámen parcial**     |
 |         |           |
 

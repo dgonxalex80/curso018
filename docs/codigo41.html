@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="dgonzalez " />
+
+
+<title>Estadística para la toma de decisiones</title>
+
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="cajas.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Estadística
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 0
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo0.html">Módulo 0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="sumatoria.html">Sumatoria</a>
+    </li>
+    <li>
+      <a href="productoria.html">Productoria</a>
+    </li>
+    <li>
+      <a href="conjuntos.html">Conjuntos</a>
+    </li>
+    <li>
+      <a href="conteo.html">Conteo</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo1.html">Módulo 1</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="guia11.html">Guía 1.1</a>
+    </li>
+    <li>
+      <a href="recurso11.html">Recursos 1.1</a>
+    </li>
+    <li>
+      <a href="basesdatos.html">Bases de datos</a>
+    </li>
+    <li>
+      <a href="introduccionR.html">Introducción a R</a>
+    </li>
+    <li>
+      <a href="codigo11.html">Código 1.1</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="guia12.html">Guía 1.2</a>
+    </li>
+    <li>
+      <a href="recurso12.html">Recursos 1.2</a>
+    </li>
+    <li>
+      <a href="codigo12.html">Código 1.2</a>
+    </li>
+    <li>
+      <a href="caso-01.html">Caso 1A</a>
+    </li>
+    <li>
+      <a href="caso-02.html">Caso 1B</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="guia13.html">Guía 1.3</a>
+    </li>
+    <li>
+      <a href="recurso13.html">Recursos 1.3</a>
+    </li>
+    <li>
+      <a href="codigo13.html">Código 1.3</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="monitoria1.html">Monitoría 1</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo2.html">Módulo 2</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="guia21.html">Guía 2.1</a>
+    </li>
+    <li>
+      <a href="recurso21.html">Recursos 2.1</a>
+    </li>
+    <li>
+      <a href="codigo21.html">Código 2.1</a>
+    </li>
+    <li>
+      <a href="taller211.html">Taller 211</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="guia22.html">Guía 2.2</a>
+    </li>
+    <li>
+      <a href="recurso22.html">Recursos 2.2</a>
+    </li>
+    <li>
+      <a href="taller221.html">Taller 221</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="monitoria2.html">Monitoría 2</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 3
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo3.html">Módulo 3</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="guia31.html">Guía 3.1</a>
+    </li>
+    <li>
+      <a href="recurso31.html">Recursos 3.1</a>
+    </li>
+    <li>
+      <a href="taller311.html">Taller 311</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="guia32.html">Guía 3.2</a>
+    </li>
+    <li>
+      <a href="recurso33.html">Recursos 3.2</a>
+    </li>
+    <li>
+      <a href="codigo33.html">Código 3.2</a>
+    </li>
+    <li>
+      <a href="taller-321.html">Taller 321</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="monitoria3.html">Monitoría 3</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 4
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo4.html">Módulo 4</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="guia41.html">Guía 4.1</a>
+    </li>
+    <li>
+      <a href="recurso41.html">Recursos 4.1</a>
+    </li>
+    <li>
+      <a href="codigo41.html">Código 4.1</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 5
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo5.html">Módulo 5</a>
+    </li>
+    <li class="divider"></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Proyecto
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="proyecto.html">Guía proyecto</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore"><span
+style="color:#8A6FD1 !important;">Estadística para la toma de
+decisiones</span></h1>
+<h3 class="subtitle"><span style="color:#8A6FD1"> </span></h3>
+<h4 class="author"><span style="color:#8A6FD1">dgonzalez </span></h4>
+
+</div>
+
+
+<p><img src="img/codigo4.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
+<p><br/><br/><br/></p>
+<div id="propiedad-de-los-estimadores" class="section level1">
+<h1>Propiedad de los estimadores</h1>
+<p><br/><br/></p>
+<p>Para una variable con distribución uniforme <span
+class="math inline">\(unif(a=0, b=20)\)</span> se desea determinar las
+propiedades de los siguientes estimadores del parámetro <span
+class="math inline">\(b\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\widehat{\theta_{1}} = 2
+\bar{x}\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{\theta_{2}} =
+\max\{x\}\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{\theta_{3}} =
+\dfrac{(n+1)}{n} \max\{x\}\)</span></p></li>
+</ul>
+<p><br/><br/></p>
+<pre class="r"><code># uniforme
+library(ggplot2)
+x= c(0,20) 
+fx=c(1/20, 1/20) 
+dat=data.frame(x,fx)
+ggplot(data=dat,aes(x=x, y=fx))+ 
+  scale_y_continuous(limits=c(0,.05))+
+  geom_line(linewidth = 1, colour = &#39;#476885&#39;) +
+  labs(x = &#39;x&#39;, y = &#39;f(x)&#39;, title = &#39;Distribución uniforme U(0,20)&#39;) +
+  theme_minimal()</code></pre>
+<p><img src="codigo41_files/figure-html/unnamed-chunk-2-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>Para ello se realiza una simulación, para posteriormente evaluar los
+estimadores propuestos y determinar sus propiedades.</p>
+<p><br/><br/></p>
+<pre class="r"><code>library(ggplot2)
+n=10
+B=10000  # número de réplicas de Monte Carlo
+Y=matrix(runif(B*n, min=0, max=20), nrow=B, ncol=n) # B muestras de tamaño n
+Mx=apply(Y,1,mean)
+Max=apply(Y,1,max)
+T1=2*Mx
+T2=Max
+T3=((n+1)/n)*T2
+T123=data.frame(T1,T2,T3)
+
+boxplot(T123, las=1, main=&quot;Comparación de estimadores con n=10&quot;,
+        ylab=&quot;Valor del estimador&quot;)
+abline(h=20, col=&quot;red&quot;, lty=2)</code></pre>
+<p><img src="codigo41_files/figure-html/unnamed-chunk-3-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>res10 &lt;- data.frame(
+  Estimador = c(&quot;T1 = 2 X̄&quot;, &quot;T2 = X(n)&quot;, &quot;T3 = (n+1)X(n)/n&quot;),
+  Media_simulada = colMeans(T123),
+  Sesgo_simulado = colMeans(T123) - 20,
+  Varianza_simulada = apply(T123, 2, var),
+  ECM_simulado = colMeans((T123 - 20)^2)
+)
+knitr::kable(res10, digits=4, align=c(&quot;l&quot;,&quot;r&quot;,&quot;r&quot;,&quot;r&quot;,&quot;r&quot;),
+             caption=&quot;Desempeño de los estimadores para n = 10&quot;)</code></pre>
+<table>
+<caption>Desempeño de los estimadores para n = 10</caption>
+<colgroup>
+<col width="3%" />
+<col width="20%" />
+<col width="18%" />
+<col width="18%" />
+<col width="22%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">Estimador</th>
+<th align="right">Media_simulada</th>
+<th align="right">Sesgo_simulado</th>
+<th align="right">Varianza_simulada</th>
+<th align="right">ECM_simulado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">T1</td>
+<td align="left">T1 = 2 X̄</td>
+<td align="right">20.02</td>
+<td align="right">0.0196</td>
+<td align="right">13.214</td>
+<td align="right">13.213</td>
+</tr>
+<tr class="even">
+<td align="left">T2</td>
+<td align="left">T2 = X(n)</td>
+<td align="right">18.20</td>
+<td align="right">-1.8048</td>
+<td align="right">2.714</td>
+<td align="right">5.971</td>
+</tr>
+<tr class="odd">
+<td align="left">T3</td>
+<td align="left">T3 = (n+1)X(n)/n</td>
+<td align="right">20.01</td>
+<td align="right">0.0147</td>
+<td align="right">3.284</td>
+<td align="right">3.284</td>
+</tr>
+</tbody>
+</table>
+<p>Para un tamaño de muestra <span class="math inline">\(n=10\)</span>,
+<span class="math inline">\(T_1=2\bar{X}\)</span> y <span
+class="math inline">\(T_3=\frac{n+1}{n}X_{(n)}\)</span> son estimadores
+insesgados de <span class="math inline">\(b\)</span>. En cambio, <span
+class="math inline">\(T_2=X_{(n)}\)</span> presenta sesgo negativo, pues
+<span class="math inline">\(E[T_2]=\frac{n}{n+1}b\)</span>. Entre los
+estimadores insesgados considerados, <span
+class="math inline">\(T_3\)</span> presenta menor varianza que <span
+class="math inline">\(T_1\)</span>, por lo que resulta más eficiente
+dentro de esta comparación.</p>
+<pre class="r"><code>n=100
+B=10000  # mismo número de réplicas para facilitar la comparación
+Y=matrix(runif(B*n, min=0, max=20), nrow=B, ncol=n) # B muestras de tamaño n
+Mx=apply(Y,1,mean)
+Max=apply(Y,1,max)
+T1=2*Mx
+T2=Max
+T3=((n+1)/n)*T2
+T123=data.frame(T1,T2,T3)
+
+boxplot(T123, las=1, main=&quot;Comparación de estimadores con n=100&quot;,
+        ylab=&quot;Valor del estimador&quot;)
+abline(h=20, col=&quot;red&quot;, lty=2)</code></pre>
+<p><img src="codigo41_files/figure-html/unnamed-chunk-4-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>res100 &lt;- data.frame(
+  Estimador = c(&quot;T1 = 2 X̄&quot;, &quot;T2 = X(n)&quot;, &quot;T3 = (n+1)X(n)/n&quot;),
+  Media_simulada = colMeans(T123),
+  Sesgo_simulado = colMeans(T123) - 20,
+  Varianza_simulada = apply(T123, 2, var),
+  ECM_simulado = colMeans((T123 - 20)^2)
+)
+knitr::kable(res100, digits=4, align=c(&quot;l&quot;,&quot;r&quot;,&quot;r&quot;,&quot;r&quot;,&quot;r&quot;),
+             caption=&quot;Desempeño de los estimadores para n = 100&quot;)</code></pre>
+<table>
+<caption>Desempeño de los estimadores para n = 100</caption>
+<colgroup>
+<col width="3%" />
+<col width="20%" />
+<col width="18%" />
+<col width="18%" />
+<col width="22%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">Estimador</th>
+<th align="right">Media_simulada</th>
+<th align="right">Sesgo_simulado</th>
+<th align="right">Varianza_simulada</th>
+<th align="right">ECM_simulado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">T1</td>
+<td align="left">T1 = 2 X̄</td>
+<td align="right">19.99</td>
+<td align="right">-0.0143</td>
+<td align="right">1.3396</td>
+<td align="right">1.3397</td>
+</tr>
+<tr class="even">
+<td align="left">T2</td>
+<td align="left">T2 = X(n)</td>
+<td align="right">19.80</td>
+<td align="right">-0.1971</td>
+<td align="right">0.0380</td>
+<td align="right">0.0769</td>
+</tr>
+<tr class="odd">
+<td align="left">T3</td>
+<td align="left">T3 = (n+1)X(n)/n</td>
+<td align="right">20.00</td>
+<td align="right">0.0009</td>
+<td align="right">0.0388</td>
+<td align="right">0.0388</td>
+</tr>
+</tbody>
+</table>
+<p>Los resultados muestran nuevamente que <span
+class="math inline">\(T_3\)</span> es el estimador más preciso entre los
+tres considerados. El estimador <span class="math inline">\(T_2\)</span>
+continúa siendo sesgado, pero su sesgo disminuye cuando aumenta <span
+class="math inline">\(n\)</span>; por ello, su valor esperado se
+aproxima a <span class="math inline">\(b=20\)</span>. Esta propiedad
+corresponde a la <strong>consistencia</strong> del estimador, no a la
+insesgadez.</p>
+<p><br/><br/><br/><br/></p>
+</div>
+<div id="teorema-central-del-límite" class="section level1">
+<h1>Teorema Central del Límite</h1>
+<p>Verificación del Teorema Central del Límite para una población
+exponencial con <span class="math inline">\(\lambda=1\)</span></p>
+<p>Con este fin se siguen los siguientes pasos:</p>
+<ol style="list-style-type: decimal">
+<li>Se construye una matriz de dimensión 1000 x 1000 con números
+procedentes del modelo determinado</li>
+<li>Se separan matrices de dimensión 1000 x n , para n=1,2,20,30,50, 100
+y 1000 .</li>
+<li>A cada matriz construida en el paso anterior se le calcula la media
+por filas, como resultado se obtiene un vector de 1000 medias</li>
+<li>Cada uno de los vectores resultantes se visualiza a través de un
+histograma, gráfico de densidad y se construye también un gráfico de
+normalidad con el fin de validar el resultado</li>
+</ol>
+<p><br/><br/></p>
+<pre class="r"><code>par(cex=0.5, cex.axis=.5, cex.lab=.5, cex.main=.5, cex.sub=.5,  mfrow=c(3,2), mai = c(.5, .5, .5, .5))
+# Teorema Central del Límite-----------------------------
+# Paso 1
+n=1000   #  numero de columnas (tamaño máximo de muestra)
+m=1000*n
+# Caso --------------------------------------------------
+# distribución exponencial-------------------------------
+X=matrix(rexp(m,1),ncol=n)
+# Paso 2
+# generación de muestras-------------
+X1=X[ ,1]            # n=1
+X2=X[ ,1:2]          # n=2
+X20=X[ ,1:20]        # n=20
+X30=X[ ,1:30]        # n=30
+X50=X[ ,1:50]        # n=50
+X100=X[ ,1:100]      # n=100
+X1000=X[ ,1:1000]    # n=1000
+# Paso 3
+# generacion de medias---------------
+Mx2=apply(X2,1,mean)        # medias de muestras de tamaño n=2
+Mx20=apply(X20,1,mean)      # medias de muestras de tamaño n=20
+Mx30=apply(X30,1,mean)      # medias de muestras de tamaño n=30
+Mx50=apply(X50,1,mean)      # medias de muestras de tamaño n=50
+Mx100=apply(X100,1,mean)    # medias de muestras de tamaño n=100
+Mx1000=apply(X1000,1,mean)  # medias de muestras de tamaño n=1000
+# Paso 4 
+# generación de densidad empírica --
+d=density(X1)
+d2=density(Mx2)
+#d20=density(Mx20)
+d30=density(Mx30)
+d50=density(Mx50)
+d100=density(Mx100)
+d1000=density(Mx1000)
+# Gráficos de densidad -------------------------------
+# configuración de las gráficas
+par(cex=0.7, cex.axis=.7, cex.lab=.7, cex.main=.8, cex.sub=.7, mfrow=c(3,2), mai=c(.55,.55,.4,.25))
+# histogramas  de comparacion-------------------------
+plot(d, main=&quot; &quot;, xlab = &quot;n=1&quot;)
+plot(d2,main=&quot; &quot;, xlab = &quot;n=2&quot;)
+#plot(d20, main=&quot;&quot;, xlab = &quot;n=20&quot;)
+plot(d30, main=&quot; &quot;, xlab = &quot;n=30&quot;)
+plot(d50, main=&quot; &quot;, xlab = &quot;n=50&quot;)
+plot(d100, main=&quot; &quot;, xlab = &quot;n=100&quot;)
+plot(d1000,main=&quot; &quot;, xlab=&quot;n=1000&quot;)</code></pre>
+<p><img src="codigo41_files/figure-html/unnamed-chunk-5-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># histogramas  de comparacion--------------------------
+hist(X1,  main = &quot;n=1&quot;, freq=FALSE)
+hist(Mx2, main =&quot;n=2&quot;, freq=FALSE) 
+# hist(Mx20, main = &quot;n=20&quot;,freq=FALSE)
+hist(Mx30, main = &quot;n=30&quot;,freq=FALSE) 
+hist(Mx50, main = &quot;n=50&quot;,freq=FALSE) 
+hist(Mx100, main = &quot;n=100&quot;, freq=FALSE) 
+hist(Mx1000, main = &quot;n=1000&quot;, freq = FALSE) </code></pre>
+<p><img src="codigo41_files/figure-html/unnamed-chunk-5-2.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># histogramas  de comparacion--------------------------
+qqnorm(X1) ; qqline(X1, col=&quot;red&quot;)
+qqnorm(Mx2) ; qqline(Mx2, col=&quot;red&quot;)
+# qqnorm(Mx20) ; qqline(Mx20, col=&quot;red&quot;)
+qqnorm(Mx30) ; qqline(Mx30, col=&quot;red&quot;)
+qqnorm(Mx50) ; qqline(Mx50, col=&quot;red&quot;)
+qqnorm(Mx100) ; qqline(Mx100, col=&quot;red&quot;)
+qqnorm(Mx1000) ; qqline(Mx1000, col=&quot;red&quot;)</code></pre>
+<p><img src="codigo41_files/figure-html/unnamed-chunk-5-3.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>Se puede observar la convergencia de la distribución de la media
+muestral a una distribución normal al aumentarse el tamaño de la
+muestra</p>
+<p><br/><br/><br/></p>
+</div>
+<div id="distribuciones-muestrales" class="section level1">
+<h1>Distribuciones muestrales</h1>
+<p>A continuación se presentan las principales características de la
+media muestral <span class="math inline">\(\bar{x}\)</span> y de la
+proporción muestral <span class="math inline">\(\widehat{p}\)</span>. En
+cada uno de los casos vamos a suponer el conocimiento de una población
+pequeña.</p>
+<p><br/><br/><br/></p>
+<div id="media-muestral" class="section level2">
+<h2>Media muestral</h2>
+<p><br/><br/></p>
+</div>
+<div id="propiedades-de-la-media-muestral" class="section level2">
+<h2>Propiedades de la media muestral</h2>
+<div id="paso-1" class="section level4">
+<h4>Paso 1</h4>
+<p>Definir la población</p>
+<p>Supongamos que una población esta conformada por los valores : <span
+class="math inline">\(\{1,2,3,4,5 \}\)</span>, donde <span
+class="math inline">\(N=5\)</span></p>
+<p>Ahora que se desea calcular todas las medias que se puedan obtener de
+esta población para un tamaño de muestra <span
+class="math inline">\(n=2\)</span>. En otras palabras la población de
+medias para <span class="math inline">\(n=2\)</span>.</p>
+<p>Inicialmente definimos dos funciones para calcular los parámetros
+poblacionales media y varianza:</p>
+<p><span class="math display">\[\mu =\dfrac{1}{N} \sum_{i=1}^{N}
+x_{i}\]</span></p>
+<p><span class="math display">\[\sigma^{2}= \dfrac{1}{N} \sum_{i=1}^{N}
+(x_{i}-\mu)^{2}\]</span></p>
+<pre class="r"><code>media=function(x){sum(x)/length(x)}
+varianza=function(x){sum((x-media(x))^2)/(length(x))}</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-2" class="section level4">
+<h4>Paso 2</h4>
+<p>Determinar la media y la varianza poblacional . La media y varianza
+poblacional de esta población estará dada por:</p>
+<pre class="r"><code>poblacion_x=c(1,2,3,4,5)
+cat(&quot;media poblacional    :&quot;,media(poblacion_x),&quot;\n&quot;)</code></pre>
+<pre><code>media poblacional    : 3 </code></pre>
+<pre class="r"><code>cat(&quot;varianza poblacional :&quot;,varianza(poblacion_x),&quot;\n&quot;)</code></pre>
+<pre><code>varianza poblacional : 2 </code></pre>
+<pre class="r"><code>cat(&quot;\n&quot;)</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-3" class="section level4">
+<h4>Paso 3</h4>
+<p>Se determinan todas las muestras que se pueden construir de la
+población</p>
+<p>Para determinar la media y la varianza de todas las medias muestrales
+para <span class="math inline">\(n=2\)</span> que se pueden obtener de
+la población, suponemos que las muestras se escogen con repetición:</p>
+<p><span class="math inline">\((1,1),
+(1,2),(1,3),(1,4),(1,5),(2,1),(2,2),(2,3),.....,(5,5)\)</span>.</p>
+<pre class="r"><code>poblacion_n2=permutations(5,2,1:5, repeats=TRUE)
+mx=apply(poblacion_n2, 1,mean)
+tabla_con_rep &lt;- data.frame(X1=poblacion_n2[,1], X2=poblacion_n2[,2], Media=mx)
+knitr::kable(tabla_con_rep, digits=2, caption=&quot;Todas las muestras ordenadas de tamaño 2 con reemplazo&quot;)</code></pre>
+<table>
+<caption>Todas las muestras ordenadas de tamaño 2 con
+reemplazo</caption>
+<thead>
+<tr class="header">
+<th align="right">X1</th>
+<th align="right">X2</th>
+<th align="right">Media</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">1.5</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">2.0</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1.5</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">2.0</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">4.0</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4.0</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">4.5</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">4.0</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">4.5</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5.0</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>cat(&quot;media de la distribución de X̄     :&quot;, media(mx),&quot;\n&quot;)</code></pre>
+<pre><code>media de la distribución de X̄     : 3 </code></pre>
+<pre class="r"><code>cat(&quot;varianza de la distribución de X̄ :&quot;,varianza(mx),&quot;\n&quot;)</code></pre>
+<pre><code>varianza de la distribución de X̄ : 1 </code></pre>
+<pre class="r"><code> cat(&quot;\n&quot;)</code></pre>
+<pre class="r"><code> cat(&quot;Compara los resultados obtenidos con los respectivos valores de la población &quot;)</code></pre>
+<pre><code>Compara los resultados obtenidos con los respectivos valores de la población </code></pre>
+<pre class="r"><code> plot(poblacion_n2, pch=19)
+ grid()</code></pre>
+<p><img src="codigo41_files/figure-html/unnamed-chunk-8-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+</div>
+<div id="paso-4" class="section level4">
+<h4>Paso 4</h4>
+<p>Determinar la población de medias de tamaño <span
+class="math inline">\(n=2\)</span>, cuando el proceso se realiza sin
+repetición</p>
+<p>En este caso desaparecen las muestras <span
+class="math inline">\((1,1),(2,2),(3,3),(4,4),(5,5)\)</span> además de
+<span class="math inline">\((2,1)\)</span>, pues ya esta contenida en la
+muestra <span class="math inline">\((1,2\)</span>. En total quedarán 10
+posibles muestras</p>
+<table>
+<caption>Todas las muestras de tamaño 2 sin reemplazo</caption>
+<thead>
+<tr class="header">
+<th align="right">X1</th>
+<th align="right">X2</th>
+<th align="right">Media</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">1.5</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">2.0</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">4.0</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">4.5</td>
+</tr>
+</tbody>
+</table>
+<pre><code>media de la distribución de X̄     : 3 </code></pre>
+<pre><code>varianza poblacional de la media muestral : 0.75</code></pre>
+<pre><code>Compara los resultados obtenidos con los respectivos valores de la población </code></pre>
+<p><img src="codigo41_files/figure-html/unnamed-chunk-9-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+</div>
+<div id="conclusiones" class="section level3">
+<h3>Conclusiones</h3>
+<ul>
+<li><p><span class="math inline">\(E[\bar{X}] = E[X] =
+\mu\)</span></p></li>
+<li><p><span class="math inline">\(V[\bar{X}] =
+\dfrac{V[X]}{n}\)</span></p></li>
+<li><p>Cuando <span class="math inline">\(\dfrac{n}{N}&gt;0.05\)</span>,
+como el muestreo se realiza sin repetición ( un cliente solo parece una
+vez en la muestra) , la probabilidad de selección en cada momento cambia
+a medida que se elige la muestra. Estos cambios hacen necesario realizar
+un ajuste en la varianza:</p></li>
+</ul>
+<p><span class="math display">\[V[\bar{X}] = \dfrac{V[X]}{n}
+\dfrac{(N-n)}{(N-1)}\]</span></p>
+<p><br/><br/><br/></p>
+</div>
+</div>
+</div>
+<div id="proporción-muestral" class="section level1">
+<h1>Proporción muestral</h1>
+<p>Otro parámetro de interés es la proporción muestral para lo cual
+tambien se define una población pequeña que facilite la comprensión de
+sus propiedades.</p>
+<p><br/><br/><br/></p>
+<div id="propiedades-de-la-proporción-muestral" class="section level3">
+<h3>Propiedades de la proporción muestral</h3>
+<div id="paso-1-1" class="section level4">
+<h4>Paso 1</h4>
+<p>Definir la población</p>
+<p>Supongamos que una población esta conformada por <span
+class="math inline">\(\{\)</span>si, no,si, no, no <span
+class="math inline">\(\}\)</span></p>
+<p>Ahora que se desea calcular todas las medias que se puedan obtener de
+esta población para un tamaño de muestra <span
+class="math inline">\(n=2\)</span>.</p>
+<p>En otras palabras la población de medias para <span
+class="math inline">\(n=2\)</span>.</p>
+<pre class="r"><code>library(gtools)
+media=function(x){sum(x)/length(x)}
+varianza=function(x){sum((x-media(x))^2)/(length(x))}</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-2-1" class="section level4">
+<h4>Paso 2</h4>
+<p>Determinar la media y la varianza poblacionales</p>
+<p>La media y varianza poblacional de esta población estará dada
+por:</p>
+<pre class="r"><code>poblacion_x=c(1,0,1,0,0)
+cat(&quot;media poblacional    :&quot;,media(poblacion_x),&quot;\n&quot;)</code></pre>
+<pre><code>media poblacional    : 0.4 </code></pre>
+<pre class="r"><code>cat(&quot;varianza poblacional :&quot;,varianza(poblacion_x),&quot;\n&quot;)</code></pre>
+<pre><code>varianza poblacional : 0.24 </code></pre>
+<pre class="r"><code>cat(&quot;\n&quot;)</code></pre>
+</div>
+<div id="paso-3-1" class="section level4">
+<h4>Paso 3</h4>
+<p>Se determinan todas las muestras que se pueden construir de la
+población</p>
+<p>Para determinar la media y la varianza de todas las medias muestrales
+para <span class="math inline">\(n=2\)</span> que se pueden obtener de
+la población, suponemos que las muestras se escogen con repetición:</p>
+<p><span class="math inline">\((si,si)\)</span>, <span
+class="math inline">\((si,no)\)</span>……<span
+class="math inline">\((no,no)\)</span></p>
+<pre class="r"><code>estado &lt;- c(1,0,1,0,0)
+ids &lt;- 1:5
+muestra_ids &lt;- permutations(n=5, r=2, v=ids, repeats.allowed=TRUE)
+phat &lt;- rowMeans(matrix(estado[muestra_ids], ncol=2))
+tabla_p_rep &lt;- data.frame(
+  Unidad1=muestra_ids[,1], Unidad2=muestra_ids[,2],
+  Resultado1=estado[muestra_ids[,1]], Resultado2=estado[muestra_ids[,2]],
+  p_hat=phat
+)
+knitr::kable(tabla_p_rep, digits=2, caption=&quot;Distribución de la proporción muestral con reemplazo&quot;)</code></pre>
+<table>
+<caption>Distribución de la proporción muestral con reemplazo</caption>
+<thead>
+<tr class="header">
+<th align="right">Unidad1</th>
+<th align="right">Unidad2</th>
+<th align="right">Resultado1</th>
+<th align="right">Resultado2</th>
+<th align="right">p_hat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>cat(&quot;media de la proporción muestral    :&quot;, media(phat), &quot;\n&quot;)</code></pre>
+<pre><code>media de la proporción muestral    : 0.4 </code></pre>
+<pre class="r"><code>cat(&quot;varianza de la proporción muestral :&quot;, varianza(phat))</code></pre>
+<pre><code>varianza de la proporción muestral : 0.12</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-4-1" class="section level4">
+<h4>Paso 4</h4>
+<p>Determinar la población de medias de tamaño <span
+class="math inline">\(n=2\)</span>, cuando el proceso se realiza sin
+repetición</p>
+<p>En este caso desaparecen las muestras <span
+class="math inline">\((1,1),(2,2),(3,3),(4,4),(5,5)\)</span> además de
+<span class="math inline">\((2,1)\)</span>, pues ya esta contenida en la
+muestra <span class="math inline">\((1,2\)</span>. En total quedarán 10
+posibles muestras</p>
+<table>
+<caption>Distribución de la proporción muestral sin reemplazo</caption>
+<thead>
+<tr class="header">
+<th align="right">Unidad1</th>
+<th align="right">Unidad2</th>
+<th align="right">Resultado1</th>
+<th align="right">Resultado2</th>
+<th align="right">p_hat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+</tbody>
+</table>
+<pre><code>media de la proporción muestral    : 0.4 </code></pre>
+<pre><code>varianza de la proporción muestral : 0.09 </code></pre>
+<pre><code>Compara los resultados obtenidos con los respectivos valores de la población </code></pre>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="conclusiones-1" class="section level3">
+<h3>Conclusiones</h3>
+<ul>
+<li><p><span class="math inline">\(E[\widehat{p}] = p\)</span></p></li>
+<li><p><span class="math inline">\(V[\widehat{p}] =
+\dfrac{pq}{n}\)</span></p></li>
+<li><p>Si <span class="math inline">\(\dfrac{n}{N}&gt;0.05\)</span>, se
+hace necesario realizar un ajuste en la varianza:</p></li>
+</ul>
+<p><span class="math display">\[V[\widehat{p}] = \dfrac{pq}{n}
+\dfrac{(N-n)}{(N-1)}\]</span></p>
+<p><br/><br/><br/><br/></p>
+</div>
+</div>
+<div id="muestreo" class="section level1">
+<h1>Muestreo</h1>
+<p><br/><br/></p>
+<div id="muestreo-aleatorio-simple" class="section level3">
+<h3>Muestreo aleatorio simple</h3>
+<p>Para seleccionar una muestra de una variable, supongamos que se
+distinguen por un Id del 1 al 1000, utilizamos la función
+<strong>sample</strong> para seleccionar la muestra:</p>
+<pre class="r"><code>x&lt;-seq(1,1000,1)
+sample(x, 20, replace = FALSE)</code></pre>
+<pre><code> [1]  64 700 766 993 354 230  59 343 791 771 316 745 716 263 948 748 782 690 584
+[20] 115</code></pre>
+<p>En este caso se ha seleccionado una muestra de tamaño <span
+class="math inline">\(n=20\)</span> de una población de <span
+class="math inline">\(N=1000\)</span> unidades. Como se especificó
+<code>replace = FALSE</code>, ninguna unidad puede aparecer más de una
+vez; por tanto, se trata de un muestreo aleatorio simple sin
+reemplazo.</p>
+<p>También es posible realizar muestreo con reemplazo. Este mecanismo
+es, además, la base de procedimientos de remuestreo como el
+<em>bootstrap</em>:</p>
+<pre class="r"><code>x&lt;-1:10
+sample(x, 20, replace = TRUE)</code></pre>
+<pre><code> [1]  3  7  8  2 10  8  4  5  1  8  3  6  3  2  5  4  5  1  1  8</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="muestreo-sistemático" class="section level3">
+<h3>Muestreo sistemático</h3>
+<pre class="r"><code>N=2000
+a=100
+ids=S.SY(N, a)
+ids</code></pre>
+<pre><code>      [,1]
+ [1,]   41
+ [2,]  141
+ [3,]  241
+ [4,]  341
+ [5,]  441
+ [6,]  541
+ [7,]  641
+ [8,]  741
+ [9,]  841
+[10,]  941
+[11,] 1041
+[12,] 1141
+[13,] 1241
+[14,] 1341
+[15,] 1441
+[16,] 1541
+[17,] 1641
+[18,] 1741
+[19,] 1841
+[20,] 1941</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="ejemplo-muestreo-aleatorio-simple" class="section level3">
+<h3>Ejemplo muestreo aleatorio simple</h3>
+<pre class="r"><code># se importa base de datos
+library(readr)
+base_muestreo &lt;- read_delim(&quot;data/base_muestreo.csv&quot;, 
+    delim = &quot;;&quot;, escape_double = FALSE, col_types = cols(ID = col_integer()), 
+    trim_ws = TRUE)
+head(base_muestreo) # primeras 6 filas de la base</code></pre>
+<pre><code># A tibble: 6 × 1
+  `ID,CAR,NF`    
+  &lt;chr&gt;          
+1 &quot;1,CIV,\&quot;3,0\&quot;&quot;
+2 &quot;2,BIO,\&quot;2,7\&quot;&quot;
+3 &quot;3,ELE,\&quot;3,5\&quot;&quot;
+4 &quot;4,ELE,\&quot;4,3\&quot;&quot;
+5 &quot;5,ELE,\&quot;4,2\&quot;&quot;
+6 &quot;6,ELE,\&quot;4,0\&quot;&quot;</code></pre>
+<pre class="r"><code>dim(base_muestreo) # dimension de la base</code></pre>
+<pre><code>[1] 180   1</code></pre>
+<p><br/><br/></p>
+<p>Para seleccionar una muestra aleatoria mediante el <strong>muestreo
+aleatorio simple</strong> de la base utilizamos la función
+<strong>sample</strong></p>
+<pre class="r"><code># se extrae la muestra
+ muestra1=base_muestreo[sample(1:nrow(base_muestreo),50,replace=F),] </code></pre>
+<p><br/><br/></p>
+</div>
+<div id="ejemplo-muestreo-aleatorio-sistemático" class="section level3">
+<h3>Ejemplo muestreo aleatorio sistemático</h3>
+<p>Ahora si se requiere un muestreo sistemático</p>
+<pre class="r"><code>N=180
+n=10
+a=N/n
+ids=S.SY(N, a)
+ids</code></pre>
+<pre><code>      [,1]
+ [1,]   11
+ [2,]   29
+ [3,]   47
+ [4,]   65
+ [5,]   83
+ [6,]  101
+ [7,]  119
+ [8,]  137
+ [9,]  155
+[10,]  173</code></pre>
+<pre class="r"><code>base2=base_muestreo[ids,]
+base2</code></pre>
+<pre><code># A tibble: 10 × 1
+   `ID,CAR,NF`      
+   &lt;chr&gt;            
+ 1 &quot;11,SIS,\&quot;3,5\&quot;&quot; 
+ 2 &quot;29,IND,\&quot;2,5\&quot;&quot; 
+ 3 &quot;47,MAT,\&quot;4,3\&quot;&quot; 
+ 4 &quot;65,IND,\&quot;4,1\&quot;&quot; 
+ 5 &quot;83,BIO,\&quot;4,1\&quot;&quot; 
+ 6 &quot;101,IND,\&quot;3,1\&quot;&quot;
+ 7 &quot;119,IND,\&quot;4,3\&quot;&quot;
+ 8 &quot;137,CIV,\&quot;3,2\&quot;&quot;
+ 9 &quot;155,CIV,\&quot;2,4\&quot;&quot;
+10 &quot;173,CIV,\&quot;2,3\&quot;&quot;</code></pre>
+<p><br/><br/></p>
+<p>Para los casos de los muestreos estratificado y muestreo por
+conglomerados se utiliza el muestreo aleatorio simple como base.</p>
+<p><br/><br/><br/><br/></p>
+</div>
+</div>
+<div id="paquetedeg" class="section level1">
+<h1>PaqueteDEG</h1>
+<p><br/><br/></p>
+<ol style="list-style-type: decimal">
+<li>Instalación del paquete.</li>
+</ol>
+<p>El paquete paqueteDEG en construcción permitirá realizar algunos
+cálculos del tamaño de la muestra y tutoriales. Para su instalación
+corremos el siguiente código</p>
+<pre class="r"><code># install.packages(&quot;devtools&quot;)  # solo si no  esta instalado
+devtools::install_github(&quot;dgonxalex80/paqueteDEG&quot;)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Cálculo del tamaño de la muestra para la estimación de una media
+poblacional</li>
+</ol>
+<p>Ejemplo:</p>
+<p>Determinar el tamaño de la muestra para estimar la media de una
+variable, en una población de tamaño <span class="math inline">\(N =
+2000\)</span> con varianza conocida igual a <span
+class="math inline">\(\sigma^{2}=3025\)</span>, con una confianza del
+95% y un error de muestreo de 5 unidades</p>
+<p>Solución:</p>
+<p>Información del problema :</p>
+<ul>
+<li><span class="math inline">\(\sigma^{2}=3025\)</span> –&gt; <span
+class="math inline">\(\sigma = 55\)</span></li>
+<li><span class="math inline">\(N = 2000\)</span></li>
+<li>Confianza del 95% : Percentil 97.5 = <span
+class="math inline">\(z_{_{\alpha/2}} = 1.96\)</span></li>
+<li>Error de muestreo : <span class="math inline">\(e = 5\)</span></li>
+</ul>
+<p><span class="math display">\[n_0 =
+\frac{z_{\alpha/2}^{2}\sigma^{2}}{e^{2}} = \frac{1.96^{2}(3025)}{5^{2}}
+= 464.83 \approx 465\]</span></p>
+<p>Como la población es finita (<span
+class="math inline">\(N=2000\)</span>), puede aplicarse la corrección
+por población finita:</p>
+<p><span class="math display">\[n = \frac{N n_0}{N+n_0-1} \approx
+377.33\]</span></p>
+<p>Por tanto, si el tamaño muestral debe ser entero y se desea
+garantizar que el error no exceda 5 unidades, se recomienda redondear
+hacia arriba: <span class="math inline">\(n=378\)</span>.</p>
+<p><br/><br/><br/></p>
+<p>Ahora con una base de datos que contiene la carrera y la nota final
+del curso de matemáticas fundamental.</p>
+<pre class="r"><code>head(base_muestreo)</code></pre>
+<pre><code># A tibble: 6 × 1
+  `ID,CAR,NF`    
+  &lt;chr&gt;          
+1 &quot;1,CIV,\&quot;3,0\&quot;&quot;
+2 &quot;2,BIO,\&quot;2,7\&quot;&quot;
+3 &quot;3,ELE,\&quot;3,5\&quot;&quot;
+4 &quot;4,ELE,\&quot;4,3\&quot;&quot;
+5 &quot;5,ELE,\&quot;4,2\&quot;&quot;
+6 &quot;6,ELE,\&quot;4,0\&quot;&quot;</code></pre>
+<pre class="r"><code>resumen_base &lt;- data.frame(
+  Indicador=c(&quot;Número de registros&quot;, &quot;Número de variables&quot;, &quot;Media poblacional de NF&quot;),
+  Valor=c(nrow(base_muestreo), ncol(base_muestreo), mean(base_muestreo$NF))
+)
+knitr::kable(resumen_base, digits=3, caption=&quot;Resumen de la base de muestreo&quot;)</code></pre>
+<table>
+<caption>Resumen de la base de muestreo</caption>
+<thead>
+<tr class="header">
+<th align="left">Indicador</th>
+<th align="right">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Número de registros</td>
+<td align="right">180</td>
+</tr>
+<tr class="even">
+<td align="left">Número de variables</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Media poblacional de NF</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>t &lt;- prop.table(table(base_muestreo$CAR))
+knitr::kable(data.frame(Programa=names(t), Proporcion=as.numeric(t)), digits=3,
+             caption=&quot;Distribución poblacional por programa&quot;)</code></pre>
+<table>
+<caption>Distribución poblacional por programa</caption>
+<thead>
+<tr class="header">
+<th align="right">Proporcion</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Con 180 registros y tres columnas o variables :</p>
+<ul>
+<li>ID : identificación del estudiante</li>
+<li>CAR : programa en el que se encuentra matriculado</li>
+<li>NF : nota final de matemáticas fundamentales</li>
+</ul>
+<p>Cómo seleccionar una muestra aleatoria de 20 estudiantes:</p>
+<pre class="r"><code>idm=sample(seq_len(nrow(base_muestreo)), 20, replace = FALSE)
+muestra &lt;- base_muestreo[idm,]
+knitr::kable(muestra, digits=2, caption=&quot;Muestra aleatoria simple de 20 estudiantes&quot;)</code></pre>
+<table>
+<caption>Muestra aleatoria simple de 20 estudiantes</caption>
+<thead>
+<tr class="header">
+<th align="left">ID,CAR,NF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">36,SIS,“3,7”</td>
+</tr>
+<tr class="even">
+<td align="left">48,CIV,“3,4”</td>
+</tr>
+<tr class="odd">
+<td align="left">86,IND,“3,0”</td>
+</tr>
+<tr class="even">
+<td align="left">168,CIV,“3,2”</td>
+</tr>
+<tr class="odd">
+<td align="left">25,MAT,“1,7”</td>
+</tr>
+<tr class="even">
+<td align="left">21,ELE,“3,8”</td>
+</tr>
+<tr class="odd">
+<td align="left">139,CIV,“2,2”</td>
+</tr>
+<tr class="even">
+<td align="left">109,IND,“4,1”</td>
+</tr>
+<tr class="odd">
+<td align="left">27,SIS,“3,8”</td>
+</tr>
+<tr class="even">
+<td align="left">1,CIV,“3,0”</td>
+</tr>
+<tr class="odd">
+<td align="left">90,MAT,“4,0”</td>
+</tr>
+<tr class="even">
+<td align="left">41,CIV,“3,1”</td>
+</tr>
+<tr class="odd">
+<td align="left">102,IND,“1,8”</td>
+</tr>
+<tr class="even">
+<td align="left">140,CIV,“2,0”</td>
+</tr>
+<tr class="odd">
+<td align="left">156,CIV,“3,0”</td>
+</tr>
+<tr class="even">
+<td align="left">128,BIO,“4,4”</td>
+</tr>
+<tr class="odd">
+<td align="left">26,CIV,“1,0”</td>
+</tr>
+<tr class="even">
+<td align="left">34,ELE,“1,1”</td>
+</tr>
+<tr class="odd">
+<td align="left">122,IND,“3,3”</td>
+</tr>
+<tr class="even">
+<td align="left">37,MAT,“3,9”</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

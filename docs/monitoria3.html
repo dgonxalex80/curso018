@@ -14,13 +14,13 @@
 
 <title>Estadística para la toma de decisiones</title>
 
-<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs/header-attrs.js"></script>
+<script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -30,15 +30,15 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+<script src="site_libs/jqueryui/jquery-ui.min.js"></script>
+<link href="site_libs/tocify/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify/jquery.tocify.js"></script>
+<script src="site_libs/navigation/tabsets.js"></script>
+<script src="site_libs/navigation/codefolding.js"></script>
+<link href="site_libs/highlightjs/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs/highlight.js"></script>
+<link href="site_libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -506,6 +506,15 @@ div.tocify {
       <a href="modulo4.html">Módulo 4</a>
     </li>
     <li class="divider"></li>
+    <li>
+      <a href="guia41.html">Guía 4.1</a>
+    </li>
+    <li>
+      <a href="recurso41.html">Recursos 4.1</a>
+    </li>
+    <li>
+      <a href="codigo41.html">Código 4.1</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -1404,7 +1413,7 @@ p=0.2)\)</span> Determine:</p>
 #        prob)  # probabilidad de exito
 
 dbinom(5,10,0.2)</code></pre>
-<pre><code>[1] 0.02642412</code></pre>
+<pre><code>[1] 0.02642</code></pre>
 <p><br/><br/></p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><span class="math inline">\(P(X \leq 2)\)</span></li>
@@ -1413,7 +1422,7 @@ dbinom(5,10,0.2)</code></pre>
 \sum_{x=0}^{2}\displaystyle\binom{10}{x} 0.2^{x} (1-0.2)^{10-x}
 =f(0)*f(1)*f(2)\]</span></p>
 <pre class="r"><code>pbinom(2,10,0.2)</code></pre>
-<pre><code>[1] 0.6777995</code></pre>
+<pre><code>[1] 0.6778</code></pre>
 <p><br/><br/></p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li><span class="math inline">\(P(3 \leq  X &lt; 5)\)</span></li>
@@ -1421,7 +1430,7 @@ dbinom(5,10,0.2)</code></pre>
 <p><span class="math display">\[P(3 \leq  X &lt; 5) = F(4) - F(2) = f(3)
 * f(4)\]</span></p>
 <pre class="r"><code>pbinom(4,10,0.2)-pbinom(2,10,0.2)</code></pre>
-<pre><code>[1] 0.289407</code></pre>
+<pre><code>[1] 0.2894</code></pre>
 <p><br/><br/></p>
 <ol start="4" style="list-style-type: lower-alpha">
 <li><span class="math inline">\(P(X \geq 8)\)</span></li>
@@ -1429,7 +1438,7 @@ dbinom(5,10,0.2)</code></pre>
 <p><span class="math display">\[P(X \geq 8) = f(8) * f(9) * f(10) = 1 -
 F(1)\]</span></p>
 <pre class="r"><code>pbinom(7,10,0.2, lower.tail = FALSE)</code></pre>
-<pre><code>[1] 7.79264e-05</code></pre>
+<pre><code>[1] 7.793e-05</code></pre>
 <p><br/><br/></p>
 <ol start="5" style="list-style-type: lower-alpha">
 <li>Construya la gráfica de <span
@@ -1484,7 +1493,7 @@ hyper(x,N=100,n=4,k=20)\)</span>) Determine:</p>
 # m*n = N : total de la urna  : 100
 #
 dhyper(1, m=20, n=80, k=4 )</code></pre>
-<pre><code>[1] 0.4190527</code></pre>
+<pre><code>[1] 0.4191</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(P(X = 6)\)</span></p></li>
 <li><p><span class="math inline">\(P(X \geq 1)\)</span></p></li>
@@ -1506,7 +1515,7 @@ class="math inline">\(X \sim pois(x,lambda=4)\)</span>). Determine:</p>
 <pre class="r"><code>#  dpois(x,       # valor de x
 #        lambda)  # media o lambda
 dpois(0,4)</code></pre>
-<pre><code>[1] 0.01831564</code></pre>
+<pre><code>[1] 0.01832</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(P(X = 4)\)</span></p></li>
 <li><p><span class="math inline">\(P(X \geq 2)\)</span></p></li>
@@ -1677,9 +1686,9 @@ class="math inline">\(Z\sim N(0,1)\)</span>, determine el área:</p>
 <li>A la derecha de z = - 0.85.</li>
 </ol>
 <pre class="r"><code>pnorm(-0.85, lower.tail = FALSE)</code></pre>
-<pre><code>[1] 0.8023375</code></pre>
+<pre><code>[1] 0.8023</code></pre>
 <pre class="r"><code>1-pnorm(-0.85)</code></pre>
-<pre><code>[1] 0.8023375</code></pre>
+<pre><code>[1] 0.8023</code></pre>
 <p>b.Entre <span class="math inline">\(z = 0.40\)</span> y <span
 class="math inline">\(z = 1.30\)</span>.</p>
 <ol start="3" style="list-style-type: lower-alpha">
@@ -1721,7 +1730,7 @@ probabilidad de <span class="math inline">\(X\)</span></p></li>
 <li><p><span class="math inline">\(P(X \leq 130)\)</span>.</p></li>
 </ol>
 <pre class="r"><code>pnorm(130, 150, 10)</code></pre>
-<pre><code>[1] 0.02275013</code></pre>
+<pre><code>[1] 0.02275</code></pre>
 <ol start="3" style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(P(300 \leq X \leq
 400)\)</span>.</p></li>
@@ -1745,7 +1754,7 @@ exp(\lambda=2)\)</span>). Determine:</p>
 <li><span class="math inline">\(P(X \leq 1)\)</span>.</li>
 </ol>
 <pre class="r"><code>pexp(1,2)</code></pre>
-<pre><code>[1] 0.8646647</code></pre>
+<pre><code>[1] 0.8647</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(P(X \geq 2)\)</span>.</p></li>
 <li><p><span class="math inline">\(P(1 &lt; X &lt; 2)\)</span>.</p></li>
@@ -1973,7 +1982,7 @@ class="math inline">\(z\)</span> para las siguientes probabilidades:</p>
 <li><span class="math inline">\(P(Z &lt; z) = 0.90\)</span></li>
 </ol>
 <pre class="r"><code>qnorm(0.90)</code></pre>
-<pre><code>[1] 1.281552</code></pre>
+<pre><code>[1] 1.282</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(P(Z &lt; z ) = 0.50\)</span></p></li>
 <li><p><span class="math inline">\(P(Z &gt; z) = 0.10\)</span></p></li>
@@ -2041,8 +2050,9 @@ determine:</p>
 <p><br/><br/><br/></p>
 <div id="problema-2.33" class="section level3 box3 with-label">
 <h3>Problema 2.33</h3>
-<div style="display: flex;">
-<div>
+<div class="img-derecha">
+<p><img src="img/suelo.png"></p>
+</div>
 <p>La densidad del grosor del suelo se define como la masa de sólido
 seco por unidad de volumen de grosor. Que sea alta implica que el suelo
 es compacto, es decir con pocos poros. Esta densidad es un factor
@@ -2065,16 +2075,12 @@ g/cm^3\)</span>?</p></li>
 altas?</p></li>
 </ol>
 </div>
-<div>
-<p><img src="img/suelo.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
-</div>
-</div>
-</div>
 <p><br/><br/><br/></p>
 <div id="problema-2.34" class="section level3 box3 with-label">
 <h3>Problema 2.34</h3>
-<div style="display: flex;">
-<div>
+<div class="img-derecha">
+<p><img src="img/comerciante.png"></p>
+</div>
 <p>La demanda de un producto A tiene distribución aproximadamente normal
 con una media de doscientas unidades y desviación estándar de cuarenta.
 La demanda de otro producto independiente B, también tiene distribución
@@ -2093,16 +2099,12 @@ unidades de A y todas las unidades del producto B que tenía a comienzos
 del mes?</p></li>
 </ol>
 </div>
-<div>
-<p><img src="img/comerciante.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
-</div>
-</div>
-</div>
 <p><br/><br/><br/></p>
 <div id="problema-2.35" class="section level3 box3 with-label">
 <h3>Problema 2.35</h3>
-<div style="display: flex;">
-<div>
+<div class="img-derecha">
+<p><img src="img/puertas.png"></p>
+</div>
 <p>Uno de los productos más vendidos de IK, fabricante de cocinas
 integrales, corresponde a un novedoso estilo de puertas para los
 gabinetes. Cada una de las puertas se construye con el ensamble de tres
@@ -2136,11 +2138,6 @@ producción. Si se supone que la producción mantiene sus características
 estables, ¿qué tan cerca o alejado se está de cumplir con este
 requerimiento?</p></li>
 </ol>
-</div>
-<div>
-<p><img src="img/puertas.png" alt="" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
-</div>
-</div>
 </div>
 <p><br/><br/><br/></p>
 </div>

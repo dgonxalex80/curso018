@@ -152,6 +152,16 @@ correo : dgonzalez@javerianacali.edu.co
 
 <br/><br/>
 
+<div class="box6 with-label">
+## Evaluación 
+
+```{r, echo=FALSE, out.width="40%", fig.align = "center"}
+knitr::include_graphics("img/evaluacion.png")
+```
+</div>
+
+
+
 
 <br/><br/>
 

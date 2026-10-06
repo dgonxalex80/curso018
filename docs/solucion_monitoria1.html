@@ -512,6 +512,15 @@ div.tocify {
       <a href="modulo4.html">Módulo 4</a>
     </li>
     <li class="divider"></li>
+    <li>
+      <a href="guia41.html">Guía 4.1</a>
+    </li>
+    <li>
+      <a href="recurso41.html">Recursos 4.1</a>
+    </li>
+    <li>
+      <a href="codigo41.html">Código 4.1</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -960,8 +969,8 @@ apropiados el histograma y el diagrama de cajas.</p>
 <pre class="r"><code>usb &lt;- c(60,63,64,67,68,68,68,70,70,71,71,72,72,72,73,73,74,74,75,75,
          75,75,75,76,76,77,77,79,80,83,83,84,85,86,87,88,88,89,89,91)
 c(media = mean(usb), mediana = median(usb), sd = sd(usb), IQR = IQR(usb))</code></pre>
-<pre><code>##     media   mediana        sd       IQR 
-## 76.075000 75.000000  7.819724 12.000000</code></pre>
+<pre><code>##   media mediana      sd     IQR 
+##   76.08   75.00    7.82   12.00</code></pre>
 <pre class="r"><code>boxplot(usb, horizontal = TRUE, col = c03, xlab = &quot;Precio&quot;)</code></pre>
 <p><img src="solucion_monitoria1_files/figure-html/p4-usb-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
 <p>El precio típico es cercano a 75–76 unidades monetarias, con
@@ -1172,9 +1181,9 @@ q &lt;- quantile(peso)
 fences &lt;- c(inferior = q[2] - 1.5 * IQR(peso), superior = q[4] + 1.5 * IQR(peso))
 c(media=mean(peso), mediana=median(peso), sd=sd(peso), IQR=IQR(peso), fences)</code></pre>
 <pre><code>##        media      mediana           sd          IQR inferior.25% superior.75% 
-##    1.0524074    1.0600000    0.1642241    0.2400000    0.5625000    1.5225000</code></pre>
+##       1.0524       1.0600       0.1642       0.2400       0.5625       1.5225</code></pre>
 <pre class="r"><code>mean(peso &gt; 1.11)</code></pre>
-<pre><code>## [1] 0.4074074</code></pre>
+<pre><code>## [1] 0.4074</code></pre>
 <pre class="r"><code>boxplot(peso, horizontal=TRUE, col=c04, xlab=&quot;Peso (lb)&quot;)</code></pre>
 <p><img src="solucion_monitoria1_files/figure-html/p10-1.png" alt="" width="768" style="display: block; margin: auto;" /></p>
 <p>No hay valores fuera de las cercas aproximadas 0.56 y 1.52 lb. La
@@ -1302,9 +1311,9 @@ cv &lt;- sd(jabon)/mean(jabon)
 q &lt;- quantile(jabon, c(.25,.75)); limites &lt;- q + c(-1.5,1.5)*IQR(jabon)
 c(media=mean(jabon), porcentaje_aceptable=porcentaje, CV=cv, limites)</code></pre>
 <pre><code>##                media porcentaje_aceptable                   CV 
-##           15.9720000            0.6400000            0.1220553 
+##              15.9720               0.6400               0.1221 
 ##                  25%                  75% 
-##           10.0625000           21.7625000</code></pre>
+##              10.0625              21.7625</code></pre>
 <p>Solo 64% está entre 14 y 18 onzas, frente al mínimo de 90%. El CV es
 12.21%, superior al 10%. Las cercas son aproximadamente 10.06 y 21.76;
 no hay valores atípicos, pero esto no compensa los otros
@@ -1375,8 +1384,8 @@ ordenadas.</li>
 <h3>Problema 16</h3>
 <pre class="r"><code>salario &lt;- c(1.1,1.2,1.4,1.7,1.9,1.3,1.6,1.4,1.3,1.6)
 c(media=mean(salario), mediana=median(salario), sd=sd(salario))</code></pre>
-<pre><code>##     media   mediana        sd 
-## 1.4500000 1.4000000 0.2460804</code></pre>
+<pre><code>##   media mediana      sd 
+##  1.4500  1.4000  0.2461</code></pre>
 <p>Media = 1.45 millones y mediana = 1.40 millones. Son cercanas y no
 hay un valor extremo dominante, así que ambas describen razonablemente
 el centro. La mediana es ligeramente más robusta. Para evaluar equidad
