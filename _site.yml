@@ -1,144 +1,137 @@
-name: " "
-output_dir: "docs"
+name: ' '
+output_dir: docs
 navbar:
-  title: " "
+  title: ' '
   left:
-    - text: "Estadística"
-      icon: fa-home
-      href: index.html
-    - text: "Módulo 0"
+  - text: Estadística
+    icon: fa-home
+    href: index.html
+  - text: Módulo 0
+    menu:
+    - text: Presentación del módulo
+      href: modulo0.html
+    - text: Prerrequisitos
       menu:
-        - text: "Módulo 0"
-          href: modulo0.html
-        - text: "---------"
-        - text: "Sumatoria"
-          href: sumatoria.html
-        - text: "Productoria"
-          href: productoria.html
-        - text: "Conjuntos"
-          href: conjuntos.html
-        - text: "Conteo"
-          href: conteo.html
- 
-    - text: "Módulo 1"
+      - text: Sumatoria
+        href: sumatoria.html
+      - text: Productoria
+        href: productoria.html
+      - text: Conjuntos
+        href: conjuntos.html
+      - text: Conteo
+        href: conteo.html
+  - text: Módulo 1
+    menu:
+    - text: Presentación del módulo
+      href: modulo1.html
+    - text: Unidad 1.1
       menu:
-        - text: "Módulo 1"
-          href: modulo1.html
-        - text: "---------"  
-        - text: "Guía 1.1"
-          href: guia11.html        
-        - text: "Recursos 1.1"
-          href: recurso11.html     
-        - text: "Bases de datos"
-          href: basesdatos.html     
-        - text: "Introducción a R"
-          href: introduccionR.html     
-        - text: "Código 1.1"  
-          href: codigo11.html     
-        - text: "--------"
-        - text: "Guía 1.2"
-          href: guia12.html        
-        - text: "Recursos 1.2"
-          href: recurso12.html     
-        - text: "Código 1.2"  
-          href: codigo12.html   
-        - text: "Caso 1A"  
-          href: caso-01.html
-        - text: "Caso 1B"  
-          href: caso-02.html
-        - text: "--------"          
-        - text: "Guía 1.3"
-          href: guia13.html        
-        - text: "Recursos 1.3"
-          href: recurso13.html     
-        - text: "Código 1.3"  
-          href: codigo13.html
-        - text: "--------"        
-        - text: "Monitoría 1"  
-          href: monitoria1.html  
-
-
-    - text: "Módulo 2"
+      - text: Guía 1.1
+        href: guia11.html
+      - text: Recursos 1.1
+        href: recurso11.html
+      - text: Bases de datos
+        href: basesdatos.html
+      - text: Introducción a R
+        href: introduccionR.html
+      - text: Código 1.1
+        href: codigo11.html
+    - text: Unidad 1.2
       menu:
-        - text: "Módulo 2"
-          href: modulo2.html
-        - text: "--------" 
-        - text: "Guía 2.1"
-          href: guia21.html        
-        - text: "Recursos 2.1"
-          href: recurso21.html     
-        - text: "Código 2.1"  
-          href: codigo21.html
-        - text: "Taller 211"
-          href: taller211.html    
-          
-        - text: "--------" 
-        - text: "Guía 2.2"
-          href: guia22.html        
-        - text: "Recursos 2.2"
-          href: recurso22.html     
-        - text: "Taller 221"
-          href: taller221.html            
-
-        - text: "--------"        
-        - text: "Monitoría 2"  
-          href: monitoria2.html            
-          
-
-    - text: "Módulo 3"
+      - text: Guía 1.2
+        href: guia12.html
+      - text: Recursos 1.2
+        href: recurso12.html
+      - text: Código 1.2
+        href: codigo12.html
+      - text: Caso 1A
+        href: caso-01.html
+      - text: Caso 1B
+        href: caso-02.html
+    - text: Unidad 1.3
       menu:
-        - text: "Módulo 3"
-          href: modulo3.html
-        - text: "---------" 
-        - text: "Guía 3.1"
-          href: guia31.html        
-        - text: "Recursos 3.1"
-          href: recurso31.html     
-        - text: "Taller 311"
-          href: taller311.html     
-        - text: "---------" 
-        - text: "Guía 3.2"
-          href: guia32.html        
-        - text: "Recursos 3.2"
-          href: recurso33.html     
-        - text: "Código 3.2"
-          href: codigo33.html   
-        - text: "Taller 321"
-          href: taller-321.html              
-          
-        - text: "--------"        
-        - text: "Monitoría 3"  
-          href: monitoria3.html            
-                  
-     
-    - text: "Módulo 4"
+      - text: Guía 1.3
+        href: guia13.html
+      - text: Recursos 1.3
+        href: recurso13.html
+      - text: Código 1.3
+        href: codigo13.html
+    - text: Monitoría 1
+      href: monitoria1.html
+  - text: Módulo 2
+    menu:
+    - text: Presentación del módulo
+      href: modulo2.html
+    - text: Unidad 2.1
       menu:
-        - text: "Módulo 4"
-          href: modulo4.html
-        - text: "---------" 
-        - text: "Guía 4.1"
-          href: guia41.html        
-        - text: "Recursos 4.1"
-          href: recurso41.html     
-        - text: "Código 4.1"
-          href: codigo41.html            
-          
-
-    - text: "Módulo 5"
+      - text: Guía 2.1
+        href: guia21.html
+      - text: Recursos 2.1
+        href: recurso21.html
+      - text: Código 2.1
+        href: codigo21.html
+      - text: Taller 211
+        href: taller211.html
+    - text: Unidad 2.2
       menu:
-        - text: "Módulo 5"
-          href: modulo5.html
-        - text: "---------"         
-        
-    - text: "Proyecto"
+      - text: Guía 2.2
+        href: guia22.html
+      - text: Recursos 2.2
+        href: recurso22.html
+      - text: Taller 221
+        href: taller221.html
+    - text: Monitoría 2
+      href: monitoria2.html
+  - text: Módulo 3
+    menu:
+    - text: Presentación del módulo
+      href: modulo3.html
+    - text: Unidad 3.1
       menu:
-        - text: "Guía proyecto"
-          href: proyecto.html
-
-output:  
- html_document:
+      - text: Guía 3.1
+        href: guia31.html
+      - text: Recursos 3.1
+        href: recurso31.html
+      - text: Taller 311
+        href: taller311.html
+    - text: Unidad 3.2
+      menu:
+      - text: Guía 3.2
+        href: guia32.html
+      - text: Recursos 3.2
+        href: recurso33.html
+      - text: Código 3.2
+        href: codigo33.html
+      - text: Taller 321
+        href: taller-321.html
+    - text: Monitoría 3
+      href: monitoria3.html
+  - text: Módulo 4
+    menu:
+    - text: Presentación del módulo
+      href: modulo4.html
+    - text: Unidad 4.1
+      menu:
+      - text: Guía 4.1
+        href: guia41.html
+      - text: Recursos 4.1
+        href: recurso41.html
+      - text: Código 4.1
+        href: codigo41.html
+  - text: Módulo 5
+    menu:
+    - text: Presentación del módulo
+      href: modulo5.html
+  - text: Proyecto
+    menu:
+    - text: Guía proyecto
+      href: proyecto.html
+output:
+  html_document:
     code_folding: hide
     theme: spacelab
     css:
-      - style.css
-      - cajas.css
+    - style.css
+    - cajas.css
+    includes:
+      after_body: menu-assets.html

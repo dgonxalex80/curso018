@@ -193,6 +193,86 @@ blockquote {
 a { color: var(--curso-azul); text-decoration-thickness: .08em; text-underline-offset: .15em; }
 a:hover { color: var(--curso-rojo); }
 
+/* Navegación del curso: módulos y submenús de unidades desplegables. */
+.navbar-default {
+  background-image: none;
+  box-shadow: 0 3px 14px rgba(36, 50, 71, .16);
+}
+.navbar .navbar-brand:empty, .navbar .navbar-brand:has(> span:empty) { display: none; }
+.navbar .nav li { margin-bottom: 0; }
+.navbar .navbar-nav > li > a { font-size: 16px; font-weight: 600; }
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fff; background: #214372;
+}
+.navbar .dropdown-menu {
+  min-width: 255px;
+  padding: 8px;
+  border: 1px solid var(--curso-borde);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 10px 24px rgba(36, 50, 71, .16);
+}
+.navbar .navbar-nav > .dropdown > .dropdown-menu {
+  max-height: calc(100vh - 90px);
+  max-height: calc(100dvh - 90px);
+  overflow-y: auto;
+}
+.navbar .dropdown-menu > li > a {
+  padding: 10px 14px;
+  border-radius: 5px;
+  color: var(--curso-tinta);
+  font-size: 16px;
+  white-space: normal;
+}
+.navbar .dropdown-menu > li > a:hover,
+.navbar .dropdown-menu > li > a:focus {
+  color: var(--curso-azul); background: #EDF3FA;
+}
+.navbar .dropdown-menu > .active > a,
+.navbar .dropdown-menu > .active > a:hover,
+.navbar .dropdown-menu > .active > a:focus {
+  color: #fff; background: var(--curso-azul);
+}
+.navbar .dropdown-submenu > a { font-weight: 700; }
+.navbar .dropdown-submenu > a::after {
+  content: '+'; float: right; width: auto; height: auto;
+  margin: 0 0 0 16px; border: 0; color: inherit;
+}
+.navbar .dropdown-submenu.submenu-open > a::after { content: '−'; }
+.navbar .dropdown-submenu > .dropdown-menu {
+  display: none; position: static; float: none; min-width: 0;
+  margin: 4px 0 6px 12px; padding: 0 0 0 6px;
+  border: 0; border-left: 3px solid var(--curso-borde);
+  border-radius: 0; box-shadow: none; background: #fff;
+}
+.navbar .dropdown-submenu.submenu-open > .dropdown-menu { display: block; }
+.navbar a:focus-visible, .navbar button:focus-visible {
+  outline: 3px solid var(--curso-amarillo); outline-offset: -3px;
+}
+.navbar-default .navbar-toggle { border-color: #fff; }
+.navbar-default .navbar-toggle .icon-bar { background-color: #fff; }
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus { background: #214372; }
+@media (max-width: 767px) {
+  .navbar .navbar-collapse { max-height: calc(100vh - 65px); max-height: calc(100dvh - 65px); }
+  .navbar .navbar-nav > .dropdown > .dropdown-menu {
+    max-height: none; margin: 0 10px 8px; background: #fff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    padding: 10px 14px; color: var(--curso-tinta);
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: var(--curso-azul); background: #EDF3FA;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a {
+    color: #fff; background: var(--curso-azul);
+  }
+}
+
 /* Logotipos de paquetes alineados en una fila, con desplazamiento en móvil. */
 .main-container .package-logo-row {
   display: flex;
