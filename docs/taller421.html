@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="dgonzalez" />
+<meta name="author" content="dgonzalez " />
 
 
-<title>taller421.knit</title>
+<title>Estadística para la toma de decisiones</title>
 
 <script src="site_libs/header-attrs/header-attrs.js"></script>
 <script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="cajas.css" type="text/css" />
 
 
 
@@ -474,6 +475,23 @@ $(document).ready(function () {
         </li>
       </ul>
     </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 4.2</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia42.html">Guía 4.2</a>
+        </li>
+        <li>
+          <a href="recurso42.html">Recursos 4.2</a>
+        </li>
+        <li>
+          <a href="codigo42.html">Código 4.2</a>
+        </li>
+        <li>
+          <a href="taller421.html">Taller 421</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -520,250 +538,245 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore"><span
+style="color:#8A6FD1 !important;">Estadística para la toma de
+decisiones</span></h1>
+<h3 class="subtitle"><span style="color:#8A6FD1"> </span></h3>
+<h4 class="author"><span style="color:#8A6FD1">dgonzalez </span></h4>
 
 </div>
 
 
 <p></br></br></br></p>
-<p><img src="img/taller3.png" alt="" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><img src="img/taller4.png" alt="" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">
 Problema 1
 </div>
-<p>Un ingeniero está analizando la resistencia a la compresión de piezas
-que son utilizadas en la fabricación de motores para vehículos. La
-resistencia a la compresión se distribuye normalmente con <span
-class="math inline">\(\sigma^2 = 1000 \, (psi)^2\)</span>. Una muestra
-aleatoria de 12 piezas presenta una media en la resistencia de
-compresión <span class="math inline">\(\bar{x} = 3250 \,
-psi\)</span>.</p>
+<p>Una empresa comercial analiza el valor de sus operaciones de venta,
+medido en miles de pesos. Se considera que los valores siguen una
+distribución normal, con desviación estándar poblacional conocida de 32
+miles de pesos. En una muestra aleatoria de 36 operaciones, el valor
+medio fue de 3250 miles de pesos.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Construir un intervalo de confianza del 95% de la media de la
-resistencia a la compresión.</li>
-<li>Construir intervalos de confianza del 90% y del 99% para la media
-resistencia a la compresión. Comparar los anchos de estos
-intervalos.</li>
-<li>Si se desea estimar la resistencia a la compresión con un error de
-muestreo menor a 15 psi y una confianza del 99%, ¿qué tamaño de muestra
-se requiere?</li>
+<li>Construya un IC del 95% para el valor medio de las
+operaciones.<br />
+</li>
+<li>Construya uno del 99% y compare amplitudes.<br />
+</li>
+<li>Determine el tamaño muestral para un margen de error máximo de 10
+miles de pesos con 95% de confianza.</li>
 </ol>
-<pre class="r"><code>s2 = 1000
-xm = 3250
-n=12</code></pre>
-<pre>
-s2 = 1000
-xm = 3250
-n = 12
-</pre>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">
 Problema 2
 </div>
-<p>Una marca de margarina dietética fue analizada para determinar el
-nivel de ácido graso poliinsaturado en porcentaje. En una muestra de
-seis paquetes se obtuvieron los siguientes datos: 16.8, 17.2, 17.4,
-16.9, 16.5, 17.1.</p>
-<pre class="r"><code>x &lt;- c(16.8, 17.2, 17.4, 16.9, 16.5, 17.1)
-cat(&quot;x :&quot;,x,&quot;\n&quot;)
-cat(&quot;media               :&quot;, mean(x) , &quot;\n&quot;)
-cat(&quot;desviación estandar :&quot;, sd(x))</code></pre>
-<pre>
-x  : 16.8, 17.2, 17.4, 16.9, 16.5, 17.1 
-media               : 16.98333 
-desviación estandar : 0.3188521
-</pre>
+<p>En el área de servicio al cliente de una empresa, los tiempos de
+respuesta (minutos) de 12 solicitudes comerciales fueron: 14.2, 13.8,
+16.1, 15.3, 14.9, 13.5, 15.7, 14.4, 16.0, 15.1, 14.6, 15.5.</p>
 <ol style="list-style-type: lower-alpha">
-<li>¿Existe evidencia que apoye la hipótesis de que el nivel de ácido
-graso poliinsaturado se distribuye normalmente?</li>
-<li>Calcular un intervalo de confianza del 99% sobre la media <span
-class="math inline">\(\mu\)</span> e interpretar el resultado.</li>
+<li>Estime la media mediante un IC <span
+class="math inline">\(t\)</span> del 95%.<br />
+</li>
+<li>Justifique las condiciones de aplicación.<br />
+</li>
+<li>Explique qué cambiaría si hubiera valores extremos.</li>
 </ol>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">
 Problema 3
 </div>
-<p>El porcentaje de titanio contenido en una aleación utilizada en
-artículos para escalar fue medido en 51 partes seleccionadas
-aleatoriamente. La desviación estándar muestral es <span
-class="math inline">\(s = 0.37\)</span>.</p>
+<p>Una empresa de mercadeo evalúa la experiencia posventa. En una
+muestra aleatoria de 150 clientes, 18 presentaron reclamaciones sobre el
+servicio recibido.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Construir un intervalo de confianza del 95% para <span
-class="math inline">\(\sigma\)</span>.</li>
-<li>Analizar qué ocurre con el intervalo si se aumenta el tamaño de la
-muestra manteniendo el resto de la información constante.</li>
+<li>Calcule el IC de Wilson del 95% para la proporción de clientes que
+presentan reclamaciones.<br />
+</li>
+<li>Compárelo con el intervalo normal de Wald.<br />
+</li>
+<li>Determine el tamaño de muestra preliminar para error 0.04 y 95% de
+confianza, usando <span class="math inline">\(p_0=0.12\)</span>.</li>
 </ol>
-<pre class="r"><code>n = 51
-s = 0.37</code></pre>
-<pre>
-n = 51
-s = 0.37
-</pre>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">
 Problema 4
 </div>
-<p>De 1000 casos de cáncer de pulmón seleccionados al azar, 823
-resultaron en muerte dentro de los 10 años posteriores a su
-detección.</p>
+<p>El departamento financiero estudia los gastos administrativos
+diarios, expresados en miles de pesos. En una muestra de 20 días
+independientes, procedentes de una población normal, la varianza
+muestral es 16 (miles de pesos) al cuadrado.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Construir un intervalo de confianza del 95% para la tasa de
-mortalidad.</li>
-<li>Interpretar los resultados obtenidos.</li>
+<li>Construya el IC del 95% para la varianza.<br />
+</li>
+<li>Transforme los extremos para obtener un IC de la desviación
+estándar.<br />
+</li>
+<li>Analice la importancia del supuesto de normalidad.</li>
 </ol>
-<pre class="r"><code>n = 1000
-x = 823</code></pre>
-<pre>
-n = 1000
-x = 823
-</pre>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">
 Problema 5
 </div>
-<p>Se tomaron 30 unidades de tabaco habano para medir su contenido de
-alquitrán. Los datos son los siguientes:</p>
-<pre class="r"><code>x &lt;- c(
-  1.542, 1.622, 1.440, 1.459, 1.598, 1.585, 1.466, 1.608, 1.533, 1.498, 
-  1.532, 1.546, 1.520, 1.532, 1.600, 1.466, 1.494, 1.523, 1.504, 1.499, 
-  1.548, 1.542, 1.397, 1.545, 1.611, 1.626, 1.511, 1.487, 1.558, 1.489)
-
-x
-mean(x)
-sd(x)
-length(x)</code></pre>
-<pre>
-1.542, 1.622, 1.440, 1.459, 1.598, 1.585, 1.466, 1.608, 1.533, 1.498, 
-1.532, 1.546, 1.520, 1.532, 1.600, 1.466, 1.494, 1.523, 1.504, 1.499, 
-1.548, 1.542, 1.397, 1.545, 1.611, 1.626, 1.511, 1.487, 1.558, 1.489)
-
-media  = 1.529367
-desviación estantar = 0.05625526
-n = 30
-</pre>
+<p>Una empresa compara el costo por pedido, en miles de pesos, de dos
+proveedores independientes. Proveedor A: <span
+class="math inline">\(n_1=25\)</span>, <span class="math inline">\(\bar
+x_1=102\)</span>, <span class="math inline">\(s_1=12\)</span>. Proveedor
+B: <span class="math inline">\(n_2=30\)</span>, <span
+class="math inline">\(\bar x_2=96\)</span>, <span
+class="math inline">\(s_2=18\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
-<li>¿Existe evidencia que apoye la hipótesis de que el contenido de
-alquitrán se distribuye normalmente?</li>
-<li>Calcular un intervalo de confianza del 99% para la media del
-contenido de alquitrán.</li>
+<li>Calcule un IC de Welch del 95% para <span
+class="math inline">\(\mu_1-\mu_2\)</span>.<br />
+</li>
+<li>Interprete el signo de los extremos.<br />
+</li>
+<li>Explique por qué no se presupone igualdad de varianzas.</li>
 </ol>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">
 Problema 6
 </div>
-<p>Los siguientes datos corresponden al tiempo de secado (en horas) de
-una nueva pintura:</p>
-<pre class="r"><code>x &lt;- c(3.4, 2.5, 4.8, 2.9, 3.6, 2.8, 3.3, 5.6, 3.7, 2.8, 4.4, 4.0, 5.2, 3.0, 4.8)
-mean(x)
-sd(x)
-length(x)</code></pre>
-<pre>
-x :  3.4, 2.5, 4.8, 2.9, 3.6, 2.8, 3.3, 5.6, 3.7, 2.8, 4.4, 4.0, 5.2, 3.0, 4.8
-media = 3.786667
-desviación estandar = 0.9709102
-n = 15
-</pre>
+<p>Una empresa implementó un sistema digital para agilizar el
+procesamiento de órdenes de compra. Los tiempos (minutos) de ocho
+empleados al tramitar una orden antes y después de la intervención
+fueron:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Empleado</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+<th align="right">6</th>
+<th align="right">7</th>
+<th align="right">8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Antes</td>
+<td align="right">42</td>
+<td align="right">39</td>
+<td align="right">45</td>
+<td align="right">41</td>
+<td align="right">43</td>
+<td align="right">47</td>
+<td align="right">40</td>
+<td align="right">44</td>
+</tr>
+<tr class="even">
+<td align="left">Después</td>
+<td align="right">37</td>
+<td align="right">36</td>
+<td align="right">40</td>
+<td align="right">38</td>
+<td align="right">39</td>
+<td align="right">42</td>
+<td align="right">38</td>
+<td align="right">39</td>
+</tr>
+</tbody>
+</table>
 <ol style="list-style-type: lower-alpha">
-<li>Calcular un intervalo de confianza del 95% para la media del tiempo
-de secado.</li>
-<li>Calcular un intervalo de confianza del 98% para su varianza.
-Interpretar los resultados.</li>
+<li>Construya un IC pareado del 95% para la reducción media.<br />
+</li>
+<li>Justifique la elección del procedimiento.<br />
+</li>
+<li>Interprete el resultado en términos de eficiencia
+administrativa.</li>
 </ol>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">
 Problema 7
 </div>
 <p>El director de una fábrica desea estimar el tiempo promedio que toma
 perforar tres agujeros en una placa metálica utilizada para mesas. ¿Cuál
 debe ser el tamaño de la muestra para que el intervalo de confianza del
-95% esté dentro de 5 segundos de la media real, sabiendo que <span
+95% esté dentro de 15 segundos de la media real, sabiendo que <span
 class="math inline">\(\sigma = 40\)</span>?</p>
-<pre class="r"><code>n = paqueteDEG::sizemu(1.96, 1600,5)
-ceiling(n)</code></pre>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">
 Problema 8
 </div>
-<p>En un proceso de fabricación se compara la tensión de ruptura de dos
-métodos: estándar y con aleación. Las tensiones son las siguientes:</p>
-<pre class="r"><code># Proceso estándar: 
-proc_est &lt;- c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)  
-#Proceso nuevo: 
-proc_nue &lt;- c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)  
-
-xm1 =mean(proc_est)
-xm2 = mean(proc_nue)
-sd1 = sd(proc_est)
-sd2 = sd(proc_nue)
-n1 = length(proc_est)
-n2 = length(proc_nue)</code></pre>
-<pre>
-proceso estandar
-428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463  
-
-Proceso nuevo: 
-462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447  
-
-</pre>
+<p>Una gerencia comercial compara dos equipos de ventas en el
+cumplimiento de un protocolo de seguimiento a clientes. En el equipo A
+cumplen 82 de 120 casos revisados; en el B, 69 de 115.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Obtener un intervalo de confianza del 95% para la diferencia de
-medias.</li>
-<li>Determinar si existe una diferencia real entre los dos procesos.
-¿Cuál es más conveniente?</li>
+<li>Construya un IC aproximado del 95% para <span
+class="math inline">\(p_A-p_B\)</span>.<br />
+</li>
+<li>Revise las condiciones de la aproximación.<br />
+</li>
+<li>Interprete el intervalo sin confundir confianza con probabilidad
+posterior.</li>
 </ol>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">
 Problema 9
 </div>
-<p>De una muestra aleatoria de 87 estaciones de gasolina, 13 tenían al
-menos un tanque subterráneo con fuga.</p>
+<p>El área de cartera compara la variabilidad de los tiempos de pago (en
+días) de clientes de dos segmentos independientes. Suponiendo
+normalidad, el segmento 1 tiene <span
+class="math inline">\(n_1=18\)</span>, <span
+class="math inline">\(s_1^2=25\)</span> y el segmento 2 tiene <span
+class="math inline">\(n_2=22\)</span>, <span
+class="math inline">\(s_2^2=16\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Determinar un intervalo de confianza del 95% para la proporción de
-estaciones con fugas.</li>
-<li>Calcular el tamaño de muestra necesario para que un intervalo del
-95% especifique la proporción dentro de mas o menos <span
-class="math inline">\(0.03\)</span>. En caso de no tener información
-previa, discutir cómo calcular el tamaño muestral y si es necesario
-hacer ajustes por población finita.</li>
+<li>Construya un IC del 95% para <span
+class="math inline">\(\sigma_1^2/\sigma_2^2\)</span>.<br />
+</li>
+<li>Determine si el intervalo contiene 1.<br />
+</li>
+<li>Discuta el alcance de esa observación.</li>
 </ol>
 </div>
 <p></br></br></p>
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">
 Problema 10
 </div>
-<p>El artículo de In-use Emissions from Heavy Duty Dissel Vehicles
-(J.Yanowitz, 2001) presenta las mediciones de eficiencia de combustible
-en millas/galón de una muestra de siete camiones. Los datos obtenidos
-son los siguientes: 7.69, 4.97, 4.56, 6.49, 4.34, 6.24 y 4.45. Se supone
-que es una muestra aleatoria de camiones y que se desea construir un
-intervalo de confianza del 95 % para la media de la eficiencia de
-combustible de esta población. No se tiene información de la
-distribución de los datos. El método bootstrap permite construir
-intervalos de confianza del 95 % - Para ilustrar el método suponga que
-coloca los valores de la muestra en una caja y extrae uno al azar. Este
-correspondería al primer valor de la muestra bootstrap <span
-class="math inline">\(X^{∗}_{1}\)</span>. Después de anotado el valor se
-regresa <span class="math inline">\(X^{∗}_{1}\)</span> a la caja y se
-extrae el valor <span class="math inline">\(X^{∗}_{2}\)</span> ,
-regresandolo nuevamente. Este procedimiento se repite hasta completar
-una muestra de tamaño <span class="math inline">\(n\)</span>, <span
+<p>En un punto de atención comercial se observaron los siguientes
+tiempos de espera de clientes (minutos): 7, 9, 11, 12, 13, 15, 16, 17,
+18, 19, 21, 23, 24, 25, 27, 30, 33, 36, 42, 50, 55, 58, 61, 66, 70.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Construya un IC basado en estadísticos de orden para la mediana, con
+cobertura de al menos 95%.<br />
+</li>
+<li>Determine la cobertura exacta alcanzada.<br />
+</li>
+<li>Compare la mediana y la media e interprete su diferencia.</li>
+</ol>
+<p>Nota: Cuando se tiene una muestra pequeña con la que no se puede
+verificar el supuesto de normalidad, se emplean métodos no paramétricos.
+El método bootstrap permite construir intervalos de confianza del 95 % -
+Para ilustrar el método suponga que coloca los valores de la muestra en
+una caja y extrae uno al azar. Este correspondería al primer valor de la
+muestra bootstrap <span class="math inline">\(X^{∗}_{1}\)</span>.
+Después de anotado el valor se regresa <span
+class="math inline">\(X^{∗}_{1}\)</span> a la caja y se extrae el valor
+<span class="math inline">\(X^{∗}_{2}\)</span> , regresandolo
+nuevamente. Este procedimiento se repite hasta completar una muestra de
+tamaño <span class="math inline">\(n\)</span>, <span
 class="math inline">\(X^{∗}_{1}\)</span>,<span
 class="math inline">\(X^{∗}_{2}\)</span>,<span
 class="math inline">\(X^{∗}_{2}\)</span>,<span
@@ -781,24 +794,19 @@ estimarlo:</p>
 <tbody>
 <tr class="odd">
 <td align="left">Método 1</td>
-<td align="center"><span class="math inline">\((P_{2.5};
+<td align="center"><span class="math inline">\((P_{2.5}; \hspace{.5cm}
 P_{97.5})\)</span></td>
 </tr>
 <tr class="even">
 <td align="left">Método 2</td>
 <td align="center"><span class="math inline">\((2\bar{X} − P_{97.5};
-2\bar{X} − P_{2.5})\)</span></td>
+\hspace{.5cm} 2\bar{X} − P_{2.5})\)</span></td>
 </tr>
 </tbody>
 </table>
 <p>Construya el intervalo de confianza por los dos métodos y compare los
 resultados obtenidos. Tomado de Navidi(2006)</p>
-<pre class="r"><code>x =c(7.69, 4.97, 4.56, 6.49, 4.34, 6.24, 4.45)</code></pre>
-<pre>
-7.69,  4.97,  4.56,  6.49,  4.34,  6.24,  4.45
-</pre>
 </div>
-<p></br></br></p>
 <p>Resuelve los ejercicios utilizando software estadístico
 <strong>R</strong> y verifica tus resultados con las fórmulas
 vistas.</p>

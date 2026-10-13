@@ -1,0 +1,101 @@
+---
+title: "Unidad 4.2 | Intervalos de confianza"
+author: "Curso 018 - Inferencia Estadística"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    code_folding: hide
+    theme: flatly
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, comment=NA,
+                      fig.width=8, fig.height=4.5)
+if (file.exists("init.R")) source("init.R")
+```
+
+# Taller 4.2.1 — Intervalos de confianza
+
+**Indicaciones:** resuelva cada problema, identifique parámetro, nivel de confianza, supuestos, método y conclusión. Use R para comprobar cálculos. Reporte decimales con punto.
+
+## Parte A. Una población: métodos paramétricos
+
+### Problema 1. Valor de las operaciones comerciales
+
+
+
+### Problema 2. Tiempo de respuesta a clientes
+
+
+
+### Problema 3. Proporción de reclamaciones
+
+
+
+### Problema 4. Variabilidad de gastos administrativos
+
+El departamento financiero estudia los gastos administrativos diarios, expresados en miles de pesos. En una muestra de 20 días independientes, procedentes de una población normal, la varianza muestral es 16 (miles de pesos) al cuadrado.
+
+a. Construya el IC del 95% para la varianza.  
+b. Transforme los extremos para obtener un IC de la desviación estándar.  
+c. Analice la importancia del supuesto de normalidad.
+
+## Parte B. Dos poblaciones: métodos paramétricos
+
+### Problema 5. Costos de dos proveedores
+
+
+
+### Problema 6. Antes y después de una mejora administrativa
+
+
+### Problema 7. Dos tasas de cumplimiento comercial
+
+
+
+### Problema 8. Variabilidad de tiempos de pago
+
+
+
+## Parte C. Métodos no paramétricos
+
+### Problema 9. Mediana del tiempo de atención comercial
+
+
+
+### Problema 10. Bootstrap del tiempo de gestión de solicitudes
+
+El área administrativa estudia el tiempo necesario para gestionar solicitudes de clientes. Genere 45 tiempos (minutos) a partir de una distribución lognormal con `set.seed(180)` y `rlnorm(45, 2, 0.6)`.
+
+a. Construya un IC bootstrap percentil del 95% para la media.  
+b. Construya otro para la mediana.  
+c. Compare con el IC $t$ de la media y discuta asimetría, tamaño muestral y limitaciones.
+
+### Problema 11. Comparación de tiempos de dos canales comerciales
+
+Una empresa compara los tiempos (minutos) de gestión de solicitudes en dos canales independientes: presencial (x) y digital (y). Genere con `set.seed(181)` dos muestras: `x <- rlnorm(35,2.3,0.5)` y `y <- rlnorm(40,2.1,0.7)`.
+
+a. Estime la diferencia de medianas.  
+b. Construya un IC bootstrap percentil del 95% usando 5000 remuestras independientes por grupo.  
+c. Compare con el IC de Welch para la diferencia de medias y explique por qué los parámetros son diferentes.
+
+### Problema 12. Evaluación de una capacitación comercial
+
+Una empresa capacita a 30 asesores comerciales para reducir el tiempo de elaboración de cotizaciones. Simule 30 pares de tiempos (minutos) antes y después de la capacitación. Construya un IC $t$ para la diferencia media y un IC bootstrap para la mediana de las diferencias. Explique por qué el remuestreo debe preservar las parejas.
+
+## Parte D. Minicaso integrador
+
+### Minicaso 1. Duración de relaciones comerciales con dos canales
+
+Una empresa de mercadeo desea comparar la duración, en meses, de la permanencia de clientes captados por dos canales comerciales. Simule 50 observaciones Weibull para el canal A y 50 para el canal B con parámetros distintos. Estime la diferencia de medias con Welch y la diferencia de medianas con bootstrap. Compare interpretaciones y evalúe los supuestos.
+
+### Minicaso 2. Eficiencia en una entidad financiera
+
+Una entidad implementa un nuevo proceso de aprobación. Registre o simule 40 pares de tiempos antes y después. Construya intervalos para la reducción media y mediana. Presente una recomendación fundamentada, sin afirmar causalidad más allá del diseño del estudio.
+
+## Producto y rúbrica
+
+Entregue un `.Rmd` con datos o semillas reproducibles, fórmulas, código, resultados, gráficos, comprobación de supuestos y conclusiones. Se valoran: selección del método (30%), cálculos y código (30%), interpretación (25%) y reproducibilidad (15%).

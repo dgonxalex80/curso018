@@ -119,7 +119,19 @@ navbar:
       - text: Código 4.1
         href: codigo41.html
       - text: Taller 411
-        href: taller411.html        
+        href: taller411.html
+    - text: Unidad 4.2
+      menu:        
+      - text: Guía 4.2
+        href: guia42.html
+      - text: Recursos 4.2
+        href: recurso42.html
+      - text: Código 4.2
+        href: codigo42.html
+      - text: Taller 421
+        href: taller421.html        
+                
+        
         
   - text: Módulo 5
     menu:

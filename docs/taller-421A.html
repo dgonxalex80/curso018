@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Curso 018 - Inferencia Estadística" />
+
+
+<title>Unidad 4.2 | Intervalos de confianza</title>
+
+<script src="site_libs/header-attrs/header-attrs.js"></script>
+<script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui/jquery-ui.min.js"></script>
+<link href="site_libs/tocify/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify/jquery.tocify.js"></script>
+<script src="site_libs/navigation/tabsets.js"></script>
+<script src="site_libs/navigation/codefolding.js"></script>
+<link href="site_libs/highlightjs/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs/highlight.js"></script>
+<link href="site_libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Estadística
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 0
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo0.html">Presentación del módulo</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Prerrequisitos</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="sumatoria.html">Sumatoria</a>
+        </li>
+        <li>
+          <a href="productoria.html">Productoria</a>
+        </li>
+        <li>
+          <a href="conjuntos.html">Conjuntos</a>
+        </li>
+        <li>
+          <a href="conteo.html">Conteo</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo1.html">Presentación del módulo</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 1.1</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia11.html">Guía 1.1</a>
+        </li>
+        <li>
+          <a href="recurso11.html">Recursos 1.1</a>
+        </li>
+        <li>
+          <a href="basesdatos.html">Bases de datos</a>
+        </li>
+        <li>
+          <a href="introduccionR.html">Introducción a R</a>
+        </li>
+        <li>
+          <a href="codigo11.html">Código 1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 1.2</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia12.html">Guía 1.2</a>
+        </li>
+        <li>
+          <a href="recurso12.html">Recursos 1.2</a>
+        </li>
+        <li>
+          <a href="codigo12.html">Código 1.2</a>
+        </li>
+        <li>
+          <a href="caso-01.html">Caso 1A</a>
+        </li>
+        <li>
+          <a href="caso-02.html">Caso 1B</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 1.3</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia13.html">Guía 1.3</a>
+        </li>
+        <li>
+          <a href="recurso13.html">Recursos 1.3</a>
+        </li>
+        <li>
+          <a href="codigo13.html">Código 1.3</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="monitoria1.html">Monitoría 1</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo2.html">Presentación del módulo</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 2.1</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia21.html">Guía 2.1</a>
+        </li>
+        <li>
+          <a href="recurso21.html">Recursos 2.1</a>
+        </li>
+        <li>
+          <a href="codigo21.html">Código 2.1</a>
+        </li>
+        <li>
+          <a href="taller211.html">Taller 211</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 2.2</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia22.html">Guía 2.2</a>
+        </li>
+        <li>
+          <a href="recurso22.html">Recursos 2.2</a>
+        </li>
+        <li>
+          <a href="taller221.html">Taller 221</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="monitoria2.html">Monitoría 2</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 3
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo3.html">Presentación del módulo</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 3.1</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia31.html">Guía 3.1</a>
+        </li>
+        <li>
+          <a href="recurso31.html">Recursos 3.1</a>
+        </li>
+        <li>
+          <a href="taller311.html">Taller 311</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 3.2</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia32.html">Guía 3.2</a>
+        </li>
+        <li>
+          <a href="recurso33.html">Recursos 3.2</a>
+        </li>
+        <li>
+          <a href="codigo33.html">Código 3.2</a>
+        </li>
+        <li>
+          <a href="taller-321.html">Taller 321</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="monitoria3.html">Monitoría 3</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 4
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo4.html">Presentación del módulo</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 4.1</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia41.html">Guía 4.1</a>
+        </li>
+        <li>
+          <a href="recurso41.html">Recursos 4.1</a>
+        </li>
+        <li>
+          <a href="codigo41.html">Código 4.1</a>
+        </li>
+        <li>
+          <a href="taller411.html">Taller 411</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 4.2</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia42.html">Guía 4.2</a>
+        </li>
+        <li>
+          <a href="recurso42.html">Recursos 4.2</a>
+        </li>
+        <li>
+          <a href="codigo42.html">Código 4.2</a>
+        </li>
+        <li>
+          <a href="taller421.html">Taller 421</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 5
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo5.html">Presentación del módulo</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Proyecto
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="proyecto.html">Guía proyecto</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Unidad 4.2 | Intervalos de confianza</h1>
+<h4 class="author">Curso 018 - Inferencia Estadística</h4>
+
+</div>
+
+
+<div id="taller-4.2.1-intervalos-de-confianza" class="section level1">
+<h1>Taller 4.2.1 — Intervalos de confianza</h1>
+<p><strong>Indicaciones:</strong> resuelva cada problema, identifique
+parámetro, nivel de confianza, supuestos, método y conclusión. Use R
+para comprobar cálculos. Reporte decimales con punto.</p>
+<div id="parte-a.-una-población-métodos-paramétricos"
+class="section level2">
+<h2>Parte A. Una población: métodos paramétricos</h2>
+<div id="problema-1.-valor-de-las-transacciones-comerciales"
+class="section level3">
+<h3>Problema 1. Valor de las transacciones comerciales</h3>
+<p>Una empresa comercial analiza el valor de las compras realizadas por
+sus clientes, medido en miles de pesos. Se supone una distribución
+normal y se conoce una desviación estándar poblacional de 32 miles de
+pesos. En una muestra aleatoria de 36 transacciones, el valor medio fue
+3250 miles de pesos.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Construya un IC del 95% para el valor medio de las
+transacciones.<br />
+</li>
+<li>Construya uno del 99% y compare amplitudes.<br />
+</li>
+<li>Determine el tamaño muestral para un margen de error máximo de 10
+miles de pesos con 95% de confianza.</li>
+</ol>
+</div>
+<div id="problema-2.-tiempo-de-respuesta-a-solicitudes-de-clientes"
+class="section level3">
+<h3>Problema 2. Tiempo de respuesta a solicitudes de clientes</h3>
+<p>En el área administrativa de servicio al cliente, los tiempos de
+respuesta (minutos) a 12 solicitudes fueron: 14.2, 13.8, 16.1, 15.3,
+14.9, 13.5, 15.7, 14.4, 16.0, 15.1, 14.6, 15.5.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Estime la media mediante un IC <span
+class="math inline">\(t\)</span> del 95%.<br />
+</li>
+<li>Justifique las condiciones de aplicación.<br />
+</li>
+<li>Explique qué cambiaría si hubiera valores extremos.</li>
+</ol>
+</div>
+<div id="problema-3.-proporción-de-reclamaciones-comerciales"
+class="section level3">
+<h3>Problema 3. Proporción de reclamaciones comerciales</h3>
+<p>En una muestra aleatoria de 150 pedidos atendidos por una empresa de
+comercio electrónico, 18 dieron lugar a reclamaciones de los
+clientes.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Calcule el IC de Wilson del 95% para la proporción de pedidos con
+reclamaciones.<br />
+</li>
+<li>Compárelo con el intervalo normal de Wald.<br />
+</li>
+<li>Determine el tamaño de muestra preliminar para error 0.04 y 95% de
+confianza, usando <span class="math inline">\(p_0=0.12\)</span>.</li>
+</ol>
+</div>
+<div id="problema-4.-variabilidad-de-los-gastos-administrativos"
+class="section level3">
+<h3>Problema 4. Variabilidad de los gastos administrativos</h3>
+<p>Una empresa analiza sus gastos administrativos diarios, expresados en
+millones de pesos. En una muestra aleatoria de 20 días, suponiendo
+normalidad e independencia, la varianza muestral de los gastos fue de 16
+(millones de pesos)<span class="math inline">\(^2\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Construya el IC del 95% para la varianza.<br />
+</li>
+<li>Transforme los extremos para obtener un IC de la desviación
+estándar.<br />
+</li>
+<li>Analice la importancia del supuesto de normalidad.</li>
+</ol>
+</div>
+</div>
+<div id="parte-b.-dos-poblaciones-métodos-paramétricos"
+class="section level2">
+<h2>Parte B. Dos poblaciones: métodos paramétricos</h2>
+<div id="problema-5.-comparación-de-costos-de-dos-proveedores"
+class="section level3">
+<h3>Problema 5. Comparación de costos de dos proveedores</h3>
+<p>El departamento de compras compara los costos unitarios de
+adquisición (miles de pesos) de dos proveedores independientes.
+Proveedor A: <span class="math inline">\(n_1=25\)</span>, <span
+class="math inline">\(\bar x_1=102\)</span>, <span
+class="math inline">\(s_1=12\)</span>. Proveedor B: <span
+class="math inline">\(n_2=30\)</span>, <span class="math inline">\(\bar
+x_2=96\)</span>, <span class="math inline">\(s_2=18\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Calcule un IC de Welch del 95% para <span
+class="math inline">\(\mu_1-\mu_2\)</span>.<br />
+</li>
+<li>Interprete el signo de los extremos.<br />
+</li>
+<li>Explique por qué no se presupone igualdad de varianzas.</li>
+</ol>
+</div>
+<div id="problema-6.-eficiencia-de-un-proceso-de-facturación"
+class="section level3">
+<h3>Problema 6. Eficiencia de un proceso de facturación</h3>
+<p>Los tiempos de procesamiento (minutos) de ocho tipos de facturas,
+antes y después de implementar un nuevo sistema administrativo,
+fueron:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Tipo de factura</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+<th align="right">6</th>
+<th align="right">7</th>
+<th align="right">8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Antes</td>
+<td align="right">42</td>
+<td align="right">39</td>
+<td align="right">45</td>
+<td align="right">41</td>
+<td align="right">43</td>
+<td align="right">47</td>
+<td align="right">40</td>
+<td align="right">44</td>
+</tr>
+<tr class="even">
+<td align="left">Después</td>
+<td align="right">37</td>
+<td align="right">36</td>
+<td align="right">40</td>
+<td align="right">38</td>
+<td align="right">39</td>
+<td align="right">42</td>
+<td align="right">38</td>
+<td align="right">39</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li>Construya un IC pareado del 95% para la reducción media del tiempo
+de procesamiento.<br />
+</li>
+<li>Justifique la elección del procedimiento.<br />
+</li>
+<li>Interprete el resultado en términos operativos.</li>
+</ol>
+</div>
+<div id="problema-7.-cumplimiento-de-campañas-de-mercadeo"
+class="section level3">
+<h3>Problema 7. Cumplimiento de campañas de mercadeo</h3>
+<p>Dos campañas de mercadeo buscan que los clientes completen un
+registro comercial. En la campaña A completaron el registro 82 de 120
+clientes contactados; en la campaña B, 69 de 115.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Construya un IC aproximado del 95% para <span
+class="math inline">\(p_A-p_B\)</span>.<br />
+</li>
+<li>Revise las condiciones de la aproximación.<br />
+</li>
+<li>Interprete el intervalo sin confundir confianza con probabilidad
+posterior.</li>
+</ol>
+</div>
+<div id="problema-8.-comparación-de-la-volatilidad-de-rendimientos"
+class="section level3">
+<h3>Problema 8. Comparación de la volatilidad de rendimientos</h3>
+<p>Un analista financiero compara la variabilidad de los rendimientos
+porcentuales diarios de dos portafolios independientes, bajo el supuesto
+de normalidad. Para el portafolio 1 se obtuvo <span
+class="math inline">\(n_1=18\)</span>, <span
+class="math inline">\(s_1^2=25\)</span> y para el portafolio 2, <span
+class="math inline">\(n_2=22\)</span>, <span
+class="math inline">\(s_2^2=16\)</span> (en puntos porcentuales al
+cuadrado).</p>
+<ol style="list-style-type: lower-alpha">
+<li>Construya un IC del 95% para <span
+class="math inline">\(\sigma_1^2/\sigma_2^2\)</span>.<br />
+</li>
+<li>Determine si el intervalo contiene 1.<br />
+</li>
+<li>Discuta el alcance de esa observación.</li>
+</ol>
+</div>
+</div>
+<div id="parte-c.-métodos-no-paramétricos" class="section level2">
+<h2>Parte C. Métodos no paramétricos</h2>
+<div
+id="problema-9.-mediana-del-tiempo-de-atención-en-una-entidad-financiera"
+class="section level3">
+<h3>Problema 9. Mediana del tiempo de atención en una entidad
+financiera</h3>
+<p>En una sucursal financiera se observaron los siguientes tiempos de
+atención a clientes (minutos): 7, 9, 11, 12, 13, 15, 16, 17, 18, 19, 21,
+23, 24, 25, 27, 30, 33, 36, 42, 50, 55, 58, 61, 66, 70.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Construya un IC basado en estadísticos de orden para la mediana, con
+cobertura de al menos 95%.<br />
+</li>
+<li>Determine la cobertura exacta alcanzada.<br />
+</li>
+<li>Compare la mediana y la media e interprete su diferencia.</li>
+</ol>
+</div>
+<div id="problema-10.-bootstrap-de-tiempos-de-gestión-de-reclamaciones"
+class="section level3">
+<h3>Problema 10. Bootstrap de tiempos de gestión de reclamaciones</h3>
+<p>Para estudiar la duración de la gestión administrativa de
+reclamaciones, genere 45 tiempos (minutos) a partir de una distribución
+lognormal con <code>set.seed(180)</code> y
+<code>rlnorm(45, 2, 0.6)</code>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Construya un IC bootstrap percentil del 95% para la media.<br />
+</li>
+<li>Construya otro para la mediana.<br />
+</li>
+<li>Compare con el IC <span class="math inline">\(t\)</span> de la media
+y discuta asimetría, tamaño muestral y limitaciones.</li>
+</ol>
+</div>
+<div
+id="problema-11.-comparación-de-tiempos-de-respuesta-de-dos-canales-comerciales"
+class="section level3">
+<h3>Problema 11. Comparación de tiempos de respuesta de dos canales
+comerciales</h3>
+<p>Una empresa compara los tiempos de respuesta (minutos) de su canal
+web y su canal telefónico, considerados independientes. Genere con
+<code>set.seed(181)</code> dos muestras:
+<code>x &lt;- rlnorm(35,2.3,0.5)</code> y
+<code>y &lt;- rlnorm(40,2.1,0.7)</code>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Estime la diferencia de medianas.<br />
+</li>
+<li>Construya un IC bootstrap percentil del 95% usando 5000 remuestras
+independientes por grupo.<br />
+</li>
+<li>Compare con el IC de Welch para la diferencia de medias y explique
+por qué los parámetros son diferentes.</li>
+</ol>
+</div>
+<div
+id="problema-12.-evaluación-de-un-programa-de-capacitación-administrativa"
+class="section level3">
+<h3>Problema 12. Evaluación de un programa de capacitación
+administrativa</h3>
+<p>Simule 30 pares de tiempos (minutos) necesarios para realizar una
+tarea administrativa, medidos en los mismos empleados antes y después de
+una capacitación. Construya un IC <span class="math inline">\(t\)</span>
+para la diferencia media y un IC bootstrap para la mediana de las
+diferencias. Explique por qué el remuestreo debe preservar las
+parejas.</p>
+</div>
+</div>
+<div id="parte-d.-minicaso-integrador" class="section level2">
+<h2>Parte D. Minicaso integrador</h2>
+<div id="minicaso-1.-comparación-de-duración-de-relaciones-comerciales"
+class="section level3">
+<h3>Minicaso 1. Comparación de duración de relaciones comerciales</h3>
+<p>Una empresa de servicios desea comparar la duración (meses) de las
+relaciones contractuales de clientes captados mediante dos estrategias
+de mercadeo. Simule 50 duraciones Weibull para la estrategia A y 50 para
+la estrategia B, con parámetros distintos. Estime la diferencia de
+medias con Welch y la diferencia de medianas con bootstrap. Compare
+interpretaciones y evalúe los supuestos.</p>
+</div>
+<div id="minicaso-2.-eficiencia-en-la-aprobación-de-créditos"
+class="section level3">
+<h3>Minicaso 2. Eficiencia en la aprobación de créditos</h3>
+<p>Una entidad financiera implementa un nuevo procedimiento
+administrativo de aprobación de créditos. Registre o simule 40 pares de
+tiempos antes y después. Construya intervalos para la reducción media
+del tiempo de procesamiento y mediana. Presente una recomendación
+fundamentada, sin afirmar causalidad más allá del diseño del
+estudio.</p>
+</div>
+</div>
+<div id="producto-y-rúbrica" class="section level2">
+<h2>Producto y rúbrica</h2>
+<p>Entregue un <code>.Rmd</code> con datos o semillas reproducibles,
+fórmulas, código, resultados, gráficos, comprobación de supuestos y
+conclusiones. Se valoran: selección del método (30%), cálculos y código
+(30%), interpretación (25%) y reproducibilidad (15%).</p>
+</div>
+</div>
+
+<script src="menu.js"></script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

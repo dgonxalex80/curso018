@@ -1,0 +1,139 @@
+---
+title: "Unidad 4.2 | Intervalos de confianza"
+author: "Curso 018 - Inferencia Estadística"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    code_folding: hide
+    theme: flatly
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, comment=NA,
+                      fig.width=8, fig.height=4.5)
+if (file.exists("init.R")) source("init.R")
+```
+
+# Taller 4.2.1 — Intervalos de confianza
+
+**Indicaciones:** resuelva cada problema, identifique parámetro, nivel de confianza, supuestos, método y conclusión. Use R para comprobar cálculos. Reporte decimales con punto.
+
+## Parte A. Una población: métodos paramétricos
+
+### Problema 1. Valor de las transacciones comerciales
+
+Una empresa comercial analiza el valor de las compras realizadas por sus clientes, medido en miles de pesos. Se supone una distribución normal y se conoce una desviación estándar poblacional de 32 miles de pesos. En una muestra aleatoria de 36 transacciones, el valor medio fue 3250 miles de pesos.
+
+a. Construya un IC del 95% para el valor medio de las transacciones.  
+b. Construya uno del 99% y compare amplitudes.  
+c. Determine el tamaño muestral para un margen de error máximo de 10 miles de pesos con 95% de confianza.
+
+### Problema 2. Tiempo de respuesta a solicitudes de clientes
+
+En el área administrativa de servicio al cliente, los tiempos de respuesta (minutos) a 12 solicitudes fueron: 14.2, 13.8, 16.1, 15.3, 14.9, 13.5, 15.7, 14.4, 16.0, 15.1, 14.6, 15.5.
+
+a. Estime la media mediante un IC $t$ del 95%.  
+b. Justifique las condiciones de aplicación.  
+c. Explique qué cambiaría si hubiera valores extremos.
+
+### Problema 3. Proporción de reclamaciones comerciales
+
+En una muestra aleatoria de 150 pedidos atendidos por una empresa de comercio electrónico, 18 dieron lugar a reclamaciones de los clientes.
+
+a. Calcule el IC de Wilson del 95% para la proporción de pedidos con reclamaciones.  
+b. Compárelo con el intervalo normal de Wald.  
+c. Determine el tamaño de muestra preliminar para error 0.04 y 95% de confianza, usando $p_0=0.12$.
+
+### Problema 4. Variabilidad de los gastos administrativos
+
+Una empresa analiza sus gastos administrativos diarios, expresados en millones de pesos. En una muestra aleatoria de 20 días, suponiendo normalidad e independencia, la varianza muestral de los gastos fue de 16 (millones de pesos)$^2$.
+
+a. Construya el IC del 95% para la varianza.  
+b. Transforme los extremos para obtener un IC de la desviación estándar.  
+c. Analice la importancia del supuesto de normalidad.
+
+## Parte B. Dos poblaciones: métodos paramétricos
+
+### Problema 5. Comparación de costos de dos proveedores
+
+El departamento de compras compara los costos unitarios de adquisición (miles de pesos) de dos proveedores independientes. Proveedor A: $n_1=25$, $\bar x_1=102$, $s_1=12$. Proveedor B: $n_2=30$, $\bar x_2=96$, $s_2=18$.
+
+a. Calcule un IC de Welch del 95% para $\mu_1-\mu_2$.  
+b. Interprete el signo de los extremos.  
+c. Explique por qué no se presupone igualdad de varianzas.
+
+### Problema 6. Eficiencia de un proceso de facturación
+
+Los tiempos de procesamiento (minutos) de ocho tipos de facturas, antes y después de implementar un nuevo sistema administrativo, fueron:
+
+| Tipo de factura | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|:--|--:|--:|--:|--:|--:|--:|--:|--:|
+| Antes | 42 | 39 | 45 | 41 | 43 | 47 | 40 | 44 |
+| Después | 37 | 36 | 40 | 38 | 39 | 42 | 38 | 39 |
+
+a. Construya un IC pareado del 95% para la reducción media del tiempo de procesamiento.  
+b. Justifique la elección del procedimiento.  
+c. Interprete el resultado en términos operativos.
+
+### Problema 7. Cumplimiento de campañas de mercadeo
+
+Dos campañas de mercadeo buscan que los clientes completen un registro comercial. En la campaña A completaron el registro 82 de 120 clientes contactados; en la campaña B, 69 de 115.
+
+a. Construya un IC aproximado del 95% para $p_A-p_B$.  
+b. Revise las condiciones de la aproximación.  
+c. Interprete el intervalo sin confundir confianza con probabilidad posterior.
+
+### Problema 8. Comparación de la volatilidad de rendimientos
+
+Un analista financiero compara la variabilidad de los rendimientos porcentuales diarios de dos portafolios independientes, bajo el supuesto de normalidad. Para el portafolio 1 se obtuvo $n_1=18$, $s_1^2=25$ y para el portafolio 2, $n_2=22$, $s_2^2=16$ (en puntos porcentuales al cuadrado).
+
+a. Construya un IC del 95% para $\sigma_1^2/\sigma_2^2$.  
+b. Determine si el intervalo contiene 1.  
+c. Discuta el alcance de esa observación.
+
+## Parte C. Métodos no paramétricos
+
+### Problema 9. Mediana del tiempo de atención en una entidad financiera
+
+En una sucursal financiera se observaron los siguientes tiempos de atención a clientes (minutos): 7, 9, 11, 12, 13, 15, 16, 17, 18, 19, 21, 23, 24, 25, 27, 30, 33, 36, 42, 50, 55, 58, 61, 66, 70.
+
+a. Construya un IC basado en estadísticos de orden para la mediana, con cobertura de al menos 95%.  
+b. Determine la cobertura exacta alcanzada.  
+c. Compare la mediana y la media e interprete su diferencia.
+
+### Problema 10. Bootstrap de tiempos de gestión de reclamaciones
+
+Para estudiar la duración de la gestión administrativa de reclamaciones, genere 45 tiempos (minutos) a partir de una distribución lognormal con `set.seed(180)` y `rlnorm(45, 2, 0.6)`.
+
+a. Construya un IC bootstrap percentil del 95% para la media.  
+b. Construya otro para la mediana.  
+c. Compare con el IC $t$ de la media y discuta asimetría, tamaño muestral y limitaciones.
+
+### Problema 11. Comparación de tiempos de respuesta de dos canales comerciales
+
+Una empresa compara los tiempos de respuesta (minutos) de su canal web y su canal telefónico, considerados independientes. Genere con `set.seed(181)` dos muestras: `x <- rlnorm(35,2.3,0.5)` y `y <- rlnorm(40,2.1,0.7)`.
+
+a. Estime la diferencia de medianas.  
+b. Construya un IC bootstrap percentil del 95% usando 5000 remuestras independientes por grupo.  
+c. Compare con el IC de Welch para la diferencia de medias y explique por qué los parámetros son diferentes.
+
+### Problema 12. Evaluación de un programa de capacitación administrativa
+
+Simule 30 pares de tiempos (minutos) necesarios para realizar una tarea administrativa, medidos en los mismos empleados antes y después de una capacitación. Construya un IC $t$ para la diferencia media y un IC bootstrap para la mediana de las diferencias. Explique por qué el remuestreo debe preservar las parejas.
+
+## Parte D. Minicaso integrador
+
+### Minicaso 1. Comparación de duración de relaciones comerciales
+
+Una empresa de servicios desea comparar la duración (meses) de las relaciones contractuales de clientes captados mediante dos estrategias de mercadeo. Simule 50 duraciones Weibull para la estrategia A y 50 para la estrategia B, con parámetros distintos. Estime la diferencia de medias con Welch y la diferencia de medianas con bootstrap. Compare interpretaciones y evalúe los supuestos.
+
+### Minicaso 2. Eficiencia en la aprobación de créditos
+
+Una entidad financiera implementa un nuevo procedimiento administrativo de aprobación de créditos. Registre o simule 40 pares de tiempos antes y después. Construya intervalos para la reducción media del tiempo de procesamiento y mediana. Presente una recomendación fundamentada, sin afirmar causalidad más allá del diseño del estudio.
+
+## Producto y rúbrica
+
+Entregue un `.Rmd` con datos o semillas reproducibles, fórmulas, código, resultados, gráficos, comprobación de supuestos y conclusiones. Se valoran: selección del método (30%), cálculos y código (30%), interpretación (25%) y reproducibilidad (15%).
