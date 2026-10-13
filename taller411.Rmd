@@ -1,0 +1,167 @@
+---
+title: "<span style='color:#8A6FD1 !important;'>Estadística para la toma de decisiones</span>"
+author: <span style="color:#8A6FD1">dgonzalez </span>
+subtitle: <span style="color:#8A6FD1">Taller 4.11 — Uso de tablas estadísticas</span>
+output:
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    theme: flatly
+    css:
+      - style.css
+      - cajas.css
+---
+
+```{r, echo=FALSE, out.width="100%", fig.align = "left"}
+knitr::include_graphics("img/taller4.png")
+```
+
+<br/><br/><br/>
+
+## Parte I. Percentiles mediante tablas estadísticas
+
+**Instrucción:** Utilice las tablas de las distribuciones correspondientes. El percentil $x_\alpha$ se define por $P(X\leq x_\alpha)=\alpha$. Cuando la tabla presente probabilidades de cola derecha, transforme previamente el área. 
+Posteriormente utilice funciones estadísticas de R para obtener las respuestas y  compare los resultados.
+
+<br/><br/>
+
+
+1. Sea $Z\sim N(0,1)$. Localice, mediante la tabla normal, los percentiles $z_\alpha$ para:
+
+* (a) $\alpha=0.10$
+* (b) $\alpha=0.90$
+* (c) $\alpha=0.05$
+* (d) $\alpha=0.95$
+* (e) $\alpha=0.025$
+* (f) $\alpha=0.975$
+* (g) $\alpha=0.20$
+* (h) $\alpha=0.80$
+* (i) $\alpha=0.01$
+* (j) $\alpha=0.99$
+
+<br/><br/>
+
+2. El tiempo de procesamiento de una operación tiene distribución $X\sim N(120,20^2)$, en segundos. Determine los valores $x_\alpha$ correspondientes a:
+
+* (a) $\alpha=0.10$
+* (b) $\alpha=0.90$
+* (c) $\alpha=0.05$
+* (d) $\alpha=0.95$
+* (e) $\alpha=0.025$
+* (f) $\alpha=0.975$
+* (g) $\alpha=0.25$
+* (h) $\alpha=0.75$
+* (i) $\alpha=0.01$
+* (j) $\alpha=0.99$
+
+<br/><br/>
+
+3. Para $T\sim t_{\nu}$, obtenga los percentiles $t_\alpha$ con $\alpha=0.10,\ 0.90,\ 0.05,\ 0.95,\ 0.025,\ 0.975$ para cada caso:
+
+* (a) $\nu=5$
+* (b) $\nu=9$
+* (c) $\nu=12$
+* (d) $\nu=19$
+* (e) $\nu=24$
+* (f) $\nu=30$
+
+Aproveche la simetría de la distribución. Cuando corresponda, consulte las columnas de cola derecha de la tabla.
+
+<br/><br/>
+
+4. Para $Q\sim\chi^2_{\nu}$, encuentre los percentiles $q_\alpha$ con $\alpha=0.10,\ 0.90,\ 0.05,\ 0.95,\ 0.025,\ 0.975$ para:
+
+* (a) $\nu=5$
+* (b) $\nu=8$
+* (c) $\nu=10$
+* (d) $\nu=15$
+* (e) $\nu=20$
+* (f) $\nu=25$
+
+Identifique primero el área de cola derecha correspondiente a cada percentil.
+
+<br/><br/>
+
+5. Sea $V\sim F_{\nu_1,\nu_2}$. Para cada par de grados de libertad, halle $v_{0.95}$ y $v_{0.975}$ mediante las tablas F disponibles y obtenga $v_{0.05}$ y $v_{0.025}$ mediante la identidad indicada:
+
+* (a) $(\nu_1,\nu_2)=(4,10)$
+* (b) $(\nu_1,\nu_2)=(6,12)$
+* (c) $(\nu_1,\nu_2)=(8,12)$
+* (d) $(\nu_1,\nu_2)=(10,15)$
+* (e) $(\nu_1,\nu_2)=(12,20)$
+* (f) $(\nu_1,\nu_2)=(15,10)$
+
+$$F_p(\nu_1,\nu_2)=\frac{1}{F_{1-p}(\nu_2,\nu_1)}.$$
+
+**Nota:** Si un grado de libertad no aparece en la tabla entregada, utilice únicamente los pares disponibles e indique cuál no puede leerse directamente.
+
+<br/><br/>
+<br/><br/>
+
+
+## Parte II. Cálculo de probabilidades 
+
+6. **Media muestral con desviación poblacional conocida (normal).** 
+
+Una máquina llena envases con contenido normalmente distribuido, media poblacional $\mu=500$ mL y desviación poblacional $\sigma=24$ mL. Se selecciona una muestra aleatoria de $n=36$ envases. Calcule:
+
+* (a) $P(\overline X<496)$.
+* (b) $P(\overline X>505)$.
+* (c) $P(497<\overline X<503)$.
+* (d) $P(|\overline X-500|<6)$.
+* (e) El percentil 90 de $\overline X$.
+* (f) Los percentiles 2.5 y 97.5 de $\overline X$.
+
+<br/><br/>
+
+7. **Media muestral con desviación poblacional desconocida (t de Student).** 
+
+Se mide el tiempo de respuesta de un dispositivo en una muestra aleatoria de $n=16$ pruebas independientes. Se obtiene $\overline x=82$ ms y $s=12$ ms. Suponga que los tiempos siguen una distribución normal. Utilice $T=(\overline X-\mu)/(S/\sqrt n)\sim t_{15}$ para evaluar los siguientes valores hipotéticos de la media poblacional:
+
+* (a) Para $\mu=80$, calcule $P(T> (82-80)/(12/\sqrt{16}))$.
+* (b) Para $\mu=85$, calcule $P(T< (82-85)/(12/\sqrt{16}))$.
+* (c) Calcule $P(-t_{0.95,15}<T<t_{0.95,15})$.
+* (d) Calcule $P(T>t_{0.975,15})$.
+* (e) Determine los percentiles 5 y 95 de $T$.
+* (f) Determine los percentiles 2.5 y 97.5 de $T$.
+
+<br/><br/>
+
+8. **Varianza muestral (chi-cuadrado).** 
+
+La resistencia de una pieza se distribuye normalmente con desviación poblacional $\sigma=8$ unidades. Se toma una muestra aleatoria de $n=21$ piezas y se calcula la varianza muestral $S^2$. Utilice $(n-1)S^2/\sigma^2\sim\chi^2_{20}$ para hallar:
+
+* (a) $P(S^2<50)$.
+* (b) $P(S^2>90)$.
+* (c) $P(40<S^2<85)$.
+* (d) El percentil 90 de $S^2$.
+* (e) El percentil 95 de $S^2$.
+* (f) Los percentiles 2.5 y 97.5 de $S^2$.
+
+<br/><br/>
+
+9. **Proporción muestral (aproximación normal Z).** 
+
+En un proceso industrial, la proporción poblacional de piezas conformes es $p=0.80$. Se inspeccionan $n=400$ piezas seleccionadas aleatoriamente. Utilice $\widehat p\approx N(p,p(1-p)/n)$ para calcular:
+
+* (a) $P(\widehat p<0.77)$.
+* (b) $P(\widehat p>0.83)$.
+* (c) $P(0.78<\widehat p<0.82)$.
+* (d) $P(|\widehat p-0.80|<0.04)$.
+* (e) Los percentiles 10 y 90 de $\widehat p$.
+* (f) Los percentiles 2.5 y 97.5 de $\widehat p$.
+
+<br/><br/>
+
+10. **Razón de varianzas (F).** 
+
+Dos procesos independientes generan mediciones normales con varianzas poblacionales $\sigma_1^2=36$ y $\sigma_2^2=36$. Se toman muestras independientes de tamaños $n_1=9$ y $n_2=13$. Sea $R=S_1^2/S_2^2$. Bajo las condiciones dadas, $R\sim F_{8,12}$. Determine:
+
+* (a) $P(R>F_{0.95}(8,12))$.
+* (b) $P(R<F_{0.05}(8,12))$.
+* (c) $P(F_{0.025}(8,12)<R<F_{0.975}(8,12))$.
+* (d) El percentil 95 de $R$.
+* (e) El percentil 97.5 de $R$.
+* (f) Los percentiles 5 y 95 de $R$.

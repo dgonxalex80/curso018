@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Curso 018 - Inferencia Estadística" />
+
+
+<title>Unidad 4.2 | Intervalos de confianza</title>
+
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Estadística
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 0
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo0.html">Presentación del módulo</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Prerrequisitos</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="sumatoria.html">Sumatoria</a>
+        </li>
+        <li>
+          <a href="productoria.html">Productoria</a>
+        </li>
+        <li>
+          <a href="conjuntos.html">Conjuntos</a>
+        </li>
+        <li>
+          <a href="conteo.html">Conteo</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo1.html">Presentación del módulo</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 1.1</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia11.html">Guía 1.1</a>
+        </li>
+        <li>
+          <a href="recurso11.html">Recursos 1.1</a>
+        </li>
+        <li>
+          <a href="basesdatos.html">Bases de datos</a>
+        </li>
+        <li>
+          <a href="introduccionR.html">Introducción a R</a>
+        </li>
+        <li>
+          <a href="codigo11.html">Código 1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 1.2</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia12.html">Guía 1.2</a>
+        </li>
+        <li>
+          <a href="recurso12.html">Recursos 1.2</a>
+        </li>
+        <li>
+          <a href="codigo12.html">Código 1.2</a>
+        </li>
+        <li>
+          <a href="caso-01.html">Caso 1A</a>
+        </li>
+        <li>
+          <a href="caso-02.html">Caso 1B</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 1.3</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia13.html">Guía 1.3</a>
+        </li>
+        <li>
+          <a href="recurso13.html">Recursos 1.3</a>
+        </li>
+        <li>
+          <a href="codigo13.html">Código 1.3</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="monitoria1.html">Monitoría 1</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo2.html">Presentación del módulo</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 2.1</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia21.html">Guía 2.1</a>
+        </li>
+        <li>
+          <a href="recurso21.html">Recursos 2.1</a>
+        </li>
+        <li>
+          <a href="codigo21.html">Código 2.1</a>
+        </li>
+        <li>
+          <a href="taller211.html">Taller 211</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 2.2</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia22.html">Guía 2.2</a>
+        </li>
+        <li>
+          <a href="recurso22.html">Recursos 2.2</a>
+        </li>
+        <li>
+          <a href="taller221.html">Taller 221</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="monitoria2.html">Monitoría 2</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 3
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo3.html">Presentación del módulo</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 3.1</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia31.html">Guía 3.1</a>
+        </li>
+        <li>
+          <a href="recurso31.html">Recursos 3.1</a>
+        </li>
+        <li>
+          <a href="taller311.html">Taller 311</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 3.2</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia32.html">Guía 3.2</a>
+        </li>
+        <li>
+          <a href="recurso33.html">Recursos 3.2</a>
+        </li>
+        <li>
+          <a href="codigo33.html">Código 3.2</a>
+        </li>
+        <li>
+          <a href="taller-321.html">Taller 321</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="monitoria3.html">Monitoría 3</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 4
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo4.html">Presentación del módulo</a>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 4.1</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia41.html">Guía 4.1</a>
+        </li>
+        <li>
+          <a href="recurso41.html">Recursos 4.1</a>
+        </li>
+        <li>
+          <a href="codigo41.html">Código 4.1</a>
+        </li>
+        <li>
+          <a href="taller411.html">Taller 411</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Módulo 5
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="modulo5.html">Presentación del módulo</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Proyecto
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="proyecto.html">Guía proyecto</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Unidad 4.2 | Intervalos de confianza</h1>
+<h4 class="author">Curso 018 - Inferencia Estadística</h4>
+
+</div>
+
+
+<div
+id="código-r-intervalos-de-confianza-paramétricos-y-no-paramétricos"
+class="section level1">
+<h1>Código R: intervalos de confianza paramétricos y no
+paramétricos</h1>
+<p>Los ejemplos son reproducibles y utilizan principalmente funciones de
+R base.</p>
+<div id="cobertura-de-intervalos-para-una-media" class="section level2">
+<h2>1. Cobertura de intervalos para una media</h2>
+<pre class="r"><code>set.seed(18042)
+M &lt;- 200; n &lt;- 40; mu &lt;- 30; sigma &lt;- sqrt(10); alpha &lt;- 0.05
+mat &lt;- replicate(M, rnorm(n, mean=mu, sd=sigma))
+medias &lt;- colMeans(mat)
+sd_m &lt;- apply(mat, 2, sd)
+error &lt;- qt(1-alpha/2, n-1) * sd_m / sqrt(n)
+li &lt;- medias-error; ls &lt;- medias+error
+cobertura &lt;- (li &lt;= mu &amp; mu &lt;= ls)
+cat(&quot;Cobertura empírica:&quot;, mean(cobertura), &quot;\n&quot;)</code></pre>
+<pre><code>Cobertura empírica: 0.95 </code></pre>
+<pre class="r"><code>plot(seq_len(M), medias, ylim=range(c(li,ls,mu)), pch=16,
+     xlab=&quot;Muestra&quot;, ylab=&quot;Intervalo para la media&quot;, col=&quot;#476885&quot;)
+segments(seq_len(M),li,seq_len(M),ls,
+         col=ifelse(cobertura,&quot;#476885&quot;,&quot;#C65B4A&quot;))
+abline(h=mu,lty=2,lwd=2)</code></pre>
+<p><img src="codigo-42_files/figure-html/cobertura-1.png" alt="" width="768" /></p>
+</div>
+<div id="una-población-media-proporción-y-varianza"
+class="section level2">
+<h2>2. Una población: media, proporción y varianza</h2>
+<pre class="r"><code>set.seed(41)
+x &lt;- rnorm(35, mean=82, sd=11)
+t.test(x, conf.level=0.95)$conf.int</code></pre>
+<pre><code>[1] 79.14758 87.56004
+attr(,&quot;conf.level&quot;)
+[1] 0.95</code></pre>
+<pre class="r"><code># Intervalo Wilson para proporción: 47 éxitos de 80 ensayos
+prop.test(47,80,correct=FALSE,conf.level=0.95)$conf.int</code></pre>
+<pre><code>[1] 0.4780404 0.6889414
+attr(,&quot;conf.level&quot;)
+[1] 0.95</code></pre>
+<pre class="r"><code># Intervalo chi-cuadrado para varianza (supone normalidad)
+n &lt;- length(x); s2 &lt;- var(x); a &lt;- 0.05
+c(inferior=(n-1)*s2/qchisq(1-a/2,n-1),
+  superior=(n-1)*s2/qchisq(a/2,n-1))</code></pre>
+<pre><code> inferior  superior 
+ 98.09833 257.38223 </code></pre>
+</div>
+<div id="dos-poblaciones-independientes-medias" class="section level2">
+<h2>3. Dos poblaciones independientes: medias</h2>
+<pre class="r"><code>set.seed(42)
+a &lt;- rnorm(32, 102, 12)
+b &lt;- rnorm(29, 95, 17)
+t.test(a,b,var.equal=FALSE,conf.level=0.95)$conf.int</code></pre>
+<pre><code>[1]  2.809227 19.682897
+attr(,&quot;conf.level&quot;)
+[1] 0.95</code></pre>
+</div>
+<div id="observaciones-pareadas" class="section level2">
+<h2>4. Observaciones pareadas</h2>
+<pre class="r"><code>set.seed(43)
+antes &lt;- rnorm(25,100,15)
+despues &lt;- antes-rnorm(25,7,5)
+t.test(antes,despues,paired=TRUE)$conf.int</code></pre>
+<pre><code>[1] 5.812609 9.637337
+attr(,&quot;conf.level&quot;)
+[1] 0.95</code></pre>
+</div>
+<div id="dos-proporciones-aproximación-normal" class="section level2">
+<h2>5. Dos proporciones: aproximación normal</h2>
+<pre class="r"><code>x1 &lt;- 65; n1 &lt;- 110; x2 &lt;- 48; n2 &lt;- 105
+a &lt;- 0.05; z &lt;- qnorm(1-a/2)
+p1 &lt;- x1/n1; p2 &lt;- x2/n2
+d &lt;- p1-p2
+se &lt;- sqrt(p1*(1-p1)/n1+p2*(1-p2)/n2)
+c(inferior=d-z*se,superior=d+z*se)</code></pre>
+<pre><code>   inferior    superior 
+0.001398916 0.266133551 </code></pre>
+<pre class="r"><code># Aproximación: revisar tamaños y proporciones antes de usar.</code></pre>
+</div>
+<div id="razón-de-varianzas" class="section level2">
+<h2>6. Razón de varianzas</h2>
+<pre class="r"><code>set.seed(44)
+x1 &lt;- rnorm(30,10,3)
+x2 &lt;- rnorm(26,11,5)
+r &lt;- var(x1)/var(x2); a &lt;- 0.05
+g1 &lt;- length(x1)-1; g2 &lt;- length(x2)-1
+c(inferior=r/qf(1-a/2,g1,g2), superior=r/qf(a/2,g1,g2))</code></pre>
+<pre><code> inferior  superior 
+0.1435819 0.6735459 </code></pre>
+</div>
+<div id="ic-no-paramétrico-exactoconservador-para-mediana"
+class="section level2">
+<h2>7. IC no paramétrico exacto/conservador para mediana</h2>
+<pre class="r"><code>set.seed(45)
+x &lt;- rexp(31,rate=1/12)
+n &lt;- length(x); alpha &lt;- 0.05
+# k máximo con cobertura al menos 1-alpha
+k_validos &lt;- which(2*pbinom(seq_len(floor(n/2))-1,n,0.5) &lt;= alpha)
+if(length(k_validos)==0) stop(&quot;Muestra insuficiente para el nivel solicitado&quot;)
+k &lt;- max(k_validos)
+x_ord &lt;- sort(x)
+ic_mediana &lt;- c(inferior=x_ord[k], superior=x_ord[n-k+1])
+c(ic_mediana, cobertura_teorica=1-2*pbinom(k-1,n,0.5))</code></pre>
+<pre><code>         inferior          superior cobertura_teorica 
+        3.2009474        11.9797420         0.9705506 </code></pre>
+</div>
+<div id="bootstrap-percentil-para-una-media-y-una-mediana"
+class="section level2">
+<h2>8. Bootstrap percentil para una media y una mediana</h2>
+<pre class="r"><code>set.seed(46)
+x &lt;- rlnorm(45,meanlog=2,sdlog=0.6)
+B &lt;- 4000; alpha &lt;- 0.05
+boot_medias &lt;- replicate(B,mean(sample(x,length(x),replace=TRUE)))
+boot_medianas &lt;- replicate(B,median(sample(x,length(x),replace=TRUE)))
+quantile(boot_medias,c(alpha/2,1-alpha/2))</code></pre>
+<pre><code>     2.5%     97.5% 
+ 7.683295 11.281443 </code></pre>
+<pre class="r"><code>quantile(boot_medianas,c(alpha/2,1-alpha/2))</code></pre>
+<pre><code>    2.5%    97.5% 
+5.816846 9.559478 </code></pre>
+<pre class="r"><code>hist(boot_medianas,breaks=35,col=&quot;#B8D7E8&quot;,border=&quot;white&quot;,
+     main=&quot;Distribución bootstrap de la mediana&quot;,xlab=&quot;Mediana&quot;)</code></pre>
+<p><img src="codigo-42_files/figure-html/bootstrap-una-1.png" alt="" width="768" /></p>
+</div>
+<div id="bootstrap-diferencia-de-medianas-independientes"
+class="section level2">
+<h2>9. Bootstrap: diferencia de medianas independientes</h2>
+<pre class="r"><code>set.seed(47)
+a &lt;- rlnorm(38,2.4,0.45)
+b &lt;- rlnorm(41,2.2,0.55)
+B &lt;- 4000
+boot_d &lt;- replicate(B,{
+  aa &lt;- sample(a,length(a),replace=TRUE)
+  bb &lt;- sample(b,length(b),replace=TRUE)
+  median(aa)-median(bb)
+})
+c(estimacion=median(a)-median(b),
+  quantile(boot_d,c(0.025,0.975)))</code></pre>
+<pre><code>estimacion       2.5%      97.5% 
+ -1.148896  -4.728635   2.448464 </code></pre>
+</div>
+<div id="bootstrap-pareado-cambio-de-medianas" class="section level2">
+<h2>10. Bootstrap pareado: cambio de medianas</h2>
+<pre class="r"><code>set.seed(48)
+antes &lt;- rlnorm(30,2.5,0.3)
+despues &lt;- antes-rnorm(30,2,0.8)
+diferencias &lt;- antes-despues
+B &lt;- 4000
+boot &lt;- replicate(B,median(sample(diferencias,length(diferencias),replace=TRUE)))
+c(estimacion=median(diferencias),quantile(boot,c(0.025,0.975)))</code></pre>
+<pre><code>estimacion       2.5%      97.5% 
+  1.794831   1.565298   2.122002 </code></pre>
+</div>
+<div id="tamaño-muestral" class="section level2">
+<h2>11. Tamaño muestral</h2>
+<pre class="r"><code>conf &lt;- 0.95; E &lt;- 3; sigma &lt;- 12
+ceiling((qnorm((1+conf)/2)*sigma/E)^2)</code></pre>
+<pre><code>[1] 62</code></pre>
+<pre class="r"><code>p0 &lt;- 0.5; E_prop &lt;- 0.05
+ceiling(qnorm((1+conf)/2)^2*p0*(1-p0)/E_prop^2)</code></pre>
+<pre><code>[1] 385</code></pre>
+</div>
+<div id="actividad-de-verificación" class="section level2">
+<h2>12. Actividad de verificación</h2>
+<p>Cambie la semilla, el tamaño de muestra, el número de réplicas y la
+distribución generadora. Compare la cobertura empírica de intervalos
+paramétricos y bootstrap en escenarios normales y asimétricos.</p>
+</div>
+</div>
+
+<script src="menu.js"></script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -118,6 +118,9 @@ navbar:
         href: recurso41.html
       - text: Código 4.1
         href: codigo41.html
+      - text: Taller 411
+        href: taller411.html        
+        
   - text: Módulo 5
     menu:
     - text: Presentación del módulo

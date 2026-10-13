@@ -1,0 +1,153 @@
+---
+title: "Unidad 4.2 | Intervalos de confianza"
+author: "Curso 018 - Inferencia Estadística"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    code_folding: hide
+    theme: flatly
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, comment=NA,
+                      fig.width=8, fig.height=4.5)
+if (file.exists("init.R")) source("init.R")
+```
+
+# Recurso de aprendizaje: intervalos de confianza
+
+## 1. Fundamento e interpretación
+
+Un intervalo de confianza de nivel $1-\alpha$ es un procedimiento aleatorio que, bajo los supuestos establecidos, contiene el parámetro verdadero en una proporción $1-\alpha$ de repeticiones del muestreo. El parámetro es fijo; los extremos del intervalo cambian entre muestras.
+
+$$IC=\widehat\theta\pm\text{margen de error}$$
+
+Esta expresión simétrica no describe todos los intervalos: los de varianza, Wilson y bootstrap percentil pueden ser asimétricos.
+
+## 2. Una población: intervalos paramétricos
+
+### 2.1 Media con desviación estándar poblacional conocida
+
+$$IC_{1-\alpha}(\mu)=\bar X\pm z_{1-\alpha/2}\frac{\sigma}{\sqrt n}$$
+
+Supuestos: muestreo aleatorio, independencia y normalidad poblacional o aproximación asintótica apropiada.
+
+### 2.2 Media con desviación estándar desconocida
+
+$$IC_{1-\alpha}(\mu)=\bar X\pm t_{1-\alpha/2,n-1}\frac{s}{\sqrt n}$$
+
+La distribución $t$ es exacta con observaciones independientes normales; con muestras grandes puede ser aproximada bajo condiciones regulares.
+
+### 2.3 Proporción poblacional
+
+Para $\widehat p=x/n$, el intervalo de Wilson utiliza $z=z_{1-\alpha/2}$:
+
+$$\frac{\widehat p+z^2/(2n)\pm z\sqrt{\widehat p(1-\widehat p)/n+z^2/(4n^2)}}{1+z^2/n}.$$
+
+El intervalo clásico de Wald $\widehat p\pm z\sqrt{\widehat p(1-\widehat p)/n}$ puede tener cobertura deficiente con muestras pequeñas o proporciones extremas.
+
+### 2.4 Varianza de una población normal
+
+$$IC_{1-\alpha}(\sigma^2)=\left(\frac{(n-1)s^2}{\chi^2_{1-\alpha/2,n-1}},\frac{(n-1)s^2}{\chi^2_{\alpha/2,n-1}}\right).$$
+
+### 2.5 Tamaño de muestra
+
+Para estimar una media con $\sigma$ anticipada y error máximo $E$:
+
+$$n=\left\lceil\left(\frac{z_{1-\alpha/2}\sigma}{E}\right)^2\right\rceil.$$
+
+Para una proporción, aproximación inicial:
+
+$$n=\left\lceil\frac{z_{1-\alpha/2}^2p_0(1-p_0)}{E^2}\right\rceil.$$
+
+Cuando no se conoce $p_0$, se suele usar $0.5$ como criterio conservador en esta fórmula.
+
+## 3. Dos poblaciones: intervalos paramétricos
+
+### 3.1 Diferencia de medias independientes: Welch
+
+$$IC(\mu_1-\mu_2)=(\bar X_1-\bar X_2)\pm t_{1-\alpha/2,\nu}\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}},$$
+
+$$\nu=\frac{(s_1^2/n_1+s_2^2/n_2)^2}{(s_1^2/n_1)^2/(n_1-1)+(s_2^2/n_2)^2/(n_2-1)}.$$
+
+### 3.2 Medias pareadas
+
+Si $D_i=X_i-Y_i$:
+
+$$IC(\mu_D)=\bar D\pm t_{1-\alpha/2,n-1}\frac{s_D}{\sqrt n}.$$
+
+**No** analizar pares relacionados como si fueran muestras independientes.
+
+### 3.3 Diferencia de proporciones
+
+Para muestras binomiales independientes suficientemente grandes:
+
+$$IC(p_1-p_2)\approx (\widehat p_1-\widehat p_2)\pm z_{1-\alpha/2}\sqrt{\frac{\widehat p_1(1-\widehat p_1)}{n_1}+\frac{\widehat p_2(1-\widehat p_2)}{n_2}}.$$
+
+Esta aproximación de Wald no es recomendable con tamaños pequeños o proporciones extremas; pueden utilizarse métodos score como Newcombe.
+
+### 3.4 Razón de varianzas
+
+Para dos muestras independientes de poblaciones normales, sea $R=s_1^2/s_2^2$:
+
+$$IC(\sigma_1^2/\sigma_2^2)=\left(\frac{R}{F_{1-\alpha/2,n_1-1,n_2-1}},\frac{R}{F_{\alpha/2,n_1-1,n_2-1}}\right).$$
+
+## 4. Intervalos no paramétricos
+
+### 4.1 Mediana de una población: estadísticos de orden
+
+Ordene $X_{(1)}\le\cdots\le X_{(n)}$. Para una distribución continua con mediana única $m$, el intervalo $[X_{(k)},X_{(n-k+1)}]$ tiene cobertura
+
+$$P\{X_{(k)}\le m\le X_{(n-k+1)}\}=1-2P\{B\le k-1\},\qquad B\sim Bin(n,0.5).$$
+
+Elegir $k$ para obtener cobertura al menos nominal. Es un procedimiento libre de la forma distribucional, bajo independencia y continuidad.
+
+### 4.2 Bootstrap percentil: una población
+
+1. Tomar $B$ remuestras de tamaño $n$ con reemplazo de la muestra original.
+2. Calcular el estimador en cada remuestra.
+3. Utilizar los cuantiles empíricos $\alpha/2$ y $1-\alpha/2$ de las $B$ estimaciones.
+
+$$IC^*=[q_{\alpha/2}(\widehat\theta^*),q_{1-\alpha/2}(\widehat\theta^*)].$$
+
+El bootstrap percentil es aproximado; puede funcionar mal con muestras pequeñas, estadísticas no regulares o distribuciones muy asimétricas. No elimina el sesgo del muestreo ni corrige falta de representatividad.
+
+### 4.3 Bootstrap: dos poblaciones independientes
+
+Remuestrear **por separado** dentro de cada grupo y calcular en cada iteración la diferencia de estadísticas (medias, medianas o proporciones, según corresponda).
+
+### 4.4 Bootstrap para muestras pareadas
+
+Remuestrear los **pares completos** o, equivalentemente, las diferencias individuales; no romper la correspondencia entre observaciones.
+
+## 5. Comparación de enfoques
+
+| Situación | Paramétrico | No paramétrico / remuestreo |
+|:--|:--|:--|
+| Una media | $Z$ o $t$ | Bootstrap de la media |
+| Una mediana | Depende de un modelo asumido | Estadísticos de orden; bootstrap de mediana |
+| Dos medias independientes | Welch | Bootstrap estratificado por grupo |
+| Diferencia pareada | $t$ de diferencias | Bootstrap de diferencias |
+| Proporción | Wilson / score | Bootstrap bajo condiciones adecuadas |
+| Varianza | $\chi^2$ con normalidad | Bootstrap de varianza, con cautela |
+
+**Advertencia:** bootstrap no significa automáticamente "libre de supuestos"; presupone un esquema de muestreo y observaciones representativas, usualmente independientes.
+
+## 6. Ejemplos aplicados
+
+**Ingeniería industrial.** Estimar la resistencia media de piezas y comparar proveedores con intervalos de Welch. Evaluar el supuesto de normalidad antes de construir intervalos de varianza.
+
+**Finanzas.** Comparar los tiempos de aprobación de créditos entre dos procesos, considerando asimetría y usando diferencias de medianas por bootstrap.
+
+**Procesos antes-después.** Medir la reducción de tiempo de configuración de máquinas en las mismas estaciones; usar intervalos pareados.
+
+## 7. Preguntas de reflexión
+
+1. ¿Por qué 95% de confianza no significa que haya una probabilidad de 0.95 de que el parámetro fijo esté en el intervalo observado?
+2. ¿Qué cambia al aumentar el tamaño muestral manteniendo fijo el nivel de confianza?
+3. ¿Cuándo es incorrecto usar el intervalo $\chi^2$ para una varianza?
+4. ¿Por qué no se deben mezclar las observaciones de dos grupos al hacer bootstrap de la diferencia de medianas?
+5. ¿En qué casos conviene comparar resultados paramétricos y no paramétricos?

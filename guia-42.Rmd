@@ -1,0 +1,84 @@
+---
+title: "Unidad 4.2 | Intervalos de confianza"
+author: "Curso 018 - Inferencia Estadística"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    code_folding: hide
+    theme: flatly
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, comment=NA,
+                      fig.width=8, fig.height=4.5)
+if (file.exists("init.R")) source("init.R")
+```
+
+# Guía de aprendizaje
+
+## Introducción
+
+La inferencia estadística permite utilizar información muestral para estimar características desconocidas de una o dos poblaciones. La estimación por intervalos expresa la incertidumbre asociada al procedimiento de muestreo. Esta unidad amplía el enfoque de los documentos originales del curso 018: intervalos basados en distribuciones $Z$, $t$, $\chi^2$ y $F$, y añade procedimientos no paramétricos para datos cuya estructura no justifica ciertos supuestos distribucionales.
+
+## Objetivos de aprendizaje
+
+Al finalizar la unidad, el estudiante podrá:
+
+1. Identificar el parámetro, la población y el diseño de muestreo.
+2. Seleccionar y calcular intervalos de confianza paramétricos para una y dos poblaciones.
+3. Diferenciar muestras independientes y observaciones pareadas.
+4. Construir intervalos no paramétricos para medianas y mediante remuestreo bootstrap.
+5. Interpretar correctamente confianza, cobertura, amplitud, error de estimación y supuestos.
+6. Aplicar los procedimientos en R y comunicar conclusiones en contextos de ingeniería y finanzas.
+
+## Conocimientos previos
+
+Estimadores, distribuciones muestrales, teorema central del límite, cuantiles, independencia y estadística descriptiva.
+
+## Ruta de aprendizaje
+
+| Etapa | Temas | Producto |
+|:--|:--|:--|
+| 1 | Confianza, cobertura, margen de error y supuestos | Interpretación conceptual |
+| 2 | Una población: media, proporción, varianza y mediana | Ejercicios analíticos |
+| 3 | Dos poblaciones: medias, proporciones y varianzas | Comparación de grupos |
+| 4 | Métodos no paramétricos y bootstrap | Simulación en R |
+| 5 | Taller y minicaso integrador | Informe reproducible |
+
+## Criterios de selección del procedimiento
+
+- **Media de una población:** intervalo $Z$ con desviación poblacional conocida; intervalo $t$ cuando se estima con la muestra y se cumplen las condiciones correspondientes.
+- **Proporción:** intervalo Wilson como alternativa preferible al intervalo normal de Wald en muchas situaciones; comprobar el diseño binomial.
+- **Varianza:** intervalo $\chi^2$ bajo normalidad de las observaciones.
+- **Medias de dos grupos independientes:** intervalo de Welch como elección general cuando las varianzas son desconocidas.
+- **Medias pareadas:** intervalo $t$ aplicado a las diferencias individuales.
+- **Dos proporciones:** intervalo basado en métodos adecuados para dos muestras binomiales independientes; evaluar tamaño muestral.
+- **Razón de varianzas:** intervalo $F$ bajo independencia y normalidad.
+- **Mediana y otras estadísticas:** intervalos basados en ordenamientos o bootstrap, explicitando las condiciones de validez.
+
+## Actividades
+
+1. Leer `recurso42.Rmd` y elaborar una matriz de decisión sobre qué intervalo utilizar.
+2. Ejecutar y modificar los ejemplos de `codigo42.Rmd`.
+3. Resolver `taller421.Rmd` justificando cada supuesto y procedimiento.
+4. Contrastar al menos un intervalo paramétrico y uno no paramétrico sobre datos simulados.
+
+## Evaluación sugerida
+
+| Criterio | Peso |
+|:--|--:|
+| Formulación y selección del intervalo | 30% |
+| Cálculos y programación en R | 30% |
+| Verificación de supuestos | 20% |
+| Interpretación y comunicación | 20% |
+
+## Entregables
+
+Un archivo Rmd reproducible, resultados numéricos con tres decimales, gráficos pertinentes y conclusiones en lenguaje del problema. Fechas y plataforma de entrega: las que establezca el docente para el periodo vigente.
+
+## Referencia y alcance
+
+La estructura se basa en los materiales `guia42.Rmd`, `recurso42.Rmd`, `codigo42.Rmd` y `taller421.Rmd` proporcionados para el curso 018. Los procedimientos bootstrap y de estadísticos de orden amplían la cobertura no paramétrica. No se atribuyen a Navidi contenidos específicos que no se hayan verificado en una edición concreta.
