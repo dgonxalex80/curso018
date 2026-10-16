@@ -585,6 +585,11 @@ class="math inline">\(t\)</span> del 95%.<br />
 </li>
 <li>Explique qué cambiaría si hubiera valores extremos.</li>
 </ol>
+<pre class="r"><code>x=c(14.2, 13.8, 16.1, 15.3, 14.9, 13.5, 15.7, 14.4, 16.0, 15.1, 14.6, 15.5)
+mean(x)</code></pre>
+<pre><code>[1] 14.925</code></pre>
+<pre class="r"><code>sd(x)</code></pre>
+<pre><code>[1] 0.8443664</code></pre>
 </div>
 <p></br></br></p>
 <div class="box4 with-label">
@@ -595,10 +600,8 @@ Problema 3
 muestra aleatoria de 150 clientes, 18 presentaron reclamaciones sobre el
 servicio recibido.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Calcule el IC de Wilson del 95% para la proporción de clientes que
-presentan reclamaciones.<br />
-</li>
-<li>Compárelo con el intervalo normal de Wald.<br />
+<li>Calcule el IC del 95% para la proporción de clientes que presentan
+reclamaciones.<br />
 </li>
 <li>Determine el tamaño de muestra preliminar para error 0.04 y 95% de
 confianza, usando <span class="math inline">\(p_0=0.12\)</span>.</li>
@@ -635,7 +638,7 @@ B: <span class="math inline">\(n_2=30\)</span>, <span
 class="math inline">\(\bar x_2=96\)</span>, <span
 class="math inline">\(s_2=18\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Calcule un IC de Welch del 95% para <span
+<li>Calcule un IC del 95% para <span
 class="math inline">\(\mu_1-\mu_2\)</span>.<br />
 </li>
 <li>Interprete el signo de los extremos.<br />

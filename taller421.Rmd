@@ -84,6 +84,13 @@ a. Estime la media mediante un IC $t$ del 95%.
 b. Justifique las condiciones de aplicación.  
 c. Explique qué cambiaría si hubiera valores extremos.
 
+
+```{r}
+x=c(14.2, 13.8, 16.1, 15.3, 14.9, 13.5, 15.7, 14.4, 16.0, 15.1, 14.6, 15.5)
+mean(x)
+sd(x)
+```
+
 </div>
 
 
@@ -94,9 +101,8 @@ c. Explique qué cambiaría si hubiera valores extremos.
 
 Una empresa de mercadeo evalúa la experiencia posventa. En una muestra aleatoria de 150 clientes, 18 presentaron reclamaciones sobre el servicio recibido.
 
-a. Calcule el IC de Wilson del 95% para la proporción de clientes que presentan reclamaciones.  
-b. Compárelo con el intervalo normal de Wald.  
-c. Determine el tamaño de muestra preliminar para error 0.04 y 95% de confianza, usando $p_0=0.12$.
+a. Calcule el IC del 95% para la proporción de clientes que presentan reclamaciones.  
+b. Determine el tamaño de muestra preliminar para error 0.04 y 95% de confianza, usando $p_0=0.12$.
 
 
 </div>
@@ -124,7 +130,7 @@ c. Analice la importancia del supuesto de normalidad.
 
 Una empresa compara el costo por pedido, en miles de pesos, de dos proveedores independientes. Proveedor A: $n_1=25$, $\bar x_1=102$, $s_1=12$. Proveedor B: $n_2=30$, $\bar x_2=96$, $s_2=18$.
 
-a. Calcule un IC de Welch del 95% para $\mu_1-\mu_2$.  
+a. Calcule un IC  del 95% para $\mu_1-\mu_2$.  
 b. Interprete el signo de los extremos.  
 c. Explique por qué no se presupone igualdad de varianzas.
 
@@ -148,6 +154,7 @@ Una empresa implementó un sistema digital para agilizar el procesamiento de ór
 a. Construya un IC pareado del 95% para la reducción media.  
 b. Justifique la elección del procedimiento.  
 c. Interprete el resultado en términos de eficiencia administrativa.
+
 
 </div>
 

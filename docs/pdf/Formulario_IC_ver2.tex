@@ -1,0 +1,123 @@
+\documentclass[11pt,letterpaper,twocolumn]{article}
+\usepackage[spanish,provide=*]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,booktabs,geometry}
+\geometry{left=0.8cm,right=0.8cm,top=1.2cm,bottom=1.2cm,columnsep=0.6cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.15em}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+\setlength{\fboxsep}{4pt}
+\setlength{\fboxrule}{0.5pt}
+
+\newcommand{\boxstart}[1]{%
+\vspace{0.2em}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+\textbf{#1}\\[-0.2em]
+}}
+}
+
+\begin{document}
+\normalsize
+
+\begin{center}
+{\Large \textbf{FORMULARIO INTERVALOS DE CONFIANZA}}
+\end{center}
+\vspace{-0.6em}
+
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\textbf{Media una población}
+\begin{align}
+IC_\mu &: \bar{x} \pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}} \\ \\
+IC_\mu &: \bar{x} \pm z_{\alpha/2}\frac{s}{\sqrt{n}} \\
+IC_\mu &: \bar{x} \pm t_{\alpha/2}\frac{s}{\sqrt{n}},\; v=n-1 \\
+n &= \frac{z_{\alpha/2}^2\sigma^2}{e^2} \\
+n &= \frac{n_0N}{n_0+N-1} \\
+IC_\mu &: \bar{x} \pm t_{\alpha/2}\frac{s}{\sqrt{n}}\sqrt{\frac{N-n}{N-1}},\; v=n-1
+\end{align}
+}}
+
+\vspace{0.2em}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\textbf{Proporción una población}
+\begin{align}
+IC_p &: \hat{p} \pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \\
+n &= \frac{z_{\alpha/2}^2p(1-p)}{e^2} \\
+n &= \frac{z_{\alpha/2}^2\,0.50(1-0.50)}{e^2},\; \text{varianza máxima}
+\end{align}
+}}
+
+\vspace{0.2em}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\textbf{Varianza una población}
+\begin{align}
+IC_{\sigma^2}:\left(\frac{(n-1)S^2}{\chi^2_{\alpha/2}},\frac{(n-1)S^2}{\chi^2_{1-\alpha/2}}\right),\; v=n-1
+\end{align}
+}}
+
+\vspace{0.2em}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\textbf{Dif. medias pareadas}
+\begin{align}
+IC_{d=x_1-x_2}:\bar{d} \pm t_{\alpha/2}\frac{s_d}{\sqrt{n}},\; v=n-1
+\end{align}
+}}
+
+\vspace{0.2em}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\textbf{Dif. medias indep. (var. iguales)}
+\begin{align}
+(\bar{x}_1-\bar{x}_2) &\pm t_{\alpha/2}s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}} \\
+s_p^2 &= \frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2},\; v=n_1+n_2-2
+\end{align}
+}}
+
+\vspace{0.2em}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\textbf{Dif. medias indep. (var. diferentes)}
+\begin{align}
+(\bar{x}_1-\bar{x}_2) &\pm t_{\alpha/2}\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}} \\
+v &= \frac{\left(\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}\right)^2}{\frac{\left(s_1^2/n_1\right)^2}{n_1-1}+\frac{\left(s_2^2/n_2\right)^2}{n_2-1}}
+\end{align}
+}}
+
+\vspace{0.2em}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\textbf{Diferencia de proporciones}
+\begin{align}
+(\hat{p}_1-\hat{p}_2)\pm z_{\alpha/2}\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1}+\frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
+\end{align}
+}}
+
+\vspace{0.2em}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\textbf{Razón de varianzas}
+\left(\frac{s_1^2}{s_2^2}\frac{1}{F_{\alpha/2}(v_1,v_2)},\frac{s_1^2}{s_2^2}F_{\alpha/2}(v_2,v_1)\right) \\nF_{\alpha}(v_1,v_2)&=\frac{1}{F_{1-\alpha}(v_2,v_1)} \\nv_1&=n_1-1,\quad v_2=n_2-1
+
+}}
+
+\vspace{0.2em}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\textbf{Código R}
+\small
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Parámetro & Función en R \\
+\midrule
+$\mu$ & \texttt{t.test(x, conf.level=1-alpha)\$conf.int} \\
+$p$ & \texttt{prop.test(x,n,p=p0,conf.level=1-alpha)} \\
+$\mu_1-\mu_2$ & \texttt{t.test(datos1,datos2,paired=TRUE)} \\
+$\mu_1-\mu_2$ & \texttt{t.test(datos1,datos2,var.equal=TRUE)} \\
+$\mu_1-\mu_2$ & \texttt{t.test(datos1,datos2,var.equal=FALSE)} \\
+$\sigma_1^2/\sigma_2^2$ & \texttt{var.test(datos1,datos2)} \\
+$p_1-p_2$ & \texttt{prop.test(c(x1,x2),c(n1,n2))} \\
+\bottomrule
+\end{tabular}
+\end{center}
+}}
+
+\end{document}
