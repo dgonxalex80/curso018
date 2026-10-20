@@ -14,13 +14,13 @@
 
 <title>Estadística para la toma de decisiones</title>
 
-<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs/header-attrs.js"></script>
+<script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -30,12 +30,12 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+<script src="site_libs/navigation/tabsets.js"></script>
+<script src="site_libs/navigation/codefolding.js"></script>
+<link href="site_libs/highlightjs/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs/highlight.js"></script>
+<link href="site_libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -1201,7 +1201,7 @@ boxplot(precio, horizontal = TRUE, col = c40, xlab=&quot;precio ($000)&quot;)</c
     Shapiro-Wilk normality test
 
 data:  precio
-W = 0.9853, p-value = 0.3337</code></pre>
+W = 0.99, p-value = 0.3</code></pre>
 <p><br/></p>
 <p>De acuerdo con los resultados obtenidos en la prueba de Shapiro
 podemos suponer y aplicando la regla 3 (que se trata más adelante)
@@ -1216,13 +1216,13 @@ la varianza utilizaremos una prueba t para una media</p>
     One Sample t-test
 
 data:  precio
-t = -0.39343, df = 99, p-value = 0.6949
+t = -0.39, df = 99, p-value = 0.7
 alternative hypothesis: true mean is not equal to 120
 90 percent confidence interval:
- 112.159 124.837
+ 112.2 124.8
 sample estimates:
 mean of x 
-  118.498 </code></pre>
+    118.5 </code></pre>
 <p><br/></p>
 <p>Para tomar una decisión sobre las hipótesis de acuerdo con los
 resultados podemos utilizar tres reglas:</p>
@@ -1255,7 +1255,7 @@ class="math inline">\(t_{0.025; v=59}\)</span> y <span
 class="math inline">\(t_{0.975;v=59}\)</span> para la distribución
 t-Student.</p>
 <pre class="r"><code>qt(c(0.025,0.975),99)</code></pre>
-<pre><code>[1] -1.984217  1.984217</code></pre>
+<pre><code>[1] -1.984  1.984</code></pre>
 <p><br/><br/></p>
 <pre class="r"><code>library(ggdistribute)
 p=ggdistribution(dt, seq(-3, +3, 0.1), df = 99, colour = &quot;blue&quot;)
@@ -1409,10 +1409,10 @@ Ha :<span class="math inline">\(p &lt; 0.76\)</span> <br/></p>
     1-sample proportions test with continuity correction
 
 data:  24 out of 40, null probability 0.76
-X-squared = 4.7711, df = 1, p-value = 0.01447
+X-squared = 4.8, df = 1, p-value = 0.01
 alternative hypothesis: true p is less than 0.76
 95 percent confidence interval:
- 0.0000000 0.7282033
+ 0.0000 0.7282
 sample estimates:
   p 
 0.6 </code></pre>
@@ -1426,10 +1426,10 @@ sample estimates:
     One-sample z-test for proportion (summary stats)
 
 data:  summary: x = 24, n = 40
-z = -2.3694, n = 40, p-value = 0.008909
+z = -2.4, n = 40, p-value = 0.009
 alternative hypothesis: true proportion is less than 0.76
 95 percent confidence interval:
- 0.0000000 0.7274098
+ 0.0000 0.7274
 sample estimates:
 sample proportion 
               0.6 </code></pre>
@@ -1482,7 +1482,7 @@ pRdeR</code></pre>
 varx=var(t)
 EdeP=(length(t)-1)*varx/81
 EdeP</code></pre>
-<pre><code>[1] 1.135074</code></pre>
+<pre><code>[1] 1.135</code></pre>
 <p><br/><br/></p>
 <div id="conclusión-4" class="section level2">
 <h2>Conclusión</h2>
@@ -1707,13 +1707,13 @@ t.test(pant, pdes,
     Paired t-test
 
 data:  pant and pdes
-t = 1.2736, df = 15, p-value = 0.8889
+t = 1.3, df = 15, p-value = 0.9
 alternative hypothesis: true mean difference is less than 0
 95 percent confidence interval:
-     -Inf 19.75467
+  -Inf 19.75
 sample estimates:
 mean difference 
-         8.3125 </code></pre>
+          8.312 </code></pre>
 <p><br/><br/></p>
 </div>
 <div id="conclusión-5" class="section level2">
@@ -1773,13 +1773,13 @@ varianzas:</p>
     F test to compare two variances
 
 data:  grupo1 and grupo2
-F = 1.2975, num df = 35, denom df = 39, p-value = 0.4282
+F = 1.3, num df = 35, denom df = 39, p-value = 0.4
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
- 0.6776032 2.5137013
+ 0.6776 2.5137
 sample estimates:
 ratio of variances 
-          1.297479 </code></pre>
+             1.297 </code></pre>
 <p><br/><br/></p>
 </div>
 <div id="conclusión-6" class="section level2">
@@ -1803,13 +1803,13 @@ Ha: <span class="math inline">\(\mu_{1} &lt; \mu_{2}\)</span> <br/></p>
     Two Sample t-test
 
 data:  grupo1 and grupo2
-t = -25.413, df = 74, p-value &lt; 2.2e-16
+t = -25, df = 74, p-value &lt;2e-16
 alternative hypothesis: true difference in means is less than 0
 95 percent confidence interval:
-      -Inf -2.072933
+   -Inf -2.073
 sample estimates:
 mean of x mean of y 
- 5.991667  8.210000 </code></pre>
+    5.992     8.210 </code></pre>
 <p><br/><br/></p>
 </div>
 <div id="conclusión-7" class="section level2">
@@ -1851,13 +1851,13 @@ boxplot(grupo2, las=1, col=c40, ylim=c(5,10))</code></pre>
     F test to compare two variances
 
 data:  grupo3 and grupo2
-F = 7.2974, num df = 35, denom df = 39, p-value = 1.334e-08
+F = 7.3, num df = 35, denom df = 39, p-value = 1e-08
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
-  3.811031 14.137763
+  3.811 14.138
 sample estimates:
 ratio of variances 
-          7.297388 </code></pre>
+             7.297 </code></pre>
 <pre class="r"><code>t.test(grupo3, grupo2,
        alternative =&quot;less&quot;,
        mu = 0, 
@@ -1868,13 +1868,13 @@ ratio of variances
     Welch Two Sample t-test
 
 data:  grupo3 and grupo2
-t = -9.2548, df = 43.571, p-value = 3.781e-12
+t = -9.3, df = 44, p-value = 4e-12
 alternative hypothesis: true difference in means is less than 0
 95 percent confidence interval:
-      -Inf -1.285811
+   -Inf -1.286
 sample estimates:
 mean of x mean of y 
- 6.638889  8.210000 </code></pre>
+    6.639     8.210 </code></pre>
 </div>
 <p><br/></p>
 <p>En este caso tenemos una comparación de medias para grupos
@@ -1916,10 +1916,10 @@ publicitaria?</p>
     2-sample test for equality of proportions with continuity correction
 
 data:  c(57, 87) out of c(100, 150)
-X-squared = 0.00068243, df = 1, p-value = 0.4896
+X-squared = 0.00068, df = 1, p-value = 0.5
 alternative hypothesis: less
 95 percent confidence interval:
- -1.0000000  0.1033338
+ -1.0000  0.1033
 sample estimates:
 prop 1 prop 2 
   0.57   0.58 </code></pre>
@@ -2143,7 +2143,7 @@ SIGN.test(x.img,md=15,alternative = &quot;greater&quot;)</code></pre>
     One-sample Sign-Test
 
 data:  x.img
-s = 13, p-value = 0.02452
+s = 13, p-value = 0.02
 alternative hypothesis: true median is greater than 15
 95 percent confidence interval:
   16 Inf
@@ -2246,7 +2246,7 @@ chisq.test(x=obs,p=esp)</code></pre>
     Chi-squared test for given probabilities
 
 data:  obs
-X-squared = 3.6, df = 3, p-value = 0.308</code></pre>
+X-squared = 3.6, df = 3, p-value = 0.3</code></pre>
 <p><br/><br/></p>
 <div class="box6 with-label">
 <div class="label">
@@ -2282,7 +2282,7 @@ incorrect</code></pre>
     Chi-squared test for given probabilities
 
 data:  obs.nf
-X-squared = 2.8988, df = 5, p-value = 0.7156</code></pre>
+X-squared = 2.9, df = 5, p-value = 0.7</code></pre>
 </div>
 <p><br/><br/></p>
 <!-- <div class="box4 with-label"> -->
@@ -2381,7 +2381,7 @@ Malo        15     6</code></pre>
     Pearson&#39;s Chi-squared test
 
 data:  m
-X-squared = 3.7378, df = 2, p-value = 0.1543</code></pre>
+X-squared = 3.7, df = 2, p-value = 0.2</code></pre>
 <p><br/></p>
 <p>Como <code>p-value</code> = 0.1543 lo podemos considerar grande, no
 se rechaza <span class="math inline">\(Ho\)</span>, asumimos que <span
@@ -2464,7 +2464,7 @@ wilcox.test(g1,g2,paired = FALSE,alternative = &quot;greater&quot;)</code></pre>
     Wilcoxon rank sum exact test
 
 data:  g1 and g2
-W = 178, p-value = 0.0004369
+W = 178, p-value = 4e-04
 alternative hypothesis: true location shift is greater than 0</code></pre>
 <p><br/><br/></p>
 </div>
@@ -2574,7 +2574,7 @@ kruskal.test(g1,g2,g3)</code></pre>
     Kruskal-Wallis rank sum test
 
 data:  g1 and g2
-Kruskal-Wallis chi-squared = 5, df = 5, p-value = 0.4159</code></pre>
+Kruskal-Wallis chi-squared = 5, df = 5, p-value = 0.4</code></pre>
 <p><br/><br/></p>
 <!-- <div class="box4 with-label"> -->
 <!-- <div class="label">Correlación de Spearman</div> -->
@@ -2642,11 +2642,11 @@ plot(x,y, las=1, pch=19, col=c40)</code></pre>
     Spearman&#39;s rank correlation rho
 
 data:  x and y
-S = 30.693, p-value = 0.004157
+S = 31, p-value = 0.004
 alternative hypothesis: true rho is not equal to 0
 sample estimates:
-      rho 
-0.8139814 </code></pre>
+  rho 
+0.814 </code></pre>
 <p>En este caso se utiliza el coeficiente de correlación de Sperman para
 valorar la relación entre las variables debido a que la nota es una
 variable que podríamos llamar cualitativa, operacionalizada cuntitativa
@@ -2688,8 +2688,7 @@ runs.test(y)</code></pre>
     Runs Test
 
 data:  y
-statistic = 0.20102, runs = 52, n1 = 50, n2 = 50, n = 100, p-value =
-0.8407
+statistic = 0.8, runs = 55, n1 = 50, n2 = 50, n = 100, p-value = 0.4
 alternative hypothesis: nonrandomness</code></pre>
 </div>
 <div id="conclusión-12" class="section level2">
@@ -2731,7 +2730,7 @@ shapiro.test(x)</code></pre>
     Shapiro-Wilk normality test
 
 data:  x
-W = 0.98825, p-value = 0.09822</code></pre>
+W = 0.99, p-value = 0.2</code></pre>
 <p>Esta prueba no requiere la instalación de paquetes adicionales, pues
 está disponible en la configuración básica de R</p>
 <p>Como el <code>valor-p</code> es superior al nivel de significancia
@@ -2752,19 +2751,19 @@ jb.norm.test(x)  # Test de normalidad de Jarque-Bera</code></pre>
     Jarque-Bera test for normality
 
 data:  x
-JB = 0.090865, p-value = 0.94</code></pre>
+JB = 0.58, p-value = 0.7</code></pre>
 <pre class="r"><code>kurtosis.norm.test(x)</code></pre>
 <pre><code>
     Kurtosis test for normality
 
 data:  x
-T = 2.8958, p-value = 0.7485</code></pre>
+T = 2.7, p-value = 0.4</code></pre>
 <pre class="r"><code>skewness.norm.test(x)   </code></pre>
 <pre><code>
     Skewness test for normality
 
 data:  x
-T = -0.0036085, p-value = 0.981</code></pre>
+T = -0.018, p-value = 0.9</code></pre>
 <pre class="r"><code># install.packages(&quot;nortets&quot;)
 library(nortest)
 
@@ -2773,13 +2772,13 @@ lillie.test(x) # Kolmogorov-Smirnov</code></pre>
     Lilliefors (Kolmogorov-Smirnov) normality test
 
 data:  x
-D = 0.063788, p-value = 0.04635</code></pre>
+D = 0.03, p-value = 0.9</code></pre>
 <pre class="r"><code>pearson.test(x) # chi-cuadrado de Pearson</code></pre>
 <pre><code>
     Pearson chi-square normality test
 
 data:  x
-P = 11.99, p-value = 0.6071</code></pre>
+P = 5.9, p-value = 1</code></pre>
 <p>Si el valor <em>p</em> de una prueba de normalidad es inferior a
 <span class="math inline">\(\alpha=0.05\)</span>, se rechaza la
 hipótesis nula de normalidad. Si es mayor o igual, no se rechaza; esto

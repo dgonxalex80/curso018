@@ -1050,12 +1050,12 @@ x</code></pre>
 [151] 2770 2680 2660 2655 2700 2695 2750 2720 2695 2650 2690 2605 2575 2630 2645
 [166] 2660 2755 2765 2690 2700 2735 2770 2760 2790 2730 2765 2835 2730 2770 2805
 [181] 2690 2710 2740 2740 2740 2820 2740 2705 2700 2705 2775 2750 2700 2720 2700
-[196] 2780 2850 2800 2795 2790</code></pre>
+[196] 2780 2850 2800 2795 2815</code></pre>
 </div>
 <p><br/><br/></p>
 <p><strong>Solución</strong></p>
 <pre class="r"><code>cat(&quot;s :&quot;,sum((x- mean(x))^2 )/ (length(x)-1), &quot;\n&quot;)</code></pre>
-<pre><code>s : 57457 </code></pre>
+<pre><code>s : 57526 </code></pre>
 <pre class="r"><code>cat(&quot;n :&quot;, length(x), &quot;\n&quot;)</code></pre>
 <pre><code>n : 200 </code></pre>
 <pre class="r"><code>cat(&quot;P2.5  : &quot;, qchisq(0.025, 201) , &quot;\n&quot;)</code></pre>
@@ -1063,7 +1063,7 @@ x</code></pre>
 <pre class="r"><code>cat(&quot;P97.5 : &quot;, qchisq(0.975, 201), &quot;\n&quot;)</code></pre>
 <pre><code>P97.5 :  242.2 </code></pre>
 <pre class="r"><code>var(x)</code></pre>
-<pre><code>[1] 57457</code></pre>
+<pre><code>[1] 57526</code></pre>
 <p><span class="math display">\[IC_{\sigma^{2}}: \Bigg(
 \displaystyle\frac{(200-1) \times 66743.96}{242.1559}
 \hspace{.3cm}; \hspace{.3cm}
