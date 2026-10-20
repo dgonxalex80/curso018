@@ -129,9 +129,21 @@ navbar:
       - text: Código 4.2
         href: codigo42.html
       - text: Taller 421
-        href: taller421.html        
-                
+        href: taller421.html
         
+    - text: Unidad 4.3
+      menu:        
+      - text: Guía 4.3
+        href: guia43.html
+      - text: Recursos 4.3
+        href: recurso43.html
+      - text: Código 4.3
+        href: codigo43.html
+      - text: Taller 431
+        href: taller431.html                
+        
+    - text: Monitoría 3
+      href: monitoria3.html        
         
   - text: Módulo 5
     menu:

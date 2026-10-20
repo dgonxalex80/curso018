@@ -1,7 +1,7 @@
 ---
-title: <span style="color:#235784"> </span>  
-subtitle: <span style="color:#235784">**Módulo 3**</span> 
-author: "dgonzalez "
+title: "<span style='color:#8A6FD1 !important;'>Estadística para la toma de decisiones</span>"
+author: <span style="color:#8A6FD1">dgonzalez </span> 
+subtitle: <span style="color:#8A6FD1"> </span> 
 output:
   html_document:
     toc: no
@@ -9,8 +9,10 @@ output:
     toc_float: yes
     code_folding: hide
     theme: flatly
-    css: style.css
----      
+    css:
+      - style.css
+      - cajas.css
+---     
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
@@ -47,11 +49,12 @@ knitr::include_graphics("img/monitoria4.png")
 
 
 
-# **Taller 332**
+# Taller 332
 
 <br/><br/>
 
-## **punto 1**
+<div class="box4 with-label"> 
+<div class="label"> Problema  1 </div>
 
 Suponga que se estudia la compra de una nueva maquina para una empresa. Se comprará si la proporción de la producción que necesita ser reprecesados por tener defectos es inferior al 5%. Se examina una muestra de 40 artículos construidos por la máquina y 3 necesitan ser reprocesados.  ¿Que decisión se toma? (Se compra o no la máquina?)
 
@@ -70,15 +73,18 @@ Suponga que se estudia la compra de una nueva maquina para una empresa. Se compr
 
 <!-- <br/><br/> -->
 
-<!-- **Conclusión** -->
+<!--   Conclusión   -->
 
 <!-- Como el `p-value = 0.6416` > $\alpha$, no rechazamos $Ho$, no existe suficiente evidencia en la muestra que permita su rechazo, asumimos que $Ho$ es verdadera. -->
 
 <!-- Debido a que no se pudo confirmar que la maquina produce menos del 5% de articulos defectuosos, se recomienda no comprar la máquina -->
 
+</div>
+
 <br/><br/><br/>
 
-## **punto 2**
+<div class="box4 with-label"> 
+<div class="label"> Problema  2</div>
 
 <br/>
 Suponga que una empresa desarrolla un curso de entrenamiento para sus empleados, formando dos grupos y aplicándoles dos métodos distintos de entrenamiento. El primer grupo lo componen 36 empleados, mientras que el segundo grupo por 40 empleados. Los resultados en calificaciones entre 0 y 10, se presentan a continuación:
@@ -176,9 +182,12 @@ boxplot(g2, las=1, col = c3, ylim=c(0,10))
 <!-- ``` -->
 <!-- Con este resultado podemos concluir que $\mu_1 < \mu_2$, lo cual indica que el segundo grupo obtuvo un mejor rendimiento que el primer grupo. Se puede concluir que el método empleado con el segundo grupo genera mejores resultados. -->
 
+</div>
+
 <br/><br/><br/>
 
-## **punto 3**
+<div class="box4 with-label"> 
+<div class="label"> Problema  3</div>
 
 Los ingenieros de una ensambladora de automóviles requieren decidir sobre cual de dos de las marcas de neumáticos de  deben comprar. La marca FB o la marca KT. Con el fin de tomar una decisión basada en evidencias estadísticas, deciden realizar un experimento en el que usan 12 neumáticos de cada marca. Los neumáticos se utilizan hasta su terminación . Los resultados   obtenidos (en miles de kilometros) se presentan a continuación :
 
@@ -242,9 +251,12 @@ boxplot(KT, las=1, col = c3, ylim=c(0,50))
 <!-- ``` -->
 <!-- `p-value = 0.0127`, nos indica que se rechaza $Ho$, se acepta $Ha$ como verdadera, las llantas KT tienen un mayor rendimiento promedio que las llantas FB. Se recomienda la compra de las llantas KT. -->
 
+</div>
+
 <br/><br/><br/>
 
-## **punto 4**
+<div class="box4 with-label"> 
+<div class="label"> Problema  4</div>
 
 Un ingeniero desea establecer si existen diferencias entre dos métodos diferentes de realizar el ensamble de una casa prefabricada. Para comprobarlo recogen información del tiempo empleado en el ensamble de una pieza para ambos métodos en horas, los cuales se presentan a continuación:
 
@@ -269,9 +281,12 @@ boxplot(met.est, las=1, col = c3, ylim=c(0,45))
 
 Presentan los datos suficiente evidencia que permita afirmar que el nuevo método es mas eficiente que el método estándar? (Utilice un  $\alpha=0.05$)
 
+</div>
+
 <br/><br/><br/>
 
-## **punto 5**
+<div class="box4 with-label"> 
+<div class="label"> Problema  5</div>
 
 El director de un gimnasio quiere determinar si un instructor de ejercicios debe ser contratado o no para su campaña estrella "Reducción de peso". Para tomar la decisión indica a un candidato que pruebe con 16 personas que asisten habitualmente al gimnasio. Los siguientes datos corresponden a los pesos tomados al inicio del programa ($x1$) y sus pesos al finalizar el programa ($x2$)
 
@@ -289,9 +304,13 @@ cat("inicio : ",length(d), "  ", mean(d), "    ", var(d), "\n")
 
 ¿Que supuestos se deben verificar? ¿Se podría decir que las rutinas empleadas por el instructor producen los efectos indicados?  
 
+
+</div>
+
 <br/><br/><br/>
 
-## **punto 6**
+<div class="box4 with-label"> 
+<div class="label"> Problema  6</div>
 
 Se realizan pruebas de un nuevo lector láser manual para uso en la realización de inventarios y del lector utilizado actualmente, con el fin de decidir si se adquiere el primero. Se obtienen los datos  sobre el número de códigos de barra leídos por segundo con el cada uno de los dispositivos.
 
@@ -324,9 +343,13 @@ boxplot(lec.act, las=1, col = c3, ylim=c(0,60))
 De acuerdo con la información, es posible preferir alguno de ellos?
 ¿Que supuestos se deben verificar?
 
+
+</div>
+
 <br/><br/><br/>
 
-## **punto 7**
+<div class="box4 with-label"> 
+<div class="label"> Problema  7</div>
 
 Un empresario registro el número de artículos producidos durante 10 días  para un grupo conformado por 15 obreros los cuales tienen un salario fijo (grupo 1). El gerente piensa que si se cambia la forma del salario tendrán mejores resultados. Para verificarlo introduce cambios en la forma de pago a un segundo grupo (grupo 2) . El numero de artículos producidos por ambos grupos son los siguientes: 
 
@@ -360,9 +383,12 @@ boxplot(g2, las=1, col = c3, ylim=c(70,90))
 
 Suponiendo que los salarios pagados a ambos grupos son equivalentes, se podría afirmar que el plan de incentivos es efectivo? ¿Que supuestos se deben verificar? 
 
+</div>
+
 <br/><br/><br/>
 
-## **punto 8**
+<div class="box4 with-label"> 
+<div class="label"> Problema  8</div>
 
 La pizzeria P20 realizó el mes pasado una encuestas ($n_1=200$) para determinar la proporción de clientes que prefieren el tamaño familiar. La encuesta recogida muestra que el 20% de sus clientes prefieren el tamaño familiar. Con el fin de aumentar las ventas, realiza una estrategia de publicidad en redes. Pasado dos meses de la campaña la empresa realizó una segunda encuesta ($n_2=200$), obteniendo en este caso una proporción de  25%.
 
@@ -372,14 +398,17 @@ De acuerdo con los resultados podría decirse que la campaña realizada es efect
 # prop.test(c(40,50), c(200,200),  conf.level = 0.95)
 ```
 
+</div>
+
 <br/><br/><br/>
 
 
-# **Taller 332**
+# Taller 332
 
 <br/><br/>
 
-## **punto 1**
+<div class="box4 with-label"> 
+<div class="label"> Problema  9</div>
 
 Se lanza una moneda hasta que sale una cara y se reguistra el número de lanzamientos $X$. Depués de repetir el experimento 256 veces, se observan los siguientes resultados:
 
@@ -390,9 +419,11 @@ Se lanza una moneda hasta que sale una cara y se reguistra el número de lanzami
 
 A un nivel de significancia de $0.05$ pruebe la hipótesis de que la distribución observada de $X$ se puede ajustar a una distribución geometrica `geom(x, 0.50)`, para $x=1,2,3,4,5....$
 
+</div>
 <br/><br/><br/>
 
-## **punto 2**
+<div class="box4 with-label"> 
+<div class="label"> Problema  10  </div>
 
 Una muestra aleatoria de 90 adultos se ckasifica de acuerdo al genero y el número de horas que dedica a ver la televisión durante una semana:
 
@@ -403,9 +434,12 @@ Una muestra aleatoria de 90 adultos se ckasifica de acuerdo al genero y el núme
 
 Utilice un nivel de significancia del $0.01$ y pruebe la hipótesis de que el tiempo dedicado a ver televisión es independiente de si el espectador es hombre o mujer.
 
+</div>
+
 <br/><br/><br/>
 
-## **punto 3**
+<div class="box4 with-label"> 
+<div class="label"> Problema  11  </div>
 
 Un investigador realizó un estudio para determinar si la incidedencia de cierto tipo de delitos varia de una parte de una gran ciudad a otra. Los crímines específicos de interés eran el asalto, el robo de casas, el hurto y el homicidio. La siguiente tabla muestra el número de delitos cometidos en cuatro áreas de la ciudad durante el año pasado:
 
@@ -420,9 +454,12 @@ Un investigador realizó un estudio para determinar si la incidedencia de cierto
 
 ¿ A partir de los datos podemos concluir, a un nivel de significancia del $0.01$ que la ocurrencia de estos topos de delitos dependen de la comuna de la ciudad?
 
+</div>
+
 <br/><br/><br/>
 
-## **punto 4**
+<div class="box4 with-label"> 
+<div class="label"> Problema  12 </div>
 
 Se lleva a cobo una investigación en dos ciudades del Valle para determinar la opinión de los votantes respecto a dos candidatos a la presidencia paras proximas elecciones presidenciales. En cada cuidad se seleccionaron 500 personas votantes al azar y se registraron los siguientes datos :
 
@@ -430,16 +467,19 @@ Se lleva a cobo una investigación en dos ciudades del Valle para determinar la 
 
 |Opinión del votante | Ciudad 1    |     Ciudad 2 |
 |:------------------:|------------:|-------------:|
-| a favor de **A**   |          204|          225 |
-| a favor de **B**   |          211|          198 |
+| a favor de   A     |          204|          225 |
+| a favor de   B     |          211|          198 |
 | indeciso           |           85|           77 |
 
 
-A un nivel de significancia del $0.05$ pruebe la hipótesis nula de quelas las proporciones de votantes que estan a favor del candidato **A**, del candidato **B** o están indecisos son las mismas para cada ciudad.
+A un nivel de significancia del $0.05$ pruebe la hipótesis nula de quelas las proporciones de votantes que estan a favor del candidato   A  , del candidato   B   o están indecisos son las mismas para cada ciudad.
+
+</div>
 
 <br/><br/><br/>
 
-## **punto 5**
+<div class="box4 with-label"> 
+<div class="label"> Problema  13  </div>
 
 El departamento de Bienestar Universitario realizó un estudio para determinar si 8 semanes de entrenamiento realmente reducen los niveles de colesterol de los participantes . A un grupo de tratamiento que consta de 15 colaboradores se les dieron conferencias dos veces a la semana acerca de cómo reducir el nivel de colesterol. Otro grupo de 18 colaboradores de edad similar, fue seleccionado al azar como el grupo control. Se registraron los siguientes niveles de colesterol de todos los participantes del programa de 8 semanas.
 
@@ -449,12 +489,13 @@ El departamento de Bienestar Universitario realizó un estudio para determinar s
 
 `Control:` `151, 132, 196, 195, 188, 198, 187, 168, 115, 165, 137, 208, 133, 217, 191, 193, 140, 149`
 
-
+</div>
 
 
 <br/><br/><br/>
 
-# **Actividad M&M**
+<div class="box4 with-label"> 
+<div class="label"> Problema 14 - M&M  </div>
 
 El sitio web de la compañía Mars publica los siguientes porcentajes de los distintos colores de sus dulces M&M para la variedad de chocolate candies de 49.3 g.
 
@@ -474,13 +515,14 @@ Con la información recogia por los estudiantes en la hoja electrónica ubicada 
 
 <br/><br/><br/>
 
-# **Taller 433**
+#   Taller 433  
 
 <br/>
 
 #### [Enunciados](https://github.com/dgonxalex80/pye20222/blob/main/pdf/Taller_PdeH2.pdf)
 
-## **punto 1**
+<div class="box4 with-label"> 
+<div class="label"> Problema  15  </div>
 
 Los jóvenes colombianos se ha vuelto más concientes con respecto a la importancia de una buena nutrición acompañada de actividad deportiva para tener una buena salud. Una asociación de profesionales relacionados con este tema opinan que los jóvenes están modificando sus dietas que incluyen menos carnes rojas y más frutas y verduras.  Para vericar estas hipótesis  un grupo de estudiantes de la universidad Javeriana de Cali decide seleccionar registros nutricionales de los estudiantes consignados en una encuesta realizada por Bienestar Universitario hace 10 años y comparar la cantidad promedio de carnes rojas consumidas por año con las cantidades consumidas por un grupo de jóvenes que serán entrevistados este año.  De acuerdo con la información actual se estima que el consumo de carne de res por año varie entre 0 y 104 libras por año.
 
@@ -488,11 +530,13 @@ Los jóvenes colombianos se ha vuelto más concientes con respecto a la importan
 
 Si además se desea estimar la proporción de jóvenes que son vegetarianos ¿qué tamaño deben tener en cuenta?
 
+</div>
 
 
-## **punto 2**
+<div class="box4 with-label"> 
+<div class="label"> Problema  16 </div> 
 
-Las investigadores del punto anterio selecionaron dos grupos de 400 jóvenes cada uno y reunieron la siguiente información sobre los hábitos de consumo de carne de res actuales y de hace 10 años.
+Las investigadores del  Problema  anterio selecionaron dos grupos de 400 jóvenes cada uno y reunieron la siguiente información sobre los hábitos de consumo de carne de res actuales y de hace 10 años.
 
 <br/>
 
@@ -505,9 +549,11 @@ Las investigadores del punto anterio selecionaron dos grupos de 400 jóvenes cad
 
 A los investigadores les gustaria poder mosrar que el consumo de carne percapita se redujo en los últomos 10 años, mediante a construcción de un intervalo de confianza. Con la información obtenida y el intervalo de confianza construido a qué conclusión se podría llegar?
 
+</div>
 
 
-## **punto 3**
+<div class="box4 with-label"> 
+<div class="label"> Problema  17 </div> 
 
 Uno de los problemas más frecuentes en los jóvenes universitarios es la alta tensión que generan las evaluaciones parciales, las cuales en algunos casos genera dolores de cabeza. La tensión muscular en la región de la cabeza se ha asociado con los dolores de cabeza. Es razonable pensar que so la tensión muscular disminuye, es probable que los dolores de cabezase reduzcan o desaparezcan. Un grupo de investigadores diseña un experimento en el cual participan nueve estudiantes que presentan dolores de cabeza durante la semana de evaluación (GE : Grupo experimental). Posteriormente un grupo de profesionales del Medio Universitrio los entrenan con el fin de que puedan aprender a reducir la tensión muscular en la tensión de la cabeza utilizando un dispositivode bioretroalaimentación. Para este experimento,  el dispositivo mensionado se conecta en la región frontal de la cara. El dispositivo indica al estudiante la cantidad de tensión que existe en el musculo al cual está unido (en este caso al frontal) y le ayuda a reducir los niveles de tensión. Despues de 6 meses de entrenamiento, los jóvenes han logrado mantener baja la tensión en el musculo frontal; entonces se lleva nuevamente un registro de los dolores de cabeza que sufren durante las dos semanan de evaluaciones. La información recogida se muestra a continuación:
 
@@ -570,27 +616,31 @@ formattable(df,
 
 Se puede concluir que el entrenamiento realizado con el dispositivo disminuye los dolores de cabeza?
 
+</div>
+
 <br/><br/>
 
-### **Nota**:
+<div class="box2 with-label"> 
+<div class="label">Nota : </div>
 
 Suponga que el número de dolores de cabeza se distribuye aproximadamente normal.
 
 Tomado de Roberto Pangano (2006).
+</div>
 
 <br/><br/><br/>
 
 
-# [**Taller resuelto PdeH**](https://github.com/dgonxalex80/pye20222/blob/main/pdf/P-PdeH1.pdf)
+# [  Taller resuelto PdeH  ](https://github.com/dgonxalex80/pye20222/blob/main/pdf/P-PdeH1.pdf)
 
 <br/><br/><br/>
 
 
-# **Formulario**
+#   Formulario  
 
 <br/><br/>
 
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">Intervalos de confianza</div>  
 
 <br/><br/>
@@ -629,9 +679,10 @@ Tomado de Roberto Pangano (2006).
 
 
 </div>
+
 <br/><br/><br/>
 
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">Pruebas de hipótesis</div>  
 
 <br/><br/>

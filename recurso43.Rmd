@@ -1,15 +1,17 @@
 ---
-title: " "
-subtitle: " "
-author: "dgonzalez "
+title: "<span style='color:#8A6FD1 !important;'>Estadística para la toma de decisiones</span>"
+author: <span style="color:#8A6FD1">dgonzalez </span> 
+subtitle: <span style="color:#8A6FD1"> </span> 
 output:
   html_document:
-    toc: yes
+    toc: no
     toc_depth: 2
     toc_float: yes
     code_folding: hide
     theme: flatly
-    css: style.css
+    css:
+      - style.css
+      - cajas.css
 ---
 
 
@@ -47,88 +49,136 @@ ggdistribution <- function(FUN, x, ..., colour = "black", fill = NA,
   p
 }
 
+library(paqueteDEG)
+
 ```
 
 
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+```{r, echo=FALSE, out.width="92%", fig.align = "center"}
  knitr::include_graphics("img/recurso4.png")
 ```
 
-
-<br/><br/><br/>
-
-
-
-```{r, echo=FALSE, out.width="40%", fig.align = "center"}
-knitr::include_graphics("img/decision4.png")
-```
-
-<center>
-Tomada de : https://pixabay.com/es/
-</center>
+<audio controls style="width:80%;">
+  <source src="audios/pdeh0.mp3" type="audio/mpeg">
+</audio>
 
 
 <br/><br/>
 
-# **Introducción**
+
+```{r, echo=FALSE, out.width="36%", fig.align = "center"}
+knitr::include_graphics("img/decision.png")
+```
+
+<br/><br/>
+
+# Introducción
 
 <br/>
 
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
-knitr::include_graphics("img/pruebas1.png")
+```{r, echo=FALSE, out.width="82%", fig.align="center"}
+knitr::include_graphics("img/cientificos-pdeh.png")
 ```
 
+<audio controls style="width:80%;">
+  <source src="audios/pdeh1.mp3" type="audio/mpeg">
+</audio>
+
+
+**(1) Daniel Bernoulli (1700–1782).** Matemático y físico suizo. Estudió filosofía, lógica y medicina en las universidades de Heidelberg, Estrasburgo y Basilea. Obtuvo el doctorado en Medicina en la Universidad de Basilea en 1721. Su interés por las matemáticas y la física lo llevó a realizar importantes contribuciones a la teoría de la probabilidad y sus aplicaciones científicas.
+
+**(2) Ronald A. Fisher (1890–1962).** Estadístico y genetista británico. Estudió matemáticas en el Gonville and Caius College de la Universidad de Cambridge, donde se graduó en 1912. Su sólida formación matemática le permitió desarrollar contribuciones fundamentales a la inferencia estadística, la genética, el análisis de varianza y el diseño de experimentos.
+
+**(3) Jerzy Neyman (1894–1981).** Matemático y estadístico polaco. Estudió matemáticas en la Universidad de Járkov, donde recibió formación en teoría de la medida y probabilidad. Obtuvo su doctorado en la Universidad de Varsovia en 1924 y posteriormente desarrolló actividades académicas e investigativas en París y Londres. Sus trabajos contribuyeron decisivamente a la teoría moderna de la inferencia estadística.
+
+**(4) Egon S. Pearson (1895–1980).** Estadístico británico, hijo del reconocido estadístico Karl Pearson. Estudió en Winchester College y posteriormente cursó matemáticas en el Trinity College de la Universidad de Cambridge. Desarrolló gran parte de su carrera académica en el University College London, donde realizó importantes investigaciones sobre inferencia estadística y pruebas de hipótesis.
 
 <br/><br/>
 
-El origen de los estudios, relacionados con las pruebas de hipótesis estadísticas, se sitúa alrededor de 1738, cuando en un ensayo escrito por **Daniel Bernoulli**(1) aparece el cálculo una estadística de prueba para ensayar su hipótesis en el campo de la astronomía. Entre 1915 y 1933 se desarrolla esta formulación gracias a los estudios realizados por tres grandes autores: **Ronald Fisher**(2), **Jerzy Neyman**(3) y **Egon Pearson**(4). Hoy en día predomina la teoría de Neyman-Pearson (lema de Neyman-Pearson).
+<audio controls style="width:80%;">
+  <source src="audios/pdeh2.mp3" type="audio/mpeg">
+</audio>
+
+
+Las **pruebas de hipótesis** constituyen uno de los fundamentos de la inferencia estadística, pues proporcionan un procedimiento sistemático para evaluar afirmaciones acerca de las características de una población a partir de la información obtenida de una muestra. Su propósito es determinar si la evidencia estadística disponible resulta suficientemente incompatible con una hipótesis inicial como para justificar su rechazo, considerando la incertidumbre asociada al proceso de muestreo.
+
+<br/>
+
+Los antecedentes de las pruebas de hipótesis se remontan al siglo XVIII. En 1710, John Arbuthnot realizó uno de los primeros análisis que pueden interpretarse como una prueba de significación estadística, al estudiar la regularidad observada en los registros de nacimientos. Posteriormente, **Daniel Bernoulli (1)** realizó importantes contribuciones a la teoría de la probabilidad y sus aplicaciones científicas, fortaleciendo las bases matemáticas sobre las cuales se desarrollaría la inferencia estadística.
+
+<br/>
+
+No obstante, la formulación moderna de las pruebas de hipótesis se consolidó durante las primeras décadas del siglo XX, principalmente gracias a los aportes de **Ronald A. Fisher, Jerzy Neyman y Egon S. Pearson**, quienes desarrollaron enfoques fundamentales para evaluar hipótesis a partir de datos experimentales y observacionales.
+
+<br/>
+
+**Ronald A. Fisher (2)** desarrolló el enfoque de las pruebas de significación estadística, en el cual el *valor p* permite cuantificar el grado de incompatibilidad de los datos observados con la hipótesis nula. Sus contribuciones establecieron procedimientos para evaluar resultados experimentales y determinar su significación estadística.
+
+<br/>
+
+Por su parte, **Jerzy Neyman (3) y Egon S. Pearson (4)** desarrollaron conjuntamente, entre 1928 y 1933, una teoría formal para la contrastación de hipótesis, fundamentada en reglas de decisión y en el control de las probabilidades de cometer errores de tipo I y tipo II. Este enfoque introdujo conceptos esenciales como el nivel de significación, la potencia estadística y los criterios para seleccionar pruebas óptimas bajo determinadas condiciones.
+
+<br/>
+
+De estos desarrollos surgieron dos enfoques estrechamente relacionados, aunque conceptualmente diferentes: las **pruebas de significación de Fisher** y las **pruebas de hipótesis de Neyman-Pearson**. Mientras el primero se concentra en cuantificar la evidencia de los datos frente a una hipótesis nula, el segundo establece reglas de decisión que permiten controlar las probabilidades de error.
+
+<br/>
+
+Ambos enfoques constituyen fundamentos de la inferencia estadística contemporánea y proporcionan herramientas esenciales para la toma de decisiones bajo incertidumbre en campos como la economía, la administración, la ingeniería, la medicina y las ciencias sociales.
+
+
 
 <br/><br/>
 
-```{r, echo=FALSE, out.width="50%", fig.align = "center"}
-knitr::include_graphics("img/prueba.jpg")
+```{r, echo=FALSE, out.width="34%", fig.align = "center"}
+knitr::include_graphics("img/prueba.png")
 ```
 <center>
 Tomada de : https://pixabay.com/es/
 </center>
 
+
+<audio controls style="width:80%;">
+  <source src="audios/pdeh3.mp3" type="audio/mpeg">
+</audio>
+
 <br/><br/>
 
 
-Una hipótesis estadística es una afirmación o conjetura acerca de los parámetros de la distribución de probabilidades de una población. Si la hipótesis estadística especifica completamente la distribución, entonces ella se llama **Hipótesis Simple**, de otra manera se llama Hipótesis Compuesta. 
+Una hipótesis estadística es una afirmación o conjetura acerca de los parámetros de la distribución de probabilidades de una población. Si la hipótesis estadística especifica completamente la distribución, entonces ella se llama **hipótesis simple**, de otra manera se llama hipótesis compuesta. 
 
 Desde el punto de vista clásico, todas las pruebas de hipótesis trabajan en base a ciertos principios que consideran:
 
-+ Hipótesis nula (**Ho**)
-+ Hipótesis alterna (**Ha**)
++ Hipótesis nula ($H_0$)
++ Hipótesis alternativa ($H_a$)
 + Estadístico de Prueba (**EdeP**)
 + Región de Rechazo (**RdeR**)
 + Regla de Decisión(**RD**)
 
 <br/><br/>
 
-## **Conceptos básicos** 
+# Conceptos básicos 
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Hipótesis Nula (Ho)</div> 
 
-Es la hipótesis a probar, ésta NO se rechaza si de la muestra no se obtiene suficiente evidencia para rechazarla.
+Es la afirmación inicial ($H_0$) que se somete a contrastación. Se rechaza únicamente cuando la evidencia muestral resulta suficientemente incompatible con ella; de lo contrario, no se rechaza. Esto último no significa que se haya demostrado su veracidad.
 </div>
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Hipótesis Alterna (Ha)</div> 
 
-La hipótesis `Ho` se contrasta con la hipótesis Ha, y ésta última corresponde a valores alternativos del parámetro planteados en la hipótesis nula. La hipótesis $Ha$ se considera cierta si existe suficiente evidencia para rechazar la hipótesis nula.
+La hipótesis alternativa ($H_a$) plantea valores o características diferentes de los establecidos por la hipótesis nula ($H_0$). Si la evidencia muestral permite rechazar $H_0$, se considera que los datos respaldan $H_a$, sin que ello constituya una demostración absoluta de su veracidad.
 
 </div>
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Estadístico de Prueba</div>  
 
 Es una función de la muestra que contiene información sobre el parámetro de interés, la que nos permite decidir sobre el rechazo de la hipótesis nula, `Ho` . Es tambien una variable aleatoria que sigue una función de distribución conocida como por ejemplo:
@@ -140,24 +190,20 @@ Para una muestra determinada se obtiene un valor del estadístico de prueba, a p
 <br/><br/>
 
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Región de Rechazo (RdeR)</div>  
 
-También llamada región crítica (`RC`), define los valores del estadístico de prueba para los cuales la información muestral contradice la hipótesis nula. Estos valores nos permitirán adoptar una regla de decisión consistente. Una prueba de una hipótesis estadística es un procedimiento que permite, mediante el contraste entre la información muestral y lo propuesto en una hipótesis, decidir sobre
-su rechazo. 
-
-Una prueba de una hipótesis estadística es un procedimiento que permite, mediante el contraste entre la información muestral y lo propuesto en una hipótesis, decidir sobre
-su rechazo. 
+También llamada región crítica (`RC`), define los valores del estadístico de prueba para los cuales la información muestral contradice la hipótesis nula. Estos valores nos permitirán adoptar una regla de decisión consistente. La región crítica se determina a partir de la distribución del estadístico bajo $H_0$ y del nivel de significación establecido. 
 
 </div>
 
 <br/><br/>
 
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Regla de Decisión (RD)</div>  
 
-De esta manera, como una regla de decisión, si para una muestra particular el estadístico de prueba (valor calculado) cae dentro de la región crítica, rechazaremos la hipótesis nula `Ha` en favor de la hipótesis alternativa `Ha`. En cambio, si el valor calculado no cae dentro de la RC, no podremos rechazar la hipótesis nula y por tanto decimos que la información contenida en la muestra no ofrece suficiente evidencia estadística que nos permita rechazar` `Ho`, ASUMIMOS que la hipótesis nula es cierta. 
+Si el estadístico calculado pertenece a la región crítica, se rechaza $H_0$ en favor de $H_a$. En caso contrario, no se rechaza $H_0$, porque la muestra no proporciona evidencia suficiente para hacerlo. **No rechazar $H_0$ no equivale a demostrar que es verdadera.** 
 
 </div>
 
@@ -165,7 +211,7 @@ De esta manera, como una regla de decisión, si para una muestra particular el e
 
 
 
-### **Errores asociados**
+## Errores asociados
 
 Cuando se decide ya sea en favor o en contra de una determinada prueba de hipótesis, es posible estar en una de las cuatro situaciones descritas en la siguiente tabla:
 
@@ -183,7 +229,7 @@ Cuando se decide ya sea en favor o en contra de una determinada prueba de hipót
 <!-- |                   |                                 |                                 | -->
 
 
-```{r, echo=FALSE, out.width="80%", fig.align = "center"}
+```{r, echo=FALSE, out.width="76%", fig.align = "center"}
 knitr::include_graphics("img/errores12.png")
 ```
 
@@ -192,49 +238,66 @@ Existen dos situaciones en las que se comenten errores después de tomar una dec
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Error tipo I</div> 
 
-Cuando se rechazamos una hipótesis nula que en realidad es verdadera. Tomando como simil la situación donde un médico desea determinar si un paciente está sano o enfermo (`Ho`: SANO vs `Ha`: ENFERMO), es posible que concluya que el paciente está enfermo (rechace `Ho`) cuando en verdad esta persona esta sana. En términos de probabilidad este error se debe de representar como:
+Cuando rechazamos una hipótesis nula que en realidad es verdadera. Tomando como simil la situación donde un médico desea determinar si un paciente está sano o enfermo (`Ho`: SANO vs `Ha`: ENFERMO), es posible que concluya que el paciente está enfermo (rechace `Ho`) cuando en verdad esta persona esta sana. En términos de probabilidad este error se debe de representar como:
 $$P(\text{Rechazar } Ho | Ho \text{ es verdadera})= \alpha$$
 
 </div>
 
 <br/><br/>
 
-<div class="box2 with-label">
-<div class="label">Ejemplo</div>
+<div class="box6 with-label">
+<div class="label">Ejemplo 1</div>
 
-![](img/donar.jpg) 
+
+```{r, echo=FALSE, out.width="28%", fig.align = "center"}
+ knitr::include_graphics("img/dona-sangre.png")
+```
+
+
 
 Para ilustrar el error tipo I, podeos acudir aun evento ocurrido a una estudiante que después de realizar una donación de sangre fue requerida por la clinica benefactora, pues el examen que le habían practicado a la sangre donada, presentaba signos de estar infectada por hepatitis c. Esto prendió las alarmas en la casa y fue llevada por la familia a que se le realizaran otros exámenes para confirmar el diagnostico inicial. Las segundas pruebas evidenciaron que se trataba de un error. Este caso constituye un caso de falso positivo (Se diagnostica como enferan, cuando en verdad esta sana) 
+
+<audio controls style="width:80%;">
+  <source src="audios/error1.mp3" type="audio/mpeg">
+</audio>
 
 </div>
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Error Tipo II</div> 
 
 Cuando no se rechaza una hipótesis nula que en realidad es falsa. Utilizando el ejemplo del médico, diríamos que cuando el medico indica que el paciente esta sano, cuando esta realmente enfermo, incurre en un error frecuente cuando algunos pacientes son asintomáticos y aunque tienen la enfermedad, sus exámenes médicos salen negativos. En este caso la probabilidad se representa como:
 
-$$P(\text{No rechazar} Ho | Ho \text{ es falsa}) $$
+$$P(\text{No rechazar } H_0 \mid H_0 \text{ es falsa})=\beta$$
 </div>
 
 <br/><br/>
 
-<div class="box2 with-label">
-<div class="label">Ejemplo</div>
+<div class="box6 with-label">
+<div class="label">Ejemplo 2 </div>
 
-![](img/dopin.jpg) 
 
-Para ilustrar el caso del error tipo II, recurrimos a lo acontecido en el Tour de Francia, donde el ciclista estadunidence Lance Armstrong gano esta competencia seis veces de manera consecutiva y aunque fue acusado de dopin, no se le pudo comprobar. Fue solo en el 2012 cuando el mismo admitió haber usado EPO. Podemos decir que durante su vida deportiva los exámenes practivados dieron negativos, estando el dopado. Este caso se cataloga como falso negativo. 
+```{r, echo=FALSE, out.width="30%", fig.align = "center"}
+ knitr::include_graphics("img/dopin-ciclista.png")
+```
+
+
+Como ilustración de un posible falso negativo, consideremos un control antidopaje que no detecta una sustancia prohibida presente en un deportista. El caso de Lance Armstrong, despojado de sus siete títulos del Tour de Francia y quien reconoció públicamente el dopaje en 2013, permite discutir las limitaciones de los sistemas de detección. **No debe inferirse que todos sus controles fueron negativos ni que cada resultado constituyó un error de tipo II.** 
+
+<audio controls style="width:80%;">
+  <source src="audios/error2.mp3" type="audio/mpeg">
+</audio>
 
 </div>
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Nivel de significancia ($\alpha$)</div>  
 
 No es posible minimizar simultáneamente, las probabilidades de los errores tipo I y II, ya que en la medida que uno disminuye el otro aumenta, como se muestra en la figura siguiente, en la que claramente se ve que la reducción del área $\alpha$ (probabilidad de error tipo I), implica el aumento del área $\beta$ (probabilidad de error tipo II).
@@ -243,24 +306,26 @@ No es posible minimizar simultáneamente, las probabilidades de los errores tipo
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Pruebas paramétricas</div>
 
-Se llaman pruebas de hipótesis metrificaras debido a que para su realización se deben verificar el cumplimiento de supuestos sobre parámetros. 
+Las pruebas paramétricas se basan en un modelo probabilístico caracterizado por uno o varios parámetros. Su aplicación requiere examinar los supuestos pertinentes, como la independencia, la distribución de los datos o la homogeneidad de varianzas, según la prueba utilizada. 
+
+<audio controls style="width:80%;">
+  <source src="audios/pdeh-parametricas.mp3" type="audio/mpeg">
+</audio>
+
 
 </div>
 
-<br/><br/>
-
-
-<br/><br/>
-
-<div class="box1 with-label">
+<br/>
+<br/>
+<div class="box4 with-label">
 <div class="label">Potencia de una prueba de hipótesis</div>
 
 La potencia de una prueba de hipótesis es la probabilidad de rechazar correctamente la hipótesis nula ($Ho$) cuando en realidad es falsa.
 
-Potencia $ = P(\text{Rechazar}\hspace{2mm} Ho\hspace{2mm} |\hspace{2mm} Ho \hspace{2mm}\text{es falsa}) = 1-\beta$
+Potencia $=P(\text{Rechazar}\hspace{2mm} Ho\hspace{2mm} |\hspace{2mm} Ho \hspace{2mm}\text{es falsa}) = 1-\beta$
 
 La potencia mide qué tan “sensible” es nuestra prueba para descubrir diferencias reales.
 
@@ -282,7 +347,7 @@ $$Ha: \mu > 1000$$
 <!-- knitr::include_graphics("img/potencia1.png") -->
 <!-- ``` -->
 
-#### app.R
+## app.R
 
 
 ```{r, eval=FALSE}
@@ -439,17 +504,23 @@ shinyApp(ui, server)
 ```
 
 
+
+
 <br/><br/>
 
-```{r, echo=FALSE, out.width="80%", fig.align = "center"}
+```{r, echo=FALSE, out.width="75%", fig.align = "center"}
 knitr::include_graphics("img/potencia.gif")
 ```
 
+<audio controls style="width:80%;">
+  <source src="audios/potencia.mp3" type="audio/mpeg">
+</audio>
+
 <br/><br/>
 
 
 
-# **PdeH sobre una población**
+# Puebas de hipótesis sobre una población
 
 Los parámetros más importante a los que se les realizan pruebas de hipótesis son : $\mu$, $p$ y $\sigma^{2}$, en el caso de una población :  
 
@@ -468,21 +539,21 @@ Los parámetros más importante a los que se les realizan pruebas de hipótesis 
 
 <br/><br/>
 
-### **PdeH sobre una media**
+# Pruebas de hipótesis sobre una media
 
 Dependiendo de las condiciones podemos optar por tres diferentes EdeP para la realización de la prueba para una media, aunque tenemos una cuarta posibilidad en el caso de realizarla mediante un método no paramétrico:
 
 <br/><br/>
 
-```{r, echo=FALSE, out.width="80%", fig.align = "center"}
-knitr::include_graphics("img/EdeP_mu.png")
+```{r, echo=FALSE, out.width="78%", fig.align = "center"}
+knitr::include_graphics("img/EdeP_mu-1.png")
 ```
 
 
-<br/><br/><br/>
-
-<div class="box2 with-label">
-<div class="label">Ejemplo 1</div>
+<br/>
+<br/>
+<div class="box6 with-label">
+<div class="label">Ejemplo 3</div>
 
 Un informe indica que el precio medio del pasaje de avión entre Cali  y San Andrés  es de \$120 mil pesos  y su desviación estándar de \$40 mil pesos. Se toma una muestra que se registra a continuación. ¿Se puede aceptar, con un nivel de significación igual a $\alpha=0.1$, las afirmaciones acerca de la media? |
   
@@ -492,7 +563,7 @@ Un informe indica que el precio medio del pasaje de avión entre Cali  y San And
 
 <br/><br/>
 
-### **Solución**
+## Solución
 
 Las pruebas a contrastar son:
 
@@ -535,11 +606,18 @@ Para tomar una decisión sobre las hipótesis de acuerdo con los resultados pode
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Regla 1 :</div> 
 
 
 Si el `EdeP` cae en la `RdeR`, entonce se RECHAZA la `Ho` y se **acepta** `Ha` como verdadera. Si por el contrario el `EdeP` NO cae en la `RdeR`, entonces NO SE RECHAZA `Ho`, no existe suficiente evidencia para rechazarla, **asumimos** que `Ho` es verdad.
+
+
+
+<audio controls style="width:80%;">
+  <source src="audios/regla1.mp3" type="audio/mpeg">
+</audio>
+
 </div>
 
 
@@ -548,7 +626,7 @@ En este caso es necesario determinar la región de rechazo (`RdeR`) de acuerdo a
 <br/><br/>
 
 
-### **Región de Rechazo** 
+## Región de Rechazo 
 
 Para determinar la `RdeR`, a a prtir del nivel de significancia asumido, se buscan los percentiles $t_{0.025; v=59}$ y $t_{0.975;v=59}$ para la distribución t-Student.
 
@@ -568,29 +646,32 @@ p
 ```
 
 
-```{r, echo=FALSE, out.width="80%", fig.align = "center"}
+```{r, echo=FALSE, out.width="76%", fig.align = "center"}
 knitr::include_graphics("img/RdeR1.png")
 ```
 
 <br/><br/>
 
-### **Conclusión**: 
+## Conclusión: 
 
 Como el `EdeP` (`t = -0.39343`) NO cae en la `RdeR`, entonces NO rechazamos `Ho`, asuminos `Ho` es verdadera, es decir $\mu$ de los precios es igual a 120 mil pesos. 
 
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Regla 2:</div>
 
 Si $\alpha >$ **valor-p** entonces rechazamos $H_{0}$, se **acepta** `Ha` como verdadera. Si por el contrario $\alpha <$ `valor-p`, no rechazamos `Ho`, **asumimos** 	que `Ho` es verdad. 
 
+<audio controls style="width:80%;">
+  <source src="audios/regla2.mp3" type="audio/mpeg">
+</audio>
 </div>
 
-<br/><br/><br/>
-
-<div class="box1 with-label">
+<br/>
+<br/>
+<div class="box4 with-label">
 <div class="label">Valor-p </div> 
 
 El valor-p corresponde al área delimitada por el `EdeP` en el sentido que indica la `RdeR` de la prueba a contrastar. Es decir que corresponde a la probilidad  máxima de cometer `error tipo I`.
@@ -604,44 +685,48 @@ El valor-p corresponde al área delimitada por el `EdeP` en el sentido que indic
 
 <br/><br/>
 
-### **Conclusión** : 
+## Conclusión: 
 
 Como el valor de $\alpha >$ `valor-p`  (0.05 > p-value = 0.6949) entonces No se rechaza `Ho`, se `ASUME` que 	`Ho` es verdad. El promedio de los precios es igual a \$ 120.  
 
 <br/><br/>
 
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">Regla 3 : </div> 
 
 El `valor-p` se interpreta como el error que puedo cometer al rechazar `Ho`, siendo esta verdadera (cometer `error tipo I`). Si este valor es considerado como pequeño, rechazo `Ho`, se `ACEPTA` `Ha`. Si por el contrario se considera este valor grande, entonce no rechazo `Ho`, asumo que `Ho` es verdad.
+
+<audio controls style="width:80%;">
+  <source src="audios/regla3.mp3" type="audio/mpeg">
+</audio>
 
 </div>
 
 <br/><br/>
 
-### **Conclusión** : 
+## Conclusión: 
 
 En este caso valoramos si el `valor-p` (p-value = 0.6949) es grande o pequeño. En esta caso se puede considerar que su valor es muy grande y por lo tanto no nos atrevemos a rechazar `Ho`, asumimos que $Ho$ es verdadera, es decir que la media de los precios es igual a \$ 120. 
 
 <br/><br/>
 
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">Nota</div>
 
- Al aplicar las últimas dos reglas (2 y 3) no se requiere la construcción de una $RdeR$ para tomar la decisión. Solo con revisar el valor-p entregado por la prueba y aplicar la regla se toma la decisión. En adelante utilizaremos las reglas 2 y 3 dado que al ejecutar las funciones  en R nos sumunistran información sobre valor-p.
+ Al aplicar las últimas dos reglas (`Regla 2` y `Regla 3`) no se requiere la construcción de una `Región de de Rechazo` para tomar la decisión. Solo con revisar el `valor-p` entregado por la prueba y aplicar la regla se toma la decisión. En adelante utilizaremos las reglas 2 y 3 dado que al ejecutar las funciones  en `R` nos sumunistran información sobre `valor-p`.
 
 </div>
 
 <br/><br/>
 
-<div class="box3 with-label">
+<div class="box6 with-label">
 <div class="label">Reto</div>
 
- Una operación en una línea de producción debe llenar cajas con detergente hasta un peso promedio de 32 onzas. Periódicamente se selecciona una muestra de cajas llenas, que se pesan para determinar a partir del promedio, si están faltas o sobradas de detergente. Si los datos de la muestra llevan a la conclusión de que les falta o sobra detergente, se debe parar la línea de producción y hacer los ajustes necesarios para que el llenado sea correcto. Con el fin de afianzar los conceptos expuestos, te invito a responder los siguientes interrogantes :|
+ Una operación en una línea de producción debe llenar cajas con detergente hasta un peso promedio de 32 onzas. Periódicamente se selecciona una muestra de cajas llenas, que se pesan para determinar a partir del promedio, si están faltas o sobradas de detergente. Si los datos de la muestra llevan a la conclusión de que les falta o sobra detergente, se debe parar la línea de producción y hacer los ajustes necesarios para que el llenado sea correcto. Con el fin de afianzar los conceptos expuestos, te invito a responder los siguientes interrogantes :
 
 (a.) Formule la hipótesis nula y alternativa que lleven a decidir si es conveniente parar y ajustar la línea de producción o no. 
 
-(b.) Comente la conclusión a que se llegaría en caso de que no se rechazase  $Ho$ y cuando si ocurriese. 
+(b.) Comente la conclusión a que se llegaría en caso de que se rechace  $H_o$ y cuando no se rechace $H_o$. 
 
 (c.) Cuándo se comete error tipo I y cuando el tipo II. 
 
@@ -649,17 +734,17 @@ En este caso valoramos si el `valor-p` (p-value = 0.6949) es grande o pequeño. 
 
 </div>
 
-<br/><br/><br/>
+<br/><br/>
 
-## **PdeH sobre una proporción**
+# Pruebas de hipótesis sobre una proporción
 
 En este caso debemos tener en cuenta que la muestra sea mayor a 30 con el fin de tener estimaciones mas robustas para estimar la proporción poblacional.
 
 
 <br/><br/>
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 2</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 4</div> 
 
 Una empresa al seleccionar su personal, lo somete a un curso de entrenamiento. Por su experiencia se conoce que el 76% de los aspirantes aprueban el curso. Durante el último proceso, los encargados efectúan cambios al programa de entrenamiento, con el fin de realizar una selección más exigente. Para esta versión se inscriben 40 aspirantes de los cuales lo aprueban el proceso 24. ¿Podría afirmarse que los cambios realizados en el programa de entrenamiento reducen la selección? 
 
@@ -671,28 +756,52 @@ Debemos realizar una prueba de cola inferior debido al sentido que tienen la afi
 
 Ho: $p \geq 0.76$ <br/>   
 Ha :$p < 0.76$   <br/>
-<br/><br/>
+
+<br/>
+
+
+Estadístico de prueba chi-cuadrado
 
 ```{r}
 prop.test(24, 40, p = 0.76,
           alternative = "less",
           conf.level = 0.95)
 ```
+
+<br/>
+
+Estadístico de prueba Z (paqueteDEG)
+
+```{r}
+paqueteDEG::test.prop(24, 40, p = 0.76,
+  alternative = "less",
+  conf.level = 0.95
+)
+```
+
+
+
+
 <br/><br/>
 
-### **Conclusión**
+## Conclusión
 
 Como el `valor-p` (p-value = 0.01447) es menor que el nivel de significancia ($\alpha=0.05$), rechazamos la hipótesis nula, aceptamos la hipótesis alterna. Podemos afirmar que $p<0.76$ . Tienen razón al afirmar que los cambios realizados en el proceso de selección provocaron una disminución significativa en la proporción de aprobación.
 
-<br/><br/><br/>
 
+<audio controls style="width:80%;">
+  <source src="audios/ejemplo4.mp3" type="audio/mpeg">
+</audio>
 
-## **PdeH sobre una varianza**
 
 <br/><br/>
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 2</div> 
+# Pruebas de hipótesis sobre una varianza
+
+<br/><br/>
+
+<div class="box6 with-label">
+<div class="label">Ejemplo 5</div> 
 
 Un fabricante de baterías para celulares afirma que el tiempo de duración de sus baterías se distribuyen aproximadamente normal con una desviación estándar de 9 horas. Un comprador antes de realizar un pedido de este producto solicita al fabricante una muestra de 10 baterías para verificar la información que le esta dando. Con este propósito son enviadas al laboratorio y se obtienen los siguientes datos Es cierta la información suministrada por el fabricante? 
 
@@ -716,7 +825,7 @@ pRdeR
 ```
 
 
-```{r, echo=FALSE, out.width="80%", fig.align = "center"}
+```{r, echo=FALSE, out.width="76%", fig.align = "center"}
 knitr::include_graphics("img/RdeR2.png")
 ```
 
@@ -730,17 +839,17 @@ EdeP
 
 <br/><br/>
 
-### **Conclusión**
+## Conclusión
 
 Como el $EdeP$ (1.135074) caen en la $RdeR$, entonces rechazamos la hipótesis nula, aceptamos la hipótesis alterna como verdadera.
 
 Podemos entonce concluir que $\sigma^{2} \neq 81$
 
 
-<br/><br/><br/>
+<br/>
+<br/>
 
-
-# **PdeH  sobre dos poblaciones**
+# Prueba de hipótesis sobre dos poblaciones
 
 <br/><br/>
 
@@ -761,13 +870,13 @@ Podemos entonce concluir que $\sigma^{2} \neq 81$
 |                                |$Ha: \sigma_{1}^{2} \neq \sigma^{2}_{2}$|$Ha: \sigma_{1}^{2} < \sigma_{2}^{2}$    |$Ha: \sigma_{1}^{2} > \sigma_{2}^{2}$  |
 
 
-<br/><br/><br/>
+<br/><br/>
 
-## **PdeH en comparación de medias** 
+## Comparación de medias 
 
 
-```{r, echo=FALSE, out.width="80%", fig.align = "center"}
-knitr::include_graphics("img/EdePmu1-mu2.png")
+```{r, echo=FALSE, out.width="78%", fig.align = "center"}
+knitr::include_graphics("img/EdeP-mu1-mu2.png")
 ```
 
 
@@ -775,12 +884,12 @@ knitr::include_graphics("img/EdePmu1-mu2.png")
 
 <br/><br/>
 
-### **Caso grupos pareados**
+## Caso grupos pareados
 
 <br/>
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 4</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 6</div> 
 
  El director de un gimnasio requiere determinar si contrata o no a un instructor para su campaña de reducción de peso. Para tomar la decisión decide tomar un grupo de 16 personas que acuden normalmente para darle una oportunidad a un aspirante al cargo. Los siguientes datos corresponden a los resultados obtenidos antes y después de un mes de estar en el programa. Utilice un nivel de significancia $\alpha= 0.10$, para determinar si contrata o no al aspirante.|
 
@@ -813,21 +922,21 @@ t.test(pant, pdes,
 
 <br/><br/>
 
-### **Conclusión**
+## Conclusión
 
 Como el `valor-p` ( 0.8889) es mayor que nuestro nivel de significancia ($\alpha= 0.10$), no se rechaza la hipótesis nula, no existe suficiente evidencia en la muestra que permita rechazarla. Se asume que Ho es verdad. Es decir que no hay evidencia que el programa reduzca el peso.
 
 
-<br/><br/><br/>
-
-## **Caso1 grupos independientes**
+<br/>
+<br/>
+## Caso grupos independientes con varianzas iguales
 
 $S_1$: variables con distribución normal
 $S_2$: varianzas iguales
 
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 4</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 7</div> 
 Una empresa desarrolla un curso de entrenamiento para sus empleados, formando dos grupos y aplicando dos metodologías diferentes de entrenamiento con el fin de poder evaluar que método produce los mejores resultados. El primer grupo (g1) esta conformado por 36 empleados y el segundo grupo (g2) por 40 empleados . Se puede afirmar que el método aplicado al segundo grupo produce mejores resultados que el aplicado al primer grupo ? ¿Que supuestos debe tener en cuenta? 
 
 <pre>
@@ -867,16 +976,14 @@ Iniciaremos con una prueba de hipótesis para la comparación de varianzas:
 Ho:$\sigma^{2}_{1} = \sigma^{2}_{2}$<br/>
 
 Ha:$\sigma^{2}_{1} \neq \sigma^{2}_{2}$<br/>
-
-<br/><br/>
-
+<br/>
 ```{r}
 var.test(grupo1,grupo2)
 ```
 
 <br/><br/>
 
-### **Conclusión**
+## Conclusión
 
 Como el `valor-p` (0.4282) es mayor al nivel de significancia ($\alpha=0.05$), no rechazamos la hipótesis nula, no existe suficiente evidencia en la muestra que permita rechazarla, asumimos que las varianza son iguales.
 
@@ -897,23 +1004,23 @@ t.test(grupo1, grupo2,
 ```
 <br/><br/>
 
-### **Conclusión**
+## Conclusión
 
 Como el `valor-p` (2.2e-16) es menor que el nivel de significancia, rechazamos la hipótesis nula, aceptamos como verdadera la hipótesis alterna. La media el primer grupo es significativamente menor que la media obtenida por el segundo grupo. Esto indica que el método aplicado al segundo grupo produce mejores resultados. 
 
-<br/><br/><br/>
-
-## **Caso2 grupos independientes**
+<br/>
+<br/>
+## Caso grupos independientes con varianzas diferentes
 
 $S_1$: variables con distribución normal
 $S_2$: varianzas diferentes
 
 <br/><br/>
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 6</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 8</div> 
 
- Supongamos que la empresa del ejemplo 5, desea comparar los resultados obtenidos por el grupo 2 con un tercer grupo externo con el fin de realizar una valoración adicional que le permita una visión más general de los métodos empleados 
+ Supongamos que la empresa del ejemplo 8, desea comparar los resultados obtenidos por el grupo 2 con un tercer grupo externo con el fin de realizar una valoración adicional que le permita una visión más general de los métodos empleados 
 
 <br/><br/>
 
@@ -953,20 +1060,20 @@ En este caso tenemos una comparación de medias para grupos independientes con v
 
 <br/><br/>
 
-### **Conclusión**
+## Conclusión
 
 Analizando el resultado de la prueba t-Student, el `valor-p` resultante (3.781e-12) indica que se rechaza la hipótesis nula, se acepta la hipótesis alterna como verdadera. Podemos afirmar que existen diferencias significativas entre las dos medias.
 
 
 
-<br/><br/><br/>
-
-## **PdeH en diferencia de proporciones**
+<br/>
+<br/>
+## **Pruebas de hipótesis para diferencia de proporciones
 
 <br/>
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 7</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 9</div> 
 
 Una encuesta realizada a 100 usuarios de una tarjeta de crédito seleccionados aleatoriamente, 57 dijeron que sabían que empleando su tarjeta podían ganar millas de viajero. Después de una campaña publicitaria para difundir este beneficio, se realizo una encuesta independiente entre 150 usuarios de la tarjeta de crédito y 87 informaron que conocían el beneficio. ¿Se puede concluir que el conocimiento de este beneficio aumento después de la campaña publicitaria? 
 
@@ -987,13 +1094,13 @@ prop.test(c(57,87),c(100,150),
 ```
 <br/><br/>
 
-### **Conclusión**
+## Conclusión
 
 Como el `valor-p` ( 0.4896) es mayor al nivel de significancia, no se rechaza la hipótesis nula, no existe suficiente evidencia en la muestra que permita rechazarla, asumimos que Ho es verdad. Por tal motivo no se perciben mejoras el conocimiento de los beneficios que trae el uso de la tarjeta de crédito.  Se recomienda revisar la forma en que se realiza la campaña publicitaria.
 
-<br/><br/><br/><br/>
-
-# **PdeH no paramétricas**
+<br/>
+<br/>
+# Pruebas de hipótesis no paramétricas
 
 <br/><br/>
 
@@ -1003,7 +1110,7 @@ Note que la distribución normal esta relacionada con las distribuciones t-stude
 
 <br/><br/>
 
-### **Cuando utilizar pruebas no parametricas**:
+## Cuando utilizar pruebas no parametricas:
 
 + Cuando no se cumplen los supuestos como Normalidad
   + Tamaños mínimos de muestra
@@ -1017,7 +1124,7 @@ Note que la distribución normal esta relacionada con las distribuciones t-stude
 
 <br/><br/>
 
-### **Ventajas de utilizar pruebas no paramétricas**
+## Ventajas de utilizar pruebas no paramétricas
 
 + Son fáciles de usar (aunque dada la facilidad de los códigos en R ambas se corren con una línea)
 + No se requieren comprobar supuestos
@@ -1026,7 +1133,7 @@ Note que la distribución normal esta relacionada con las distribuciones t-stude
 
 <br/><br/>
 
-### **Desventajas** 
+## Desventajas 
 
 + Ignoran información
 + No son tan eficientes como las pruebas parametricas, tienen menor potencia.
@@ -1047,7 +1154,7 @@ Entre las principales pruebas no paramétricas estan :
 <br/><br/>
 
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Prueba de signos</div>  
 
 |            |                                                                 |
@@ -1061,8 +1168,8 @@ Entre las principales pruebas no paramétricas estan :
 
 <br/><br/>
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 8</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 10</div> 
 
 Carlos y Ángela, Administradoras investigadores de una firma de artículos deportivos tienen la creencia que el deporte afecta la imagen que cada persona tiene de si misma. Para investigar esta posibilidad eligieron a 18 personas de manera aleatoria, para participar en un programa de ejercicios. Antes de empezar el programa las personas respondieron un cuestionario para medir su propia imagen.  Un nivel de 15 puntos en la prueba establece que la persona tiene un concepto indiferente frente a la afirmación, valores menores de 15 que la afecta en forma negativa y valores por encima de 15 que afectan su imagen en forma positiva. Los siguientes son resultados obtenidos : 16, 15, 12, 17, 18, 14, 16, 14, 16,  17, 19, 16,  14, 21, 20, 16, 16, 16  
 
@@ -1076,7 +1183,7 @@ x.img=c(16, 15, 12, 17, 18, 14, 16, 14, 16,  17, 19, 16,  14, 21, 20, 16, 16, 16
 
 <br/><br/>
 
-### **Solución**:
+## Solución:
 
 Hipótesis Nula	$Ho: Me = 15$ 
 
@@ -1099,7 +1206,7 @@ $P(X\leq 13) =  1-0.9755 =  0.0245$  ( valor-p)
 
 <br/><br/>
 
-### **Conclusión**:
+## Conclusión:
 
 Se rechaza la hipótesis nula, se acepta la hipótesis alterna. Se puede   afirmar que las personas tienen la creencia que el deporte afecta positivamente su imagen.
 
@@ -1110,7 +1217,7 @@ SIGN.test(x.img,md=15,alternative = "greater")
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Prueba chi-cuadrado de bondad de ajuste</div>
 
 |            |                                                                 |
@@ -1124,8 +1231,8 @@ SIGN.test(x.img,md=15,alternative = "greater")
 <br/><br/>
 
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 9</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 11</div> 
 
  El dueño de una panadería tiene la posibilidad de controlar los niveles de inventarios de leche para cuatro marcas diferentes. Con el fin de establecer políticas para la realización de nuevos pedidos requiere saber si la demanda de estas marcas son iguales (distribución uniforme). Con este propósito tomo la información de un día: 
 
@@ -1139,7 +1246,7 @@ SIGN.test(x.img,md=15,alternative = "greater")
 
 <br/><br/>
 
-### **Solución**:
+## Solución:
 
 Ho: Las ventas se distribuyen de manera uniforme (cantidad demandada es igual para todas las marcas) <br/>
 Ha: Las ventas no tienen una distribución uniforme
@@ -1154,8 +1261,8 @@ chisq.test(x=obs,p=esp)
 
 <br/><br/>
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 10</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 12</div> 
 
  Un profesor desea establecer si los resultados obtenidos por sus estudiantes tienen una distribución normal con media 3.5 y desviación estándar 0.7 puntos. Los datos se resumen en la siguiente tabla:  |
  
@@ -1188,7 +1295,7 @@ chisq.test(x=obs.nf,p=esp.nf)
 
 <br/><br/>
 
-<!-- <div class="box1 with-label"> -->
+<!-- <div class="box4 with-label"> -->
 <!-- <div class="label">Prueba chi-cuadrado de independencia</div> -->
 
 <!-- FALTA ***************************************************** -->
@@ -1196,8 +1303,8 @@ chisq.test(x=obs.nf,p=esp.nf)
 <!-- <br/><br/> -->
 
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 11</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 13</div> 
 
  Un investigador desea establecer la relación que puede existir entre la calificación obtenida por un producto por parte de sus consumidores y su ubicación de residencia. Con este fin recoge información de 100 de sus clientes:
 
@@ -1217,7 +1324,7 @@ chisq.test(x=obs.nf,p=esp.nf)
 <br/><br/>
 
 
-### **Solución**:
+## Solución:
 
 |                                                                                |
 |:-------------------------------------------------------------------------------|
@@ -1246,9 +1353,9 @@ Como `p-value` = 0.1543 lo podemos considerar grande, no se rechaza $Ho$, asumim
 
 
 
-<br/><br/><br/>
-
-<div class="box1 with-label">
+<br/>
+<br/>
+<div class="box4 with-label">
 <div class="label">Prueba de Wilcoxon</div>
 
 |            |                                                                 |
@@ -1261,8 +1368,8 @@ Objetivo	          | Determinar su la diferencia entre la magnitud de las difere
 
 <br/><br/>
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 12</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 14</div> 
 
  Los siguiente datos se tomaron de un estudio de comparación de adolescentes sanos (G1) y de adolescentes con bulimia (G2). El primer grupo está conformado por 15 estudiantes y el segundo grupo por 14 estudiantes y corresponden al consumo diario en calorías. Los datos obtenidos son los siguientes:  
  
@@ -1274,7 +1381,7 @@ g2 = c(39,10,21,29,11,26,7,12,28,32,30,27,50,19,24)
 </div>
 
 
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">Nota</div> 
 
 Antes de realizar la comparación de medias, se debe realizar una prueba de bondad de ajuste para establecer si los datos siguen una distribución normal o no. En caso de que los datos no tengan distribución normal, entonces se debe realizar una prueba no paramétrica.
@@ -1298,7 +1405,7 @@ wilcox.test(g1,g2,paired = FALSE,alternative = "greater")
 
 <br/><br/>
 
-### **Conclusión** :  
+## Conclusión:  
 
 Se rechaza Ho , se acepta Ha. Se puede concluir que las dos poblaciones son diferentes. por lo tanto las medias son diferentes.
 
@@ -1308,7 +1415,7 @@ Por lo tanto los estudiantes sanos presentan consumo de calorías menores que lo
 
 <br/><br/>
 
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">Prueba de Kruskal-Wallis</div>
 
 |            |                                                                 |
@@ -1321,8 +1428,8 @@ Por lo tanto los estudiantes sanos presentan consumo de calorías menores que lo
 <br/><br/>
 
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 13</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 15</div> 
 
  Para verificar si la memoria cambia con la edad, una investigadora realiza un estudio en el cual hay tres grupos de personas: G1- 60 años de edad, G2: con 50 años de edad, G3: con 40 años de edad. A cada persona se le presenta una serie de palabras. La serie es presentada dos veces y se cuenta el número de palabras que pueden recordar. |
 
@@ -1352,14 +1459,14 @@ kruskal.test(g1,g2,g3)
 
 <br/><br/>
 
-<!-- <div class="box1 with-label"> -->
+<!-- <div class="box4 with-label"> -->
 <!-- <div class="label">Correlación de Spearman</div> -->
 
 <!-- FALTA *********************************************** -->
 <!-- </div> -->
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 14</div>
+<div class="box6 with-label">
+<div class="label">Ejemplo 16</div>
 
 Se requiere establecer si existe relación entre el tiempo de estudio dedicado a la preparación de una evaluación y la nota obtenida. Como la nota obtenida representa una variable cualitativa, se debe utilizar una prueba no paramétrica (coeficiente de correlación de Spearman). Los datos obtenidos son los siguientes: |
 
@@ -1381,9 +1488,9 @@ cor.test(x,y, method = "spearman",continuity = FALSE,conf.level = 0.95)
 En este caso se utiliza el coeficiente de correlación de Sperman para valorar la relación entre las variables debido a que la nota es una variable que podríamos llamar cualitativa, operacionalizada cuntitativa con una nota.
 
 
-<br/><br/><br/>
-
-<!-- <div class="box1 with-label"> -->
+<br/>
+<br/>
+<!-- <div class="box4 with-label"> -->
 <!-- <div class="label">Prueba de Rachas</div> -->
 
 <!-- FALTA----------------------------------------------------- -->
@@ -1392,8 +1499,8 @@ En este caso se utiliza el coeficiente de correlación de Sperman para valorar l
 
 <!-- <br/><br/> -->
 
-<div class="box2 with-label">
-<div class="label">Ejemplo 15</div> 
+<div class="box6 with-label">
+<div class="label">Ejemplo 17</div> 
 
 Para verificar si los números aleatorios generados por Excel son de verdad aleatorios se tomó una muestra de ellos mediante la función `=aleatorio.entre()`, obteniendo como resultado los siguientes números: 
 <pre>
@@ -1415,16 +1522,15 @@ y=rnorm(100,120,20)
 runs.test(y)
 ```
 
-### **Conclusión**
+## Conclusión
 
 Como el `valor-p` (0.3149) es mayor al nivel de significancia, no se rechaza la hipótesis nula, no existe suficiente evidencia en la muestra que permita rechazarla, asumimos que los datos son aleatorios.
 
 
 
-<br/><br/><br/>
-
-
-<div class="box1 with-label">
+<br/>
+<br/>
+<div class="box4 with-label">
 <div class="label">Prueba de normalidad</div>
 
 Uno de los procedimientos mas utilizados en estadística es la relacionada con la verificación de normalidad de una variable. 
@@ -1457,7 +1563,7 @@ Como el `valor-p` es superior al nivel de significancia $\alpha$, no se rechaza 
 
 <br/><br/>
 
-### **Otras pruebas de normalidad utilizadas**
+## Otras pruebas de normalidad utilizadas
 
 
 ```{r}
@@ -1480,22 +1586,21 @@ lillie.test(x) # Kolmogorov-Smirnov
 pearson.test(x) # chi-cuadrado de Pearson
 ```
 
-En todos los casos el valor-p es inferior al valor de $\alpha = 0.05$, por tal razón se asume que los datos siguen una distribución normal.
+Si el valor *p* de una prueba de normalidad es inferior a $\alpha=0.05$, se rechaza la hipótesis nula de normalidad. Si es mayor o igual, no se rechaza; esto no demuestra que los datos sigan exactamente una distribución normal.
 
 <br/><br/>
 
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">Resumen</div>
 
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
-knitr::include_graphics("img/EdeP1.png")
-knitr::include_graphics("img/EdeP2.png")
+```{r, echo=FALSE, out.width="88%", fig.align = "center"}
+knitr::include_graphics(c("img/EdeP1.png", "img/EdeP2.png"))
 ```
 </div>
 
-<br/><br/><br/><br/>
-
-<!-- <div class="box3 with-label"> -->
+<br/>
+<br/>
+<!-- <div class="box2 with-label"> -->
 <!-- <div class="label">Resumen</div> -->
 
 <!-- <br/> -->
@@ -1527,14 +1632,14 @@ knitr::include_graphics("img/EdeP2.png")
 
 <br/><br/>
 
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">Reglas de decisión</div>
 
 |                 |                                          |
 |:----------------|:---------------------------------------------------------------|
-| **Regla1**:         | Si el $EdeP$ cae en la $RdeR$, entonce se rechaza la $H_{0}$ y se **acepta** $H_{a}$ como verdadera. Si por el contrario el $EdeP$ NO cae en la $RdeR$, entonces NO se rechaza $H_{0}$, no existe suficiente evidencia para rechazarla, **asumimos** que $H_{0}$ es verdad.|
-| **Regla2**:         | Si $\alpha >$ `valor-p` entonces rechazamos $H_{0}$, se **acepta** $H_{a}$. Si por el contrario $\alpha<$ `valor-p`, no rechazamos $H_{0}$, **asumimos** 	que $H_{0}$ es verdad. |
-| **Regla3**:         | El `valor-p` se interpreta como el error que puedo cometer al rechazar $H_{0}$, siendo esta verdadera (cometer error tipo I). Si este valor es considerado como pequeño, rechazo $H_{0}$, se **acepta** $H_{a}$. Si por el contrario se considera este valor grande, entonce no rechazo $H_{0}$, asumo que $H_{0}$ es verdad.|
+| **Regla 1: región crítica** | Si el estadístico de prueba pertenece a la región de rechazo, se rechaza $H_0$; de lo contrario, no se rechaza. |
+| **Regla 2: valor p** | Si el valor *p* es menor o igual que $\alpha$, se rechaza $H_0$; si es mayor, no se rechaza. |
+| **Regla 3: interpretación** | El valor *p* es la probabilidad, suponiendo verdadera $H_0$, de obtener un resultado al menos tan extremo como el observado. **No** es la probabilidad de que $H_0$ sea verdadera ni la probabilidad de cometer un error de tipo I en ese contraste particular. |
 
 </div>
 
@@ -1549,10 +1654,11 @@ knitr::include_graphics("img/EdeP2.png")
 
 <br/><br/>
 
-<div class="box4 with-label">
-<div class="label">Código R</div>
+# Código R
 
-```{r, echo=FALSE, out.width="10%"}
+<div class="box4 with-label">
+
+```{r, echo=FALSE, out.width="12%"}
 knitr::include_graphics("img/logoR.png")
 ```
 
@@ -1576,7 +1682,7 @@ knitr::include_graphics("img/logoR.png")
 |                   |`prop.test(c(x1,x2), c(n1,n2))`                           |
 |                   |**Pruebas no paramétricas**                               |
 |                   | `chisq.test(x=obs,p=esp)`                                |
-| paquete: MASS     | `library(MASS)`                                          |
+|paquete: MASS      | `library(MASS)`                                          |
 |                   |`chisq.test(M)`  # M: matriz                              |
 |paquete: BSDA      |`library(BSDA)`                                           |
 |                   |`SIGN.test(x,md=15,alternative = "greater")`              |
@@ -1605,9 +1711,9 @@ knitr::include_graphics("img/logoR.png")
 
 <br/><br/>
 
+# Tipos de pruebas
 
-<div class="box3 with-label">
-<div class="label">Tipos de hipótesis</div>
+<div class="box2 with-label">
 
 |Tipos de pruebas   |                                                                 |
 |:------------------|:----------------------------------------------------------------|
@@ -1668,7 +1774,7 @@ learnr::run_tutorial("Taller_pruebas1", "paqueteDEG")
 
 
 
-```{r, echo=FALSE, out.width="100%"}
+```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics("img/tutorial401.png")
 ```
 
@@ -1680,7 +1786,7 @@ learnr::run_tutorial("Taller_pruebas2", "paqueteDEG")
 
 
 
-```{r, echo=FALSE, out.width="100%"}
+```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics("img/tutorial402.png")
 ```
 
@@ -1690,59 +1796,3 @@ Nota: para la instalacion del paquete *distributions* se requiere la instalcion 
 
 <br/><br/>
 
-# **Presentaciones**
-
-```{r, echo=FALSE}
-library(htmltools)
-
-tags$iframe(
-  src = "pdf/P-PruebasH.pdf",
-  width = "100%",
-  height = "500"
-)
-```
-
-
-
-<!-- ```{r, echo=FALSE} -->
-<!-- library(htmltools) -->
-
-<!-- tags$iframe( -->
-<!--   src = "pdf/NoParametricas2.pdf", -->
-<!--   width = "100%",   -->
-<!--   height = "500"   -->
-<!-- ) -->
-<!-- ``` -->
-
-
-
-
-# **Taller 435**
-
-
-```{r, echo=FALSE}
-library(htmltools)
-
-tags$iframe(
-  src = "pdf/Taller435.pdf",
-  width = "100%",
-  height = "800"
-)
-```
-
-
-
-
-
-# **Taller ejercicios propuestos**
-
-
-```{r, echo=FALSE}
-library(htmltools)
-
-tags$iframe(
-  src = "pdf/Taller PdeH_ver2.pdf",
-  width = "100%",
-  height = "800"
-)
-```

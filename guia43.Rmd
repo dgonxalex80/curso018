@@ -1,7 +1,7 @@
 ---
-title: " "
-subtitle: " "
-author: "dgonzalez "
+title: "<span style='color:#8A6FD1 !important;'>Estadística para la toma de decisiones</span>"
+author: <span style="color:#8A6FD1">dgonzalez </span> 
+subtitle: <span style="color:#8A6FD1"> </span> 
 output:
   html_document:
     toc: no
@@ -9,7 +9,9 @@ output:
     toc_float: yes
     code_folding: hide
     theme: flatly
-    css: style.css
+    css:
+      - style.css
+      - cajas.css
 ---
 
 
@@ -32,7 +34,7 @@ knitr::include_graphics("img/guia4.png")
 <br/><br/>
 
 
-## **Introducción**
+# Introducción
 
 El origen de los estudios, relacionados con las pruebas de hipótesis estadísticas, se sitúa alrededor de 1738, cuando en un ensayo escrito por Daniel Bernoulli aparece el cálculo una estadística de prueba para ensayar su hipótesis en el campo de la astronomía. Entre 1915 y 1933 se desarrolla esta formulación gracias a los estudios realizados por tres grandes autores: Ronald Fisher, Jerzy Neyman y Egon Pearson. Hoy en día predomina la teoría de Neyman-Pearson (lema de Neyman-Pearson). 
 
@@ -45,15 +47,15 @@ En esta unidad se plantea el siguiente objetivo, el cual podrá lograrse con el 
 
 <br/><br/>
 
-## **Objetivos de la unidad**
+# Objetivos de la unidad
 
 Al finalizar la unidad el estudiante estará en capacidad de IDENTIFICAR, CALCULAR, CONTRASTAR y CONCLUIR sobre una hipótesis estadística que le permita la elección de la prueba más potente para la verificación de una prueba de hipótesis, permitiéndole tomar decisiones informadas.
 
 <br/><br/>
 
-## **Duración**
+# Duración
 
-La presente  unidad será desarrollada durante la comprendida entre 27 de octubre al 9 de noviembre de 2025.   
+La presente  unidad será desarrollada durante la comprendida entre el 21 de octubre al 7 de noviembre de 2026.   
 Ademas del material suministrado  contaran con el acompañamiento del profesor y de manera asincrónica con  foro de actividades académicas. Los entegables para esta unidad podrán enviarse a través de la plataforma Brightspace hasta el  31 de octubre
 
 Para alcanzar los objetivos planteados se propone realizar las siguientes actividades
@@ -61,7 +63,7 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 
 <br/><br/>
 
-## **Cronograma de trabajo**
+# Cronograma de trabajo
 
 <br/><br/>
 
@@ -70,12 +72,12 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 |:-----------------|:-----------------------------  |
 |**Actividad 431** | Resuelva las preguntas y problemas planteadas en el **Taller 431** y entregue su solución  en formato  pdf en el enlace correspondiente de  Brightspace   |
 |Trabajo individual|                                |
-|Fecha             | noviembre 9  de 2025            |
-|Hora              | 23:59 hora local               |
+|Fecha             | noviembre 20  de 2026            |
+|Hora              | 9:00 hora local               |
 
 <br/><br/>
 
-## **Criterios de evaluación**
+# Criterios de evaluación
 
 
 + Reconoce los diferentes conceptos asociados con las pruebas de hipótesis 
@@ -84,13 +86,13 @@ Para alcanzar los objetivos planteados se propone realizar las siguientes activi
 
 <br/><br/>
 
-## **Entregables** 
+# Entregables 
 
 |Actividad         | Descripción                    | 
 |:--------------|:-----------------------------|
 | Actividad 431 | Solucionario taller 431 de problemas sobre pruebas de hipótesis| 
-| Fecha         | 9 de noviembre de 2025 |
-| Hora          | 23:59 hora local       |
+| Fecha         | 20 de noviembre de 2025 |
+| Hora          | 9:00 hora local       |
 
 <br/><br/>
 

@@ -1,7 +1,7 @@
 ---
-title: "**Taller 431**"
-subtitle: " "
-author: "dgonzalez "
+title: "<span style='color:#8A6FD1 !important;'>Estadística para la toma de decisiones</span>"
+author: <span style="color:#8A6FD1">dgonzalez </span> 
+subtitle: <span style="color:#8A6FD1"> </span> 
 output:
   html_document:
     toc: no
@@ -9,7 +9,9 @@ output:
     toc_float: yes
     code_folding: hide
     theme: flatly
-    css: style.css
+    css:
+      - style.css
+      - cajas.css
 ---
 
 
@@ -43,12 +45,12 @@ source("init.R")
 
 
 ```{r, echo=FALSE, out.width="100%", fig.align = "left"}
-knitr::include_graphics("img/taller3.png")
+knitr::include_graphics("img/taller4.png")
 ```
 
 </br></br>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 1</div>
 
 <br/>
@@ -59,7 +61,7 @@ Suponga que se estudia la compra de una nueva maquina para una empresa. Se compr
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 2</div>
 
 Los ingenieros de una ensambladora de automóviles requieren decidir sobre cuál de dos de las marcas de neumáticos deben comprar. La marca FB o la marca KT. Con el fin de tomar una decisión basada en evidencias estadísticas, deciden realizar un experimento en el que usan 12 neumáticos de cada marca. Los neumáticos se utilizan hasta su terminación. Los resultados obtenidos son los siguientes:
@@ -96,7 +98,7 @@ Cuál marca de neumáticos recomendaría comprar. Justifique su respuesta. Supon
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 3</div>
 
 
@@ -138,7 +140,7 @@ Presentan los datos suficiente evidencia estadística para afirmar que el nuevo 
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 4</div>
 
 
@@ -159,7 +161,7 @@ Emplee y realice las pruebas de hipótesis a un nivel de significancia del 0.01 
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 5</div>
 
 Se realizan pruebas de un nuevo lector láser manual para uso en inventarios y el lector utilizado actualmente, con el fin de decidir si se adquiere el primero. Se obtienen los datos siguientes sobre el número de códigos de barra de 7 pulgadas que pueden leerse por segundo. Sea $X_{1}$: número de códigos leído por segundo con el dispositivo nuevo y $X_{2}$ el correspondiente al dispositivo antiguo.
@@ -175,7 +177,7 @@ De acuerdo con la información suministrada, es posible preferir alguno de ellos
 	
 <br/><br/>
 	
-### **Ayuda**
+### Ayuda
 
 <pre>
 n1=61
@@ -199,7 +201,7 @@ qt(c(0.025,0.975), n1+n2-2)
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 6</div>
 
 Un empresario registro el número de artículos producidos durante 10 días, para un grupo de 15 obreros que trabajaban con base en un salario fijo (Grupo 1). El industrial introdujo un plan de incentivos para otros 15 obreros y registro su producción durante otros 10 días (Grupo 2). El número de artículos producidos por cada uno de los grupos fue :   \\
@@ -217,7 +219,7 @@ Suponiendo que los salarios pagados a cada grupo son equivalentes. Se puede conc
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 7</div>
 
 En una muestra de 200 clientes, el 20\% indica una preferencia por tamaño especial de pizza.  Con posterioridad a una campaña publicitaria realizada en radio y televisión promoviendo dicho producto, se selecciono una muestra de igual tamaño.  En esta ultima muestra el 22\% de los clientes indico preferencia por el producto. De acuerdo con estos resultados y un nivel de significancia del 5\% , podría decirse que la campaña publicitaria no fue efectiva? 
@@ -227,7 +229,7 @@ En una muestra de 200 clientes, el 20\% indica una preferencia por tamaño espec
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 8</div>
 
 Los siguientes son los datos de las horas hombre que se pierden en promedio por accidentes en 10 plantas industriales antes (A) y después (D) de la implantación de un programa de seguridad industrial:\\
@@ -244,7 +246,7 @@ Utilice un nivel de significancia de 0.05 para probar si el programa de segurida
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 9</div>
 
 La compañía de dulces Mars publica en su sitio web información relacionada con los porcentajes de los distintos colores de sus dulces M\|M para la variedad de chocolate con leche.
@@ -272,7 +274,7 @@ Se podria afirmar que los datos anteriores respaldan la información suministrad
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 10</div>
 
 En una línea de producción los artículos se inspeccionan en forma periódica con el fin de detectar defectos. La siguiente secuencia de artículos defectuosos (D) y no defectuosos (N) corresponde a la producción de uno de los turnos. 
@@ -289,7 +291,7 @@ Se puede afirmar que los datos no presentan patrón alguno y que la generación 
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 11</div>
 
 En una planta ensambladora de camiones la supervisión diaria de las soldaduras generó la siguiente información :
@@ -318,7 +320,7 @@ m
 
 <br/><br/><br/>
 
-<div class="box2 with-label">
+<div class="box4 with-label">
 <div class="label">Problema 12</div>
 
 Los siguientes datos corresponde a las notas obtenidas por un grupo de estudiantes de la asignatura Matemáticas Fundamentales. Si la distribución de los datos es normal, podría afirmar que la prueba realizada es una prueba normalizada. En caso contrario serviría para estudiar problemas relacionados con su aprendizaje. Para un $\alpha= 0;05$, se podría afirmar que los datos proceden de una distribución normal? . Si se requiere realizar una prueba de hipótesis sobre la media de la nota $H_{o}:\mu \leq 3.3$ vs $H_{a}: \mu > 3.3$, ¿Que prueba se realizaría? 
@@ -343,11 +345,11 @@ x=c(3.4, 2.8, 4.2, 2.1, 2.8, 2.4, 3.5, 4.2, 3.1, 4.1, 2.4, 3.4, 4.1, 4.0, 2.4,
 
 <br/><br/><br/>
 
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">FORMULARIO PRUEBAS DE HIPÓTESIS PARAMÉTRICA</div>
 
 
-####  **Una población**
+###  Una población
 
 $$Z_{o} = \dfrac{\bar{X}-\mu_{o}}{\sigma/\sqrt{n}}\sim N(0,1)$$
 
@@ -370,7 +372,7 @@ $$Z_{o}= \dfrac{X-n \hspace{.1cm} p_{o}}{\sqrt{n \hspace{.1cm }p_{o}}} \sim N(0,
 
 <br/><br/><br/>
 
-#### **Dos poblaciones**
+### Dos poblaciones
 
 $$Z_{o}=\dfrac{\widehat{p}-p_{0}}{\sqrt{p_{o}(1-p_{o})/n}} \sim N(0,1)$$
 
@@ -414,7 +416,7 @@ $$F =  \dfrac{s_{1}^{2}}{s_{2}^{2}} \sim F_{v_{1}:n_{1}-1; v_{2}: n_{2}-1}$$
  
 <br/><br/><br/> 
  
- <div class="box3 with-label">
+ <div class="box2 with-label">
 <div class="label">Regiones de Rechazo</div>
 
 <br/>
@@ -443,24 +445,24 @@ $H_{a}: \theta > \theta_{o}$
 
 
 
- <div class="box3 with-label">
+ <div class="box2 with-label">
 <div class="label">Reglas de decisión</div>
 
 
-### **Regla1**:  
+### Regla1:  
 
 Si el Estadístico de Prueva cae en la Región de Rechazo, entonce se rechaza la $H_{0}$ y se **acepta** $H_{a}$ como verdadera. Si por el contrario el $EdeP$ NO cae en la $RdeR$, entonces NO se rechaza $H_{0}$, no existe suficiente evidencia para rechazarla, **asumimos** que $H_{0}$ es verdad.
 
 <br/>
 
-### **Regla2**: 
+### Regla2: 
 
 Si el valor de $\alpha >$ valor-p entonces rechazamos $H_{0}$, se {\bf acepta} $H_{a}$. Si por el contrario $\alpha <$ $valor-p$, no rechazamos $H_{0}$, **asumimos** 	que $H_{0}$ es verdad.
 
 <br/>
 
 
-### **Regla3**:
+### Regla3:
 
 El $valor-p$ se interpreta como el error que puedo cometer al rechazar $H_{0}$, siendo esta verdadera (cometer error tipo I). Si este valor es considerado como pequeño, rechazo $H_{0}$, se **acepta** $H_{a}$. Si por el contrario se considera este valor grande, entonce no rechazo $H_{0}$, se **asume** que $H_{0}$ es verdad.\\
 
@@ -469,11 +471,11 @@ El $valor-p$ se interpreta como el error que puedo cometer al rechazar $H_{0}$, 
 <br/><br/><br/>
 
 
- <div class="box4 with-label">
+ <div class="box2 with-label">
 <div class="label">Códigos en R pruebas paramétricas</div>
 <br/><br/>
 
-### **Entrada de datos** 
+### Entrada de datos 
 
 <pre>
 x1=c(7, 13, 6, 5, 5, 10, 8, 6, 7)
@@ -490,7 +492,7 @@ prop.test(x,n, p=0.20, conf.level=0.98)
 
 <br/><br/><br/>
 
-### **Dos poblaciones**
+### Dos poblaciones
 
 <pre>
 t.test(x1,x2,  paired=TRUE)
@@ -500,7 +502,7 @@ var.test(x,y)
 prop.test(c(x1,x2), c(n1,n2))
 </pre>
 
-### **Códigos en R pruebas no paramétricas** 
+### Códigos en R pruebas no paramétricas 
 
 <pre>
  library(BSDA)
@@ -523,7 +525,7 @@ prop.test(c(x1,x2), c(n1,n2))
 <br/><br/><br/>
 
 
- <div class="box4 with-label">
+ <div class="box2 with-label">
 <div class="label">Códigos en R pruebas de normalidad</div>
 
 <pre>
@@ -558,6 +560,6 @@ wb.test(x)
 <br/><br/><br/>
 
 Profesor Daniel Enrique González Gómez <br/>
-Curso: Probabilidad y Estadística
+Curso: Estadística para la toma de decisiones
 
 </div>

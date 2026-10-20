@@ -9,18 +9,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="dgonzalez" />
+<meta name="author" content="dgonzalez " />
 
 
-<title>recurso43.knit</title>
+<title>Estadística para la toma de decisiones</title>
 
-<script src="site_libs/header-attrs/header-attrs.js"></script>
-<script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap/shim/respond.min.js"></script>
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -30,15 +30,12 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui/jquery-ui.min.js"></script>
-<link href="site_libs/tocify/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify/jquery.tocify.js"></script>
-<script src="site_libs/navigation/tabsets.js"></script>
-<script src="site_libs/navigation/codefolding.js"></script>
-<link href="site_libs/highlightjs/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs/highlight.js"></script>
-<link href="site_libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -66,6 +63,7 @@ if (window.hljs) {
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="cajas.css" type="text/css" />
 
 
 
@@ -230,69 +228,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -300,16 +235,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -567,6 +492,26 @@ div.tocify {
         </li>
       </ul>
     </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 4.3</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia43.html">Guía 4.3</a>
+        </li>
+        <li>
+          <a href="recurso43.html">Recursos 4.3</a>
+        </li>
+        <li>
+          <a href="codigo43.html">Código 4.3</a>
+        </li>
+        <li>
+          <a href="taller431.html">Taller 431</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="monitoria3.html">Monitoría 3</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -613,77 +558,166 @@ div.tocify {
 
 
 
+<h1 class="title toc-ignore"><span
+style="color:#8A6FD1 !important;">Estadística para la toma de
+decisiones</span></h1>
+<h3 class="subtitle"><span style="color:#8A6FD1"> </span></h3>
+<h4 class="author"><span style="color:#8A6FD1">dgonzalez </span></h4>
 
 </div>
 
 
-<p><img src="img/recurso4.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
-<p><br/><br/><br/></p>
-<p><img src="img/decision4.png" alt="" width="40%" style="display: block; margin: auto;" /></p>
-<center>
-Tomada de : <a href="https://pixabay.com/es/"
-class="uri">https://pixabay.com/es/</a>
-</center>
+<p><img src="img/recurso4.png" alt="" width="92%" style="display: block; margin: auto;" /></p>
+<audio controls style="width:80%;">
+<source src="audios/pdeh0.mp3" type="audio/mpeg">
+</audio>
+<p><br/><br/></p>
+<p><img src="img/decision.png" alt="" width="36%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
 <div id="introducción" class="section level1">
-<h1><strong>Introducción</strong></h1>
+<h1>Introducción</h1>
 <p><br/></p>
-<p><img src="img/pruebas1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="img/cientificos-pdeh.png" alt="" width="82%" style="display: block; margin: auto;" /></p>
+<audio controls style="width:80%;">
+<source src="audios/pdeh1.mp3" type="audio/mpeg">
+</audio>
+<p><strong>(1) Daniel Bernoulli (1700–1782).</strong> Matemático y
+físico suizo. Estudió filosofía, lógica y medicina en las universidades
+de Heidelberg, Estrasburgo y Basilea. Obtuvo el doctorado en Medicina en
+la Universidad de Basilea en 1721. Su interés por las matemáticas y la
+física lo llevó a realizar importantes contribuciones a la teoría de la
+probabilidad y sus aplicaciones científicas.</p>
+<p><strong>(2) Ronald A. Fisher (1890–1962).</strong> Estadístico y
+genetista británico. Estudió matemáticas en el Gonville and Caius
+College de la Universidad de Cambridge, donde se graduó en 1912. Su
+sólida formación matemática le permitió desarrollar contribuciones
+fundamentales a la inferencia estadística, la genética, el análisis de
+varianza y el diseño de experimentos.</p>
+<p><strong>(3) Jerzy Neyman (1894–1981).</strong> Matemático y
+estadístico polaco. Estudió matemáticas en la Universidad de Járkov,
+donde recibió formación en teoría de la medida y probabilidad. Obtuvo su
+doctorado en la Universidad de Varsovia en 1924 y posteriormente
+desarrolló actividades académicas e investigativas en París y Londres.
+Sus trabajos contribuyeron decisivamente a la teoría moderna de la
+inferencia estadística.</p>
+<p><strong>(4) Egon S. Pearson (1895–1980).</strong> Estadístico
+británico, hijo del reconocido estadístico Karl Pearson. Estudió en
+Winchester College y posteriormente cursó matemáticas en el Trinity
+College de la Universidad de Cambridge. Desarrolló gran parte de su
+carrera académica en el University College London, donde realizó
+importantes investigaciones sobre inferencia estadística y pruebas de
+hipótesis.</p>
 <p><br/><br/></p>
-<p>El origen de los estudios, relacionados con las pruebas de hipótesis
-estadísticas, se sitúa alrededor de 1738, cuando en un ensayo escrito
-por <strong>Daniel Bernoulli</strong>(1) aparece el cálculo una
-estadística de prueba para ensayar su hipótesis en el campo de la
-astronomía. Entre 1915 y 1933 se desarrolla esta formulación gracias a
-los estudios realizados por tres grandes autores: <strong>Ronald
-Fisher</strong>(2), <strong>Jerzy Neyman</strong>(3) y <strong>Egon
-Pearson</strong>(4). Hoy en día predomina la teoría de Neyman-Pearson
-(lema de Neyman-Pearson).</p>
+<audio controls style="width:80%;">
+<source src="audios/pdeh2.mp3" type="audio/mpeg">
+</audio>
+<p>Las <strong>pruebas de hipótesis</strong> constituyen uno de los
+fundamentos de la inferencia estadística, pues proporcionan un
+procedimiento sistemático para evaluar afirmaciones acerca de las
+características de una población a partir de la información obtenida de
+una muestra. Su propósito es determinar si la evidencia estadística
+disponible resulta suficientemente incompatible con una hipótesis
+inicial como para justificar su rechazo, considerando la incertidumbre
+asociada al proceso de muestreo.</p>
+<p><br/></p>
+<p>Los antecedentes de las pruebas de hipótesis se remontan al siglo
+XVIII. En 1710, John Arbuthnot realizó uno de los primeros análisis que
+pueden interpretarse como una prueba de significación estadística, al
+estudiar la regularidad observada en los registros de nacimientos.
+Posteriormente, <strong>Daniel Bernoulli (1)</strong> realizó
+importantes contribuciones a la teoría de la probabilidad y sus
+aplicaciones científicas, fortaleciendo las bases matemáticas sobre las
+cuales se desarrollaría la inferencia estadística.</p>
+<p><br/></p>
+<p>No obstante, la formulación moderna de las pruebas de hipótesis se
+consolidó durante las primeras décadas del siglo XX, principalmente
+gracias a los aportes de <strong>Ronald A. Fisher, Jerzy Neyman y Egon
+S. Pearson</strong>, quienes desarrollaron enfoques fundamentales para
+evaluar hipótesis a partir de datos experimentales y
+observacionales.</p>
+<p><br/></p>
+<p><strong>Ronald A. Fisher (2)</strong> desarrolló el enfoque de las
+pruebas de significación estadística, en el cual el <em>valor p</em>
+permite cuantificar el grado de incompatibilidad de los datos observados
+con la hipótesis nula. Sus contribuciones establecieron procedimientos
+para evaluar resultados experimentales y determinar su significación
+estadística.</p>
+<p><br/></p>
+<p>Por su parte, <strong>Jerzy Neyman (3) y Egon S. Pearson (4)</strong>
+desarrollaron conjuntamente, entre 1928 y 1933, una teoría formal para
+la contrastación de hipótesis, fundamentada en reglas de decisión y en
+el control de las probabilidades de cometer errores de tipo I y tipo II.
+Este enfoque introdujo conceptos esenciales como el nivel de
+significación, la potencia estadística y los criterios para seleccionar
+pruebas óptimas bajo determinadas condiciones.</p>
+<p><br/></p>
+<p>De estos desarrollos surgieron dos enfoques estrechamente
+relacionados, aunque conceptualmente diferentes: las <strong>pruebas de
+significación de Fisher</strong> y las <strong>pruebas de hipótesis de
+Neyman-Pearson</strong>. Mientras el primero se concentra en cuantificar
+la evidencia de los datos frente a una hipótesis nula, el segundo
+establece reglas de decisión que permiten controlar las probabilidades
+de error.</p>
+<p><br/></p>
+<p>Ambos enfoques constituyen fundamentos de la inferencia estadística
+contemporánea y proporcionan herramientas esenciales para la toma de
+decisiones bajo incertidumbre en campos como la economía, la
+administración, la ingeniería, la medicina y las ciencias sociales.</p>
 <p><br/><br/></p>
-<img src="img/prueba.jpg" alt="" width="50%" style="display: block; margin: auto;" />
+<img src="img/prueba.png" alt="" width="34%" style="display: block; margin: auto;" />
 <center>
 Tomada de : <a href="https://pixabay.com/es/"
 class="uri">https://pixabay.com/es/</a>
 </center>
+<audio controls style="width:80%;">
+<source src="audios/pdeh3.mp3" type="audio/mpeg">
+</audio>
 <p><br/><br/></p>
 <p>Una hipótesis estadística es una afirmación o conjetura acerca de los
 parámetros de la distribución de probabilidades de una población. Si la
 hipótesis estadística especifica completamente la distribución, entonces
-ella se llama <strong>Hipótesis Simple</strong>, de otra manera se llama
-Hipótesis Compuesta.</p>
+ella se llama <strong>hipótesis simple</strong>, de otra manera se llama
+hipótesis compuesta.</p>
 <p>Desde el punto de vista clásico, todas las pruebas de hipótesis
 trabajan en base a ciertos principios que consideran:</p>
 <ul>
-<li>Hipótesis nula (<strong>Ho</strong>)</li>
-<li>Hipótesis alterna (<strong>Ha</strong>)</li>
+<li>Hipótesis nula (<span class="math inline">\(H_0\)</span>)</li>
+<li>Hipótesis alternativa (<span
+class="math inline">\(H_a\)</span>)</li>
 <li>Estadístico de Prueba (<strong>EdeP</strong>)</li>
 <li>Región de Rechazo (<strong>RdeR</strong>)</li>
 <li>Regla de Decisión(<strong>RD</strong>)</li>
 </ul>
 <p><br/><br/></p>
-<div id="conceptos-básicos" class="section level2">
-<h2><strong>Conceptos básicos</strong></h2>
+</div>
+<div id="conceptos-básicos" class="section level1">
+<h1>Conceptos básicos</h1>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Hipótesis Nula (Ho)
 </div>
-<p>Es la hipótesis a probar, ésta NO se rechaza si de la muestra no se
-obtiene suficiente evidencia para rechazarla.</p>
+<p>Es la afirmación inicial (<span class="math inline">\(H_0\)</span>)
+que se somete a contrastación. Se rechaza únicamente cuando la evidencia
+muestral resulta suficientemente incompatible con ella; de lo contrario,
+no se rechaza. Esto último no significa que se haya demostrado su
+veracidad.</p>
 </div>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Hipótesis Alterna (Ha)
 </div>
-<p>La hipótesis <code>Ho</code> se contrasta con la hipótesis Ha, y ésta
-última corresponde a valores alternativos del parámetro planteados en la
-hipótesis nula. La hipótesis <span class="math inline">\(Ha\)</span> se
-considera cierta si existe suficiente evidencia para rechazar la
-hipótesis nula.</p>
+<p>La hipótesis alternativa (<span class="math inline">\(H_a\)</span>)
+plantea valores o características diferentes de los establecidos por la
+hipótesis nula (<span class="math inline">\(H_0\)</span>). Si la
+evidencia muestral permite rechazar <span
+class="math inline">\(H_0\)</span>, se considera que los datos respaldan
+<span class="math inline">\(H_a\)</span>, sin que ello constituya una
+demostración absoluta de su veracidad.</p>
 </div>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Estadístico de Prueba
 </div>
@@ -696,38 +730,34 @@ prueba, a partir del cálculo y se determina el rechazo o no, de la
 hipótesis nula.</p>
 </div>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Región de Rechazo (RdeR)
 </div>
 <p>También llamada región crítica (<code>RC</code>), define los valores
 del estadístico de prueba para los cuales la información muestral
 contradice la hipótesis nula. Estos valores nos permitirán adoptar una
-regla de decisión consistente. Una prueba de una hipótesis estadística
-es un procedimiento que permite, mediante el contraste entre la
-información muestral y lo propuesto en una hipótesis, decidir sobre su
-rechazo.</p>
-<p>Una prueba de una hipótesis estadística es un procedimiento que
-permite, mediante el contraste entre la información muestral y lo
-propuesto en una hipótesis, decidir sobre su rechazo.</p>
+regla de decisión consistente. La región crítica se determina a partir
+de la distribución del estadístico bajo <span
+class="math inline">\(H_0\)</span> y del nivel de significación
+establecido.</p>
 </div>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Regla de Decisión (RD)
 </div>
-<p>De esta manera, como una regla de decisión, si para una muestra
-particular el estadístico de prueba (valor calculado) cae dentro de la
-región crítica, rechazaremos la hipótesis nula <code>Ha</code> en favor
-de la hipótesis alternativa <code>Ha</code>. En cambio, si el valor
-calculado no cae dentro de la RC, no podremos rechazar la hipótesis nula
-y por tanto decimos que la información contenida en la muestra no ofrece
-suficiente evidencia estadística que nos permita
-rechazar<code></code>Ho`, ASUMIMOS que la hipótesis nula es cierta.</p>
+<p>Si el estadístico calculado pertenece a la región crítica, se rechaza
+<span class="math inline">\(H_0\)</span> en favor de <span
+class="math inline">\(H_a\)</span>. En caso contrario, no se rechaza
+<span class="math inline">\(H_0\)</span>, porque la muestra no
+proporciona evidencia suficiente para hacerlo. <strong>No rechazar <span
+class="math inline">\(H_0\)</span> no equivale a demostrar que es
+verdadera.</strong></p>
 </div>
 <p><br/><br/></p>
-<div id="errores-asociados" class="section level3">
-<h3><strong>Errores asociados</strong></h3>
+<div id="errores-asociados" class="section level2">
+<h2>Errores asociados</h2>
 <p>Cuando se decide ya sea en favor o en contra de una determinada
 prueba de hipótesis, es posible estar en una de las cuatro situaciones
 descritas en la siguiente tabla:</p>
@@ -742,15 +772,15 @@ descritas en la siguiente tabla:</p>
 <!-- |No rechazar $Ho$   | **Decisión correcta**           | **Error tipo II**               | -->
 <!-- |                   |                                 | P(Eror tipo II) =$\beta$        | -->
 <!-- |                   |                                 |                                 | -->
-<p><img src="img/errores12.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="img/errores12.png" alt="" width="76%" style="display: block; margin: auto;" /></p>
 <p>Existen dos situaciones en las que se comenten errores después de
 tomar una decisión:</p>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Error tipo I
 </div>
-<p>Cuando se rechazamos una hipótesis nula que en realidad es verdadera.
+<p>Cuando rechazamos una hipótesis nula que en realidad es verdadera.
 Tomando como simil la situación donde un médico desea determinar si un
 paciente está sano o enfermo (<code>Ho</code>: SANO vs <code>Ha</code>:
 ENFERMO), es posible que concluya que el paciente está enfermo (rechace
@@ -760,11 +790,11 @@ class="math display">\[P(\text{Rechazar } Ho | Ho \text{ es verdadera})=
 \alpha\]</span></p>
 </div>
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo
+Ejemplo 1
 </div>
-<p><img src="img/donar.jpg" /></p>
+<p><img src="img/dona-sangre.png" alt="" width="28%" style="display: block; margin: auto;" /></p>
 <p>Para ilustrar el error tipo I, podeos acudir aun evento ocurrido a
 una estudiante que después de realizar una donación de sangre fue
 requerida por la clinica benefactora, pues el examen que le habían
@@ -774,9 +804,12 @@ familia a que se le realizaran otros exámenes para confirmar el
 diagnostico inicial. Las segundas pruebas evidenciaron que se trataba de
 un error. Este caso constituye un caso de falso positivo (Se diagnostica
 como enferan, cuando en verdad esta sana)</p>
+<audio controls style="width:80%;">
+<source src="audios/error1.mp3" type="audio/mpeg">
+</audio>
 </div>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Error Tipo II
 </div>
@@ -786,25 +819,28 @@ que el paciente esta sano, cuando esta realmente enfermo, incurre en un
 error frecuente cuando algunos pacientes son asintomáticos y aunque
 tienen la enfermedad, sus exámenes médicos salen negativos. En este caso
 la probabilidad se representa como:</p>
-<p><span class="math display">\[P(\text{No rechazar} Ho | Ho \text{ es
-falsa}) \]</span></p>
+<p><span class="math display">\[P(\text{No rechazar } H_0 \mid H_0
+\text{ es falsa})=\beta\]</span></p>
 </div>
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo
+Ejemplo 2
 </div>
-<p><img src="img/dopin.jpg" /></p>
-<p>Para ilustrar el caso del error tipo II, recurrimos a lo acontecido
-en el Tour de Francia, donde el ciclista estadunidence Lance Armstrong
-gano esta competencia seis veces de manera consecutiva y aunque fue
-acusado de dopin, no se le pudo comprobar. Fue solo en el 2012 cuando el
-mismo admitió haber usado EPO. Podemos decir que durante su vida
-deportiva los exámenes practivados dieron negativos, estando el dopado.
-Este caso se cataloga como falso negativo.</p>
+<p><img src="img/dopin-ciclista.png" alt="" width="30%" style="display: block; margin: auto;" /></p>
+<p>Como ilustración de un posible falso negativo, consideremos un
+control antidopaje que no detecta una sustancia prohibida presente en un
+deportista. El caso de Lance Armstrong, despojado de sus siete títulos
+del Tour de Francia y quien reconoció públicamente el dopaje en 2013,
+permite discutir las limitaciones de los sistemas de detección.
+<strong>No debe inferirse que todos sus controles fueron negativos ni
+que cada resultado constituyó un error de tipo II.</strong></p>
+<audio controls style="width:80%;">
+<source src="audios/error2.mp3" type="audio/mpeg">
+</audio>
 </div>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Nivel de significancia (<span class="math inline">\(\alpha\)</span>)
 </div>
@@ -817,24 +853,30 @@ class="math inline">\(\beta\)</span> (probabilidad de error tipo
 II).</p>
 </div>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Pruebas paramétricas
 </div>
-<p>Se llaman pruebas de hipótesis metrificaras debido a que para su
-realización se deben verificar el cumplimiento de supuestos sobre
-parámetros.</p>
+<p>Las pruebas paramétricas se basan en un modelo probabilístico
+caracterizado por uno o varios parámetros. Su aplicación requiere
+examinar los supuestos pertinentes, como la independencia, la
+distribución de los datos o la homogeneidad de varianzas, según la
+prueba utilizada.</p>
+<audio controls style="width:80%;">
+<source src="audios/pdeh-parametricas.mp3" type="audio/mpeg">
+</audio>
 </div>
-<p><br/><br/></p>
-<p><br/><br/></p>
-<div class="box1 with-label">
+<br/> <br/>
+<div class="box4 with-label">
 <div class="label">
 Potencia de una prueba de hipótesis
 </div>
 <p>La potencia de una prueba de hipótesis es la probabilidad de rechazar
 correctamente la hipótesis nula (<span
 class="math inline">\(Ho\)</span>) cuando en realidad es falsa.</p>
-<p>Potencia $ = P( Ho | Ho ) = 1-$</p>
+<p>Potencia <span class="math inline">\(=P(\text{Rechazar}\hspace{2mm}
+Ho\hspace{2mm} |\hspace{2mm} Ho \hspace{2mm}\text{es falsa}) =
+1-\beta\)</span></p>
 <p>La potencia mide qué tan “sensible” es nuestra prueba para descubrir
 diferencias reales.</p>
 <p>Una prueba con poca potencia puede pasar por alto diferencias
@@ -855,8 +897,8 @@ class="math display">\[Ha: \mu &gt; 1000\]</span></p>
 <!-- ```{r, echo=FALSE, out.width="70%", fig.align = "center"} -->
 <!-- knitr::include_graphics("img/potencia1.png") -->
 <!-- ``` -->
-<div id="app.r" class="section level4">
-<h4>app.R</h4>
+<div id="app.r" class="section level2">
+<h2>app.R</h2>
 <pre class="r"><code># =============================================================
 # app.R — Aplicación Shiny: Visualización de la potencia de una prueba
 # =============================================================
@@ -1007,14 +1049,15 @@ server &lt;- function(input, output) {
 # -------------------------------------------------------------
 shinyApp(ui, server)</code></pre>
 <p><br/><br/></p>
-<p><img src="img/potencia.gif" alt="" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="img/potencia.gif" alt="" width="75%" style="display: block; margin: auto;" /></p>
+<audio controls style="width:80%;">
+<source src="audios/potencia.mp3" type="audio/mpeg">
+</audio>
 <p><br/><br/></p>
 </div>
-</div>
-</div>
-</div>
-<div id="pdeh-sobre-una-población" class="section level1">
-<h1><strong>PdeH sobre una población</strong></h1>
+<div id="puebas-de-hipótesis-sobre-una-población"
+class="section level1">
+<h1>Puebas de hipótesis sobre una población</h1>
 <p>Los parámetros más importante a los que se les realizan pruebas de
 hipótesis son : <span class="math inline">\(\mu\)</span>, <span
 class="math inline">\(p\)</span> y <span
@@ -1105,18 +1148,19 @@ p_{o}\)</span></td>
 </tbody>
 </table>
 <p><br/><br/></p>
-<div id="pdeh-sobre-una-media" class="section level3">
-<h3><strong>PdeH sobre una media</strong></h3>
+</div>
+<div id="pruebas-de-hipótesis-sobre-una-media" class="section level1">
+<h1>Pruebas de hipótesis sobre una media</h1>
 <p>Dependiendo de las condiciones podemos optar por tres diferentes EdeP
 para la realización de la prueba para una media, aunque tenemos una
 cuarta posibilidad en el caso de realizarla mediante un método no
 paramétrico:</p>
 <p><br/><br/></p>
-<p><img src="img/EdeP_mu.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
-<p><br/><br/><br/></p>
-<div class="box2 with-label">
+<p><img src="img/EdeP_mu-1.png" alt="" width="78%" style="display: block; margin: auto;" /></p>
+<br/> <br/>
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 1
+Ejemplo 3
 </div>
 <p>Un informe indica que el precio medio del pasaje de avión entre Cali
 y San Andrés es de $120 mil pesos y su desviación estándar de $40 mil
@@ -1136,9 +1180,8 @@ media? |</p>
 131.0, 120.5, 166.6, 96.0 .</p>
 </div>
 <p><br/><br/></p>
-</div>
-<div id="solución" class="section level3">
-<h3><strong>Solución</strong></h3>
+<div id="solución" class="section level2">
+<h2>Solución</h2>
 <p>Las pruebas a contrastar son:</p>
 <p><span class="math inline">\(Ho: \mu= 120\)</span> <br/> <span
 class="math inline">\(Ha: \mu \neq 120\)</span></p>
@@ -1151,14 +1194,14 @@ prueba de normalidad de Shapiro Wilk</p>
 norm\)</span> <br/></p>
 <pre class="r"><code>precio=c(165.1, 91.8, 128.3, 160.3, 103.6, 153.2, 50.7, 150.3, 160.8, 38.1, 98.8, 88.7, 123.1, 106.5, 79.5, 84.1, 216.1, 139.8, 98.4, 127.1, 103.0, 83.7, 158.8, 126.1, 113.4, 61.3, 79.8, 121.8, 89.9, 97.4, 134.0, 141.2, 154.3, 122.4, 107.6, 137.7, 121.0, 187.7, 56.8, 79.5, 183.8, 114.7, 80.2, 97.3, 113.8, 92.4, 123.5, 138.4, 114.7, 48.8, 178.1, 106.0, 103.1, 100.8,180.7,113.1,121.4,163.0,51.4,135.5,104.5,202.1,171.0,100.7, 56.4, 99.7, 93.0, 118.3, 110.4, 136.9, 112.3, 69.8, 138.3, 87.2, 121.8, 118.6, 174.5, 77.7, 158.5, 85.3, 71.4, 63.0, 140.9, 126.9, 194.2, 136.7, 98.8, 222.5, 131.3, 175.0, 127.7, 88.5, 104.5, 144.7, 73.0, 97.2, 131.0, 120.5, 166.6, 96.0)
 boxplot(precio, horizontal = TRUE, col = c40, xlab=&quot;precio ($000)&quot;)</code></pre>
-<p><img src="recurso43_files/figure-html/unnamed-chunk-9-1.png" alt="" width="672" /></p>
+<p><img src="recurso43_files/figure-html/unnamed-chunk-11-1.png" alt="" width="672" /></p>
 <p><br/><br/></p>
 <pre class="r"><code>shapiro.test(precio)</code></pre>
 <pre><code>
     Shapiro-Wilk normality test
 
 data:  precio
-W = 0.99, p-value = 0.3</code></pre>
+W = 0.9853, p-value = 0.3337</code></pre>
 <p><br/></p>
 <p>De acuerdo con los resultados obtenidos en la prueba de Shapiro
 podemos suponer y aplicando la regla 3 (que se trata más adelante)
@@ -1173,18 +1216,18 @@ la varianza utilizaremos una prueba t para una media</p>
     One Sample t-test
 
 data:  precio
-t = -0.39, df = 99, p-value = 0.7
+t = -0.39343, df = 99, p-value = 0.6949
 alternative hypothesis: true mean is not equal to 120
 90 percent confidence interval:
- 112.2 124.8
+ 112.159 124.837
 sample estimates:
 mean of x 
-    118.5 </code></pre>
+  118.498 </code></pre>
 <p><br/></p>
 <p>Para tomar una decisión sobre las hipótesis de acuerdo con los
 resultados podemos utilizar tres reglas:</p>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Regla 1 :
 </div>
@@ -1194,6 +1237,9 @@ como verdadera. Si por el contrario el <code>EdeP</code> NO cae en la
 <code>RdeR</code>, entonces NO SE RECHAZA <code>Ho</code>, no existe
 suficiente evidencia para rechazarla, <strong>asumimos</strong> que
 <code>Ho</code> es verdad.</p>
+<audio controls style="width:80%;">
+<source src="audios/regla1.mp3" type="audio/mpeg">
+</audio>
 </div>
 <p>En este caso es necesario determinar la región de rechazo
 (<code>RdeR</code>) de acuerdo al tipo de hipótesis y a la distribución
@@ -1201,16 +1247,15 @@ del estadistico de prueba. En esta caso estamos realizando una prueba de
 dos colas, para un estadistico de prueba con distribución t-Student con
 99 grados de libertad.</p>
 <p><br/><br/></p>
-</div>
-<div id="región-de-rechazo" class="section level3">
-<h3><strong>Región de Rechazo</strong></h3>
+<div id="región-de-rechazo" class="section level2">
+<h2>Región de Rechazo</h2>
 <p>Para determinar la <code>RdeR</code>, a a prtir del nivel de
 significancia asumido, se buscan los percentiles <span
 class="math inline">\(t_{0.025; v=59}\)</span> y <span
 class="math inline">\(t_{0.975;v=59}\)</span> para la distribución
 t-Student.</p>
 <pre class="r"><code>qt(c(0.025,0.975),99)</code></pre>
-<pre><code>[1] -1.984  1.984</code></pre>
+<pre><code>[1] -1.984217  1.984217</code></pre>
 <p><br/><br/></p>
 <pre class="r"><code>library(ggdistribute)
 p=ggdistribution(dt, seq(-3, +3, 0.1), df = 99, colour = &quot;blue&quot;)
@@ -1218,18 +1263,18 @@ p=ggdistribution(dt, seq(-3, qt(0.025,99), 0.1), df = 99, colour = &#39;blue&#39
 p=ggdistribution(dt, seq(qt(0.975,99),+3, 0.1), df = 99, colour = &#39;blue&#39;, fill=&quot;red&quot;, p=p)+ 
      ggtitle(&quot;Región de rechazo : (-Inf, -1.984217)  (1.984217, +Inf)&quot;)
 p</code></pre>
-<p><img src="img/RdeR1.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="img/RdeR1.png" alt="" width="76%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
 </div>
-<div id="conclusión" class="section level3">
-<h3><strong>Conclusión</strong>:</h3>
+<div id="conclusión" class="section level2">
+<h2>Conclusión:</h2>
 <p>Como el <code>EdeP</code> (<code>t = -0.39343</code>) NO cae en la
 <code>RdeR</code>, entonces NO rechazamos <code>Ho</code>, asuminos
 <code>Ho</code> es verdadera, es decir <span
 class="math inline">\(\mu\)</span> de los precios es igual a 120 mil
 pesos.</p>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Regla 2:
 </div>
@@ -1240,9 +1285,12 @@ class="math inline">\(H_{0}\)</span>, se <strong>acepta</strong>
 class="math inline">\(\alpha &lt;\)</span> <code>valor-p</code>, no
 rechazamos <code>Ho</code>, <strong>asumimos</strong> que
 <code>Ho</code> es verdad.</p>
+<audio controls style="width:80%;">
+<source src="audios/regla2.mp3" type="audio/mpeg">
+</audio>
 </div>
-<p><br/><br/><br/></p>
-<div class="box1 with-label">
+<br/> <br/>
+<div class="box4 with-label">
 <div class="label">
 Valor-p
 </div>
@@ -1259,15 +1307,14 @@ valor-p, y se define como la probabilidad de cometer un falso positivo
 por efecto del azar, cuando la hipótesis nula es verdadera.</em></p>
 </div>
 <p><br/><br/></p>
-</div>
-<div id="conclusión-1" class="section level3">
-<h3><strong>Conclusión</strong> :</h3>
+<div id="conclusión-1" class="section level2">
+<h2>Conclusión:</h2>
 <p>Como el valor de <span class="math inline">\(\alpha &gt;\)</span>
 <code>valor-p</code> (0.05 &gt; p-value = 0.6949) entonces No se rechaza
 <code>Ho</code>, se <code>ASUME</code> que <code>Ho</code> es verdad. El
 promedio de los precios es igual a $ 120.</p>
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
 Regla 3 :
 </div>
@@ -1277,30 +1324,33 @@ al rechazar <code>Ho</code>, siendo esta verdadera (cometer
 rechazo <code>Ho</code>, se <code>ACEPTA</code> <code>Ha</code>. Si por
 el contrario se considera este valor grande, entonce no rechazo
 <code>Ho</code>, asumo que <code>Ho</code> es verdad.</p>
+<audio controls style="width:80%;">
+<source src="audios/regla3.mp3" type="audio/mpeg">
+</audio>
 </div>
 <p><br/><br/></p>
-</div>
-<div id="conclusión-2" class="section level3">
-<h3><strong>Conclusión</strong> :</h3>
+<div id="conclusión-2" class="section level2">
+<h2>Conclusión:</h2>
 <p>En este caso valoramos si el <code>valor-p</code> (p-value = 0.6949)
 es grande o pequeño. En esta caso se puede considerar que su valor es
 muy grande y por lo tanto no nos atrevemos a rechazar <code>Ho</code>,
 asumimos que <span class="math inline">\(Ho\)</span> es verdadera, es
 decir que la media de los precios es igual a $ 120.</p>
 <p><br/><br/></p>
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">
 Nota
 </div>
-<p>Al aplicar las últimas dos reglas (2 y 3) no se requiere la
-construcción de una <span class="math inline">\(RdeR\)</span> para tomar
-la decisión. Solo con revisar el valor-p entregado por la prueba y
-aplicar la regla se toma la decisión. En adelante utilizaremos las
-reglas 2 y 3 dado que al ejecutar las funciones en R nos sumunistran
-información sobre valor-p.</p>
+<p>Al aplicar las últimas dos reglas (<code>Regla 2</code> y
+<code>Regla 3</code>) no se requiere la construcción de una
+<code>Región de de Rechazo</code> para tomar la decisión. Solo con
+revisar el <code>valor-p</code> entregado por la prueba y aplicar la
+regla se toma la decisión. En adelante utilizaremos las reglas 2 y 3
+dado que al ejecutar las funciones en <code>R</code> nos sumunistran
+información sobre <code>valor-p</code>.</p>
 </div>
 <p><br/><br/></p>
-<div class="box3 with-label">
+<div class="box6 with-label">
 <div class="label">
 Reto
 </div>
@@ -1312,28 +1362,29 @@ datos de la muestra llevan a la conclusión de que les falta o sobra
 detergente, se debe parar la línea de producción y hacer los ajustes
 necesarios para que el llenado sea correcto. Con el fin de afianzar los
 conceptos expuestos, te invito a responder los siguientes interrogantes
-:|</p>
+:</p>
 <p>(a.) Formule la hipótesis nula y alternativa que lleven a decidir si
 es conveniente parar y ajustar la línea de producción o no.</p>
-<p>(b.) Comente la conclusión a que se llegaría en caso de que no se
-rechazase <span class="math inline">\(Ho\)</span> y cuando si
-ocurriese.</p>
+<p>(b.) Comente la conclusión a que se llegaría en caso de que se
+rechace <span class="math inline">\(H_o\)</span> y cuando no se rechace
+<span class="math inline">\(H_o\)</span>.</p>
 <p>(c.) Cuándo se comete error tipo I y cuando el tipo II.</p>
 <p>(d.) Bajo condiciones de distribución normal, determine la región de
 rechazo para una <span class="math inline">\(\alpha= 0.05\)</span> y
 para <span class="math inline">\(\alpha= 0.08\)</span></p>
 </div>
-<p><br/><br/><br/></p>
+<p><br/><br/></p>
 </div>
-<div id="pdeh-sobre-una-proporción" class="section level2">
-<h2><strong>PdeH sobre una proporción</strong></h2>
+<div id="pruebas-de-hipótesis-sobre-una-proporción"
+class="section level1">
+<h1>Pruebas de hipótesis sobre una proporción</h1>
 <p>En este caso debemos tener en cuenta que la muestra sea mayor a 30
 con el fin de tener estimaciones mas robustas para estimar la proporción
 poblacional.</p>
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 2
+Ejemplo 4
 </div>
 <p>Una empresa al seleccionar su personal, lo somete a un curso de
 entrenamiento. Por su experiencia se conoce que el 76% de los aspirantes
@@ -1348,8 +1399,9 @@ realizados en el programa de entrenamiento reducen la selección?</p>
 tienen la afirmación que queremos verificar <em>los cambios realizados
 en el programa de entrenamiento reducen la selección</em>.</p>
 <p>Ho: <span class="math inline">\(p \geq 0.76\)</span> <br/><br />
-Ha :<span class="math inline">\(p &lt; 0.76\)</span> <br/>
-<br/><br/></p>
+Ha :<span class="math inline">\(p &lt; 0.76\)</span> <br/></p>
+<p><br/></p>
+<p>Estadístico de prueba chi-cuadrado</p>
 <pre class="r"><code>prop.test(24, 40, p = 0.76,
           alternative = &quot;less&quot;,
           conf.level = 0.95)</code></pre>
@@ -1357,16 +1409,33 @@ Ha :<span class="math inline">\(p &lt; 0.76\)</span> <br/>
     1-sample proportions test with continuity correction
 
 data:  24 out of 40, null probability 0.76
-X-squared = 4.8, df = 1, p-value = 0.01
+X-squared = 4.7711, df = 1, p-value = 0.01447
 alternative hypothesis: true p is less than 0.76
 95 percent confidence interval:
- 0.0000 0.7282
+ 0.0000000 0.7282033
 sample estimates:
   p 
 0.6 </code></pre>
+<p><br/></p>
+<p>Estadístico de prueba Z (paqueteDEG)</p>
+<pre class="r"><code>paqueteDEG::test.prop(24, 40, p = 0.76,
+  alternative = &quot;less&quot;,
+  conf.level = 0.95
+)</code></pre>
+<pre><code>
+    One-sample z-test for proportion (summary stats)
+
+data:  summary: x = 24, n = 40
+z = -2.3694, n = 40, p-value = 0.008909
+alternative hypothesis: true proportion is less than 0.76
+95 percent confidence interval:
+ 0.0000000 0.7274098
+sample estimates:
+sample proportion 
+              0.6 </code></pre>
 <p><br/><br/></p>
-<div id="conclusión-3" class="section level3">
-<h3><strong>Conclusión</strong></h3>
+<div id="conclusión-3" class="section level2">
+<h2>Conclusión</h2>
 <p>Como el <code>valor-p</code> (p-value = 0.01447) es menor que el
 nivel de significancia (<span
 class="math inline">\(\alpha=0.05\)</span>), rechazamos la hipótesis
@@ -1374,15 +1443,19 @@ nula, aceptamos la hipótesis alterna. Podemos afirmar que <span
 class="math inline">\(p&lt;0.76\)</span> . Tienen razón al afirmar que
 los cambios realizados en el proceso de selección provocaron una
 disminución significativa en la proporción de aprobación.</p>
-<p><br/><br/><br/></p>
-</div>
-</div>
-<div id="pdeh-sobre-una-varianza" class="section level2">
-<h2><strong>PdeH sobre una varianza</strong></h2>
+<audio controls style="width:80%;">
+<source src="audios/ejemplo4.mp3" type="audio/mpeg">
+</audio>
 <p><br/><br/></p>
-<div class="box2 with-label">
+</div>
+</div>
+<div id="pruebas-de-hipótesis-sobre-una-varianza"
+class="section level1">
+<h1>Pruebas de hipótesis sobre una varianza</h1>
+<p><br/><br/></p>
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 2
+Ejemplo 5
 </div>
 <p>Un fabricante de baterías para celulares afirma que el tiempo de
 duración de sus baterías se distribuyen aproximadamente normal con una
@@ -1404,26 +1477,26 @@ p=ggdistribution(dchisq, seq(pRdeR[2], 30, 0.1), df = 9, colour = &#39;blue&#39;
        ggtitle(&quot;Región de rechazo:  (0; 2.70) (19.0, Inf) &quot;)
 p
 pRdeR</code></pre>
-<p><img src="img/RdeR2.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="img/RdeR2.png" alt="" width="76%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>t=c(11.1, 15.6, 11.1, 7.5, 7.9, 14.7, 6.3, 8.5, 8.0 , 7.6)
 varx=var(t)
 EdeP=(length(t)-1)*varx/81
 EdeP</code></pre>
-<pre><code>[1] 1.135</code></pre>
+<pre><code>[1] 1.135074</code></pre>
 <p><br/><br/></p>
-<div id="conclusión-4" class="section level3">
-<h3><strong>Conclusión</strong></h3>
+<div id="conclusión-4" class="section level2">
+<h2>Conclusión</h2>
 <p>Como el <span class="math inline">\(EdeP\)</span> (1.135074) caen en
 la <span class="math inline">\(RdeR\)</span>, entonces rechazamos la
 hipótesis nula, aceptamos la hipótesis alterna como verdadera.</p>
 <p>Podemos entonce concluir que <span class="math inline">\(\sigma^{2}
 \neq 81\)</span></p>
-<p><br/><br/><br/></p>
+<p><br/> <br/></p>
 </div>
 </div>
-</div>
-<div id="pdeh-sobre-dos-poblaciones" class="section level1">
-<h1><strong>PdeH sobre dos poblaciones</strong></h1>
+<div id="prueba-de-hipótesis-sobre-dos-poblaciones"
+class="section level1">
+<h1>Prueba de hipótesis sobre dos poblaciones</h1>
 <p><br/><br/></p>
 <table>
 <colgroup>
@@ -1535,17 +1608,18 @@ class="math inline">\(\sigma_{1}^{2}/\sigma_{2}^{2}\)</span></td>
 </tr>
 </tbody>
 </table>
-<p><br/><br/><br/></p>
-<div id="pdeh-en-comparación-de-medias" class="section level2">
-<h2><strong>PdeH en comparación de medias</strong></h2>
-<p><img src="img/EdePmu1-mu2.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
-<div id="caso-grupos-pareados" class="section level3">
-<h3><strong>Caso grupos pareados</strong></h3>
+<div id="comparación-de-medias" class="section level2">
+<h2>Comparación de medias</h2>
+<p><img src="img/EdeP-mu1-mu2.png" alt="" width="78%" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+</div>
+<div id="caso-grupos-pareados" class="section level2">
+<h2>Caso grupos pareados</h2>
 <p><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 4
+Ejemplo 6
 </div>
 <p>El director de un gimnasio requiere determinar si contrata o no a un
 instructor para su campaña de reducción de peso. Para tomar la decisión
@@ -1633,32 +1707,28 @@ t.test(pant, pdes,
     Paired t-test
 
 data:  pant and pdes
-t = 1.3, df = 15, p-value = 0.9
+t = 1.2736, df = 15, p-value = 0.8889
 alternative hypothesis: true mean difference is less than 0
 95 percent confidence interval:
-  -Inf 19.75
+     -Inf 19.75467
 sample estimates:
 mean difference 
-          8.312 </code></pre>
+         8.3125 </code></pre>
 <p><br/><br/></p>
 </div>
-<div id="conclusión-5" class="section level3">
-<h3><strong>Conclusión</strong></h3>
+<div id="conclusión-5" class="section level2">
+<h2>Conclusión</h2>
 <p>Como el <code>valor-p</code> ( 0.8889) es mayor que nuestro nivel de
 significancia (<span class="math inline">\(\alpha= 0.10\)</span>), no se
 rechaza la hipótesis nula, no existe suficiente evidencia en la muestra
 que permita rechazarla. Se asume que Ho es verdad. Es decir que no hay
 evidencia que el programa reduzca el peso.</p>
-<p><br/><br/><br/></p>
-</div>
-</div>
-<div id="caso1-grupos-independientes" class="section level2">
-<h2><strong>Caso1 grupos independientes</strong></h2>
+<p><br/> <br/> ## Caso grupos independientes con varianzas iguales</p>
 <p><span class="math inline">\(S_1\)</span>: variables con distribución
 normal <span class="math inline">\(S_2\)</span>: varianzas iguales</p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 4
+Ejemplo 7
 </div>
 <p>Una empresa desarrolla un curso de entrenamiento para sus empleados,
 formando dos grupos y aplicando dos metodologías diferentes de
@@ -1689,7 +1759,7 @@ grupo2=c(8.8, 8.5, 8.4, 8.5, 7.6, 8.7, 8.0, 7.9, 8.2, 8.0, 7.8, 8.6,
 par(mfrow = c(1, 2))
 boxplot(grupo1, las=1, col=c20, ylim=c(5,10))
 boxplot(grupo2, las=1, col=c40, ylim=c(5,10))</code></pre>
-<p><img src="recurso43_files/figure-html/unnamed-chunk-21-1.png" alt="" width="672" /></p>
+<p><img src="recurso43_files/figure-html/unnamed-chunk-24-1.png" alt="" width="672" /></p>
 </div>
 <p><br/><br/></p>
 <p>Iniciaremos con una prueba de hipótesis para la comparación de
@@ -1697,23 +1767,23 @@ varianzas:</p>
 <p>Ho:<span class="math inline">\(\sigma^{2}_{1} =
 \sigma^{2}_{2}\)</span><br/></p>
 <p>Ha:<span class="math inline">\(\sigma^{2}_{1} \neq
-\sigma^{2}_{2}\)</span><br/></p>
-<p><br/><br/></p>
+\sigma^{2}_{2}\)</span><br/> <br/></p>
 <pre class="r"><code>var.test(grupo1,grupo2)</code></pre>
 <pre><code>
     F test to compare two variances
 
 data:  grupo1 and grupo2
-F = 1.3, num df = 35, denom df = 39, p-value = 0.4
+F = 1.2975, num df = 35, denom df = 39, p-value = 0.4282
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
- 0.6776 2.5137
+ 0.6776032 2.5137013
 sample estimates:
 ratio of variances 
-             1.297 </code></pre>
+          1.297479 </code></pre>
 <p><br/><br/></p>
-<div id="conclusión-6" class="section level3">
-<h3><strong>Conclusión</strong></h3>
+</div>
+<div id="conclusión-6" class="section level2">
+<h2>Conclusión</h2>
 <p>Como el <code>valor-p</code> (0.4282) es mayor al nivel de
 significancia (<span class="math inline">\(\alpha=0.05\)</span>), no
 rechazamos la hipótesis nula, no existe suficiente evidencia en la
@@ -1733,36 +1803,33 @@ Ha: <span class="math inline">\(\mu_{1} &lt; \mu_{2}\)</span> <br/></p>
     Two Sample t-test
 
 data:  grupo1 and grupo2
-t = -25, df = 74, p-value &lt;2e-16
+t = -25.413, df = 74, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is less than 0
 95 percent confidence interval:
-   -Inf -2.073
+      -Inf -2.072933
 sample estimates:
 mean of x mean of y 
-    5.992     8.210 </code></pre>
+ 5.991667  8.210000 </code></pre>
 <p><br/><br/></p>
 </div>
-<div id="conclusión-7" class="section level3">
-<h3><strong>Conclusión</strong></h3>
+<div id="conclusión-7" class="section level2">
+<h2>Conclusión</h2>
 <p>Como el <code>valor-p</code> (2.2e-16) es menor que el nivel de
 significancia, rechazamos la hipótesis nula, aceptamos como verdadera la
 hipótesis alterna. La media el primer grupo es significativamente menor
 que la media obtenida por el segundo grupo. Esto indica que el método
 aplicado al segundo grupo produce mejores resultados.</p>
-<p><br/><br/><br/></p>
-</div>
-</div>
-<div id="caso2-grupos-independientes" class="section level2">
-<h2><strong>Caso2 grupos independientes</strong></h2>
+<p><br/> <br/> ## Caso grupos independientes con varianzas
+diferentes</p>
 <p><span class="math inline">\(S_1\)</span>: variables con distribución
 normal <span class="math inline">\(S_2\)</span>: varianzas
 diferentes</p>
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 6
+Ejemplo 8
 </div>
-<p>Supongamos que la empresa del ejemplo 5, desea comparar los
+<p>Supongamos que la empresa del ejemplo 8, desea comparar los
 resultados obtenidos por el grupo 2 con un tercer grupo externo con el
 fin de realizar una valoración adicional que le permita una visión más
 general de los métodos empleados</p>
@@ -1778,19 +1845,19 @@ grupo2=c(8.8, 8.5, 8.4, 8.5, 7.6, 8.7, 8.0, 7.9, 8.2, 8.0, 7.8, 8.6, 8.5, 7.9,
 par(mfrow = c(1, 2))
 boxplot(grupo3, las=1, col=c20, ylim=c(5,10))
 boxplot(grupo2, las=1, col=c40, ylim=c(5,10))</code></pre>
-<p><img src="recurso43_files/figure-html/unnamed-chunk-24-1.png" alt="" width="672" /></p>
+<p><img src="recurso43_files/figure-html/unnamed-chunk-27-1.png" alt="" width="672" /></p>
 <pre class="r"><code>var.test(grupo3,grupo2)</code></pre>
 <pre><code>
     F test to compare two variances
 
 data:  grupo3 and grupo2
-F = 7.3, num df = 35, denom df = 39, p-value = 1e-08
+F = 7.2974, num df = 35, denom df = 39, p-value = 1.334e-08
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
-  3.811 14.138
+  3.811031 14.137763
 sample estimates:
 ratio of variances 
-             7.297 </code></pre>
+          7.297388 </code></pre>
 <pre class="r"><code>t.test(grupo3, grupo2,
        alternative =&quot;less&quot;,
        mu = 0, 
@@ -1801,34 +1868,32 @@ ratio of variances
     Welch Two Sample t-test
 
 data:  grupo3 and grupo2
-t = -9.3, df = 44, p-value = 4e-12
+t = -9.2548, df = 43.571, p-value = 3.781e-12
 alternative hypothesis: true difference in means is less than 0
 95 percent confidence interval:
-   -Inf -1.286
+      -Inf -1.285811
 sample estimates:
 mean of x mean of y 
-    6.639     8.210 </code></pre>
+ 6.638889  8.210000 </code></pre>
 </div>
 <p><br/></p>
 <p>En este caso tenemos una comparación de medias para grupos
 independientes con varianzas diferentes (como se muestra en el resultado
 de var.test) .</p>
 <p><br/><br/></p>
-<div id="conclusión-8" class="section level3">
-<h3><strong>Conclusión</strong></h3>
+</div>
+<div id="conclusión-8" class="section level2">
+<h2>Conclusión</h2>
 <p>Analizando el resultado de la prueba t-Student, el
 <code>valor-p</code> resultante (3.781e-12) indica que se rechaza la
 hipótesis nula, se acepta la hipótesis alterna como verdadera. Podemos
 afirmar que existen diferencias significativas entre las dos medias.</p>
-<p><br/><br/><br/></p>
-</div>
-</div>
-<div id="pdeh-en-diferencia-de-proporciones" class="section level2">
-<h2><strong>PdeH en diferencia de proporciones</strong></h2>
+<p><br/> <br/> ## **Pruebas de hipótesis para diferencia de
+proporciones</p>
 <p><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 7
+Ejemplo 9
 </div>
 <p>Una encuesta realizada a 100 usuarios de una tarjeta de crédito
 seleccionados aleatoriamente, 57 dijeron que sabían que empleando su
@@ -1851,28 +1916,24 @@ publicitaria?</p>
     2-sample test for equality of proportions with continuity correction
 
 data:  c(57, 87) out of c(100, 150)
-X-squared = 0.00068, df = 1, p-value = 0.5
+X-squared = 0.00068243, df = 1, p-value = 0.4896
 alternative hypothesis: less
 95 percent confidence interval:
- -1.0000  0.1033
+ -1.0000000  0.1033338
 sample estimates:
 prop 1 prop 2 
   0.57   0.58 </code></pre>
 <p><br/><br/></p>
-<div id="conclusión-9" class="section level3">
-<h3><strong>Conclusión</strong></h3>
+</div>
+<div id="conclusión-9" class="section level2">
+<h2>Conclusión</h2>
 <p>Como el <code>valor-p</code> ( 0.4896) es mayor al nivel de
 significancia, no se rechaza la hipótesis nula, no existe suficiente
 evidencia en la muestra que permita rechazarla, asumimos que Ho es
 verdad. Por tal motivo no se perciben mejoras el conocimiento de los
 beneficios que trae el uso de la tarjeta de crédito. Se recomienda
 revisar la forma en que se realiza la campaña publicitaria.</p>
-<p><br/><br/><br/><br/></p>
-</div>
-</div>
-</div>
-<div id="pdeh-no-paramétricas" class="section level1">
-<h1><strong>PdeH no paramétricas</strong></h1>
+<p><br/> <br/> # Pruebas de hipótesis no paramétricas</p>
 <p><br/><br/></p>
 <p>Hasta el momento nos hemos dedicado a la estadística parametrica, que
 exige la estimación de parámetros y de la comprobación de supuestos
@@ -1881,9 +1942,10 @@ distribuyan normal.</p>
 <p>Note que la distribución normal esta relacionada con las
 distribuciones t-student, chi-cuadrado y F entre otras.</p>
 <p><br/><br/></p>
+</div>
 <div id="cuando-utilizar-pruebas-no-parametricas"
-class="section level3">
-<h3><strong>Cuando utilizar pruebas no parametricas</strong>:</h3>
+class="section level2">
+<h2>Cuando utilizar pruebas no parametricas:</h2>
 <ul>
 <li>Cuando no se cumplen los supuestos como Normalidad
 <ul>
@@ -1904,8 +1966,8 @@ gustos, satisfacción, nivel de necesidad etc.</li>
 <p><br/><br/></p>
 </div>
 <div id="ventajas-de-utilizar-pruebas-no-paramétricas"
-class="section level3">
-<h3><strong>Ventajas de utilizar pruebas no paramétricas</strong></h3>
+class="section level2">
+<h2>Ventajas de utilizar pruebas no paramétricas</h2>
 <ul>
 <li>Son fáciles de usar (aunque dada la facilidad de los códigos en R
 ambas se corren con una línea)</li>
@@ -1915,8 +1977,8 @@ ambas se corren con una línea)</li>
 </ul>
 <p><br/><br/></p>
 </div>
-<div id="desventajas" class="section level3">
-<h3><strong>Desventajas</strong></h3>
+<div id="desventajas" class="section level2">
+<h2>Desventajas</h2>
 <ul>
 <li>Ignoran información</li>
 <li>No son tan eficientes como las pruebas parametricas, tienen menor
@@ -1936,7 +1998,7 @@ rechazar Ho falsa)</li>
 <li>Correlación de Rangos de Sperarman</li>
 </ul>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Prueba de signos
 </div>
@@ -1970,9 +2032,9 @@ muestras pareadas. Esta prueba se realiza sobre la mediana de los datos
 </table>
 </div>
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 8
+Ejemplo 10
 </div>
 <p>Carlos y Ángela, Administradoras investigadores de una firma de
 artículos deportivos tienen la creencia que el deporte afecta la imagen
@@ -1989,8 +2051,8 @@ forma positiva. Los siguientes son resultados obtenidos : 16, 15, 12,
 </div>
 <p><br/><br/></p>
 </div>
-<div id="solución-1" class="section level3">
-<h3><strong>Solución</strong>:</h3>
+<div id="solución-1" class="section level2">
+<h2>Solución:</h2>
 <p>Hipótesis Nula <span class="math inline">\(Ho: Me = 15\)</span></p>
 <p>Hipótesis Alterna <span class="math inline">\(Ha : Me &gt;
 15\)</span></p>
@@ -2070,8 +2132,8 @@ class="math inline">\(P(X\leq 13) =  1-0.9755 =  0.0245\)</span> (
 valor-p)</p>
 <p><br/><br/></p>
 </div>
-<div id="conclusión-10" class="section level3">
-<h3><strong>Conclusión</strong>:</h3>
+<div id="conclusión-10" class="section level2">
+<h2>Conclusión:</h2>
 <p>Se rechaza la hipótesis nula, se acepta la hipótesis alterna. Se
 puede afirmar que las personas tienen la creencia que el deporte afecta
 positivamente su imagen.</p>
@@ -2081,7 +2143,7 @@ SIGN.test(x.img,md=15,alternative = &quot;greater&quot;)</code></pre>
     One-sample Sign-Test
 
 data:  x.img
-s = 13, p-value = 0.02
+s = 13, p-value = 0.02452
 alternative hypothesis: true median is greater than 15
 95 percent confidence interval:
   16 Inf
@@ -2096,7 +2158,7 @@ Lower Achieved CI     0.8811     16    Inf
 Interpolated CI       0.9500     16    Inf
 Upper Achieved CI     0.9519     16    Inf</code></pre>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Prueba chi-cuadrado de bondad de ajuste
 </div>
@@ -2126,9 +2188,9 @@ el supuesto de normalidad, o de otras distribuciones.</td>
 </table>
 </div>
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 9
+Ejemplo 11
 </div>
 <p>El dueño de una panadería tiene la posibilidad de controlar los
 niveles de inventarios de leche para cuatro marcas diferentes. Con el
@@ -2172,8 +2234,8 @@ uniforme). Con este propósito tomo la información de un día:</p>
 </div>
 <p><br/><br/></p>
 </div>
-<div id="solución-2" class="section level3">
-<h3><strong>Solución</strong>:</h3>
+<div id="solución-2" class="section level2">
+<h2>Solución:</h2>
 <p>Ho: Las ventas se distribuyen de manera uniforme (cantidad demandada
 es igual para todas las marcas) <br/> Ha: Las ventas no tienen una
 distribución uniforme</p>
@@ -2184,11 +2246,11 @@ chisq.test(x=obs,p=esp)</code></pre>
     Chi-squared test for given probabilities
 
 data:  obs
-X-squared = 3.6, df = 3, p-value = 0.3</code></pre>
+X-squared = 3.6, df = 3, p-value = 0.308</code></pre>
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 10
+Ejemplo 12
 </div>
 <p>Un profesor desea establecer si los resultados obtenidos por sus
 estudiantes tienen una distribución normal con media 3.5 y desviación
@@ -2204,7 +2266,7 @@ estándar 0.7 puntos. Los datos se resumen en la siguiente tabla: |</p>
 <pre class="r"><code>nf=c(4.1, 2.7, 3.1, 3.2, 3.0, 3.2, 2.0, 2.4, 1.6, 3.2, 3.1, 2.6, 2.0, 2.4, 2.8, 3.3, 4.0, 3.4, 3.0, 3.1, 2.7, 2.7, 3.0, 3.8, 3.2, 2.2, 3.5, 3.5, 3.8, 3.5, 3.9, 4.2, 4.3, 3.9, 3.2, 3.5, 3.5, 3.7, 4.1, 3.7, 3.5, 3.6, 3.2, 3.1, 3.4, 3.0, 3.0, 3.0, 2.7, 1.7, 3.6, 2.1, 2.4, 3.0, 3.1, 2.5, 2.5, 3.6, 2.2, 2.4, 3.1, 3.3, 2.7, 3.7, 3.0, 2.7, 3.0, 3.2, 3.1, 2.4, 3.0, 2.7, 2.5, 3.0, 3.0, 3.0, 3.2, 3.1, 3.8, 4.1, 3.7, 3.5, 3.0, 3.7, 3.7, 4.1, 3.7, 3.9, 3.7, 2.0)
 
 h=hist(nf, las=1, col=c40, main=&quot; &quot;, xlab=&quot; &quot;, ylab=&quot; &quot;)</code></pre>
-<p><img src="recurso43_files/figure-html/unnamed-chunk-30-1.png" alt="" width="672" /></p>
+<p><img src="recurso43_files/figure-html/unnamed-chunk-33-1.png" alt="" width="672" /></p>
 <pre class="r"><code>lim.nf=h$breaks # cortes de los intervalos
 obs.nf=h$counts   # valores observados 
 mx=mean(nf)     # media
@@ -2220,17 +2282,17 @@ incorrect</code></pre>
     Chi-squared test for given probabilities
 
 data:  obs.nf
-X-squared = 2.9, df = 5, p-value = 0.7</code></pre>
+X-squared = 2.8988, df = 5, p-value = 0.7156</code></pre>
 </div>
 <p><br/><br/></p>
-<!-- <div class="box1 with-label"> -->
+<!-- <div class="box4 with-label"> -->
 <!-- <div class="label">Prueba chi-cuadrado de independencia</div> -->
 <!-- FALTA ***************************************************** -->
 <!-- </div> -->
 <!-- <br/><br/> -->
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 11
+Ejemplo 13
 </div>
 <p>Un investigador desea establecer la relación que puede existir entre
 la calificación obtenida por un producto por parte de sus consumidores y
@@ -2282,8 +2344,8 @@ sus clientes:</p>
 </div>
 <p><br/><br/></p>
 </div>
-<div id="solución-3" class="section level3">
-<h3><strong>Solución</strong>:</h3>
+<div id="solución-3" class="section level2">
+<h2>Solución:</h2>
 <table>
 <colgroup>
 <col width="100%" />
@@ -2319,7 +2381,7 @@ Malo        15     6</code></pre>
     Pearson&#39;s Chi-squared test
 
 data:  m
-X-squared = 3.7, df = 2, p-value = 0.2</code></pre>
+X-squared = 3.7378, df = 2, p-value = 0.1543</code></pre>
 <p><br/></p>
 <p>Como <code>p-value</code> = 0.1543 lo podemos considerar grande, no
 se rechaza <span class="math inline">\(Ho\)</span>, asumimos que <span
@@ -2327,8 +2389,8 @@ class="math inline">\(Ho\)</span> es verdad, es decir que las variables
 lugar de residencia y calificación son independientes. Esto implica que
 la calificación dada por las personas entrevistadas no está relacionada
 con su calificación.</p>
-<p><br/><br/><br/></p>
-<div class="box1 with-label">
+<br/> <br/>
+<div class="box4 with-label">
 <div class="label">
 Prueba de Wilcoxon
 </div>
@@ -2358,9 +2420,9 @@ pareadas</td>
 </table>
 </div>
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 12
+Ejemplo 14
 </div>
 <p>Los siguiente datos se tomaron de un estudio de comparación de
 adolescentes sanos (G1) y de adolescentes con bulimia (G2). El primer
@@ -2372,7 +2434,7 @@ g1 = c(68,32,58,16,23,53,55,32,61,29,50,64,67,37)
 g2 = c(39,10,21,29,11,26,7,12,28,32,30,27,50,19,24)
 </pre>
 </div>
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">
 Nota
 </div>
@@ -2402,12 +2464,12 @@ wilcox.test(g1,g2,paired = FALSE,alternative = &quot;greater&quot;)</code></pre>
     Wilcoxon rank sum exact test
 
 data:  g1 and g2
-W = 178, p-value = 4e-04
+W = 178, p-value = 0.0004369
 alternative hypothesis: true location shift is greater than 0</code></pre>
 <p><br/><br/></p>
 </div>
-<div id="conclusión-11" class="section level3">
-<h3><strong>Conclusión</strong> :</h3>
+<div id="conclusión-11" class="section level2">
+<h2>Conclusión:</h2>
 <p>Se rechaza Ho , se acepta Ha. Se puede concluir que las dos
 poblaciones son diferentes. por lo tanto las medias son diferentes.</p>
 <p>Para analizar cual de los grupos presenta un mayor consumo de
@@ -2417,7 +2479,7 @@ Grupo I tienen valores menores en que los del Grupo II</p>
 <p>Por lo tanto los estudiantes sanos presentan consumo de calorías
 menores que los estudiantes que padecen de bulimia.</p>
 <p><br/><br/></p>
-<div class="box1 with-label">
+<div class="box4 with-label">
 <div class="label">
 Prueba de Kruskal-Wallis
 </div>
@@ -2445,9 +2507,9 @@ estadísticamente significativas. Versión no parametrica del ANOVA.</td>
 </table>
 </div>
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 13
+Ejemplo 15
 </div>
 <p>Para verificar si la memoria cambia con la edad, una investigadora
 realiza un estudio en el cual hay tres grupos de personas: G1- 60 años
@@ -2512,15 +2574,15 @@ kruskal.test(g1,g2,g3)</code></pre>
     Kruskal-Wallis rank sum test
 
 data:  g1 and g2
-Kruskal-Wallis chi-squared = 5, df = 5, p-value = 0.4</code></pre>
+Kruskal-Wallis chi-squared = 5, df = 5, p-value = 0.4159</code></pre>
 <p><br/><br/></p>
-<!-- <div class="box1 with-label"> -->
+<!-- <div class="box4 with-label"> -->
 <!-- <div class="label">Correlación de Spearman</div> -->
 <!-- FALTA *********************************************** -->
 <!-- </div> -->
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 14
+Ejemplo 16
 </div>
 <p>Se requiere establecer si existe relación entre el tiempo de estudio
 dedicado a la preparación de una evaluación y la nota obtenida. Como la
@@ -2574,30 +2636,29 @@ datos obtenidos son los siguientes: |</p>
 <pre class="r"><code>x=c(21,18,15,17,18,25,18,4,6,5)
 y=c(4,4,4,3,3,5,3,1,1,2)
 plot(x,y, las=1, pch=19, col=c40)</code></pre>
-<p><img src="recurso43_files/figure-html/unnamed-chunk-34-1.png" alt="" width="672" /></p>
+<p><img src="recurso43_files/figure-html/unnamed-chunk-37-1.png" alt="" width="672" /></p>
 <pre class="r"><code>cor.test(x,y, method = &quot;spearman&quot;,continuity = FALSE,conf.level = 0.95)</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
 data:  x and y
-S = 31, p-value = 0.004
+S = 30.693, p-value = 0.004157
 alternative hypothesis: true rho is not equal to 0
 sample estimates:
-  rho 
-0.814 </code></pre>
+      rho 
+0.8139814 </code></pre>
 <p>En este caso se utiliza el coeficiente de correlación de Sperman para
 valorar la relación entre las variables debido a que la nota es una
 variable que podríamos llamar cualitativa, operacionalizada cuntitativa
 con una nota.</p>
-<p><br/><br/><br/></p>
-<!-- <div class="box1 with-label"> -->
-<!-- <div class="label">Prueba de Rachas</div> -->
+<p><br/> <br/> <!-- <div class="box4 with-label"> -->
+<!-- <div class="label">Prueba de Rachas</div> --></p>
 <!-- FALTA----------------------------------------------------- -->
 <!-- </div> -->
 <!-- <br/><br/> -->
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
-Ejemplo 15
+Ejemplo 17
 </div>
 Para verificar si los números aleatorios generados por Excel son de
 verdad aleatorios se tomó una muestra de ellos mediante la función
@@ -2627,17 +2688,18 @@ runs.test(y)</code></pre>
     Runs Test
 
 data:  y
-statistic = 0.8, runs = 55, n1 = 50, n2 = 50, n = 100, p-value = 0.4
+statistic = 0.20102, runs = 52, n1 = 50, n2 = 50, n = 100, p-value =
+0.8407
 alternative hypothesis: nonrandomness</code></pre>
 </div>
-<div id="conclusión-12" class="section level3">
-<h3><strong>Conclusión</strong></h3>
+<div id="conclusión-12" class="section level2">
+<h2>Conclusión</h2>
 <p>Como el <code>valor-p</code> (0.3149) es mayor al nivel de
 significancia, no se rechaza la hipótesis nula, no existe suficiente
 evidencia en la muestra que permita rechazarla, asumimos que los datos
 son aleatorios.</p>
-<p><br/><br/><br/></p>
-<div class="box1 with-label">
+<br/> <br/>
+<div class="box4 with-label">
 <div class="label">
 Prueba de normalidad
 </div>
@@ -2661,7 +2723,7 @@ continuación relacionamos algunas de ellas</p>
 <pre class="r"><code># se genera una variable aleatoria normal
 x=rnorm(200,1000,50)
 plot(density(x), main=&quot; &quot;, las=1, xlab = &quot; &quot;, ylab=&quot; &quot;, col=c30, lwd=4)</code></pre>
-<p><img src="recurso43_files/figure-html/unnamed-chunk-36-1.png" alt="" width="672" /></p>
+<p><img src="recurso43_files/figure-html/unnamed-chunk-39-1.png" alt="" width="672" /></p>
 <pre class="r"><code># se genera una variable aleatoria normal
 x=rnorm(200,1000,50)
 shapiro.test(x)</code></pre>
@@ -2669,7 +2731,7 @@ shapiro.test(x)</code></pre>
     Shapiro-Wilk normality test
 
 data:  x
-W = 0.99, p-value = 0.2</code></pre>
+W = 0.98825, p-value = 0.09822</code></pre>
 <p>Esta prueba no requiere la instalación de paquetes adicionales, pues
 está disponible en la configuración básica de R</p>
 <p>Como el <code>valor-p</code> es superior al nivel de significancia
@@ -2678,8 +2740,8 @@ class="math inline">\(Ho\)</span>, se asume que la distribución de la
 variable es normal.</p>
 <p><br/><br/></p>
 </div>
-<div id="otras-pruebas-de-normalidad-utilizadas" class="section level3">
-<h3><strong>Otras pruebas de normalidad utilizadas</strong></h3>
+<div id="otras-pruebas-de-normalidad-utilizadas" class="section level2">
+<h2>Otras pruebas de normalidad utilizadas</h2>
 <pre class="r"><code># se genera una variable aleatoria normal
 x=rnorm(200,1000,50)
 #install.packages(&quot;normtets&quot;)
@@ -2690,19 +2752,19 @@ jb.norm.test(x)  # Test de normalidad de Jarque-Bera</code></pre>
     Jarque-Bera test for normality
 
 data:  x
-JB = 0.58, p-value = 0.7</code></pre>
+JB = 0.090865, p-value = 0.94</code></pre>
 <pre class="r"><code>kurtosis.norm.test(x)</code></pre>
 <pre><code>
     Kurtosis test for normality
 
 data:  x
-T = 2.7, p-value = 0.4</code></pre>
+T = 2.8958, p-value = 0.7485</code></pre>
 <pre class="r"><code>skewness.norm.test(x)   </code></pre>
 <pre><code>
     Skewness test for normality
 
 data:  x
-T = -0.018, p-value = 0.9</code></pre>
+T = -0.0036085, p-value = 0.981</code></pre>
 <pre class="r"><code># install.packages(&quot;nortets&quot;)
 library(nortest)
 
@@ -2711,26 +2773,27 @@ lillie.test(x) # Kolmogorov-Smirnov</code></pre>
     Lilliefors (Kolmogorov-Smirnov) normality test
 
 data:  x
-D = 0.03, p-value = 0.9</code></pre>
+D = 0.063788, p-value = 0.04635</code></pre>
 <pre class="r"><code>pearson.test(x) # chi-cuadrado de Pearson</code></pre>
 <pre><code>
     Pearson chi-square normality test
 
 data:  x
-P = 5.9, p-value = 1</code></pre>
-<p>En todos los casos el valor-p es inferior al valor de <span
-class="math inline">\(\alpha = 0.05\)</span>, por tal razón se asume que
-los datos siguen una distribución normal.</p>
+P = 11.99, p-value = 0.6071</code></pre>
+<p>Si el valor <em>p</em> de una prueba de normalidad es inferior a
+<span class="math inline">\(\alpha=0.05\)</span>, se rechaza la
+hipótesis nula de normalidad. Si es mayor o igual, no se rechaza; esto
+no demuestra que los datos sigan exactamente una distribución
+normal.</p>
 <p><br/><br/></p>
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">
 Resumen
 </div>
-<p><img src="img/EdeP1.png" alt="" width="100%" style="display: block; margin: auto;" /><img src="img/EdeP2.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="img/EdeP1.png" alt="" width="88%" style="display: block; margin: auto;" /><img src="img/EdeP2.png" alt="" width="88%" style="display: block; margin: auto;" /></p>
 </div>
-<p><br/><br/><br/><br/></p>
-<!-- <div class="box3 with-label"> -->
-<!-- <div class="label">Resumen</div> -->
+<p><br/> <br/> <!-- <div class="box2 with-label"> -->
+<!-- <div class="label">Resumen</div> --></p>
 <!-- <br/> -->
 <!-- |    |                 |**Estadístico de prueba**                                       | -->
 <!-- |:--:|:----------------|:---------------------------------------------------------------| -->
@@ -2756,7 +2819,7 @@ Resumen
 <!-- |    |                 | | -->
 <!-- </div> -->
 <p><br/><br/></p>
-<div class="box2 with-label">
+<div class="box6 with-label">
 <div class="label">
 Reglas de decisión
 </div>
@@ -2767,50 +2830,37 @@ Reglas de decisión
 </colgroup>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Regla1</strong>:</td>
-<td align="left">Si el <span class="math inline">\(EdeP\)</span> cae en
-la <span class="math inline">\(RdeR\)</span>, entonce se rechaza la
-<span class="math inline">\(H_{0}\)</span> y se <strong>acepta</strong>
-<span class="math inline">\(H_{a}\)</span> como verdadera. Si por el
-contrario el <span class="math inline">\(EdeP\)</span> NO cae en la
-<span class="math inline">\(RdeR\)</span>, entonces NO se rechaza <span
-class="math inline">\(H_{0}\)</span>, no existe suficiente evidencia
-para rechazarla, <strong>asumimos</strong> que <span
-class="math inline">\(H_{0}\)</span> es verdad.</td>
+<td align="left"><strong>Regla 1: región crítica</strong></td>
+<td align="left">Si el estadístico de prueba pertenece a la región de
+rechazo, se rechaza <span class="math inline">\(H_0\)</span>; de lo
+contrario, no se rechaza.</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Regla2</strong>:</td>
-<td align="left">Si <span class="math inline">\(\alpha &gt;\)</span>
-<code>valor-p</code> entonces rechazamos <span
-class="math inline">\(H_{0}\)</span>, se <strong>acepta</strong> <span
-class="math inline">\(H_{a}\)</span>. Si por el contrario <span
-class="math inline">\(\alpha&lt;\)</span> <code>valor-p</code>, no
-rechazamos <span class="math inline">\(H_{0}\)</span>,
-<strong>asumimos</strong> que <span class="math inline">\(H_{0}\)</span>
-es verdad.</td>
+<td align="left"><strong>Regla 2: valor p</strong></td>
+<td align="left">Si el valor <em>p</em> es menor o igual que <span
+class="math inline">\(\alpha\)</span>, se rechaza <span
+class="math inline">\(H_0\)</span>; si es mayor, no se rechaza.</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Regla3</strong>:</td>
-<td align="left">El <code>valor-p</code> se interpreta como el error que
-puedo cometer al rechazar <span class="math inline">\(H_{0}\)</span>,
-siendo esta verdadera (cometer error tipo I). Si este valor es
-considerado como pequeño, rechazo <span
-class="math inline">\(H_{0}\)</span>, se <strong>acepta</strong> <span
-class="math inline">\(H_{a}\)</span>. Si por el contrario se considera
-este valor grande, entonce no rechazo <span
-class="math inline">\(H_{0}\)</span>, asumo que <span
-class="math inline">\(H_{0}\)</span> es verdad.</td>
+<td align="left"><strong>Regla 3: interpretación</strong></td>
+<td align="left">El valor <em>p</em> es la probabilidad, suponiendo
+verdadera <span class="math inline">\(H_0\)</span>, de obtener un
+resultado al menos tan extremo como el observado. <strong>No</strong> es
+la probabilidad de que <span class="math inline">\(H_0\)</span> sea
+verdadera ni la probabilidad de cometer un error de tipo I en ese
+contraste particular.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <p><br/><br/></p>
 <p><br/><br/></p>
-<div class="box4 with-label">
-<div class="label">
-Código R
 </div>
-<p><img src="img/logoR.png" alt="" width="10%" /></p>
+</div>
+<div id="código-r" class="section level1">
+<h1>Código R</h1>
+<div class="box4 with-label">
+<p><img src="img/logoR.png" alt="" width="12%" /></p>
 <table>
 <colgroup>
 <col width="24%" />
@@ -2997,10 +3047,10 @@ align="left"><code>wilcox.test(g1,g2,paired = FALSE,alternative = "less")</code>
 </table>
 </div>
 <p><br/><br/></p>
-<div class="box3 with-label">
-<div class="label">
-Tipos de hipótesis
 </div>
+<div id="tipos-de-pruebas" class="section level1">
+<h1>Tipos de pruebas</h1>
+<div class="box2 with-label">
 <table>
 <colgroup>
 <col width="22%" />
@@ -3035,7 +3085,6 @@ Tipos de hipótesis
 </table>
 </div>
 <p><br/><br/></p>
-</div>
 <div id="videos" class="section level2">
 <h2><strong>Videos</strong></h2>
 <p><br/><br/></p>
@@ -3077,12 +3126,12 @@ install.packages("devtools") # solo una vez
 devtools::install_github("dgonxalex80/paqueteDEG")
 learnr::run_tutorial("Taller_pruebas1", "paqueteDEG")
 </pre>
-<p><img src="img/tutorial401.png" alt="" width="100%" /></p>
+<p><img src="img/tutorial401.png" alt="" width="90%" /></p>
 <p><br/><br/></p>
 <pre>
 learnr::run_tutorial("Taller_pruebas2", "paqueteDEG")
 </pre>
-<p><img src="img/tutorial402.png" alt="" width="100%" /></p>
+<p><img src="img/tutorial402.png" alt="" width="90%" /></p>
 <p><br/><br/></p>
 <p>Nota: para la instalacion del paquete <em>distributions</em> se
 requiere la instalcion del paquete <em>ctv</em> : <a
@@ -3091,32 +3140,22 @@ class="uri">https://cran.r-project.org/web/views/Distributions.html</a></p>
 <p><br/><br/></p>
 </div>
 </div>
-<div id="presentaciones" class="section level1">
-<h1><strong>Presentaciones</strong></h1>
-<iframe src="pdf/P-PruebasH.pdf" width="100%" height="500"></iframe>
-<!-- ```{r, echo=FALSE} -->
-<!-- library(htmltools) -->
-<!-- tags$iframe( -->
-<!--   src = "pdf/NoParametricas2.pdf", -->
-<!--   width = "100%",   -->
-<!--   height = "500"   -->
-<!-- ) -->
-<!-- ``` -->
 </div>
-<div id="taller-435" class="section level1">
-<h1><strong>Taller 435</strong></h1>
-<iframe src="pdf/Taller435.pdf" width="100%" height="800"></iframe>
 </div>
-<div id="taller-ejercicios-propuestos" class="section level1">
-<h1><strong>Taller ejercicios propuestos</strong></h1>
-<iframe src="pdf/Taller PdeH_ver2.pdf" width="100%" height="800"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 <script src="menu.js"></script>
 
 
-</div>
-</div>
 
 </div>
 
@@ -3154,35 +3193,6 @@ $(document).ready(function () {
 });
 </script>
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

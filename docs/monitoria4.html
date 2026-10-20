@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="dgonzalez" />
+<meta name="author" content="dgonzalez " />
 
 
-<title> </title>
+<title>Estadística para la toma de decisiones</title>
 
 <script src="site_libs/header-attrs/header-attrs.js"></script>
 <script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="cajas.css" type="text/css" />
 
 
 
@@ -491,6 +492,26 @@ $(document).ready(function () {
         </li>
       </ul>
     </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 4.3</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="guia43.html">Guía 4.3</a>
+        </li>
+        <li>
+          <a href="recurso43.html">Recursos 4.3</a>
+        </li>
+        <li>
+          <a href="codigo43.html">Código 4.3</a>
+        </li>
+        <li>
+          <a href="taller431.html">Taller 431</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="monitoria3.html">Monitoría 3</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -537,10 +558,11 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><span style="color:#235784"> </span></h1>
-<h3 class="subtitle"><span style="color:#235784"><strong>Módulo
-3</strong></span></h3>
-<h4 class="author">dgonzalez</h4>
+<h1 class="title toc-ignore"><span
+style="color:#8A6FD1 !important;">Estadística para la toma de
+decisiones</span></h1>
+<h3 class="subtitle"><span style="color:#8A6FD1"> </span></h3>
+<h4 class="author"><span style="color:#8A6FD1">dgonzalez </span></h4>
 
 </div>
 
@@ -548,10 +570,12 @@ $(document).ready(function () {
 <p><img src="img/monitoria4.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
 <div id="taller-332" class="section level1">
-<h1><strong>Taller 332</strong></h1>
+<h1>Taller 332</h1>
 <p><br/><br/></p>
-<div id="punto-1" class="section level2">
-<h2><strong>punto 1</strong></h2>
+<div class="box4 with-label">
+<div class="label">
+Problema 1
+</div>
 <p>Suponga que se estudia la compra de una nueva maquina para una
 empresa. Se comprará si la proporción de la producción que necesita ser
 reprecesados por tener defectos es inferior al 5%. Se examina una
@@ -564,13 +588,15 @@ reprocesados. ¿Que decisión se toma? (Se compra o no la máquina?)</p>
 <!-- | $Ha$ : $p < 0.05$     | -->
 <p><br/></p>
 <!-- <br/><br/> -->
-<!-- **Conclusión** -->
+<!--   Conclusión   -->
 <!-- Como el `p-value = 0.6416` > $\alpha$, no rechazamos $Ho$, no existe suficiente evidencia en la muestra que permita su rechazo, asumimos que $Ho$ es verdadera. -->
 <!-- Debido a que no se pudo confirmar que la maquina produce menos del 5% de articulos defectuosos, se recomienda no comprar la máquina -->
-<p><br/><br/><br/></p>
 </div>
-<div id="punto-2" class="section level2">
-<h2><strong>punto 2</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 2
+</div>
 <p><br/> Suponga que una empresa desarrolla un curso de entrenamiento
 para sus empleados, formando dos grupos y aplicándoles dos métodos
 distintos de entrenamiento. El primer grupo lo componen 36 empleados,
@@ -636,10 +662,12 @@ calificaciones entre 0 y 10, se presentan a continuación:</p>
 <!--        alternative = "less")  # hipótesis alterna menor que (cola inferior) -->
 <!-- ``` -->
 <!-- Con este resultado podemos concluir que $\mu_1 < \mu_2$, lo cual indica que el segundo grupo obtuvo un mejor rendimiento que el primer grupo. Se puede concluir que el método empleado con el segundo grupo genera mejores resultados. -->
-<p><br/><br/><br/></p>
 </div>
-<div id="punto-3" class="section level2">
-<h2><strong>punto 3</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 3
+</div>
 <p>Los ingenieros de una ensambladora de automóviles requieren decidir
 sobre cual de dos de las marcas de neumáticos de deben comprar. La marca
 FB o la marca KT. Con el fin de tomar una decisión basada en evidencias
@@ -686,10 +714,12 @@ class="math inline">\(\alpha=0.05\)</span></p>
 <!--        alternative = "less"  ) -->
 <!-- ``` -->
 <!-- `p-value = 0.0127`, nos indica que se rechaza $Ho$, se acepta $Ha$ como verdadera, las llantas KT tienen un mayor rendimiento promedio que las llantas FB. Se recomienda la compra de las llantas KT. -->
-<p><br/><br/><br/></p>
 </div>
-<div id="punto-4" class="section level2">
-<h2><strong>punto 4</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 4
+</div>
 <p>Un ingeniero desea establecer si existen diferencias entre dos
 métodos diferentes de realizar el ensamble de una casa prefabricada.
 Para comprobarlo recogen información del tiempo empleado en el ensamble
@@ -702,10 +732,12 @@ continuación:</p>
 <p>Presentan los datos suficiente evidencia que permita afirmar que el
 nuevo método es mas eficiente que el método estándar? (Utilice un <span
 class="math inline">\(\alpha=0.05\)</span>)</p>
-<p><br/><br/><br/></p>
 </div>
-<div id="punto-5" class="section level2">
-<h2><strong>punto 5</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 5
+</div>
 <p>El director de un gimnasio quiere determinar si un instructor de
 ejercicios debe ser contratado o no para su campaña estrella “Reducción
 de peso”. Para tomar la decisión indica a un candidato que pruebe con 16
@@ -718,10 +750,12 @@ class="math inline">\(x1\)</span>) y sus pesos al finalizar el programa
 <pre><code>inicio :  16    2.312      7.296 </code></pre>
 <p>¿Que supuestos se deben verificar? ¿Se podría decir que las rutinas
 empleadas por el instructor producen los efectos indicados?</p>
-<p><br/><br/><br/></p>
 </div>
-<div id="punto-6" class="section level2">
-<h2><strong>punto 6</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 6
+</div>
 <p>Se realizan pruebas de un nuevo lector láser manual para uso en la
 realización de inventarios y del lector utilizado actualmente, con el
 fin de decidir si se adquiere el primero. Se obtienen los datos sobre el
@@ -733,10 +767,12 @@ dispositivos.</p>
 <p><img src="monitoria4_files/figure-html/unnamed-chunk-8-1.png" alt="" width="672" /></p>
 <p>De acuerdo con la información, es posible preferir alguno de ellos?
 ¿Que supuestos se deben verificar?</p>
-<p><br/><br/><br/></p>
 </div>
-<div id="punto-7" class="section level2">
-<h2><strong>punto 7</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 7
+</div>
 <p>Un empresario registro el número de artículos producidos durante 10
 días para un grupo conformado por 15 obreros los cuales tienen un
 salario fijo (grupo 1). El gerente piensa que si se cambia la forma del
@@ -750,10 +786,12 @@ artículos producidos por ambos grupos son los siguientes:</p>
 <p>Suponiendo que los salarios pagados a ambos grupos son equivalentes,
 se podría afirmar que el plan de incentivos es efectivo? ¿Que supuestos
 se deben verificar?</p>
-<p><br/><br/><br/></p>
 </div>
-<div id="punto-8" class="section level2">
-<h2><strong>punto 8</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 8
+</div>
 <p>La pizzeria P20 realizó el mes pasado una encuestas (<span
 class="math inline">\(n_1=200\)</span>) para determinar la proporción de
 clientes que prefieren el tamaño familiar. La encuesta recogida muestra
@@ -766,14 +804,16 @@ una proporción de 25%.</p>
 es efectiva? (utilice un <span
 class="math inline">\(\alpha=0.05\)</span>)</p>
 <pre class="r"><code># prop.test(c(40,50), c(200,200),  conf.level = 0.95)</code></pre>
+</div>
 <p><br/><br/><br/></p>
 </div>
-</div>
 <div id="taller-332-1" class="section level1">
-<h1><strong>Taller 332</strong></h1>
+<h1>Taller 332</h1>
 <p><br/><br/></p>
-<div id="punto-1-1" class="section level2">
-<h2><strong>punto 1</strong></h2>
+<div class="box4 with-label">
+<div class="label">
+Problema 9
+</div>
 <p>Se lanza una moneda hasta que sale una cara y se reguistra el número
 de lanzamientos <span class="math inline">\(X\)</span>. Depués de
 repetir el experimento 256 veces, se observan los siguientes
@@ -811,10 +851,12 @@ class="math inline">\(0.05\)</span> pruebe la hipótesis de que la
 distribución observada de <span class="math inline">\(X\)</span> se
 puede ajustar a una distribución geometrica <code>geom(x, 0.50)</code>,
 para <span class="math inline">\(x=1,2,3,4,5....\)</span></p>
-<p><br/><br/><br/></p>
 </div>
-<div id="punto-2-1" class="section level2">
-<h2><strong>punto 2</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 10
+</div>
 <p>Una muestra aleatoria de 90 adultos se ckasifica de acuerdo al genero
 y el número de horas que dedica a ver la televisión durante una
 semana:</p>
@@ -843,10 +885,12 @@ semana:</p>
 class="math inline">\(0.01\)</span> y pruebe la hipótesis de que el
 tiempo dedicado a ver televisión es independiente de si el espectador es
 hombre o mujer.</p>
-<p><br/><br/><br/></p>
 </div>
-<div id="punto-3-1" class="section level2">
-<h2><strong>punto 3</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 11
+</div>
 <p>Un investigador realizó un estudio para determinar si la incidedencia
 de cierto tipo de delitos varia de una parte de una gran ciudad a otra.
 Los crímines específicos de interés eran el asalto, el robo de casas, el
@@ -897,10 +941,12 @@ cometidos en cuatro áreas de la ciudad durante el año pasado:</p>
 <p>¿ A partir de los datos podemos concluir, a un nivel de significancia
 del <span class="math inline">\(0.01\)</span> que la ocurrencia de estos
 topos de delitos dependen de la comuna de la ciudad?</p>
-<p><br/><br/><br/></p>
 </div>
-<div id="punto-4-1" class="section level2">
-<h2><strong>punto 4</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 12
+</div>
 <p>Se lleva a cobo una investigación en dos ciudades del Valle para
 determinar la opinión de los votantes respecto a dos candidatos a la
 presidencia paras proximas elecciones presidenciales. En cada cuidad se
@@ -917,12 +963,12 @@ siguientes datos :</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">a favor de <strong>A</strong></td>
+<td align="center">a favor de A</td>
 <td align="right">204</td>
 <td align="right">225</td>
 </tr>
 <tr class="even">
-<td align="center">a favor de <strong>B</strong></td>
+<td align="center">a favor de B</td>
 <td align="right">211</td>
 <td align="right">198</td>
 </tr>
@@ -935,13 +981,14 @@ siguientes datos :</p>
 </table>
 <p>A un nivel de significancia del <span
 class="math inline">\(0.05\)</span> pruebe la hipótesis nula de quelas
-las proporciones de votantes que estan a favor del candidato
-<strong>A</strong>, del candidato <strong>B</strong> o están indecisos
-son las mismas para cada ciudad.</p>
-<p><br/><br/><br/></p>
+las proporciones de votantes que estan a favor del candidato A , del
+candidato B o están indecisos son las mismas para cada ciudad.</p>
 </div>
-<div id="punto-5-1" class="section level2">
-<h2><strong>punto 5</strong></h2>
+<p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 13
+</div>
 <p>El departamento de Bienestar Universitario realizó un estudio para
 determinar si 8 semanes de entrenamiento realmente reducen los niveles
 de colesterol de los participantes . A un grupo de tratamiento que
@@ -955,11 +1002,12 @@ los participantes del programa de 8 semanas.</p>
 <code>129, 131,154,172, 115, 126, 175, 171, 122, 238, 159, 156, 176, 175, 126</code></p>
 <p><code>Control:</code>
 <code>151, 132, 196, 195, 188, 198, 187, 168, 115, 165, 137, 208, 133, 217, 191, 193, 140, 149</code></p>
+</div>
 <p><br/><br/><br/></p>
+<div class="box4 with-label">
+<div class="label">
+Problema 14 - M&amp;M
 </div>
-</div>
-<div id="actividad-mm" class="section level1">
-<h1><strong>Actividad M&amp;M</strong></h1>
 <p>El sitio web de la compañía Mars publica los siguientes porcentajes
 de los distintos colores de sus dulces M&amp;M para la variedad de
 chocolate candies de 49.3 g.</p>
@@ -994,16 +1042,16 @@ se puede afirmar que los datos obtenidos respaldan la información
 suministrada por la compañia en su pagina?. Use una prueba de hipótesis
 apropiada. Adjunte el proceso realizado</p>
 <p><br/><br/><br/></p>
-</div>
 <div id="taller-433" class="section level1">
-<h1><strong>Taller 433</strong></h1>
+<h1>Taller 433</h1>
 <p><br/></p>
 <div id="enunciados" class="section level4">
 <h4><a
 href="https://github.com/dgonxalex80/pye20222/blob/main/pdf/Taller_PdeH2.pdf">Enunciados</a></h4>
+<div class="box4 with-label">
+<div class="label">
+Problema 15
 </div>
-<div id="punto-1-2" class="section level2">
-<h2><strong>punto 1</strong></h2>
 <p>Los jóvenes colombianos se ha vuelto más concientes con respecto a la
 importancia de una buena nutrición acompañada de actividad deportiva
 para tener una buena salud. Una asociación de profesionales relacionados
@@ -1024,11 +1072,13 @@ confianza del 99%?</p>
 <p>Si además se desea estimar la proporción de jóvenes que son
 vegetarianos ¿qué tamaño deben tener en cuenta?</p>
 </div>
-<div id="punto-2-2" class="section level2">
-<h2><strong>punto 2</strong></h2>
-<p>Las investigadores del punto anterio selecionaron dos grupos de 400
-jóvenes cada uno y reunieron la siguiente información sobre los hábitos
-de consumo de carne de res actuales y de hace 10 años.</p>
+<div class="box4 with-label">
+<div class="label">
+Problema 16
+</div>
+<p>Las investigadores del Problema anterio selecionaron dos grupos de
+400 jóvenes cada uno y reunieron la siguiente información sobre los
+hábitos de consumo de carne de res actuales y de hace 10 años.</p>
 <p><br/></p>
 <table>
 <thead>
@@ -1060,8 +1110,10 @@ construcción de un intervalo de confianza. Con la información obtenida y
 el intervalo de confianza construido a qué conclusión se podría
 llegar?</p>
 </div>
-<div id="punto-3-2" class="section level2">
-<h2><strong>punto 3</strong></h2>
+<div class="box4 with-label">
+<div class="label">
+Problema 17
+</div>
 <p>Uno de los problemas más frecuentes en los jóvenes universitarios es
 la alta tensión que generan las evaluaciones parciales, las cuales en
 algunos casos genera dolores de cabeza. La tensión muscular en la región
@@ -1459,26 +1511,29 @@ style="display: inline-block; direction: rtl; unicode-bidi: plaintext; border-ra
 <p><br/></p>
 <p>Se puede concluir que el entrenamiento realizado con el dispositivo
 disminuye los dolores de cabeza?</p>
+</div>
 <p><br/><br/></p>
-<div id="nota" class="section level3">
-<h3><strong>Nota</strong>:</h3>
+<div class="box2 with-label">
+<div class="label">
+Nota :
+</div>
 <p>Suponga que el número de dolores de cabeza se distribuye
 aproximadamente normal.</p>
 <p>Tomado de Roberto Pangano (2006).</p>
-<p><br/><br/><br/></p>
 </div>
+<p><br/><br/><br/></p>
 </div>
 </div>
 <div id="taller-resuelto-pdeh" class="section level1">
 <h1><a
-href="https://github.com/dgonxalex80/pye20222/blob/main/pdf/P-PdeH1.pdf"><strong>Taller
-resuelto PdeH</strong></a></h1>
+href="https://github.com/dgonxalex80/pye20222/blob/main/pdf/P-PdeH1.pdf">Taller
+resuelto PdeH</a></h1>
 <p><br/><br/><br/></p>
 </div>
 <div id="formulario" class="section level1">
-<h1><strong>Formulario</strong></h1>
+<h1>Formulario</h1>
 <p><br/><br/></p>
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">
 Intervalos de confianza
 </div>
@@ -1675,12 +1730,14 @@ class="math display">\[\Bigg(\dfrac{s_{1}^{2}}{s_{2}^{2}}
 </table>
 </div>
 <p><br/><br/><br/></p>
-<div class="box3 with-label">
+<div class="box2 with-label">
 <div class="label">
 Pruebas de hipótesis
 </div>
 <p><br/><br/></p>
 <p><img src="img/DiagramaPdeH.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
 </div>
 </div>
 
