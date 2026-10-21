@@ -510,7 +510,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li>
-      <a href="monitoria3.html">Monitoría 3</a>
+      <a href="monitoria4.html">Monitoría 4</a>
     </li>
   </ul>
 </li>
@@ -1157,6 +1157,9 @@ cuarta posibilidad en el caso de realizarla mediante un método no
 paramétrico:</p>
 <p><br/><br/></p>
 <p><img src="img/EdeP_mu-1.png" alt="" width="78%" style="display: block; margin: auto;" /></p>
+<audio controls style="width:80%;">
+<source src="audios/media.mp3" type="audio/mpeg">
+</audio>
 <br/> <br/>
 <div class="box6 with-label">
 <div class="label">
@@ -1289,7 +1292,7 @@ rechazamos <code>Ho</code>, <strong>asumimos</strong> que
 <source src="audios/regla2.mp3" type="audio/mpeg">
 </audio>
 </div>
-<br/> <br/>
+<p><br/><br/></p>
 <div class="box4 with-label">
 <div class="label">
 Valor-p
@@ -1612,6 +1615,9 @@ class="math inline">\(\sigma_{1}^{2}/\sigma_{2}^{2}\)</span></td>
 <div id="comparación-de-medias" class="section level2">
 <h2>Comparación de medias</h2>
 <p><img src="img/EdeP-mu1-mu2.png" alt="" width="78%" style="display: block; margin: auto;" /></p>
+<audio controls style="width:80%;">
+<source src="audios/diferencias-medias.mp3" type="audio/mpeg">
+</audio>
 <p><br/><br/></p>
 </div>
 <div id="caso-grupos-pareados" class="section level2">
@@ -1723,7 +1729,11 @@ significancia (<span class="math inline">\(\alpha= 0.10\)</span>), no se
 rechaza la hipótesis nula, no existe suficiente evidencia en la muestra
 que permita rechazarla. Se asume que Ho es verdad. Es decir que no hay
 evidencia que el programa reduzca el peso.</p>
-<p><br/> <br/> ## Caso grupos independientes con varianzas iguales</p>
+<p><br/><br/></p>
+</div>
+<div id="caso-grupos-independientes-con-varianzas-iguales"
+class="section level2">
+<h2>Caso grupos independientes con varianzas iguales</h2>
 <p><span class="math inline">\(S_1\)</span>: variables con distribución
 normal <span class="math inline">\(S_2\)</span>: varianzas iguales</p>
 <div class="box6 with-label">
@@ -1819,11 +1829,16 @@ significancia, rechazamos la hipótesis nula, aceptamos como verdadera la
 hipótesis alterna. La media el primer grupo es significativamente menor
 que la media obtenida por el segundo grupo. Esto indica que el método
 aplicado al segundo grupo produce mejores resultados.</p>
-<p><br/> <br/> ## Caso grupos independientes con varianzas
-diferentes</p>
-<p><span class="math inline">\(S_1\)</span>: variables con distribución
-normal <span class="math inline">\(S_2\)</span>: varianzas
-diferentes</p>
+<p><br/><br/></p>
+</div>
+<div id="caso-grupos-independientes-con-varianzas-diferentes"
+class="section level2">
+<h2>Caso grupos independientes con varianzas diferentes</h2>
+<ul>
+<li><span class="math inline">\(S_1\)</span>: variables con distribución
+normal</li>
+<li><span class="math inline">\(S_2\)</span>: varianzas diferentes</li>
+</ul>
 <p><br/><br/></p>
 <div class="box6 with-label">
 <div class="label">
@@ -1888,8 +1903,11 @@ de var.test) .</p>
 <code>valor-p</code> resultante (3.781e-12) indica que se rechaza la
 hipótesis nula, se acepta la hipótesis alterna como verdadera. Podemos
 afirmar que existen diferencias significativas entre las dos medias.</p>
-<p><br/> <br/> ## **Pruebas de hipótesis para diferencia de
-proporciones</p>
+<p><br/><br/></p>
+</div>
+<div id="pruebas-de-hipótesis-para-diferencia-de-proporciones"
+class="section level2">
+<h2>Pruebas de hipótesis para diferencia de proporciones</h2>
 <p><br/></p>
 <div class="box6 with-label">
 <div class="label">
@@ -1933,7 +1951,11 @@ evidencia en la muestra que permita rechazarla, asumimos que Ho es
 verdad. Por tal motivo no se perciben mejoras el conocimiento de los
 beneficios que trae el uso de la tarjeta de crédito. Se recomienda
 revisar la forma en que se realiza la campaña publicitaria.</p>
-<p><br/> <br/> # Pruebas de hipótesis no paramétricas</p>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="pruebas-de-hipótesis-no-paramétricas" class="section level1">
+<h1>Pruebas de hipótesis no paramétricas</h1>
 <p><br/><br/></p>
 <p>Hasta el momento nos hemos dedicado a la estadística parametrica, que
 exige la estimación de parámetros y de la comprobación de supuestos
@@ -1942,7 +1964,6 @@ distribuyan normal.</p>
 <p>Note que la distribución normal esta relacionada con las
 distribuciones t-student, chi-cuadrado y F entre otras.</p>
 <p><br/><br/></p>
-</div>
 <div id="cuando-utilizar-pruebas-no-parametricas"
 class="section level2">
 <h2>Cuando utilizar pruebas no parametricas:</h2>
@@ -2860,6 +2881,114 @@ contraste particular.</td>
 <h1>Código R</h1>
 <div class="box4 with-label">
 <p><img src="img/logoR.png" alt="" width="12%" /></p>
+</div>
+<div id="pruebas-paramétricas" class="section level2">
+<h2>Pruebas paramétricas</h2>
+<div id="entrada-de-datos" class="section level3 box4 with-label">
+<h3>Entrada de datos</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><code>x1=c(7, 13, 6, 5, 5, 10, 8, 6, 7)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>x2=c(3,7,2,3,6,2,1,0,2)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="una-población" class="section level3 box4 with-label">
+<h3>Una población</h3>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td
+align="left"><code>z.test(datos,mu=10,stdev=4, conf.level=0.98)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>t.test(datos, mu=10,conf.level=0.98)</code></td>
+</tr>
+<tr class="odd">
+<td
+align="left"><code>t.test(datos, mu=10,conf.level=0.98,alternative="greater")</code></td>
+</tr>
+<tr class="even">
+<td
+align="left"><code>t.test(datos, mu=10,conf.level=0.98,alternative="less)</code></td>
+</tr>
+<tr class="odd">
+<td
+align="left"><code>prop.test(x=22,n=100, p=0.20, conf.level=0.98)</code></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td
+align="left"><code>paqueteDEG::test.mu(media = 52, n = 36, sd = 8, mu0 = 50)</code></td>
+</tr>
+<tr class="even">
+<td
+align="left"><code>paqueteDEG::test.prop(x = 45, n = 100, p = 0.5)</code></td>
+</tr>
+<tr class="odd">
+<td
+align="left"><code>paqueteDEG::test.var(sd = 12, n = 30, sigma20 = 100)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="dos-poblaciones" class="section level3 box4 with-label">
+<h3>Dos poblaciones</h3>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><code>t.test(x1,x2,  paired=TRUE)</code></td>
+</tr>
+<tr class="even">
+<td
+align="left"><code>t.test(x1,x2,  paired=FALSE, var.equal=TRUE, conf.level=0.95)</code></td>
+</tr>
+<tr class="odd">
+<td
+align="left"><code>t.test(x1,x2,  paired=FALSE, var.equal=FALSE, conf.level=0.98)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>var.test(x,y)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>prop.test(c(x1,x2), c(n1,n2))</code></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td
+align="left"><code>paqueteDEG::test.mus(mu1,n1,sd1,mu2,n2,sd2,delta0 = 0,alternative = "less",conf.level = 0.95)</code></td>
+</tr>
+<tr class="odd">
+<td
+align="left"><code>paqueteDEG::test.prop(x = c(56, 42), n = c(120, 110))</code></td>
+</tr>
+<tr class="even">
+<td
+align="left"><code>paqueteDEG::test.vars(sd1,n1,sd2,n2,ratio0 = 1, alternative = "greater",conf.level = 0.95)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="pruebas-no-paramétricas"
+class="section level3 box4 with-label">
+<h3>Pruebas no paramétricas</h3>
 <table>
 <colgroup>
 <col width="24%" />
@@ -2868,108 +2997,41 @@ contraste particular.</td>
 <tbody>
 <tr class="odd">
 <td align="left"></td>
-<td align="left"><strong>Pruebas paramétricas</strong></td>
-</tr>
-<tr class="even">
-<td align="left">Entrada de datos</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"><code>x1=c(7, 13, 6, 5, 5, 10, 8, 6, 7)</code></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"><code>x2=c(3,7,2,3,6,2,1,0,2)</code></td>
-</tr>
-<tr class="odd">
-<td align="left">Una población</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td
-align="left"><code>z.test(datos,mu=10,stdev=4, conf.level=0.98)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"><code>t.test(datos, mu=10,conf.level=0.98)</code></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td
-align="left"><code>t.test(datos, mu=10,conf.level=0.98,alternative="greater")</code></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td
-align="left"><code>t.test(datos, mu=10,conf.level=0.98,alternative="less)</code></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td
-align="left"><code>prop.test(x=22,n=100, p=0.20, conf.level=0.98)</code></td>
-</tr>
-<tr class="odd">
-<td align="left">Dos poblaciones</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"><code>t.test(x1,x2,  paired=TRUE)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td
-align="left"><code>t.test(x1,x2,  paired=FALSE, var.equal=TRUE, conf.level=0.95)</code></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td
-align="left"><code>t.test(x1,x2,  paired=FALSE, var.equal=FALSE, conf.level=0.98)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"><code>var.test(x,y)</code></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"><code>prop.test(c(x1,x2), c(n1,n2))</code></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"><strong>Pruebas no paramétricas</strong></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
 <td align="left"><code>chisq.test(x=obs,p=esp)</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">paquete: MASS</td>
 <td align="left"><code>library(MASS)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"></td>
 <td align="left"><code>chisq.test(M)</code> # M: matriz</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">paquete: BSDA</td>
 <td align="left"><code>library(BSDA)</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"></td>
 <td
 align="left"><code>SIGN.test(x,md=15,alternative = "greater")</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"></td>
 <td
 align="left"><code>wilcox.test(g1,g2,paired = FALSE,alternative = "less")</code></td>
 </tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"><strong>Pruebas de normalidad</strong></td>
-</tr>
+</tbody>
+</table>
+</div>
+<div id="pruebas-de-normalidad" class="section level3 box4 with-label">
+<h3>Pruebas de normalidad</h3>
+<table>
+<colgroup>
+<col width="24%" />
+<col width="75%" />
+</colgroup>
+<tbody>
 <tr class="odd">
 <td align="left"></td>
 <td align="left"><code>shapiro.test(x)</code></td>
@@ -3047,6 +3109,7 @@ align="left"><code>wilcox.test(g1,g2,paired = FALSE,alternative = "less")</code>
 </div>
 <p><br/><br/></p>
 </div>
+</div>
 <div id="tipos-de-pruebas" class="section level1">
 <h1>Tipos de pruebas</h1>
 <div class="box2 with-label">
@@ -3084,19 +3147,20 @@ align="left"><code>wilcox.test(g1,g2,paired = FALSE,alternative = "less")</code>
 </table>
 </div>
 <p><br/><br/></p>
-<div id="videos" class="section level2">
-<h2><strong>Videos</strong></h2>
+</div>
+<div id="videos" class="section level1">
+<h1>Videos</h1>
 <p><br/><br/></p>
-<div id="video-paramétricas" class="section level3">
-<h3><strong>Video paramétricas</strong></h3>
+<div id="video-paramétricas" class="section level2">
+<h2>Video paramétricas</h2>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/phUkdjdj95c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </center>
 <p><br/><br/></p>
 </div>
-<div id="video-no-paramétricas" class="section level3">
-<h3><strong>Video no paramétricas</strong></h3>
+<div id="video-no-paramétricas" class="section level2">
+<h2>Video no paramétricas</h2>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/m3YIdS2TVHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -3104,8 +3168,8 @@ align="left"><code>wilcox.test(g1,g2,paired = FALSE,alternative = "less")</code>
 <p><br/><br/></p>
 </div>
 </div>
-<div id="tutorial" class="section level2">
-<h2><strong>Tutorial</strong></h2>
+<div id="tutorial" class="section level1">
+<h1>Tutorial</h1>
 <p>Con el siguiente código en R , podrán abrir un tutorial con problemas
 propuestos sobre el tema. Es necesario para ello abrir la consola de R o
 RStudio y correr el código</p>
@@ -3137,7 +3201,6 @@ requiere la instalcion del paquete <em>ctv</em> : <a
 href="https://cran.r-project.org/web/views/Distributions.html"
 class="uri">https://cran.r-project.org/web/views/Distributions.html</a></p>
 <p><br/><br/></p>
-</div>
 </div>
 </div>
 </div>

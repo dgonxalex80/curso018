@@ -549,6 +549,10 @@ Dependiendo de las condiciones podemos optar por tres diferentes EdeP para la re
 knitr::include_graphics("img/EdeP_mu-1.png")
 ```
 
+<audio controls style="width:80%;">
+  <source src="audios/media.mp3" type="audio/mpeg">
+</audio>
+
 
 <br/>
 <br/>
@@ -669,8 +673,8 @@ Si $\alpha >$ **valor-p** entonces rechazamos $H_{0}$, se **acepta** `Ha` como v
 </audio>
 </div>
 
-<br/>
-<br/>
+<br/><br/>
+
 <div class="box4 with-label">
 <div class="label">Valor-p </div> 
 
@@ -879,7 +883,9 @@ Podemos entonce concluir que $\sigma^{2} \neq 81$
 knitr::include_graphics("img/EdeP-mu1-mu2.png")
 ```
 
-
+<audio controls style="width:80%;">
+  <source src="audios/diferencias-medias.mp3" type="audio/mpeg">
+</audio>
 
 
 <br/><br/>
@@ -927,8 +933,8 @@ t.test(pant, pdes,
 Como el `valor-p` ( 0.8889) es mayor que nuestro nivel de significancia ($\alpha= 0.10$), no se rechaza la hipótesis nula, no existe suficiente evidencia en la muestra que permita rechazarla. Se asume que Ho es verdad. Es decir que no hay evidencia que el programa reduzca el peso.
 
 
-<br/>
-<br/>
+<br/><br/>
+
 ## Caso grupos independientes con varianzas iguales
 
 $S_1$: variables con distribución normal
@@ -1008,12 +1014,12 @@ t.test(grupo1, grupo2,
 
 Como el `valor-p` (2.2e-16) es menor que el nivel de significancia, rechazamos la hipótesis nula, aceptamos como verdadera la hipótesis alterna. La media el primer grupo es significativamente menor que la media obtenida por el segundo grupo. Esto indica que el método aplicado al segundo grupo produce mejores resultados. 
 
-<br/>
-<br/>
+<br/><br/>
+
 ## Caso grupos independientes con varianzas diferentes
 
-$S_1$: variables con distribución normal
-$S_2$: varianzas diferentes
+* $S_1$: variables con distribución normal
+* $S_2$: varianzas diferentes
 
 <br/><br/>
 
@@ -1066,9 +1072,9 @@ Analizando el resultado de la prueba t-Student, el `valor-p` resultante (3.781e-
 
 
 
-<br/>
-<br/>
-## **Pruebas de hipótesis para diferencia de proporciones
+<br/><br/>
+
+## Pruebas de hipótesis para diferencia de proporciones
 
 <br/>
 
@@ -1098,8 +1104,8 @@ prop.test(c(57,87),c(100,150),
 
 Como el `valor-p` ( 0.4896) es mayor al nivel de significancia, no se rechaza la hipótesis nula, no existe suficiente evidencia en la muestra que permita rechazarla, asumimos que Ho es verdad. Por tal motivo no se perciben mejoras el conocimiento de los beneficios que trae el uso de la tarjeta de crédito.  Se recomienda revisar la forma en que se realiza la campaña publicitaria.
 
-<br/>
-<br/>
+<br/><br/>
+
 # Pruebas de hipótesis no paramétricas
 
 <br/><br/>
@@ -1662,32 +1668,74 @@ knitr::include_graphics(c("img/EdeP1.png", "img/EdeP2.png"))
 knitr::include_graphics("img/logoR.png")
 ```
 
+</div>
+
+
+
+
+## Pruebas paramétricas
+
+<div class="box4 with-label">
+### Entrada de datos   
+|                                                          |
+|:---------------------------------------------------------|
+|`x1=c(7, 13, 6, 5, 5, 10, 8, 6, 7)`                       |
+|`x2=c(3,7,2,3,6,2,1,0,2)`                                 |  
+
+</div>
+
+<div class="box4 with-label">
+### Una población     
+|                                                          |
+|:---------------------------------------------------------|
+|`z.test(datos,mu=10,stdev=4, conf.level=0.98)`                               |
+|`t.test(datos, mu=10,conf.level=0.98)`                                       |
+|`t.test(datos, mu=10,conf.level=0.98,alternative="greater")`                 |
+|`t.test(datos, mu=10,conf.level=0.98,alternative="less)`                     |
+|`prop.test(x=22,n=100, p=0.20, conf.level=0.98)`                             |
+|                                                                             |
+| `paqueteDEG::test.mu(media = 52, n = 36, sd = 8, mu0 = 50)`                 |
+| `paqueteDEG::test.prop(x = 45, n = 100, p = 0.5)`                           |
+| `paqueteDEG::test.var(sd = 12, n = 30, sigma20 = 100)`                      |
+
+</div>
+
+<div class="box4 with-label">
+### Dos poblaciones
+|                                                                                               |
+|:----------------------------------------------------------------------------------------------|
+|`t.test(x1,x2,  paired=TRUE)`                                                                  |    
+|`t.test(x1,x2,  paired=FALSE, var.equal=TRUE, conf.level=0.95)`                                |
+|`t.test(x1,x2,  paired=FALSE, var.equal=FALSE, conf.level=0.98)`                               |
+|`var.test(x,y)`                                                                                |
+|`prop.test(c(x1,x2), c(n1,n2))`                                                                |
+|                                                                                               |
+|                                                                                               |
+|`paqueteDEG::test.mus(mu1,n1,sd1,mu2,n2,sd2,delta0 = 0,alternative = "less",conf.level = 0.95)`|
+|`paqueteDEG::test.prop(x = c(56, 42), n = c(120, 110))`                                        |
+|`paqueteDEG::test.vars(sd1,n1,sd2,n2,ratio0 = 1, alternative = "greater",conf.level = 0.95)`   |
+
+</div>
+
+
+<div class="box4 with-label">
+### Pruebas no paramétricas
+
 |                   |                                                          |
 |:------------------|:---------------------------------------------------------|
-|                   |**Pruebas paramétricas**                                  |
-|Entrada de datos   |                                                          |
-|                   |`x1=c(7, 13, 6, 5, 5, 10, 8, 6, 7)`                       |
-|                   |`x2=c(3,7,2,3,6,2,1,0,2)`                                 |  
-|Una población      |                                                          |
-||`z.test(datos,mu=10,stdev=4, conf.level=0.98)`                                 |
-||`t.test(datos, mu=10,conf.level=0.98)`                                       |
-||`t.test(datos, mu=10,conf.level=0.98,alternative="greater")`                 |
-||`t.test(datos, mu=10,conf.level=0.98,alternative="less)`                     |
-||`prop.test(x=22,n=100, p=0.20, conf.level=0.98)`                             |
-|Dos poblaciones    |                                                          |
-|                   |`t.test(x1,x2,  paired=TRUE)`                             |    
-|                   |`t.test(x1,x2,  paired=FALSE, var.equal=TRUE, conf.level=0.95)` |
-|                   |`t.test(x1,x2,  paired=FALSE, var.equal=FALSE, conf.level=0.98)`|
-|                   |`var.test(x,y)`                                           |
-|                   |`prop.test(c(x1,x2), c(n1,n2))`                           |
-|                   |**Pruebas no paramétricas**                               |
 |                   | `chisq.test(x=obs,p=esp)`                                |
 |paquete: MASS      | `library(MASS)`                                          |
 |                   |`chisq.test(M)`  # M: matriz                              |
 |paquete: BSDA      |`library(BSDA)`                                           |
 |                   |`SIGN.test(x,md=15,alternative = "greater")`              |
 |                   |`wilcox.test(g1,g2,paired = FALSE,alternative = "less")`  |
-|                   |**Pruebas de normalidad**                                 |
+</div>
+
+<div class="box4 with-label">
+### Pruebas de normalidad
+
+|                   |                                                          |
+|:------------------|:---------------------------------------------------------|
 |                   |`shapiro.test(x)`                                         |
 | paquete:normtest  |` library(normtest)`                                      |
 |                   |`ajb.norm.test(x)`                                        |
@@ -1725,11 +1773,11 @@ knitr::include_graphics("img/logoR.png")
 
 <br/><br/>
 
-## **Videos**
+# Videos
 
 <br/><br/>
 
-### **Video paramétricas**
+## Video paramétricas
 <center>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/phUkdjdj95c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -1738,7 +1786,7 @@ knitr::include_graphics("img/logoR.png")
 
 <br/><br/>
 
-### **Video no paramétricas**
+## Video no paramétricas
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/m3YIdS2TVHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -1747,7 +1795,7 @@ knitr::include_graphics("img/logoR.png")
 
 <br/><br/>
 
-## **Tutorial**
+# Tutorial
 
 Con el siguiente código en R , podrán abrir un tutorial con problemas propuestos sobre el tema. Es necesario para ello abrir la consola de R o RStudio y correr el código
 

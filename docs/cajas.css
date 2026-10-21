@@ -312,5 +312,81 @@ mjx-container mjx-frac > mjx-frac-line {
 /* ======================================================== */
 
 
+/* =========================================================
+   AJUSTE: TABLAS Y CODIGO DENTRO DE CAJAS
+   Evita que las tablas Markdown y los comandos largos
+   se superpongan visualmente al borde derecho.
+   ========================================================= */
 
+/* Los hijos flexibles y las tablas no deben ensanchar el marco. */
+:is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6) {
+    min-width: 0;
+}
 
+/* La tabla ocupa el espacio interior, sin salir sobre el borde. */
+:is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6) table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    box-sizing: border-box;
+}
+
+/* Los textos de las celdas, incluidos los comandos, pueden partir línea. */
+:is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6) :is(th,td) {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+:is(.box,.box0,.box1,.box2,.box3,.box4,.box5,.box6) td code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* En tablas de comandos de una sola columna, evita el efecto
+   de líneas de la tabla sobre el marco morado de la caja. */
+.box4.with-label table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.box4.with-label table td,
+.box4.with-label table th {
+    background-clip: padding-box;
+}
+
+/* =========================================================
+   CORRECCIÓN FINAL: tabla Markdown de comandos dentro de box4
+   Elimina bordes propios de tabla/celdas que se confunden
+   con el marco exterior y mantiene un margen interior.
+   ========================================================= */
+.main-container .box4.with-label > table,
+.box4.with-label > table {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 .4rem !important;
+    border: 0 !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    box-shadow: none !important;
+    outline: 0 !important;
+}
+.main-container .box4.with-label > table > tbody > tr > td,
+.main-container .box4.with-label > table > thead > tr > th,
+.box4.with-label > table td,
+.box4.with-label > table th {
+    border: 0 !important;
+    box-shadow: none !important;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+.box4.with-label > table code {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+}
+/* La caja conserva su marco, independientemente de los bordes de tabla. */
+.main-container div.box4.with-label {
+    border: 2px solid #7A6DB2 !important;
+    overflow: visible;
+}
