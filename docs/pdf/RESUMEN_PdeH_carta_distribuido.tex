@@ -1,0 +1,120 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[top=0.9cm,bottom=0.9cm,left=1cm,right=1cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,multicol,array,listings}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\abovedisplayskip}{9pt}
+\setlength{\belowdisplayskip}{9pt}
+\setlength{\abovedisplayshortskip}{4pt}
+\setlength{\belowdisplayshortskip}{4pt}
+\setlength{\jot}{5pt}
+\setlength{\columnsep}{0.55cm}
+\lstset{basicstyle=\ttfamily\fontsize{8.0}{10.3}\selectfont,breaklines=true,breakatwhitespace=false,columns=fullflexible,keepspaces=true,showstringspaces=false,aboveskip=4pt,belowskip=4pt}
+\allowdisplaybreaks
+\begin{document}
+\begin{center}\normalsize\bfseries FORMULARIO PRUEBAS DE HIPÓTESIS PARAMÉTRICAS\end{center}
+\vspace{-0.35cm}
+\begin{multicols}{2}
+\fontsize{10.4}{13.4}\selectfont
+\raggedcolumns
+\textbf{$H_0:\mu=\mu_0$}
+\begin{align}
+Z_0&=\frac{\bar X-\mu_0}{\sigma/\sqrt n}\sim N(0,1)\\
+Z_0&=\frac{\bar X-\mu_0}{s/\sqrt n}\overset{\mathrm{aprox.}}\sim N(0,1)\\
+T_0&=\frac{\bar X-\mu_0}{s/\sqrt n}\sim t_{n-1}
+\end{align}
+\vspace{23pt}\par\textbf{$H_0:\sigma^2=\sigma_0^2$}
+\begin{equation}\chi_0^2=\frac{(n-1)S^2}{\sigma_0^2}\sim\chi^2_{n-1}\end{equation}
+\vspace{23pt}\par\textbf{$H_0:p=p_0$}
+\begin{align}
+Z_0&=\frac{X-np_0}{\sqrt{np_0(1-p_0)}}\sim N(0,1)\\
+Z_0&=\frac{\hat p-p_0}{\sqrt{p_0(1-p_0)/n}}\sim N(0,1)\notag
+\end{align}
+\vspace{23pt}\par\textbf{$H_0:\mu_1-\mu_2=\Delta_0$}\quad Grupos independientes.
+\begin{align}
+Z_0&=\frac{(\bar x_1-\bar x_2)-\Delta_0}{\sqrt{\sigma_1^2/n_1+\sigma_2^2/n_2}}\sim N(0,1)\\
+T_0&=\frac{(\bar x_1-\bar x_2)-\Delta_0}{s_p\sqrt{1/n_1+1/n_2}}\sim t_{n_1+n_2-2}
+\end{align}
+Donde:
+\[s_p^2=\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}.\]
+\begin{equation}
+T_0=\frac{(\bar x_1-\bar x_2)-\Delta_0}{\sqrt{s_1^2/n_1+s_2^2/n_2}}\sim t_{\nu^*}
+\end{equation}
+Donde:
+\[\nu^*=\frac{(s_1^2/n_1+s_2^2/n_2)^2}{\dfrac{(s_1^2/n_1)^2}{n_1-1}+\dfrac{(s_2^2/n_2)^2}{n_2-1}}.\]
+\vspace{23pt}\par\textbf{$H_0:\mu_1-\mu_2=\Delta_0$}\quad Grupos pareados.
+\begin{equation}
+T_0=\frac{\bar d-\Delta_0}{s_d/\sqrt n}\sim t_{n-1}
+\end{equation}
+Donde $\bar d=\frac1n\sum_{i=1}^n d_i$ y $d_i=x_{1i}-x_{2i}$.
+
+\columnbreak
+\textbf{$H_0:p_1-p_2=\Delta_0$}
+\begin{equation}
+Z_0=\frac{(\hat p_1-\hat p_2)-\Delta_0}{\sqrt{\hat p\hat q(1/n_1+1/n_2)}}\sim N(0,1)
+\end{equation}
+Donde $\hat p=\frac{x_1+x_2}{n_1+n_2}$, $\hat q=1-\hat p$, $\hat p_1=\frac{x_1}{n_1}$ y $\hat p_2=\frac{x_2}{n_2}$.
+
+\textbf{$H_0:\sigma_1^2=\sigma_2^2$}\quad Varianzas iguales.
+\begin{equation}
+F_0=\frac{s_1^2}{s_2^2}\sim F_{n_1-1,n_2-1}
+\end{equation}
+
+\textbf{Reglas de decisión}
+
+\textbf{Regla 1.} Si el EdeP cae en la RdeR, se rechaza $H_o$. Si cae en la RdeNOR, no se rechaza $H_0$.
+
+\textbf{Regla 2.} Si $\text{valor-}p\leq\alpha$, se rechaza $H_o$; si $\text{valor-}p>\alpha$, no se rechaza $H_o$.
+
+\textbf{Regla 3.} El $valor-p$ es la probabilidad, bajo $H_o$, de observar un resultado al menos tan extremo como el obtenido. No es la probabilidad de que $H_o$ sea verdadera ni la probabilidad de cometer un error de tipo I.
+
+\textbf{Códigos en R}
+
+\begin{lstlisting}
+# Entrada de datos
+x1 <- c(7,13,6,5,5,10,8,6,7)
+x2 <- c(3,7,2,3,6,2,1,0,2)
+
+# Pruebas para una poblacion
+# z.test requiere un paquete que lo implemente
+z.test(datos,mu=10,stdev=4,conf.level=0.98)
+t.test(datos,mu=10,conf.level=0.98)
+t.test(datos,mu=10,conf.level=0.98,
+       alternative="greater")
+t.test(datos,mu=10,conf.level=0.98,
+       alternative="less")
+prop.test(x,n,p=0.20,conf.level=0.98)
+
+# Pruebas para dos poblaciones
+t.test(x1,x2,paired=TRUE)
+t.test(x1,x2,paired=FALSE,
+       var.equal=TRUE,conf.level=0.98)
+t.test(x1,x2,paired=FALSE,
+       var.equal=FALSE,conf.level=0.98)
+var.test(x1,x2)
+prop.test(c(x1,x2),c(n1,n2))
+
+paqueteDEG::test.mu(media=52,n=36,sd=8,mu0=50)
+paqueteDEG::test.prop(x=45,n=100,p=0.5)
+paqueteDEG::test.var(sd=12,n=30,sigma20=100)
+
+paqueteDEG::test.mus(mu1,n1,sd1,mu2,n2,sd2,
+  delta0=0,alternative="less",conf.level=0.95)
+paqueteDEG::test.prop(x = c(56, 42), n = c(120, 110))                                        
+paqueteDEG::test.vars(sd1,n1,sd2,n2,ratio0=1,
+  alternative="greater",conf.level=0.95) 
+
+\end{lstlisting}
+\textbf{Tipos de pruebas}
+
+Bilateral: $H_0:\theta=\theta_0$ frente a $H_a:\theta\ne\theta_0$ (dos colas).
+
+Cola derecha: $H_0:\theta\leq\theta_0$ frente a $H_a:\theta>\theta_0$.
+
+Cola izquierda: $H_0:\theta\geq\theta_0$ frente a $H_a:\theta<\theta_0$.
+\end{multicols}
+\end{document}

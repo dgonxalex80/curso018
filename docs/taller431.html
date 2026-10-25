@@ -567,6 +567,17 @@ decisiones</span></h1>
 </div>
 
 
+<style>
+details.pista-codigo { margin: 1.2em 0; padding: 0.8em 1em; border: 1px solid #8A6FD1; border-radius: 8px; background: #f8f6fc; }
+details.pista-codigo > summary { cursor: pointer; font-weight: bold; color: #60449c; }
+details.pista-codigo[open] > summary { margin-bottom: 1em; }
+details.pista-codigo pre { max-height: 650px; overflow: auto; }
+</style>
+<p>Las pistas de cada problema se despliegan al pulsar <strong>código en
+R</strong>. El código se muestra como guía y no se ejecuta al tejer el
+documento; puede copiarse en RStudio. Cuando el enunciado no indica
+significancia, se propone <span
+class="math inline">\(\alpha=0.05\)</span>.</p>
 <p><br/><br/></p>
 <p><img src="img/taller4.png" alt="" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
 <p></br></br></p>
@@ -581,6 +592,14 @@ necesita ser reprocesados por tener defectos es inferior al 5 %. Se
 examina una muestra de 40 artículos construidos por la maquina y 3
 necesitan ser reprocesados . ¿ Que decisión se toma? ( Se compra o no la
 maquina?)</p>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code>n &lt;- 40; defectuosos &lt;- 3; p0 &lt;- 0.05; alfa &lt;- 0.05
+binom.test(defectuosos, n, p = p0,
+                    alternative = &quot;less&quot;, conf.level = 1-alfa)</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -616,6 +635,24 @@ ggplot(llantas, aes(x = marca, y = rendimiento, fill = marca)) +
 respuesta. Suponga que la distancia recorrida por un neumático se
 distribuye aproximadamente normal y un <span
 class="math inline">\(\alpha\)</span> = 0,05.</p>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code># 1. Ingresar los rendimientos; las muestras son independientes.
+FB &lt;- c(41.8,41.6,31.5,48.7,40.8,31.2,36.5,36.2,32.8,36.3,38.6,30.5)
+KT &lt;- c(40.5,38.4,44.0,34.9,44.0,44.7,44.0,47.1,39.8,43.9,44.2,40.2)
+alfa &lt;- 0.05
+
+var.test(FB,KT)
+
+t.test(FB, KT,
+       alternative = &quot;two.sided&quot;, 
+       mu = 0, 
+       paired = FALSE, 
+       var.equal = TRUE,
+       conf.level = 0.95)</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -625,7 +662,7 @@ Problema 3
 <p>Un ingeniero desea establecer si existen diferencias entre dos
 métodos diferentes de realizar el ensamble de una casa prefabricada.
 Para comprobarlo recoge información la producción de ambos métodos que
-se presentan a continuación: \</p>
+se presentan a continuación:</p>
 <pre>
 x1 = c(32, 37, 35, 28, 41, 44, 35, 31, 34) # Procedimiento estándar
 x2 = c(35, 31, 29, 25, 34, 40, 27, 32, 31) # Nuevo procedimiento
@@ -647,6 +684,22 @@ ggplot(datos, aes(x = metodo, y = produccion, fill = metodo)) +
 <p>Presentan los datos suficiente evidencia estadística para afirmar que
 el nuevo método es más eficiente que el estándar? (utilice un <span
 class="math inline">\(\alpha=0.05\)</span>).</p>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code>x1 = c(32, 37, 35, 28, 41, 44, 35, 31, 34) # Procedimiento estándar:
+x2 = c(35, 31, 29, 25, 34, 40, 27, 32, 31) # Nuevo procedimiento:
+
+var.test(x1,x2)
+
+t.test(x1, x2,
+       alternative = &quot;two.sided&quot;, 
+       mu = 0, 
+       paired = FALSE, 
+       var.equal = TRUE,
+       conf.level = 0.95)</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -746,6 +799,22 @@ de ejercicios son los siguientes:</p>
 del 0.01 para determinar si el programa que ofrece el nuevo instructor
 es eficaz. Suponga que la variable peso se distribuye aproximadamente
 normal.</p>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code># 1. Mantener el mismo orden de personas: son observaciones pareadas.
+antes &lt;- c(104,89,84,106,90,96,79,90,85,76,91,82,100,89,121,72)
+despues &lt;- c(98,85,85,103,88,95,79,90,82,76,89,81,99,86,111,70)
+alfa &lt;- 0.01
+# 2. Definir reducción positiva y calcular su resumen.
+d &lt;- as.numeric(antes-despues)
+
+t.test(antes, despues, paired=TRUE,
+                alternative=&quot;greater&quot;, conf.level=1-alfa)
+
+t.test(d, alternative=&quot;greater&quot;, conf.level=1-alfa)</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -775,25 +844,34 @@ hipótesis, el estadístico de prueba apropiado, el <span
 class="math inline">\(valor-p\)</span> obtenido y las conclusiones
 resultantes.</p>
 <p><br/><br/></p>
-<div id="ayuda" class="section level3">
-<h3>Ayuda</h3>
-<pre>
-n1=61
-n2=61
-mx1=40
-mx2=29
-vx1=24.9
-vx2=22.7
-
-F=vx1/vx2
-qf(c(0.025,0.975),60,60)
-
-sp2=(n1*vx1+n2*vx2)/sqrt(n1+n2-2)
-T=(mx1-mx2)/sqrt(sp2*(1/n1+1/n2)
-qt(c(0.025,0.975), n1+n2-2)
-</pre>
 <p><br/><br/></p>
-</div>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code># 1. Introducir tamaños, medias y VARIANZAS (no desviaciones).
+n1 &lt;- 61; n2 &lt;- 61 
+mx1 &lt;- 40; mx2 &lt;- 29
+vx1 &lt;- 24.9; vx2 &lt;- 22.7
+sd1 &lt;- sqrt(vx1)
+sd2 &lt;- sqrt(vx2)
+
+alfa &lt;- 0.05 # alfa supuesto
+
+paqueteDEG::test.vars(sd1,
+  n1, sd2,n2,ratio0 = 1,
+  alternative = c(&quot;two.sided&quot;, &quot;less&quot;, &quot;greater&quot;),
+  conf.level = 0.95
+)
+
+
+
+paqueteDEG::test.mus(mx1,n1,sd1,
+                     mx2,n2,sd2,
+                     alternative = &quot;two.sided&quot;,
+                     var.equal = TRUE,
+                     conf.level = 0.95)</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -837,6 +915,17 @@ número de artículos producidos por cada uno de los grupos fue : \</p>
 </table>
 <p>Suponiendo que los salarios pagados a cada grupo son equivalentes. Se
 puede concluir que el plan de incentivos es efectivo?</p>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code># 1. Los tamaños son 10 días por grupo, no 15 obreros.
+G1 &lt;- c(75,76,74,80,72,78,76,73,72,75)
+G2 &lt;- c(86,78,86,84,81,79,78,84,88,80)
+alfa &lt;- 0.05 # supuesto: el enunciado no lo especifica
+
+# generar el codigo de acuerdo a los problemas anteriores</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -850,6 +939,15 @@ selecciono una muestra de igual tamaño. En esta ultima muestra el 22% de
 los clientes indico preferencia por el producto. De acuerdo con estos
 resultados y un nivel de significancia del 5% , podría decirse que la
 campaña publicitaria no fue efectiva?</p>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code># 1. Convertir porcentajes en conteos para dos muestras independientes.
+n &lt;- c(200,200)
+x &lt;- as.numeric(c(0.20,0.22)*n) # 40 antes y 44 después
+alfa &lt;- 0.05</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -907,6 +1005,14 @@ promedio por accidentes en 10 plantas industriales antes (A) y después
 <p>Utilice un nivel de significancia de 0.05 para probar si el programa
 de seguridad implantado es eficaz. Suponga que esta variable se
 distribuye aproximadamente normal.</p>
+<details class="pista-codigo">
+<summary>
+código en R — Problema 8
+</summary>
+<pre class="r fold-show"><code>A &lt;- c(45,73,46,124,30,57,83,34,26,17)
+D &lt;- c(36,60,44,119,35,51,77,29,24,11)
+alfa &lt;- 0.05</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -928,6 +1034,14 @@ siguientes resultados: 70 duces cafés, 72 amarillos, 61 rojos, 118
 azules, 108 naranjas y 85 verdes.</p>
 <p>Se podria afirmar que los datos anteriores respaldan la información
 suministrada por la compañía en su sitio web? Sustente su respuesta.</p>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code>obs &lt;- c(cafe=70, amarillo=72, rojo=61, azul=118, naranja=108, verde=85)
+p &lt;- c(0.13,0.14,0.13,0.24,0.20,0.16)
+alfa &lt;- 0.05 # supuesto</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -938,14 +1052,21 @@ Problema 10
 periódica con el fin de detectar defectos. La siguiente secuencia de
 artículos defectuosos (D) y no defectuosos (N) corresponde a la
 producción de uno de los turnos.</p>
-<pre class="r"><code>inspeccion = sample(c(&quot;D&quot;, &quot;N&quot;), 50, replace = TRUE)
+<pre class="r"><code>set.seed(431) # Secuencia reproducible para el ejercicio
+inspeccion = sample(c(&quot;D&quot;, &quot;N&quot;), 50, replace = TRUE)
 inspeccion</code></pre>
-<pre><code>##  [1] &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;D&quot; &quot;N&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;N&quot; &quot;N&quot; &quot;N&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot;
-## [20] &quot;N&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;N&quot; &quot;N&quot; &quot;N&quot; &quot;N&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;N&quot;
-## [39] &quot;N&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;N&quot; &quot;N&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;N&quot; &quot;D&quot;</code></pre>
+<pre><code>##  [1] &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;N&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;N&quot;
+## [20] &quot;D&quot; &quot;N&quot; &quot;N&quot; &quot;D&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;N&quot; &quot;N&quot;
+## [39] &quot;D&quot; &quot;D&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot; &quot;D&quot; &quot;N&quot;</code></pre>
 <p>Se puede afirmar que los datos no presentan patrón alguno y que la
 generación de artículos defectuosos se debe al azar? . Utilice un <span
 class="math inline">\(\alpha= 0.05\)</span>.</p>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code># pendiene</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -966,6 +1087,19 @@ m</code></pre>
 palabras se puede concluir que la calidad de las soldaduras es
 independiente de los turnos? . Utilice un nivel de significancia <span
 class="math inline">\(\alpha=0.05\)</span>.</p>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code># 1. Construir tabla: R llena las columnas en el orden dado.
+x &lt;- c(470,445,257,191,171,139,42,28,17)
+m &lt;- matrix(x,ncol=3,dimnames=list(c(&quot;dia&quot;,&quot;tarde&quot;,&quot;noche&quot;),
+                                  c(&quot;alta&quot;,&quot;moderada&quot;,&quot;baja&quot;)))
+m
+alfa &lt;- 0.05
+
+chisq.test(m,correct=FALSE)</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box4 with-label">
@@ -993,6 +1127,23 @@ x=c(3.4, 2.8, 4.2, 2.1, 2.8, 2.4, 3.5, 4.2, 3.1, 4.1, 2.4, 3.4, 4.1, 4.0, 2.4,
     4.1, 3.4, 4.4, 3.8, 3.7, 2.2, 3.6, 2.3, 3.7, 2.8, 4.1, 2.3, 4.6, 4.6, 5.2, 
     2.4, 2.4, 2.7, 3.8, 4.6, 4.4, 4.2, 4.4, 2.4, 3.3, 3.8, 2.9, 3.1, 2.7, 3.6, 
     3.8, 4.4, 3.9, 2.8, 3.7)</code></pre>
+<details class="pista-codigo">
+<summary>
+código
+</summary>
+<pre class="r fold-show"><code># 1. Ingresar las notas tal como aparecen, incluido 5.2; verificar ese dato
+# con la fuente si la escala oficial termina en 5.0, sin modificarlo a ciegas.
+x &lt;- c(3.4,2.8,4.2,2.1,2.8,2.4,3.5,4.2,3.1,4.1,2.4,3.4,4.1,4.0,2.4,
+       4.1,3.4,4.4,3.8,3.7,2.2,3.6,2.3,3.7,2.8,4.1,2.3,4.6,4.6,5.2,
+       2.4,2.4,2.7,3.8,4.6,4.4,4.2,4.4,2.4,3.3,3.8,2.9,3.1,2.7,3.6,
+       3.8,4.4,3.9,2.8,3.7)
+alfa &lt;- 0.05
+# 2. H0: población normal; Ha: no normal. Complementar con gráfico Q-Q.
+normalidad &lt;- shapiro.test(x)
+qqnorm(x); qqline(x,col=&quot;steelblue&quot;,lwd=2)
+
+t.test(x,mu=3.3,alternative=&quot;greater&quot;,conf.level=1-alfa)</code></pre>
+</details>
 </div>
 <p><br/><br/><br/></p>
 <div class="box2 with-label">
@@ -1158,6 +1309,20 @@ t.test(x1,x2,  paired=FALSE, var.equal=TRUE, conf.level=0-98)
 t.test(x1,x2,  paired=FALSE, var.equal=FALSE, conf.level=0.98)
 var.test(x,y)
 prop.test(c(x1,x2), c(n1,n2))
+</pre>
+</div>
+<div id="paquete-paquetedeg" class="section level3">
+<h3>paquete paqueteDEG</h3>
+<pre>
+paqueteDEG::quetest.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+paqueteDEG::test.mus(c(42, 39), c(68.4, 63.1), c(10.2, 11.5))
+
+paqueteDEG::test.prop(x = 45, n = 100, p = 0.5)
+paqueteDEG::test.prop(x = c(56, 42), n = c(120, 110))
+
+paqueteDEG::test.var(sd = 12, n = 30, sigma20 = 100)
+paqueteDEG::test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
+
 </pre>
 </div>
 <div id="códigos-en-r-pruebas-no-paramétricas" class="section level3">

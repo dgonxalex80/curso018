@@ -41,6 +41,16 @@ library(summarytools)
 source("init.R")
 ```
 
+
+<style>
+details.pista-codigo { margin: 1.2em 0; padding: 0.8em 1em; border: 1px solid #8A6FD1; border-radius: 8px; background: #f8f6fc; }
+details.pista-codigo > summary { cursor: pointer; font-weight: bold; color: #60449c; }
+details.pista-codigo[open] > summary { margin-bottom: 1em; }
+details.pista-codigo pre { max-height: 650px; overflow: auto; }
+</style>
+
+Las pistas de cada problema se despliegan al pulsar **código en R**. El código se muestra como guía y no se ejecuta al tejer el documento; puede copiarse en RStudio. Cuando el enunciado no indica significancia, se propone $\alpha=0.05$.
+
 <br/><br/>
 
 
@@ -56,6 +66,20 @@ knitr::include_graphics("img/taller4.png")
 <br/>
 
 Suponga que se estudia la compra de una nueva maquina para una empresa. Se comprara la maquina si la proporción de la producción que necesita ser reprocesados por tener defectos es inferior al 5 %. Se examina una muestra de 40 artículos construidos por la maquina y 3 necesitan ser reprocesados . ¿ Que decisión se toma? ( Se compra o no la maquina?)
+
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p01, eval=FALSE, echo=TRUE, class.source="fold-show"}
+n <- 40; defectuosos <- 3; p0 <- 0.05; alfa <- 0.05
+binom.test(defectuosos, n, p = p0,
+                    alternative = "less", conf.level = 1-alfa)
+
+```
+
+</details>
+
 
 </div>
 
@@ -94,6 +118,29 @@ ggplot(llantas, aes(x = marca, y = rendimiento, fill = marca)) +
 Cuál marca de neumáticos recomendaría comprar. Justifique su respuesta. Suponga que la distancia recorrida por un neumático se distribuye aproximadamente normal y un $\alpha$ = 0,05.
 
 
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p02, eval=FALSE, echo=TRUE, class.source="fold-show"}
+# 1. Ingresar los rendimientos; las muestras son independientes.
+FB <- c(41.8,41.6,31.5,48.7,40.8,31.2,36.5,36.2,32.8,36.3,38.6,30.5)
+KT <- c(40.5,38.4,44.0,34.9,44.0,44.7,44.0,47.1,39.8,43.9,44.2,40.2)
+alfa <- 0.05
+
+var.test(FB,KT)
+
+t.test(FB, KT,
+       alternative = "two.sided", 
+       mu = 0, 
+       paired = FALSE, 
+       var.equal = TRUE,
+       conf.level = 0.95)
+```
+
+</details>
+
+
 </div>
 
 <br/><br/><br/>
@@ -103,7 +150,7 @@ Cuál marca de neumáticos recomendaría comprar. Justifique su respuesta. Supon
 
 
 
-Un ingeniero desea establecer si existen diferencias entre dos métodos diferentes de realizar el ensamble de una casa prefabricada. Para comprobarlo recoge información la producción de ambos métodos que se presentan a continuación: \\
+Un ingeniero desea establecer si existen diferencias entre dos métodos diferentes de realizar el ensamble de una casa prefabricada. Para comprobarlo recoge información la producción de ambos métodos que se presentan a continuación: 
 
 
 <pre>
@@ -127,13 +174,33 @@ ggplot(datos, aes(x = metodo, y = produccion, fill = metodo)) +
   scale_fill_manual(values = c("método 1" = "lightblue", "método 2" = "lightgreen")) +
   theme_minimal()
 
-
-
 ```
 	
 
 	
 Presentan los datos suficiente evidencia estadística para afirmar que el nuevo método es más eficiente que el estándar? (utilice un $\alpha=0.05$).
+
+
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p03, eval=FALSE, echo=TRUE, class.source="fold-show"}
+x1 = c(32, 37, 35, 28, 41, 44, 35, 31, 34) # Procedimiento estándar:
+x2 = c(35, 31, 29, 25, 34, 40, 27, 32, 31) # Nuevo procedimiento:
+
+var.test(x1,x2)
+
+t.test(x1, x2,
+       alternative = "two.sided", 
+       mu = 0, 
+       paired = FALSE, 
+       var.equal = TRUE,
+       conf.level = 0.95)
+
+```
+
+</details>
 
 
 </div>
@@ -157,6 +224,27 @@ Un director de un gimnasio quiere determinar si un instructor de ejercicio debe 
 Emplee y realice las pruebas de hipótesis a un nivel de significancia del 0.01 para determinar si el programa que ofrece el nuevo instructor es eficaz. Suponga que la variable peso se distribuye aproximadamente normal.
 
 
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p04, eval=FALSE, echo=TRUE, class.source="fold-show"}
+# 1. Mantener el mismo orden de personas: son observaciones pareadas.
+antes <- c(104,89,84,106,90,96,79,90,85,76,91,82,100,89,121,72)
+despues <- c(98,85,85,103,88,95,79,90,82,76,89,81,99,86,111,70)
+alfa <- 0.01
+# 2. Definir reducción positiva y calcular su resumen.
+d <- as.numeric(antes-despues)
+
+t.test(antes, despues, paired=TRUE,
+                alternative="greater", conf.level=1-alfa)
+
+t.test(d, alternative="greater", conf.level=1-alfa)
+```
+
+</details>
+
+
 </div>
 
 <br/><br/><br/>
@@ -177,24 +265,42 @@ De acuerdo con la información suministrada, es posible preferir alguno de ellos
 	
 <br/><br/>
 	
-### Ayuda
 
-<pre>
-n1=61
-n2=61
-mx1=40
-mx2=29
-vx1=24.9
-vx2=22.7
-
-F=vx1/vx2
-qf(c(0.025,0.975),60,60)
-
-sp2=(n1*vx1+n2*vx2)/sqrt(n1+n2-2)
-T=(mx1-mx2)/sqrt(sp2*(1/n1+1/n2)
-qt(c(0.025,0.975), n1+n2-2)
-</pre>
 <br/><br/>
+
+
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p05, eval=FALSE, echo=TRUE, class.source="fold-show"}
+# 1. Introducir tamaños, medias y VARIANZAS (no desviaciones).
+n1 <- 61; n2 <- 61 
+mx1 <- 40; mx2 <- 29
+vx1 <- 24.9; vx2 <- 22.7
+sd1 <- sqrt(vx1)
+sd2 <- sqrt(vx2)
+
+alfa <- 0.05 # alfa supuesto
+
+paqueteDEG::test.vars(sd1,
+  n1, sd2,n2,ratio0 = 1,
+  alternative = c("two.sided", "less", "greater"),
+  conf.level = 0.95
+)
+
+
+
+paqueteDEG::test.mus(mx1,n1,sd1,
+                     mx2,n2,sd2,
+                     alternative = "two.sided",
+                     var.equal = TRUE,
+                     conf.level = 0.95)
+
+
+```
+
+</details>
 
 
 </div>
@@ -215,6 +321,23 @@ Un empresario registro el número de artículos producidos durante 10 días, par
 Suponiendo que los salarios pagados a cada grupo son equivalentes. Se puede concluir que el plan de incentivos es efectivo?
 
 
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p06, eval=FALSE, echo=TRUE, class.source="fold-show"}
+# 1. Los tamaños son 10 días por grupo, no 15 obreros.
+G1 <- c(75,76,74,80,72,78,76,73,72,75)
+G2 <- c(86,78,86,84,81,79,78,84,88,80)
+alfa <- 0.05 # supuesto: el enunciado no lo especifica
+
+# generar el codigo de acuerdo a los problemas anteriores
+
+```
+
+</details>
+
+
 </div>
 
 <br/><br/><br/>
@@ -223,6 +346,21 @@ Suponiendo que los salarios pagados a cada grupo son equivalentes. Se puede conc
 <div class="label">Problema 7</div>
 
 En una muestra de 200 clientes, el 20\% indica una preferencia por tamaño especial de pizza.  Con posterioridad a una campaña publicitaria realizada en radio y televisión promoviendo dicho producto, se selecciono una muestra de igual tamaño.  En esta ultima muestra el 22\% de los clientes indico preferencia por el producto. De acuerdo con estos resultados y un nivel de significancia del 5\% , podría decirse que la campaña publicitaria no fue efectiva? 
+
+
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p07, eval=FALSE, echo=TRUE, class.source="fold-show"}
+# 1. Convertir porcentajes en conteos para dos muestras independientes.
+n <- c(200,200)
+x <- as.numeric(c(0.20,0.22)*n) # 40 antes y 44 después
+alfa <- 0.05
+
+```
+
+</details>
 
 
 </div>
@@ -240,6 +378,20 @@ Los siguientes son los datos de las horas hombre que se pierden en promedio por 
 |	D  | 36 | 60 | 44 | 119 | 35 | 51 | 77 | 29 | 24 | 11 |   
 
 Utilice un nivel de significancia de 0.05 para probar si el programa de seguridad implantado es eficaz. Suponga que esta variable se distribuye aproximadamente normal.
+
+
+
+<details class="pista-codigo">
+<summary>código en R — Problema 8</summary>
+
+```{r pista-p08, eval=FALSE, echo=TRUE, class.source="fold-show"}
+A <- c(45,73,46,124,30,57,83,34,26,17)
+D <- c(36,60,44,119,35,51,77,29,24,11)
+alfa <- 0.05
+
+```
+
+</details>
 
 
 </div>
@@ -270,6 +422,20 @@ Se podria afirmar que los datos anteriores respaldan la información suministrad
 	
 
 
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p09, eval=FALSE, echo=TRUE, class.source="fold-show"}
+obs <- c(cafe=70, amarillo=72, rojo=61, azul=118, naranja=108, verde=85)
+p <- c(0.13,0.14,0.13,0.24,0.20,0.16)
+alfa <- 0.05 # supuesto
+
+```
+
+</details>
+
+
 </div>
 
 <br/><br/><br/>
@@ -279,12 +445,24 @@ Se podria afirmar que los datos anteriores respaldan la información suministrad
 
 En una línea de producción los artículos se inspeccionan en forma periódica con el fin de detectar defectos. La siguiente secuencia de artículos defectuosos (D) y no defectuosos (N) corresponde a la producción de uno de los turnos. 
 ```{r}
+set.seed(431) # Secuencia reproducible para el ejercicio
 inspeccion = sample(c("D", "N"), 50, replace = TRUE)
 inspeccion
 ```
 
 
 Se puede afirmar que los datos no presentan patrón alguno y que la generación de artículos defectuosos se debe al azar? . Utilice un  $\alpha= 0.05$.
+
+
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p10, eval=FALSE, echo=TRUE, class.source="fold-show"}
+# pendiene
+```
+
+</details>
 
 
 </div>
@@ -316,6 +494,25 @@ m
 ¿Se puede concluir que la calidad varia con los turnos?, en otras palabras se puede concluir que la calidad de las soldaduras es independiente de los turnos? . Utilice un nivel de significancia $\alpha=0.05$.
 	
 
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p11, eval=FALSE, echo=TRUE, class.source="fold-show"}
+# 1. Construir tabla: R llena las columnas en el orden dado.
+x <- c(470,445,257,191,171,139,42,28,17)
+m <- matrix(x,ncol=3,dimnames=list(c("dia","tarde","noche"),
+                                  c("alta","moderada","baja")))
+m
+alfa <- 0.05
+
+chisq.test(m,correct=FALSE)
+
+```
+
+</details>
+
+
 </div>
 
 <br/><br/><br/>
@@ -340,6 +537,29 @@ x=c(3.4, 2.8, 4.2, 2.1, 2.8, 2.4, 3.5, 4.2, 3.1, 4.1, 2.4, 3.4, 4.1, 4.0, 2.4,
     3.8, 4.4, 3.9, 2.8, 3.7)
 ```
 	
+
+
+<details class="pista-codigo">
+<summary>código</summary>
+
+```{r pista-p12, eval=FALSE, echo=TRUE, class.source="fold-show"}
+# 1. Ingresar las notas tal como aparecen, incluido 5.2; verificar ese dato
+# con la fuente si la escala oficial termina en 5.0, sin modificarlo a ciegas.
+x <- c(3.4,2.8,4.2,2.1,2.8,2.4,3.5,4.2,3.1,4.1,2.4,3.4,4.1,4.0,2.4,
+       4.1,3.4,4.4,3.8,3.7,2.2,3.6,2.3,3.7,2.8,4.1,2.3,4.6,4.6,5.2,
+       2.4,2.4,2.7,3.8,4.6,4.4,4.2,4.4,2.4,3.3,3.8,2.9,3.1,2.7,3.6,
+       3.8,4.4,3.9,2.8,3.7)
+alfa <- 0.05
+# 2. H0: población normal; Ha: no normal. Complementar con gráfico Q-Q.
+normalidad <- shapiro.test(x)
+qqnorm(x); qqline(x,col="steelblue",lwd=2)
+
+t.test(x,mu=3.3,alternative="greater",conf.level=1-alfa)
+
+```
+
+</details>
+
 
 </div>
 
@@ -501,6 +721,24 @@ t.test(x1,x2,  paired=FALSE, var.equal=FALSE, conf.level=0.98)
 var.test(x,y)
 prop.test(c(x1,x2), c(n1,n2))
 </pre>
+
+
+### paquete paqueteDEG
+
+<pre>
+paqueteDEG::quetest.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+paqueteDEG::test.mus(c(42, 39), c(68.4, 63.1), c(10.2, 11.5))
+
+paqueteDEG::test.prop(x = 45, n = 100, p = 0.5)
+paqueteDEG::test.prop(x = c(56, 42), n = c(120, 110))
+
+paqueteDEG::test.var(sd = 12, n = 30, sigma20 = 100)
+paqueteDEG::test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
+
+</pre>
+
+
+
 
 ### Códigos en R pruebas no paramétricas 
 
