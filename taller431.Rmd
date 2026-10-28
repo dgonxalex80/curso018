@@ -72,10 +72,13 @@ Suponga que se estudia la compra de una nueva maquina para una empresa. Se compr
 <summary>código</summary>
 
 ```{r pista-p01, eval=FALSE, echo=TRUE, class.source="fold-show"}
-n <- 40; x <- 3; p0 <- 0.05; alfa <- 0.05
+n <- 40; x <- 3 
+p0 <- 0.05 
+alfa <- 0.05
 binom.test(x, n, p = p0,
                     alternative = "less", conf.level = 1-alfa)
-
+paqueteDEG::test.prop(x,n,p=p0,
+                    alternative = "less", conf.level = 1-alfa) 
 ```
 
 </details>

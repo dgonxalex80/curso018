@@ -784,6 +784,18 @@ alternative hypothesis: true p is less than 0.76
 sample estimates:
   p 
 0.6 </code></pre>
+<pre class="r"><code>paqueteDEG::test.prop(24,40,p=0.76 , alternative=&quot;less&quot;, conf.level = 0.95)</code></pre>
+<pre><code>
+    One-sample z-test for proportion (summary stats)
+
+data:  summary: x = 24, n = 40
+z = -2.4, n = 40, p-value = 0.009
+alternative hypothesis: true proportion is less than 0.76
+95 percent confidence interval:
+ 0.0000 0.7274
+sample estimates:
+sample proportion 
+              0.6 </code></pre>
 <pre class="r"><code>binom.test(24,40,p=0.76,alternative=&quot;less&quot;) # Contraste exacto</code></pre>
 <pre><code>
     Exact binomial test
