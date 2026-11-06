@@ -612,6 +612,60 @@ formattable(df,
 ```
 
 
+
+```{r, eval=FALSE}
+df <- data.frame(
+  GEa = c(17, 13, 6, 5, 5, 10, 8, 9, 7),
+  GEd = c(3, 7, 2, 3, 6, 2, 1, 0, 2),
+  GCa = c(5 ,8,14, 16, 6, 5, 8, 10, 9),
+  GCd = c(4, 9,12, 15, 4, 3, 7,  6, 7)
+  )
+
+descr(df, stats = c("mean", "sd"), transpose = TRUE)
+
+# prueba 1
+# Comparacionde varianzas
+var.test(df$GEa,df$GCa)
+
+# Comparacion de medias de grupos independientes
+#con igual varianza
+t.test(df$GEa,df$GCa,        # comparacion de medias  
+       mu=0,                 # valor de delta
+       paired = FALSE,       # grupos independientes
+       alternative ="less",  # alternativa menor que 
+       conf.level = 0.95)    # nivel de significancia del 0.05
+#-------------------------------------------------------------------------------
+# prueba 2
+# Comparacion de medias de grupos pareados
+t.test(df$GEa,df$GEd,        # comparacion de medias  
+       mu=0,                 # valor de delta
+       paired = TRUE,       # grupos independientes
+       alternative ="less",  # alternativa menor que 
+       conf.level = 0.95)    # nivel de significancia del 0.05
+#===============================================================================
+# prueba 3
+# Comparacionde varianzas
+var.test(df$GEd,df$GCd)
+
+# Comparacion de medias de grupos independientes
+#con igual varianza
+t.test(df$GEd,df$GCd,        # comparacion de medias  
+       mu=0,                 # valor de delta
+       paired = FALSE,       # grupos independientes
+       alternative ="two.sided",  # alternativa diferente 
+       conf.level = 0.95)    # nivel de significancia del 0.05
+#-------------------------------------------------------------------------------
+# prueba 4
+# Comparacion de medias de grupos pareados
+t.test(df$GCa,df$GCd,        # comparacion de medias  
+       mu=0,                 # valor de delta
+       paired = TRUE,       # grupos independientes
+       alternative ="less",  # alternativa menor que 
+       conf.level = 0.95)    # nivel de significancia del 0.05
+```
+
+
+
 <br/>
 
 Se puede concluir que el entrenamiento realizado con el dispositivo disminuye los dolores de cabeza?
