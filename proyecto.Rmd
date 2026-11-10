@@ -106,7 +106,7 @@ Hora : 23.59
 + **Presentación**  
 + **Archivo en formato pdf ** con la sustentación del trabajo
 
-Fecha: noviembre 13 de 2026
+Fecha: **noviembre 18 de 2026**
 Hora : 23:59
 </div>
 
@@ -131,9 +131,9 @@ Hora : 23:59
 
 <br/><br/>
 
-<div class="box5 with-label">  
-## Grupos
-  
-<br/><br/>
+<!-- <div class="box5 with-label">   -->
+<!-- ## Grupos -->
 
-</div>
+<!-- <br/><br/> -->
+
+<!-- </div> -->

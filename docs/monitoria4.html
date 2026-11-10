@@ -14,13 +14,13 @@
 
 <title>Estadística para la toma de decisiones</title>
 
-<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs/header-attrs.js"></script>
+<script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -30,12 +30,12 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+<script src="site_libs/navigation/tabsets.js"></script>
+<script src="site_libs/navigation/codefolding.js"></script>
+<link href="site_libs/highlightjs/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs/highlight.js"></script>
+<link href="site_libs/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -604,8 +604,8 @@ mientras que el segundo grupo por 40 empleados. Los resultados en
 calificaciones entre 0 y 10, se presentan a continuación:</p>
 <p><br/></p>
 <pre><code>grupos :   n     media     varianza </code></pre>
-<pre><code>grupo 1 :  36    7.125     1.415643 </code></pre>
-<pre><code>grupo 1 :  40    8.075     0.9798718 </code></pre>
+<pre><code>grupo 1 :  36    7.125     1.416 </code></pre>
+<pre><code>grupo 1 :  40    8.075     0.9799 </code></pre>
 <p><img src="monitoria4_files/figure-html/unnamed-chunk-3-1.png" alt="" width="672" /></p>
 <p><br/></p>
 <!-- En este caso se trata de una comparación de medias, para grupos independientes. -->
@@ -676,8 +676,8 @@ neumáticos de cada marca. Los neumáticos se utilizan hasta su
 terminación . Los resultados obtenidos (en miles de kilometros) se
 presentan a continuación :</p>
 <pre><code>marcas  : n     media        varianza </code></pre>
-<pre><code>FB :      12    37.20833     29.33902 </code></pre>
-<pre><code>KT :      12    41.66667     12.13879 </code></pre>
+<pre><code>FB :      12    37.21     29.34 </code></pre>
+<pre><code>KT :      12    41.67     12.14 </code></pre>
 <p><img src="monitoria4_files/figure-html/unnamed-chunk-4-1.png" alt="" width="672" /></p>
 <p>¿Cual de las marcas de neumáticos recomendaría comprar? ¿Que
 supuestos deberá confirmar?. Utilice un <span
@@ -726,8 +726,8 @@ Para comprobarlo recogen información del tiempo empleado en el ensamble
 de una pieza para ambos métodos en horas, los cuales se presentan a
 continuación:</p>
 <pre><code>métodos :   n    media        varianza </code></pre>
-<pre><code>nuevo    :  9    35.22222     24.44444 </code></pre>
-<pre><code>estandar :  9    31.55556     20.02778 </code></pre>
+<pre><code>nuevo    :  9    35.22     24.44 </code></pre>
+<pre><code>estandar :  9    31.56     20.03 </code></pre>
 <p><img src="monitoria4_files/figure-html/unnamed-chunk-5-1.png" alt="" width="672" /></p>
 <p>Presentan los datos suficiente evidencia que permita afirmar que el
 nuevo método es mas eficiente que el método estándar? (Utilice un <span
@@ -747,7 +747,7 @@ class="math inline">\(x1\)</span>) y sus pesos al finalizar el programa
 (<span class="math inline">\(x2\)</span>)</p>
 <pre><code> [1]  6  4 -1  3  2  1  0  0  3  0  2  1  1  3 10  2</code></pre>
 <pre><code>tiempo :   n     media      varianza </code></pre>
-<pre><code>inicio :  16    2.3125      7.295833 </code></pre>
+<pre><code>inicio :  16    2.312      7.296 </code></pre>
 <p>¿Que supuestos se deben verificar? ¿Se podría decir que las rutinas
 empleadas por el instructor producen los efectos indicados?</p>
 </div>
@@ -762,8 +762,8 @@ fin de decidir si se adquiere el primero. Se obtienen los datos sobre el
 número de códigos de barra leídos por segundo con el cada uno de los
 dispositivos.</p>
 <pre><code>instrumento :   n     media       varianza </code></pre>
-<pre><code>nuevo  :        61    40.5082     27.1541 </code></pre>
-<pre><code>actual :        61    29.54098    17.61913 </code></pre>
+<pre><code>nuevo  :        61    40.51     27.15 </code></pre>
+<pre><code>actual :        61    29.54    17.62 </code></pre>
 <p><img src="monitoria4_files/figure-html/unnamed-chunk-8-1.png" alt="" width="672" /></p>
 <p>De acuerdo con la información, es posible preferir alguno de ellos?
 ¿Que supuestos se deben verificar?</p>
@@ -780,8 +780,8 @@ salario tendrán mejores resultados. Para verificarlo introduce cambios
 en la forma de pago a un segundo grupo (grupo 2) . El numero de
 artículos producidos por ambos grupos son los siguientes:</p>
 <pre><code>grupos :   n     media     varianza </code></pre>
-<pre><code>grupo 1 :  10    75.1     6.544444 </code></pre>
-<pre><code>grupo 2 :  10    82.4     13.37778 </code></pre>
+<pre><code>grupo 1 :  10    75.1     6.544 </code></pre>
+<pre><code>grupo 2 :  10    82.4     13.38 </code></pre>
 <p><img src="monitoria4_files/figure-html/unnamed-chunk-9-1.png" alt="" width="672" /></p>
 <p>Suponiendo que los salarios pagados a ambos grupos son equivalentes,
 se podría afirmar que el plan de incentivos es efectivo? ¿Que supuestos
