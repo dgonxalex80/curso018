@@ -14,13 +14,13 @@
 
 <title>Estadística para la toma de decisiones</title>
 
-<script src="site_libs/header-attrs/header-attrs.js"></script>
-<script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap/shim/respond.min.js"></script>
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -30,12 +30,12 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation/tabsets.js"></script>
-<script src="site_libs/navigation/codefolding.js"></script>
-<link href="site_libs/highlightjs/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs/highlight.js"></script>
-<link href="site_libs/font-awesome/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -552,8 +552,7 @@ $(document).ready(function () {
 <h1 class="title toc-ignore"><span
 style="color:#8A6FD1 !important;">Estadística para la toma de
 decisiones</span></h1>
-<h3 class="subtitle"><span style="color:#8A6FD1">Taller 4.11 — Uso de
-tablas estadísticas</span></h3>
+<h3 class="subtitle"><span style="color:#8A6FD1"> </span></h3>
 <h4 class="author"><span style="color:#8A6FD1">dgonzalez </span></h4>
 
 </div>
@@ -563,98 +562,127 @@ tablas estadísticas</span></h3>
 <p><br/><br/><br/></p>
 <div id="taller-433" class="section level3">
 <h3>Taller 433</h3>
-<ol style="list-style-type: decimal">
-<li>Una empresa de comercio electrónico considera rentable una campaña
-si su tasa de conversión supera el 5 %. Tras rediseñar los anuncios,
-observa 3 compras entre 40 visitas seleccionadas aleatoriamente. ¿Existe
-evidencia de que la tasa de conversión es superior al 5 %? Use alfa =
-0,05. Indique si resulta adecuado emplear la aproximación normal o si
-conviene una prueba binomial exacta.</li>
-</ol>
+<div class="box4 with-label">
+<div class="label">
+Problema 1
+</div>
+<p>Una empresa de comercio electrónico considera rentable una campaña si
+su tasa de conversión supera el 5 %. Tras rediseñar los anuncios,
+observa 3 compras entre 40 visitas seleccionadas aleatoriamente.</p>
+<p>¿Existe evidencia de que la tasa de conversión es superior al 5 %?
+Use alfa = 0,05. Indique si resulta adecuado emplear la aproximación
+normal o si conviene una prueba binomial exacta.</p>
+</div>
 <p><br/><br/><br/></p>
-<ol start="2" style="list-style-type: decimal">
-<li>La dirección compara las ventas semanales (en millones de pesos) de
+<div class="box4 with-label">
+<div class="label">
+Problema 2
+</div>
+<p>La dirección compara las ventas semanales (en millones de pesos) de
 dos equipos independientes. Equipo A: n = 36, media = 6,0 y desviación
 estándar = 4,0. Equipo B: n = 40, media = 8,2 y desviación estándar =
-4,3. ¿Hay evidencia de que el equipo B logra mayores ventas promedio?
-Use alfa = 0,05. Examine la igualdad de varianzas antes de seleccionar
-el contraste de medias.</li>
-</ol>
+4,3.</p>
+<p>¿Hay evidencia de que el equipo B logra mayores ventas promedio? Use
+alfa = 0,05. Examine la igualdad de varianzas antes de seleccionar el
+contraste de medias.</p>
+</div>
 <p><br/><br/><br/></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Se seleccionan aleatoriamente 12 campañas de Facebook Ads y 12 de
+<div class="box4 with-label">
+<div class="label">
+Problema 3
+</div>
+<p>Se seleccionan aleatoriamente 12 campañas de Facebook Ads y 12 de
 TikTok Ads. El retorno sobre inversión publicitaria (ROAS) presenta los
 siguientes resúmenes: Facebook Ads: media = 3,21, desviación estándar =
-5,42; TikTok Ads: media = 4,14, desviación estándar = 3,40. ¿Difieren
-los ROAS medios de ambos canales? Use alfa = 0,05. Evalúe la
-homogeneidad de varianzas y explique qué implicaría el resultado para la
-asignación presupuestal.</li>
-</ol>
+5,42; TikTok Ads: media = 4,14, desviación estándar = 3,40.</p>
+<p>¿Difieren los ROAS medios de ambos canales? Use alfa = 0,05. Evalúe
+la homogeneidad de varianzas y explique qué implicaría el resultado para
+la asignación presupuestal.</p>
+</div>
 <p><br/><br/><br/></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Una cadena comercial prueba un nuevo protocolo para reducir el
-tiempo de atención en caja. En muestras independientes de nueve clientes
-por procedimiento, se obtienen: protocolo tradicional, media = 35,22
-minutos y desviación estándar = 4,94; protocolo nuevo, media = 31,55
-minutos y desviación estándar = 4,47. ¿Puede afirmarse que el protocolo
-tradicional tiene un tiempo promedio mayor que el nuevo? Use alfa =
-0,05. Compruebe los supuestos pertinentes y explique si recomendaría
-implementar el cambio.</li>
-</ol>
+<div class="box4 with-label">
+<div class="label">
+Problema 4
+</div>
+<p>Una cadena comercial prueba un nuevo protocolo para reducir el tiempo
+de atención en caja. En muestras independientes de nueve clientes por
+procedimiento, se obtienen: protocolo tradicional, media = 35,22 minutos
+y desviación estándar = 4,94; protocolo nuevo, media = 31,55 minutos y
+desviación estándar = 4,47.</p>
+<p>¿Puede afirmarse que el protocolo tradicional tiene un tiempo
+promedio mayor que el nuevo? Use alfa = 0,05. Compruebe los supuestos
+pertinentes y explique si recomendaría implementar el cambio.</p>
+</div>
 <p><br/><br/><br/></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Se registran las ventas diarias (en unidades) de 16 vendedores antes
+<div class="box4 with-label">
+<div class="label">
+Problema 5
+</div>
+<p>Se registran las ventas diarias (en unidades) de 16 vendedores antes
 y después de un programa de capacitación. Para cada vendedor se calcula
 la diferencia D = ventas después - ventas antes. Las diferencias
 presentan media = 2,3125 unidades y desviación estándar = 2,7010
-unidades. ¿La capacitación incrementó las ventas promedio? Realice una
-prueba para datos pareados con alfa = 0,05 y repita la decisión con alfa
-= 0,01. Explique la importancia de la dependencia entre
-observaciones.</li>
-</ol>
+unidades.</p>
+<p>¿La capacitación incrementó las ventas promedio? Realice una prueba
+para datos pareados con alfa = 0,05 y repita la decisión con alfa =
+0,01. Explique la importancia de la dependencia entre observaciones.</p>
+</div>
 <p><br/><br/><br/></p>
-<ol start="6" style="list-style-type: decimal">
-<li>Una empresa compara la recordación de marca de dos diseños de
-empaque en grupos independientes de consumidores. Diseño nuevo: n = 61,
+<div class="box4 with-label">
+<div class="label">
+Problema 6
+</div>
+<p>Una empresa compara la recordación de marca de dos diseños de empaque
+en grupos independientes de consumidores. Diseño nuevo: n = 61,
 puntuación media = 40, desviación estándar = 24,9. Diseño anterior: n =
-61, puntuación media = 29, desviación estándar = 22,7. ¿Existe una
-diferencia en la puntuación media de recordación? Use alfa = 0,05.
-Evalúe la homogeneidad de varianzas y determine si el nuevo diseño
-ofrece una mejora estadísticamente respaldada.</li>
-</ol>
+61, puntuación media = 29, desviación estándar = 22,7.</p>
+<p>¿Existe una diferencia en la puntuación media de recordación? Use
+alfa = 0,05. Evalúe la homogeneidad de varianzas y determine si el nuevo
+diseño ofrece una mejora estadísticamente respaldada.</p>
+</div>
 <p><br/><br/><br/></p>
-<ol start="7" style="list-style-type: decimal">
-<li>Dos equipos de telemercadeo aplican guiones distintos. Se desea
-saber si el guion del equipo A produce llamadas de menor duración
-promedio que el del equipo B, sin deteriorar la calidad de atención. Se
-tienen dos muestras independientes: equipo A, n = 11, media = 7,8
-minutos y desviación estándar = 2,1; equipo B, n = 11, media = 10,3
-minutos y desviación estándar = 3,1. Use alfa = 0,05. Contraste primero
-la igualdad de varianzas, después las medias y explique por qué una
-menor duración no prueba por sí sola una mayor calidad del
-servicio.</li>
-</ol>
+<div class="box4 with-label">
+<div class="label">
+Problema 7
+</div>
+<p>Dos equipos de telemercadeo aplican guiones distintos. Se desea saber
+si el guion del equipo A produce llamadas de menor duración promedio que
+el del equipo B, sin deteriorar la calidad de atención. Se tienen dos
+muestras independientes: equipo A, n = 11, media = 7,8 minutos y
+desviación estándar = 2,1; equipo B, n = 11, media = 10,3 minutos y
+desviación estándar = 3,1. Use alfa = 0,05.</p>
+<p>Contraste primero la igualdad de varianzas, después las medias y
+explique por qué una menor duración no prueba por sí sola una mayor
+calidad del servicio.</p>
+</div>
 <p><br/><br/><br/></p>
-<ol start="8" style="list-style-type: decimal">
-<li>Una empresa prueba dos mensajes promocionales en grupos
+<div class="box4 with-label">
+<div class="label">
+Problema 8
+</div>
+<p>Una empresa prueba dos mensajes promocionales en grupos
 independientes. Con el mensaje A, 40 de 200 clientes realizan una
 compra; con el mensaje B, 44 de 200 compran. ¿Existe evidencia de que el
 mensaje B tiene una tasa de respuesta mayor que el mensaje A? Use alfa =
 0,05. Calcule las proporciones muestrales, la proporción combinada bajo
-<span class="math inline">\(H_0\)</span> y el estadístico de contraste.
-Proponga una decisión sobre la campaña.</li>
-</ol>
+<span class="math inline">\(H_o\)</span> y el estadístico de contraste.
+Proponga una decisión sobre la campaña.</p>
+</div>
 <p><br/><br/><br/></p>
-<ol start="9" style="list-style-type: decimal">
-<li>Una tienda registra el gasto de los mismos diez clientes habituales
+<div class="box4 with-label">
+<div class="label">
+Problema 9
+</div>
+<p>Una tienda registra el gasto de los mismos diez clientes habituales
 antes y después de introducir un programa de fidelización. Defina D =
 gasto después - gasto antes, en miles de pesos. Las diferencias
-observadas son: 3, 8, 5, 1, 7, 4, 9, 6, 2 y 4. ¿Existe evidencia de que
-el programa aumentó el gasto promedio por cliente? Use alfa = 0,05.
-Calcule la media y la desviación estándar de las diferencias y aplique
-la prueba t pareada. Discuta una limitación de inferir causalidad a
-partir de un diseño antes-después sin grupo de control.</li>
-</ol>
+observadas son: 3, 8, 5, 1, 7, 4, 9, 6, 2 y 4.</p>
+<p>¿Existe evidencia de que el programa aumentó el gasto promedio por
+cliente? Use alfa = 0,05. Calcule la media y la desviación estándar de
+las diferencias y aplique la prueba t pareada. Discuta una limitación de
+inferir causalidad a partir de un diseño antes-después sin grupo de
+control.</p>
+</div>
 <p><br/><br/><br/></p>
 </div>
 
