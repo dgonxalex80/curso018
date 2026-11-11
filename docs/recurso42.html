@@ -507,22 +507,13 @@ $(document).ready(function () {
         <li>
           <a href="taller431.html">Taller 431</a>
         </li>
+        <li>
+          <a href="Taller_433.html">Taller 432</a>
+        </li>
       </ul>
     </li>
     <li>
       <a href="monitoria4.html">Monitoría 4</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Módulo 5
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="modulo5.html">Presentación del módulo</a>
     </li>
   </ul>
 </li>
@@ -1050,12 +1041,12 @@ x</code></pre>
 [151] 2660 2755 2765 2690 2700 2735 2770 2760 2790 2730 2765 2835 2730 2770 2805
 [166] 2690 2710 2740 2740 2740 2820 2740 2705 2700 2705 2775 2750 2700 2720 2700
 [181] 2780 2850 2800 2795 2815 2745 2700 2795 2750 2715 2780 2720 2780 2780 2695
-[196] 2750 2520 2720 2575 2505</code></pre>
+[196] 2750 2520 2720 2575 2525</code></pre>
 </div>
 <p><br/><br/></p>
 <p><strong>Solución</strong></p>
 <pre class="r"><code>cat(&quot;s :&quot;,sum((x- mean(x))^2 )/ (length(x)-1), &quot;\n&quot;)</code></pre>
-<pre><code>s : 33584 </code></pre>
+<pre><code>s : 33570 </code></pre>
 <pre class="r"><code>cat(&quot;n :&quot;, length(x), &quot;\n&quot;)</code></pre>
 <pre><code>n : 200 </code></pre>
 <pre class="r"><code>cat(&quot;P2.5  : &quot;, qchisq(0.025, 201) , &quot;\n&quot;)</code></pre>
@@ -1063,7 +1054,7 @@ x</code></pre>
 <pre class="r"><code>cat(&quot;P97.5 : &quot;, qchisq(0.975, 201), &quot;\n&quot;)</code></pre>
 <pre><code>P97.5 :  242.2 </code></pre>
 <pre class="r"><code>var(x)</code></pre>
-<pre><code>[1] 33584</code></pre>
+<pre><code>[1] 33570</code></pre>
 <p><span class="math display">\[IC_{\sigma^{2}}: \Bigg(
 \displaystyle\frac{(200-1) \times 66743.96}{242.1559}
 \hspace{.3cm}; \hspace{.3cm}

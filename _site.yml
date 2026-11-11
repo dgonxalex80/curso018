@@ -140,15 +140,14 @@ navbar:
       - text: Código 4.3
         href: codigo43.html
       - text: Taller 431
-        href: taller431.html                
+        href: taller431.html    
+      - text: Taller 432
+        href: Taller_433.html         
+        
         
     - text: Monitoría 4
       href: monitoria4.html        
         
-  - text: Módulo 5
-    menu:
-    - text: Presentación del módulo
-      href: modulo5.html
   - text: Proyecto
     menu:
     - text: Guía proyecto

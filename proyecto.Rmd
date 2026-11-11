@@ -107,7 +107,8 @@ Hora : 23.59
 + **Archivo en formato pdf ** con la sustentación del trabajo
 
 Fecha: **noviembre 18 de 2026**
-Hora : 23:59
+
+Hora : 09:00
 </div>
 
 
